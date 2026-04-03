@@ -31,16 +31,16 @@ export default function OnboardingPage() {
       <div className="max-w-xl mx-auto px-6 py-16">
         {/* Progress */}
         <div className="flex items-center gap-2 mb-10">
-          {[1,2,3].map(s=>(
+          {[1,2,3,4].map(s=>(
             <div key={s} className="flex items-center gap-2 flex-1">
               <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all ${step>=s?'text-white':'text-gray-400 border-2 border-gray-200'}`} style={step>=s?{background:'#1565C0'}:{}}>
                 {step>s?'✓':s}
               </div>
-              {s<3&&<div className="flex-1 h-1 rounded" style={{background:step>s?'#1565C0':'#E5E7EB'}}></div>}
+              {s<4&&<div className="flex-1 h-1 rounded" style={{background:step>s?'#1565C0':'#E5E7EB'}}></div>}
             </div>
           ))}
         </div>
-        <div className="text-xs font-bold tracking-widest uppercase text-gray-400 mb-1">Step {step} of 3</div>
+        <div className="text-xs font-bold tracking-widest uppercase text-gray-400 mb-1">Step {step} of 4</div>
 
         {/* Step 1 — Choose Plan */}
         {step===1&&(
@@ -101,7 +101,6 @@ export default function OnboardingPage() {
           </div>
         )}
 
-        {/* Step 3 — Account */}
         {step===3&&(
           <div>
             <h1 className="text-2xl font-black text-gray-900 mb-2" style={{fontFamily:'Syne,sans-serif'}}>Create Your Account</h1>
@@ -119,9 +118,32 @@ export default function OnboardingPage() {
             </div>
             <div className="flex gap-3">
               <button onClick={()=>setStep(2)} className="flex-1 font-semibold py-4 rounded-xl text-sm border border-gray-200 text-gray-700">← Back</button>
-              <button disabled={!email} className="flex-[2] font-bold text-black py-4 rounded-xl text-base disabled:opacity-40" style={{background:'#F59E0B'}}>Start Free Trial →</button>
+              <button disabled={!email} onClick={()=>setStep(4)} className="flex-[2] font-bold text-black py-4 rounded-xl text-base disabled:opacity-40" style={{background:'#F59E0B'}}>Start Free Trial →</button>
             </div>
             <p className="text-center text-xs text-gray-400 mt-3">By continuing you agree to our Terms of Service and Privacy Policy</p>
+          </div>
+        )}
+
+        {/* Step 4 — Success / Activation */}
+        {step===4&&(
+          <div className="text-center">
+            <div className="text-6xl mb-6">🎉</div>
+            <h1 className="text-3xl font-black text-gray-900 mb-2" style={{fontFamily:'Syne,sans-serif'}}>Your Website is LIVE</h1>
+            <p className="text-gray-500 mb-8">We&apos;ve registered your domain and built your site. It is now visible to customers on Google.</p>
+            
+            <div className="bg-white border border-gray-100 rounded-2xl p-6 mb-10 shadow-sm">
+              <div className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Website Preview</div>
+              <div className="text-sm font-bold text-blue-600 mb-4 underline">docs.seo-junction.com/{name.toLowerCase().replace(/\s+/g, '-')}</div>
+              <div className="w-full h-32 bg-gray-50 rounded-lg flex items-center justify-center border border-dashed border-gray-200 relative overflow-hidden">
+                <div className="text-[10px] text-gray-300 font-bold uppercase tracking-widest">Site Preview Loading...</div>
+              </div>
+            </div>
+
+            <Link href="/dashboard?activate=true" className="block w-full font-black text-white py-5 rounded-2xl text-xl shadow-xl shadow-blue-100 hover:scale-[1.02] transition-all" style={{background:'#1565C0'}}>
+              Send Your First Update →
+            </Link>
+            
+            <p className="text-sm text-gray-400 mt-6 font-medium">Regular updates help you get more business from Google.</p>
           </div>
         )}
       </div>

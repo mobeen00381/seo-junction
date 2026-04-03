@@ -3,7 +3,7 @@ import FaqAccordion from '@/components/FaqAccordion'
 
 const STEPS = [
   { n:'1', icon:'🌐', title:'Buy your domain', desc:'Pick your .com — we register and set it up instantly.' },
-  { n:'2', icon:'🤖', title:'We build your website', desc:'AI generates a professional SEO-optimized site in hours.' },
+  { n:'2', icon:'🛠️', title:'We build your website', desc:'Your professional, SEO-optimized site is live within 24 hours.' },
   { n:'3', icon:'📱', title:'Send updates from your phone', desc:'Snap a photo or voice note. That\'s it.' },
   { n:'4', icon:'📞', title:'Get more calls', desc:'Your site climbs Google rankings and brings in new customers.' },
 ]
@@ -70,22 +70,22 @@ export default function HomePage() {
       <section className="px-6 py-24 text-center" style={{background:'#0B1F3A'}}>
         <div className="max-w-3xl mx-auto">
           <h1 className="text-5xl font-black text-white mb-6 leading-tight">
-            Get More Local Customers<br />
-            <span style={{color:'#F59E0B'}}>From Google</span> — Without<br />
-            Doing Any Work
+            Get more local customers<br />
+            <span style={{color:'#F59E0B'}}>from Google</span> — without<br />
+            doing any work
           </h1>
           <p className="text-lg mb-10 max-w-xl mx-auto" style={{color:'rgba(219,234,254,0.8)'}}>
-            We build your website, manage your Google Business Profile, and post fresh content every month. You just run your business.
+            We build your website, optimize your Google presence, and keep it updated. You just send updates from your phone.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/onboarding" className="font-bold text-black px-8 py-4 rounded-xl text-base" style={{background:'#F59E0B'}}>
-              Start 30-Day Free Trial →
+              Start with your domain ($19.99)
             </Link>
             <Link href="/demo" className="font-semibold px-8 py-4 rounded-xl text-base border text-white" style={{borderColor:'rgba(255,255,255,0.25)'}}>
               See Live Demo
             </Link>
           </div>
-          <p className="text-xs mt-5 text-white" style={{opacity:0.4}}>30-day free trial · Cancel anytime · Domain is yours · No tech skills needed</p>
+          <p className="text-xs mt-5 text-white" style={{opacity:0.4}}>30-day free trial on service · Domain is yours forever · No tech skills needed</p>
         </div>
       </section>
 
@@ -144,7 +144,7 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <h2 className="text-3xl font-black text-gray-900">From Zero to Live in Under 24 Hours</h2>
-            <p className="text-gray-500 mt-3">No coding. No agencies. No meetings. Just more calls.</p>
+            <p className="text-gray-500 mt-3">No coding. No agencies. No meetings. You just send updates from your phone.</p>
           </div>
           <div className="grid md:grid-cols-4 gap-8">
             {STEPS.map((s) => (
@@ -237,7 +237,7 @@ export default function HomePage() {
                 {p.popular && <div className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-bold text-white px-4 py-1 rounded-full" style={{background:'#1565C0'}}>Most Popular</div>}
                 <div className="font-bold text-gray-900 mb-1">{p.name}</div>
                 <div className="text-3xl font-black text-gray-900 mb-1">${p.price}<span className="text-sm font-normal text-gray-400">/mo</span></div>
-                <div className="text-xs text-blue-600 font-bold mb-5">{p.posts} AI posts/month</div>
+                <div className="text-xs text-blue-600 font-bold mb-5">{p.posts} updates/month</div>
                 <ul className="space-y-2 mb-6">
                   {p.features.map((f, fi) => (
                     <li key={fi} className="text-sm text-gray-600 flex items-start gap-2">
@@ -298,7 +298,7 @@ export default function HomePage() {
               <div className="w-7 h-7 rounded-md flex items-center justify-center text-white font-bold text-xs" style={{background:'#1565C0'}}>S</div>
               <span className="font-bold text-white text-sm">SEO Junction</span>
             </div>
-            <p className="text-xs leading-relaxed">Done-for-you SEO and Google Business management for local service businesses.</p>
+            <p className="text-xs leading-relaxed">Better Google presence for local service businesses. Just send updates from your phone.</p>
           </div>
           <div>
             <div className="font-semibold text-white text-sm mb-3">Product</div>
