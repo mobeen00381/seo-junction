@@ -8,6 +8,7 @@
   --amber: #F59E0B;
   --green: #10B981;
   --red: #EF4444;
+  --slate-900: #111827;
   --premium-gradient: linear-gradient(135deg, #1565C0 0%, #7C3AED 100%);
   --glass-bg: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(255, 255, 255, 0.2);
@@ -15,12 +16,26 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+
 body { 
-  font-family: var(--font-inter), -apple-system, sans-serif;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  color: var(--slate-900);
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.font-syne { font-family: var(--font-syne), sans-serif; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--slate-900);
+}
+
+h1 { font-size: clamp(32px, 5vw, 40px); }
+h2 { font-size: clamp(24px, 4vw, 28px); font-weight: 600; }
+h3 { font-size: clamp(18px, 3vw, 22px); font-weight: 600; }
+
+p { font-size: 16px; line-height: 1.7; }
 
 .glass {
   background: var(--glass-bg);

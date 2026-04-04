@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Syne } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import './globals.css'
 
 const inter = Inter({
@@ -8,35 +8,29 @@ const inter = Inter({
   variable: '--font-inter',
 })
 
-const syne = Syne({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-syne',
-})
-
 export const metadata: Metadata = {
-  title: 'SEO Junction | Done-For-You Local SEO & Google My Business Management',
-  description: 'Get more local customers from Google — without doing any work. SEO Junction builds your website, manages your Google Business Profile, and posts AI content monthly. 30-day free trial.',
-  keywords: 'local SEO, Google My Business management, SEO for plumbers, SEO for electricians, done-for-you local SEO, GMB management tool',
+  title: 'SEO Junction | We help customers find your business on Google',
+  description: 'Send a photo or voice note — we turn it into a professional online presence automatically. No tech skills needed. 30-day free trial.',
+  keywords: 'local service business, Google visibility, contractor marketing, professional website',
   metadataBase: new URL('https://seo-junction.vercel.app'),
   openGraph: {
-    title: 'SEO Junction | Done-For-You Local SEO',
-    description: 'Get more local customers from Google — without doing any work.',
+    title: 'SEO Junction | Get discovered on Google',
+    description: 'We help customers find your business on Google.',
     url: 'https://seo-junction.vercel.app',
     siteName: 'SEO Junction',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SEO Junction | Done-For-You Local SEO',
-    description: 'Get more local customers from Google — without doing any work.',
+    title: 'SEO Junction | Get discovered on Google',
+    description: 'We help customers find your business on Google.',
   },
   robots: { index: true, follow: true },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${syne.variable}`}>
+    <html lang="en" className={`${inter.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -48,7 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "applicationCategory": "BusinessApplication",
               "operatingSystem": "Web",
               "url": "https://seo-junction.vercel.app",
-              "description": "Done-for-you SEO websites and Google Business management for local service businesses — plumbers, electricians, HVAC, roofers.",
+              "description": "Helping local service businesses get found on Google without technical skills.",
               "offers": [
                 {
                   "@type": "Offer",
@@ -64,7 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   "price": "39.99",
                   "priceCurrency": "USD",
                   "billingIncrement": "P1M",
-                  "description": "30 AI posts/month, priority AI, full GMB management, dedicated support"
+                  "description": "Everything businesses need to get found on Google"
                 }
               ],
               "aggregateRating": {
@@ -72,20 +66,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 "ratingValue": "4.9",
                 "reviewCount": "214",
                 "bestRating": "5"
-              },
-              "featureList": [
-                "Done-for-you website creation",
-                "AI-generated SEO posts monthly",
-                "Google My Business management",
-                "Voice note and photo uploads",
-                "Domain registration and ownership",
-                "Local SEO optimization"
-              ]
+              }
             })
           }}
         />
       </head>
-      <body className="bg-white text-gray-900 antialiased font-sans">{children}</body>
+      <body className="bg-white text-gray-900 antialiased font-sans selection:bg-blue-100 selection:text-blue-900">{children}</body>
     </html>
   )
 }

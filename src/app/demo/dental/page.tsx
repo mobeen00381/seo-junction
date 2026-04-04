@@ -27,60 +27,60 @@ export default function DentalDemoPage() {
       </div>
 
       {/* ── DENTAL NAV ── */}
-      <nav className="bg-white border-b px-6 py-4 flex justify-between items-center sticky top-0 z-40 shadow-sm">
-        <div className="font-black text-emerald-700 text-lg font-syne uppercase tracking-tight">Bright Smiles</div>
-        <div className="hidden md:flex gap-6 text-sm font-medium text-gray-600">
-          <a href="#services">Services</a>
-          <a href="#about">About</a>
-          <a href="#reviews">Reviews</a>
-          <a href="#faq">FAQ</a>
+      <nav className="bg-white border-b px-6 py-6 flex justify-between items-center sticky top-0 z-40 shadow-sm">
+        <div className="font-bold text-emerald-700 text-xl tracking-tight uppercase">Bright Smiles</div>
+        <div className="hidden md:flex gap-10 text-sm font-semibold text-gray-500">
+          <a href="#services" className="hover:text-emerald-600">Services</a>
+          <a href="#about" className="hover:text-emerald-600">About</a>
+          <a href="#reviews" className="hover:text-emerald-600">Reviews</a>
+          <a href="#faq" className="hover:text-emerald-600">FAQ</a>
         </div>
-        <a href="tel:3055550812" className="font-bold text-white px-5 py-2 rounded-lg text-sm transition-all hover:scale-105" style={{ background: '#059669' }}>
-          📅 Book Now
+        <a href="tel:3055550812" className="font-bold text-white px-6 py-3 rounded-xl text-sm transition-all hover:opacity-90" style={{ background: '#059669' }}>
+          Book Now
         </a>
       </nav>
 
       {/* ── HERO ── */}
-      <section style={{ background: 'linear-gradient(135deg,#f0fdf4,#dcfce7)' }} className="px-6 py-20 text-center border-b border-emerald-100">
-        <div className="max-w-2xl mx-auto">
-          <div className="inline-block text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-5" style={{ background: '#fff', color: '#059669', border: '1px solid #05966933' }}>
+      <section style={{ background: 'linear-gradient(135deg,#f0fdf4,#dcfce7)' }} className="px-6 py-24 text-center border-b border-emerald-100">
+        <div className="max-w-3xl mx-auto">
+          <div className="inline-block text-xs font-bold tracking-widest uppercase px-5 py-2 rounded-full mb-8" style={{ background: '#fff', color: '#059669', border: '1px solid #05966933' }}>
             📍 Brickell · Miami, FL 33130
           </div>
-          <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-5 leading-tight font-syne">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
             Modern Dentistry in the <br /><span style={{ color: '#059669' }}>Heart of Miami</span>
           </h1>
-          <p className="text-gray-600 mb-3 text-lg">Experience gentle, advanced dental care. From whitening to emergency repair — we make Miami smile.</p>
-          <p className="text-sm italic mb-8 opacity-40 text-gray-500 font-medium">&quot;Hey Siri, find me a dentist near me open now&quot; — we show up first.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:3055550812" className="font-bold text-white px-8 py-4 rounded-xl text-base shadow-lg shadow-emerald-200" style={{ background: '#059669' }}>📞 (305) 555-0812</a>
-            <a href="#services" className="font-semibold px-8 py-4 rounded-xl text-base border border-emerald-200 text-emerald-800 hover:bg-white transition-all">See Services ↓</a>
+          <p className="text-gray-600 text-lg md:text-xl mb-4 max-w-2xl mx-auto leading-relaxed">Experience gentle, advanced dental care. From whitening to emergency repair — we make Miami smile.</p>
+          <p className="text-sm italic mb-10 opacity-50 text-gray-500 font-medium tracking-tight">&quot;Hey Siri, find me a dentist near me open now&quot; — we show up first.</p>
+          <div className="flex flex-col sm:flex-row gap-5 justify-center">
+            <a href="tel:3055550812" className="font-bold text-white px-10 py-5 rounded-2xl text-lg shadow-xl shadow-emerald-200" style={{ background: '#059669' }}>Call (305) 555-0812</a>
+            <a href="#services" className="font-semibold px-10 py-5 rounded-2xl text-lg border border-emerald-200 text-emerald-800 hover:bg-white transition-all">See All Services</a>
           </div>
-          <p className="text-xs mt-5 opacity-40 text-gray-600 font-bold tracking-wide uppercase">Open Late · Weekend Appointments · All Insurances</p>
+          <p className="text-xs mt-8 opacity-40 text-gray-600 font-bold tracking-widest uppercase">Open Late · Weekend Appointments · All Insurances</p>
         </div>
       </section>
 
       {/* ── E-E-A-T DOCTOR BIO ── */}
-      <section className="py-12 px-6 bg-white border-b border-gray-100">
-        <div className="max-w-3xl mx-auto">
-          <div className="flex gap-4 items-start">
-            <div className="w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl flex-shrink-0 shadow-lg" style={{ background: '#059669' }}>DC</div>
+      <section className="py-20 px-6 bg-white border-b border-gray-100">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col md:flex-row gap-10 items-start">
+            <div className="w-20 h-20 rounded-full flex items-center justify-center text-white font-bold text-2xl flex-shrink-0 shadow-lg" style={{ background: '#059669' }}>DC</div>
             <div>
-              <div className="font-bold text-gray-900 text-base">Dr. Elena Castillo — Cosmetic & Family Dentist</div>
-              <div className="text-sm text-gray-500 mb-3">NYU Dentistry Graduate · 14 years serving Miami · Invisalign Platinum Provider</div>
-              <p className="text-sm text-gray-700 leading-relaxed">I opened Bright Smiles to change how Miami thinks about the dentist. No pain, no judgment, just results. We use the latest digital scanning technology so you can see your new smile before we even start. This is my home, and I am proud to serve my community in Brickell and beyond.</p>
+              <div className="font-bold text-gray-900 text-xl mb-1">Dr. Elena Castillo — Cosmetic & Family Dentist</div>
+              <div className="text-sm text-emerald-600 font-bold mb-6 uppercase tracking-wide">NYU Dentistry Graduate · 14 years serving Miami · Invisalign Platinum Provider</div>
+              <p className="text-gray-700 leading-relaxed text-lg">I opened Bright Smiles to change how Miami thinks about the dentist. No pain, no judgment, just results. We use the latest digital scanning technology so you can see your new smile before we even start. This is my home, and I am proud to serve my community in Brickell and beyond.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* ── SERVICES ── */}
-      <section id="services" className="py-20 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-black text-gray-900 mb-2 font-syne">Dental Services in Miami, FL</h2>
-            <p className="text-gray-500">Advanced care for a healthy, beautiful smile.</p>
+      <section id="services" className="py-32 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Dental Services in Miami, FL</h2>
+            <p className="text-gray-500 text-lg">Advanced care for a healthy, beautiful smile.</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid md:grid-cols-3 gap-8">
             {[
               { icon: '💎', title: 'Teeth Whitening', desc: 'Professional in-office whitening for a smile that shines. Results in one visit.', nlp: 'bleaching · peroxide · stain removal' },
               { icon: '🦷', title: 'Invisalign®', desc: 'Straighten your teeth without braces. We are a Platinum Invisalign provider in Brickell.', nlp: 'clear aligner · occlusal · digital scan' },
@@ -89,11 +89,11 @@ export default function DentalDemoPage() {
               { icon: '🧼', title: 'Cleaning & Exams', desc: 'Preventative care to keep your smile healthy year-round. Digital X-rays included.', nlp: 'scaling · polishing · periodontal' },
               { icon: '🚑', title: 'Sedation Dentistry', desc: 'Anxiety-free dental visits. We offer multiple sedation options for your comfort.', nlp: 'nitrous oxide · IV sedation · painless' },
             ].map((s, i) => (
-              <div key={i} className="border border-gray-100 rounded-2xl p-6 hover:border-emerald-200 hover:shadow-md transition-all bg-emerald-50/20">
-                <div className="text-3xl mb-3">{s.icon}</div>
-                <h3 className="font-bold text-gray-900 mb-2">{s.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed mb-3">{s.desc}</p>
-                <div className="text-xs font-bold text-emerald-600 uppercase tracking-wide">{s.nlp}</div>
+              <div key={i} className="border border-gray-100 rounded-3xl p-8 hover:border-emerald-200 hover:shadow-xl transition-all bg-emerald-50/20 group">
+                <div className="text-4xl mb-6 transition-transform group-hover:scale-110">{s.icon}</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">{s.title}</h3>
+                <p className="text-gray-600 leading-relaxed mb-6">{s.desc}</p>
+                <div className="text-xs font-bold text-emerald-600 uppercase tracking-widest">{s.nlp}</div>
               </div>
             ))}
           </div>

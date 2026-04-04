@@ -62,24 +62,24 @@ export default function OnboardingPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* HEADER */}
-      <nav className="px-6 py-6 border-b border-gray-50 flex justify-between items-center">
+      <nav className="px-6 py-8 border-b border-gray-50 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-black text-sm" style={{ background: 'var(--premium-gradient)' }}>S</div>
-          <span className="font-black text-gray-900 tracking-tight" style={{ fontFamily: 'var(--font-syne)' }}>SEO Junction</span>
+          <div className="w-9 h-9 rounded-lg flex items-center justify-center text-white font-bold text-sm" style={{ background: 'var(--premium-gradient)' }}>S</div>
+          <span className="font-bold text-gray-900 tracking-tight">SEO Junction</span>
         </Link>
-        <div className="flex items-center gap-4">
-           <div className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Step {step} of 3</div>
+        <div className="flex items-center gap-6">
+           <div className="text-xs font-semibold text-gray-400">Step {step} of 3</div>
            <div className="w-32 h-1.5 bg-gray-100 rounded-full overflow-hidden">
               <div className="h-full bg-blue-600 transition-all duration-500" style={{ width: `${(step/3)*100}%` }}></div>
            </div>
         </div>
       </nav>
 
-      <main className="max-w-4xl mx-auto px-6 py-16">
+      <main className="max-w-4xl mx-auto px-6 py-20">
         
         {feedback && (
-          <div className="mb-12 animate-fade-in text-center">
-             <span className="inline-block bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-xs font-black uppercase tracking-tight">
+          <div className="mb-16 animate-fade-in text-center">
+             <span className="inline-block bg-blue-50 text-blue-700 px-5 py-2 rounded-full text-sm font-bold tracking-tight">
                 ✨ {feedback}
              </span>
           </div>
@@ -88,49 +88,52 @@ export default function OnboardingPage() {
         {/* STEP 1: BUSINESS INFO */}
         {step === 1 && (
           <div className="max-w-xl mx-auto animate-fade-in">
-            <h1 className="text-4xl font-black text-gray-900 mb-8 tracking-tight" style={{ fontFamily: 'var(--font-syne)' }}>
+            <h1 className="text-3xl font-bold text-gray-900 mb-10 tracking-tight">
                Tell us about your business
             </h1>
-            <div className="space-y-6">
+            <div className="space-y-8">
                <div>
-                  <label className="block text-xs font-black text-gray-400 uppercase tracking-widest mb-3">Business Name</label>
+                  <label className="block text-sm font-semibold text-gray-500 mb-3">Business Name</label>
                   <input 
                     type="text" 
                     value={name} 
                     onChange={e => setName(e.target.value)} 
                     placeholder="e.g. Smith Plumbing Services"
-                    className="w-full bg-gray-50 border-2 border-transparent focus:border-blue-600 focus:bg-white rounded-2xl px-6 py-5 text-lg font-bold transition-all outline-none"
+                    className="w-full bg-gray-50 border-2 border-transparent focus:border-blue-600 focus:bg-white rounded-2xl px-6 py-5 text-base font-medium transition-all outline-none"
                   />
                </div>
-               <div className="grid md:grid-cols-2 gap-6">
+               <div className="grid md:grid-cols-2 gap-8">
                   <div>
-                    <label className="block text-xs font-black text-gray-400 uppercase tracking-widest mb-3">Your Trade</label>
-                    <select 
-                      value={trade} 
-                      onChange={e => setTrade(e.target.value)}
-                      className="w-full bg-gray-50 border-2 border-transparent focus:border-blue-600 focus:bg-white rounded-2xl px-6 py-5 text-lg font-bold transition-all outline-none appearance-none cursor-pointer"
-                    >
-                      <option value="">Select...</option>
-                      {TRADES.map(t => <option key={t} value={t}>{t}</option>)}
-                    </select>
+                    <label className="block text-sm font-semibold text-gray-500 mb-3">Your Trade</label>
+                    <div className="relative">
+                      <select 
+                        value={trade} 
+                        onChange={e => setTrade(e.target.value)}
+                        className="w-full bg-gray-50 border-2 border-transparent focus:border-blue-600 focus:bg-white rounded-2xl px-6 py-5 text-base font-medium transition-all outline-none appearance-none cursor-pointer"
+                      >
+                        <option value="">Select your trade...</option>
+                        {TRADES.map(t => <option key={t} value={t}>{t}</option>)}
+                      </select>
+                      <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">↓</div>
+                    </div>
                   </div>
                   <div>
-                    <label className="block text-xs font-black text-gray-400 uppercase tracking-widest mb-3">City & State</label>
+                    <label className="block text-sm font-semibold text-gray-500 mb-3">City & State</label>
                     <input 
                       type="text" 
                       value={city} 
                       onChange={e => setCity(e.target.value)} 
                       placeholder="e.g. Austin, TX"
-                      className="w-full bg-gray-50 border-2 border-transparent focus:border-blue-600 focus:bg-white rounded-2xl px-6 py-5 text-lg font-bold transition-all outline-none"
+                      className="w-full bg-gray-50 border-2 border-transparent focus:border-blue-600 focus:bg-white rounded-2xl px-6 py-5 text-base font-medium transition-all outline-none"
                     />
                   </div>
                </div>
                <button 
                  disabled={!name || !trade || !city}
                  onClick={nextStep}
-                 className="w-full bg-navy text-white font-black py-5 rounded-2xl text-xl mt-8 disabled:opacity-20 hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-blue-100"
+                 className="w-full bg-navy text-white font-bold py-5 rounded-2xl text-lg mt-10 disabled:opacity-30 hover:opacity-90 transition-all shadow-xl shadow-blue-100"
                >
-                 Continue →
+                 Continue
                </button>
             </div>
           </div>

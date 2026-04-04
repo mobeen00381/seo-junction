@@ -27,62 +27,62 @@ export default function PlumbingDemoPage() {
       </div>
 
       {/* ── PLUMBER NAV ── */}
-      <nav className="bg-white border-b px-6 py-4 flex justify-between items-center sticky top-0 z-40 shadow-sm">
-        <div className="font-black text-gray-900 text-lg font-syne">Elite Plumbing Pro</div>
-        <div className="hidden md:flex gap-6 text-sm font-medium text-gray-600">
-          <a href="#services">Services</a>
-          <a href="#about">About</a>
-          <a href="#reviews">Reviews</a>
-          <a href="#faq">FAQ</a>
+      <nav className="bg-white border-b px-6 py-6 flex justify-between items-center sticky top-0 z-40 shadow-sm">
+        <div className="font-bold text-gray-900 text-xl tracking-tight">Elite Plumbing Pro</div>
+        <div className="hidden md:flex gap-10 text-sm font-semibold text-gray-500">
+          <a href="#services" className="hover:text-blue-600">Services</a>
+          <a href="#about" className="hover:text-blue-600">About</a>
+          <a href="#reviews" className="hover:text-blue-600">Reviews</a>
+          <a href="#faq" className="hover:text-blue-600">FAQ</a>
         </div>
-        <a href="tel:5125554821" className="font-bold text-white px-5 py-2 rounded-lg text-sm" style={{ background: '#DC2626' }}>
-          📞 Call Now
+        <a href="tel:5125554821" className="font-bold text-white px-6 py-3 rounded-xl text-sm transition-all hover:opacity-90" style={{ background: '#DC2626' }}>
+          Call Now
         </a>
       </nav>
 
       {/* ── HERO ── */}
-      <section style={{ background: 'linear-gradient(135deg,#1B1B2F,#162944)' }} className="px-6 py-20 text-center">
-        <div className="max-w-2xl mx-auto">
-          <div className="inline-block text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-5" style={{ background: 'rgba(220,38,38,0.2)', color: '#FCA5A5', border: '1px solid rgba(220,38,38,0.3)' }}>
+      <section style={{ background: 'linear-gradient(135deg,#1B1B2F,#162944)' }} className="px-6 py-24 text-center">
+        <div className="max-w-3xl mx-auto">
+          <div className="inline-block text-xs font-bold tracking-widest uppercase px-5 py-2 rounded-full mb-8" style={{ background: 'rgba(220,38,38,0.2)', color: '#FCA5A5', border: '1px solid rgba(220,38,38,0.3)' }}>
             📍 South Congress Ave · Austin, TX 78704
           </div>
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-5 leading-tight font-syne">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
             Trusted Plumber in <span style={{ color: '#FCA5A5' }}>Austin, TX</span> —<br />
             Fast, Licensed & Local
           </h1>
           {/* ✅ VOICE SEARCH PHRASE */}
-          <p className="text-blue-200 opacity-70 mb-3 text-lg">If you need a plumber near South Congress Austin right now — we are 15 minutes away.</p>
-          <p className="text-sm italic mb-8 opacity-40 text-white">&quot;Hey Siri, find me a plumber near me open now&quot; — we show up first.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:5125554821" className="font-bold text-white px-8 py-4 rounded-xl text-base" style={{ background: '#DC2626' }}>📞 (512) 555-4821</a>
-            <a href="#services" className="font-semibold px-8 py-4 rounded-xl text-base border border-white border-opacity-25 text-white hover:bg-white hover:text-gray-900 transition-all">See All Services ↓</a>
+          <p className="text-blue-100 text-lg md:text-xl mb-4 max-w-2xl mx-auto leading-relaxed">If you need a plumber near South Congress Austin right now — we are 15 minutes away.</p>
+          <p className="text-xs italic mb-10 opacity-50 text-white">&quot;Hey Siri, find me a plumber near me open now&quot; — we show up first.</p>
+          <div className="flex flex-col sm:flex-row gap-5 justify-center">
+            <a href="tel:5125554821" className="font-bold text-white px-10 py-5 rounded-2xl text-lg shadow-xl shadow-red-900/40" style={{ background: '#DC2626' }}>Call (512) 555-4821</a>
+            <a href="#services" className="font-semibold px-10 py-5 rounded-2xl text-lg border border-white/20 text-white hover:bg-white hover:text-gray-900 transition-all">See All Services</a>
           </div>
-          <p className="text-xs mt-5 opacity-40 text-white">License #MP-44821 · 16 years serving Austin · Available 24/7</p>
+          <p className="text-xs mt-8 opacity-40 text-white font-medium uppercase tracking-widest">License #MP-44821 · 16 years serving Austin · Available 24/7</p>
         </div>
       </section>
 
       {/* ── E-E-A-T AUTHOR BIO ── */}
-      <section className="py-12 px-6 bg-blue-50 border-b border-blue-100">
-        <div className="max-w-3xl mx-auto">
-          <div className="flex gap-4 items-start">
-            <div className="w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl flex-shrink-0" style={{ background: '#1565C0' }}>CR</div>
+      <section className="py-20 px-6 bg-blue-50 border-b border-blue-100">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col md:flex-row gap-10 items-start">
+            <div className="w-20 h-20 rounded-full flex items-center justify-center text-white font-bold text-2xl flex-shrink-0 shadow-lg" style={{ background: '#1565C0' }}>CR</div>
             <div>
-              <div className="font-bold text-gray-900 text-base">Carlos Reyes — TX Licensed Master Plumber</div>
-              <div className="text-sm text-gray-500 mb-3">License #MP-44821 · 16 years serving Austin · Backflow Preventer Certified</div>
-              <p className="text-sm text-gray-700 leading-relaxed">I grew up in South Congress. I have worked on every type of Austin home — old bungalows in Travis Heights, new builds in Bouldin Creek, and everything in between. I started Elite Plumbing Pro to give Austin families honest, fair plumbing at a price that makes sense. These are my neighbors — I treat every job that way.</p>
+              <div className="font-bold text-gray-900 text-xl mb-1">Carlos Reyes — TX Licensed Master Plumber</div>
+              <div className="text-sm text-blue-600 font-bold mb-6 uppercase tracking-wide">License #MP-44821 · 16 years serving Austin · Backflow Preventer Certified</div>
+              <p className="text-gray-700 leading-relaxed text-lg">I grew up in South Congress. I have worked on every type of Austin home — old bungalows in Travis Heights, new builds in Bouldin Creek, and everything in between. I started Elite Plumbing Pro to give Austin families honest, fair plumbing at a price that makes sense. These are my neighbors — I treat every job that way.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* ── SERVICES ── */}
-      <section id="services" className="py-20 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-black text-gray-900 mb-2 font-syne">Plumbing Services in Austin, TX</h2>
-            <p className="text-gray-500">All work comes with a 1-year parts and labor warranty.</p>
+      <section id="services" className="py-32 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Plumbing Services in Austin, TX</h2>
+            <p className="text-gray-500 text-lg">All work comes with a 1-year parts and labor warranty.</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid md:grid-cols-3 gap-8">
             {[
               { icon: '🚿', title: 'Drain Cleaning', desc: 'Clogged drains cleared with a drain snake or hydro-jet. Kitchen, bathroom, and main sewer lateral.', nlp: 'P-trap · hydro-jetting · sewer lateral' },
               { icon: '🔧', title: 'Pipe Leak Repair', desc: 'Burst pipes, copper joint leaks, supply line failures, and slab leaks found and fixed same day.', nlp: 'supply line · copper pipe · slab leak' },
@@ -91,11 +91,11 @@ export default function PlumbingDemoPage() {
               { icon: '🏠', title: 'Repiping', desc: 'Old galvanized or lead pipes replaced with modern PEX or copper. Brown water is a sign to call us.', nlp: 'PEX · galvanized · backflow preventer' },
               { icon: '🚨', title: 'Emergency Plumbing', desc: '24/7 response for burst pipes, flooding, and sewer backups. Serving South Congress area in 60 min.', nlp: 'water main · main shutoff · emergency' },
             ].map((s, i) => (
-              <div key={i} className="border border-gray-100 rounded-2xl p-6 hover:border-blue-200 hover:shadow-md transition-all">
-                <div className="text-3xl mb-3">{s.icon}</div>
-                <h3 className="font-bold text-gray-900 mb-2">{s.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed mb-3">{s.desc}</p>
-                <div className="text-xs font-bold text-blue-600 uppercase tracking-wide">{s.nlp}</div>
+              <div key={i} className="border border-gray-100 rounded-3xl p-8 hover:border-blue-200 hover:shadow-xl transition-all bg-white group">
+                <div className="text-4xl mb-6 transition-transform group-hover:scale-110">{s.icon}</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">{s.title}</h3>
+                <p className="text-gray-600 leading-relaxed mb-6">{s.desc}</p>
+                <div className="text-xs font-bold text-blue-600 uppercase tracking-widest">{s.nlp}</div>
               </div>
             ))}
           </div>

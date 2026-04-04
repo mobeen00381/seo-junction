@@ -27,61 +27,61 @@ export default function ElectricalDemoPage() {
       </div>
 
       {/* ── ELECTRICIAN NAV ── */}
-      <nav className="bg-white border-b px-6 py-4 flex justify-between items-center sticky top-0 z-40 shadow-sm">
-        <div className="font-black text-gray-900 text-lg font-syne">Spark Electrical</div>
-        <div className="hidden md:flex gap-6 text-sm font-medium text-gray-600">
-          <a href="#services">Services</a>
-          <a href="#about">About</a>
-          <a href="#reviews">Reviews</a>
-          <a href="#faq">FAQ</a>
+      <nav className="bg-white border-b px-6 py-6 flex justify-between items-center sticky top-0 z-40 shadow-sm">
+        <div className="font-bold text-gray-900 text-xl tracking-tight">Spark Electrical</div>
+        <div className="hidden md:flex gap-10 text-sm font-semibold text-gray-500">
+          <a href="#services" className="hover:text-purple-600">Services</a>
+          <a href="#about" className="hover:text-purple-600">About</a>
+          <a href="#reviews" className="hover:text-purple-600">Reviews</a>
+          <a href="#faq" className="hover:text-purple-600">FAQ</a>
         </div>
-        <a href="tel:3035550192" className="font-bold text-white px-5 py-2 rounded-lg text-sm" style={{ background: '#7C3AED' }}>
-          📞 Call Now
+        <a href="tel:3035550192" className="font-bold text-white px-6 py-3 rounded-xl text-sm transition-all hover:opacity-90" style={{ background: '#7C3AED' }}>
+          Call Now
         </a>
       </nav>
 
       {/* ── HERO ── */}
-      <section style={{ background: 'linear-gradient(135deg,#1a0533,#2d0f5e)' }} className="px-6 py-20 text-center">
-        <div className="max-w-2xl mx-auto">
-          <div className="inline-block text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-5" style={{ background: 'rgba(124,58,237,0.2)', color: '#C4B5FD', border: '1px solid rgba(124,58,237,0.3)' }}>
+      <section style={{ background: 'linear-gradient(135deg,#1a0533,#2d0f5e)' }} className="px-6 py-24 text-center">
+        <div className="max-w-3xl mx-auto">
+          <div className="inline-block text-xs font-bold tracking-widest uppercase px-5 py-2 rounded-full mb-8" style={{ background: 'rgba(124,58,237,0.2)', color: '#C4B5FD', border: '1px solid rgba(124,58,237,0.3)' }}>
             📍 Capitol Hill · Denver, CO 80203
           </div>
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-5 leading-tight font-syne">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
             Top-Rated Electrician in <span style={{ color: '#F59E0B' }}>Denver, CO</span> —<br />
             Safe, Fast & Reliable
           </h1>
-          <p className="text-purple-200 opacity-70 mb-3 text-lg">If your power is out in Capitol Hill right now — we can be there in 30 minutes.</p>
-          <p className="text-sm italic mb-8 opacity-40 text-white">&quot;Hey Siri, find me an electrician near me open now&quot; — we show up first.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:3035550192" className="font-bold text-black px-8 py-4 rounded-xl text-base" style={{ background: '#F59E0B' }}>📞 (303) 555-0192</a>
-            <a href="#services" className="font-semibold px-8 py-4 rounded-xl text-base border border-white border-opacity-25 text-white hover:bg-white hover:text-gray-900 transition-all">See All Services ↓</a>
+          <p className="text-purple-100 text-lg md:text-xl mb-4 max-w-2xl mx-auto leading-relaxed">If your power is out in Capitol Hill right now — we can be there in 30 minutes.</p>
+          <p className="text-xs italic mb-10 opacity-50 text-white">&quot;Hey Siri, find me an electrician near me open now&quot; — we show up first.</p>
+          <div className="flex flex-col sm:flex-row gap-5 justify-center">
+            <a href="tel:3035550192" className="font-bold text-black px-10 py-5 rounded-2xl text-lg shadow-xl shadow-amber-500/20" style={{ background: '#F59E0B' }}>Call (303) 555-0192</a>
+            <a href="#services" className="font-semibold px-10 py-5 rounded-2xl text-lg border border-white/20 text-white hover:bg-white hover:text-gray-900 transition-all">See All Services</a>
           </div>
-          <p className="text-xs mt-5 opacity-40 text-white">License #EJ-99281 · 12 years serving Denver · Available 24/7</p>
+          <p className="text-xs mt-8 opacity-40 text-white font-medium uppercase tracking-widest">License #EJ-99281 · 12 years serving Denver · Available 24/7</p>
         </div>
       </section>
 
       {/* ── E-E-A-T AUTHOR BIO ── */}
-      <section className="py-12 px-6 bg-purple-50 border-b border-purple-100">
-        <div className="max-w-3xl mx-auto">
-          <div className="flex gap-4 items-start">
-            <div className="w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl flex-shrink-0" style={{ background: '#7C3AED' }}>MG</div>
+      <section className="py-20 px-6 bg-purple-50 border-b border-purple-100">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col md:flex-row gap-10 items-start">
+            <div className="w-20 h-20 rounded-full flex items-center justify-center text-white font-bold text-2xl flex-shrink-0 shadow-lg" style={{ background: '#7C3AED' }}>MG</div>
             <div>
-              <div className="font-bold text-gray-900 text-base">Marcus Grant — CO Licensed Journeyman Electrician</div>
-              <div className="text-sm text-gray-500 mb-3">License #EJ-99281 · 12 years serving Denver · EV Charger Specialist</div>
-              <p className="text-sm text-gray-700 leading-relaxed">I started Spark Electrical because I saw too many Denver homeowners getting overcharged for simple fixes. Whether it&apos;s a flickering light in an old Victorian home or a new EV charger installation, I treat every project with the same focus on safety and precision. I live in Denver, and I treat every customer like a neighbor.</p>
+              <div className="font-bold text-gray-900 text-xl mb-1">Marcus Grant — CO Licensed Journeyman Electrician</div>
+              <div className="text-sm text-purple-600 font-bold mb-6 uppercase tracking-wide">License #EJ-99281 · 12 years serving Denver · EV Charger Specialist</div>
+              <p className="text-gray-700 leading-relaxed text-lg">I started Spark Electrical because I saw too many Denver homeowners getting overcharged for simple fixes. Whether it&apos;s a flickering light in an old Victorian home or a new EV charger installation, I treat every project with the same focus on safety and precision. I live in Denver, and I treat every customer like a neighbor.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* ── SERVICES ── */}
-      <section id="services" className="py-20 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-black text-gray-900 mb-2 font-syne">Electrical Services in Denver, CO</h2>
-            <p className="text-gray-500">All work is guaranteed and meets current NEC safety codes.</p>
+      <section id="services" className="py-32 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Electrical Services in Denver, CO</h2>
+            <p className="text-gray-500 text-lg">All work is guaranteed and meets current NEC safety codes.</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid md:grid-cols-3 gap-8">
             {[
               { icon: '⚡', title: 'Panel Upgrades', desc: 'Old fuse boxes or undersized panels replaced with modern 200-amp service.', nlp: 'breaker panel · amperage · load calc' },
               { icon: '🚗', title: 'EV Chargers', desc: 'Level 2 home charging stations installed for Tesla, Rivian, and all major electric vehicles.', nlp: '240V · NEMA 14-50 · charging port' },
@@ -90,11 +90,11 @@ export default function ElectricalDemoPage() {
               { icon: '🏠', title: 'Home Rewiring', desc: 'Replacing old aluminum or knob-and-tube wiring with safe, modern copper circuits.', nlp: 'copper wire · circuit map · junction box' },
               { icon: '🚨', title: '24/7 Emergency', desc: 'Rapid response for power outages, burning smells, or sparking panels.', nlp: 'short circuit · hot wire · emergency call' },
             ].map((s, i) => (
-              <div key={i} className="border border-gray-100 rounded-2xl p-6 hover:border-purple-200 hover:shadow-md transition-all">
-                <div className="text-3xl mb-3">{s.icon}</div>
-                <h3 className="font-bold text-gray-900 mb-2">{s.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed mb-3">{s.desc}</p>
-                <div className="text-xs font-bold text-purple-600 uppercase tracking-wide">{s.nlp}</div>
+              <div key={i} className="border border-gray-100 rounded-3xl p-8 hover:border-purple-200 hover:shadow-xl transition-all bg-white group">
+                <div className="text-4xl mb-6 transition-transform group-hover:scale-110">{s.icon}</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">{s.title}</h3>
+                <p className="text-gray-600 leading-relaxed mb-6">{s.desc}</p>
+                <div className="text-xs font-bold text-purple-600 uppercase tracking-widest">{s.nlp}</div>
               </div>
             ))}
           </div>

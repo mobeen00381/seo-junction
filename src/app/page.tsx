@@ -28,42 +28,40 @@ export default function HomePage() {
       {/* NAV */}
       <nav className="bg-white/80 backdrop-blur-md border-b border-gray-100 px-6 py-4 flex justify-between items-center sticky top-0 z-50">
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-9 h-9 rounded-xl flex items-center justify-center text-white font-black text-lg transition-transform group-hover:scale-110" style={{ background: 'var(--premium-gradient)' }}>S</div>
-          <span className="font-black text-gray-900 text-xl tracking-tight" style={{ fontFamily: 'var(--font-syne)' }}>SEO Junction</span>
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold text-xl transition-transform group-hover:scale-105" style={{ background: 'var(--premium-gradient)' }}>S</div>
+          <span className="font-bold text-gray-900 text-xl tracking-tight">SEO Junction</span>
         </Link>
-        <div className="hidden md:flex gap-8 text-sm font-bold text-gray-500 uppercase tracking-widest">
+        <div className="hidden md:flex gap-10 text-sm font-semibold text-gray-500">
           <Link href="/pricing" className="hover:text-blue-600 transition-colors">Pricing</Link>
           <Link href="/demo" className="hover:text-blue-600 transition-colors">Examples</Link>
         </div>
-        <div className="flex gap-4 items-center">
-          <Link href="/login" className="text-xs font-bold text-gray-400 hover:text-gray-900 uppercase tracking-widest">Log In</Link>
-          <Link href="/onboarding" className="text-sm font-black text-white px-6 py-3 rounded-xl shadow-lg shadow-blue-200 hover:scale-[1.02] active:scale-95 transition-all" style={{ background: 'var(--premium-gradient)' }}>
+        <div className="flex gap-5 items-center">
+          <Link href="/login" className="text-sm font-semibold text-gray-500 hover:text-gray-900">Log In</Link>
+          <Link href="/onboarding" className="text-sm font-bold text-white px-6 py-3 rounded-xl shadow-lg shadow-blue-100 hover:opacity-90 transition-all" style={{ background: 'var(--premium-gradient)' }}>
             Get Your Business Online
           </Link>
         </div>
       </nav>
 
       {/* HERO SECTION */}
-      <section className="relative pt-24 pb-32 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-blue-50/50 rounded-full blur-[120px] -z-10 animate-pulse"></div>
+      <section className="relative pt-32 pb-40 overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[800px] bg-blue-50/30 rounded-full blur-[120px] -z-10 animate-pulse"></div>
         <div className="max-w-4xl mx-auto px-6 text-center animate-fade-in">
-          <h1 className="text-6xl md:text-7xl font-black text-gray-900 mb-8 leading-[1.05] tracking-tight" style={{ fontFamily: 'var(--font-syne)' }}>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 leading-[1.1] tracking-tight">
             Show your work.<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Get discovered on Google.</span>
+            <span className="text-blue-600">Get discovered on Google.</span>
           </h1>
-          <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
-            Send a photo or voice note — we turn it into a professional online presence automatically. No computer needed.
+          <p className="text-lg md:text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
+            Send a photo or voice note — we turn it into a professional online presence automatically. No technical skills needed.
           </p>
-          <div className="flex flex-col items-center gap-4 mb-20">
-            <Link href="/onboarding" className="text-lg font-black text-white px-10 py-5 rounded-2xl shadow-2xl shadow-blue-200 hover:scale-105 active:scale-95 transition-all bg-navy">
+          <div className="flex flex-col items-center gap-6 mb-24">
+            <Link href="/onboarding" className="text-lg font-bold text-white px-12 py-5 rounded-2xl shadow-xl shadow-blue-200 hover:scale-[1.02] active:scale-95 transition-all bg-navy">
               Get Your Business Online
             </Link>
-            <div className="flex items-center gap-4 text-xs font-bold text-gray-400 uppercase tracking-widest">
-              <span>No tech skills needed</span>
-              <span className="w-1 h-1 rounded-full bg-gray-200"></span>
-              <span>Free to start</span>
-              <span className="w-1 h-1 rounded-full bg-gray-200"></span>
-              <span>You stay in control</span>
+            <div className="flex items-center gap-6 text-sm font-medium text-gray-400">
+              <span className="flex items-center gap-2">✓ No tech skills needed</span>
+              <span className="flex items-center gap-2">✓ Free to start</span>
+              <span className="flex items-center gap-2">✓ You stay in control</span>
             </div>
           </div>
         </div>
@@ -75,19 +73,19 @@ export default function HomePage() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="py-24 bg-gray-50 border-y border-gray-100">
+      <section className="py-32 bg-gray-50 border-y border-gray-100">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-gray-900 mb-4 tracking-tight" style={{ fontFamily: 'var(--font-syne)' }}>3 Simple Steps</h2>
+          <div className="text-center mb-20">
+            <h2 className="text-3xl font-bold text-gray-900">Three Simple Steps</h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="grid md:grid-cols-3 gap-16">
             {STEPS.map((s, i) => (
-              <div key={i} className="group text-center">
-                <div className="w-20 h-20 rounded-3xl bg-white shadow-xl flex items-center justify-center text-4xl mx-auto mb-8 transition-transform group-hover:scale-110 group-hover:rotate-3 border border-gray-100">
+              <div key={i} className="text-center">
+                <div className="w-20 h-20 rounded-3xl bg-white shadow-lg flex items-center justify-center text-4xl mx-auto mb-10 border border-gray-100">
                   {s.icon}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{s.title}</h3>
-                <p className="text-gray-500 leading-relaxed text-sm">{s.desc}</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-5">{s.title}</h3>
+                <p className="text-gray-500 leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -95,34 +93,30 @@ export default function HomePage() {
       </section>
 
       {/* CONTROL & SAFETY SECTION */}
-      <section className="py-24 bg-navy text-white relative overflow-hidden">
-        <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
-          <div className="inline-flex gap-2 items-center bg-white/10 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-8 border border-white/10">
-             <span className="text-amber-400">🛡️</span> Secure & Controlled
-          </div>
-          <h2 className="text-4xl font-black mb-8 tracking-tight" style={{ fontFamily: 'var(--font-syne)' }}>You&apos;re always in control.</h2>
-          <div className="grid md:grid-cols-2 gap-8 text-left">
-            <div className="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm">
-               <h3 className="text-lg font-bold mb-4 flex items-center gap-3">
+      <section className="py-32 bg-navy text-white relative overflow-hidden">
+        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+          <h2 className="text-3xl font-bold mb-12 tracking-tight">You are always in control.</h2>
+          <div className="grid md:grid-cols-2 gap-10 text-left">
+            <div className="p-10 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm">
+               <h3 className="text-lg font-bold mb-5 flex items-center gap-3 text-white">
                  <span className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center text-sm text-blue-400">✓</span>
                  Approval Required
                </h3>
-               <p className="text-gray-400 text-sm leading-relaxed">
+               <p className="text-gray-300 leading-relaxed">
                  You review and approve every update before it goes live. Nothing happens without your green light.
                </p>
             </div>
-            <div className="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm">
-               <h3 className="text-lg font-bold mb-4 flex items-center gap-3">
+            <div className="p-10 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm">
+               <h3 className="text-lg font-bold mb-5 flex items-center gap-3 text-white">
                  <span className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center text-sm text-green-400">🔒</span>
                  Data Security
                </h3>
-               <p className="text-gray-400 text-sm leading-relaxed">
+               <p className="text-gray-300 leading-relaxed">
                  Your data is secure. We never post to third-parties or Google without your explicit permission.
                </p>
             </div>
           </div>
         </div>
-        <div className="absolute top-1/2 left-0 w-64 h-64 bg-blue-600/20 rounded-full blur-[100px] -z-0"></div>
       </section>
 
       {/* TEMPLATE GALLERY SECTION */}
