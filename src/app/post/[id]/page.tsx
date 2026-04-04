@@ -354,9 +354,17 @@ export default function MobileUpdatePage() {
                 <div className="flex flex-col gap-6 sticky bottom-8 z-40 backdrop-blur-sm p-4 -m-4">
                    <button 
                      onClick={() => {
-                        alert('Your SEO Article, GMB Post, and Schema Markup are now LIVE on your platform!');
-                        router.push('/dashboard?update=success');
+                        const btn = document.getElementById('publish-btn');
+                        if (btn) {
+                           btn.innerHTML = '<span class="flex items-center gap-4 justify-center"><div class="w-6 h-6 border-4 border-white/30 border-t-white rounded-full animate-spin"></div> Syncing to Google Business Profile...</span>';
+                           btn.style.opacity = '0.8';
+                           btn.style.pointerEvents = 'none';
+                        }
+                        setTimeout(() => {
+                           router.push('/dashboard?update=success');
+                        }, 2500);
                      }}
+                     id="publish-btn"
                      className="w-full bg-primary text-white font-black py-7 rounded-[28px] text-2xl shadow-[0_20px_50px_-20px_rgba(21,101,192,0.8)] hover:scale-[1.02] active:scale-95 transition-all ring-4 ring-primary/20 animate-pulse-slow"
                    >
                      Approve & Publish Post →
@@ -371,7 +379,6 @@ export default function MobileUpdatePage() {
              </div>
           </div>
         )}
-
       </main>
     </div>
   )
