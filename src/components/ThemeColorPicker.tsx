@@ -2,11 +2,11 @@
 import { useState, useEffect } from 'react'
 
 const THEME_COLORS = [
-  { name: 'SEO Blue', primary: '#1565C0', active: '#0D47A1', secondary: '#7C3AED' },
-  { name: 'Emerald', primary: '#10B981', active: '#065F46', secondary: '#059669' },
-  { name: 'Ambition', primary: '#F59E0B', active: '#B45309', secondary: '#D97706' },
-  { name: 'Electric', primary: '#7C3AED', active: '#5B21B6', secondary: '#2563EB' },
-  { name: 'Rose', primary: '#E11D48', active: '#9F1239', secondary: '#FB7185' },
+  { name: 'SEO Blue', primary: '#1565C0', active: '#0D47A1', secondary: '#7C3AED', light: '#E3F2FD' },
+  { name: 'Emerald', primary: '#10B981', active: '#065F46', secondary: '#059669', light: '#ECFDF5' },
+  { name: 'Ambition', primary: '#F59E0B', active: '#B45309', secondary: '#D97706', light: '#FFFBEB' },
+  { name: 'Electric', primary: '#7C3AED', active: '#5B21B6', secondary: '#2563EB', light: '#F5F3FF' },
+  { name: 'Rose', primary: '#E11D48', active: '#9F1239', secondary: '#FB7185', light: '#FFF1F2' },
 ]
 
 export default function ThemeColorPicker() {
@@ -24,6 +24,7 @@ export default function ThemeColorPicker() {
     setSelectedColor(color.primary)
     document.documentElement.style.setProperty('--primary', color.primary)
     document.documentElement.style.setProperty('--primary-active', color.active)
+    document.documentElement.style.setProperty('--primary-light', color.light)
     document.documentElement.style.setProperty('--secondary', color.secondary)
     localStorage.setItem('theme-color', color.primary)
   }

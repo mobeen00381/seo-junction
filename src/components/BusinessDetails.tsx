@@ -42,7 +42,7 @@ export default function BusinessDetails({ onComplete, onBack, initialData }: Bus
               value={address} 
               onChange={e => setAddress(e.target.value)} 
               placeholder="123 Builder Lane"
-              className="w-full bg-gray-50 dark:bg-slate-800 border-2 border-transparent focus:border-blue-600 focus:bg-white dark:focus:bg-slate-700 rounded-xl px-5 py-4 text-sm font-bold transition-all outline-none dark:text-white"
+              className="w-full bg-gray-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary focus:bg-white dark:focus:bg-slate-700 rounded-xl px-5 py-4 text-sm font-bold transition-all outline-none dark:text-white"
             />
           </div>
 
@@ -53,7 +53,7 @@ export default function BusinessDetails({ onComplete, onBack, initialData }: Bus
               value={city} 
               onChange={e => setCity(e.target.value)} 
               placeholder="Austin"
-              className="w-full bg-gray-50 dark:bg-slate-800 border-2 border-transparent focus:border-blue-600 focus:bg-white dark:focus:bg-slate-700 rounded-xl px-5 py-4 text-sm font-bold transition-all outline-none dark:text-white"
+              className="w-full bg-gray-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary focus:bg-white dark:focus:bg-slate-700 rounded-xl px-5 py-4 text-sm font-bold transition-all outline-none dark:text-white"
             />
           </div>
 
@@ -64,7 +64,7 @@ export default function BusinessDetails({ onComplete, onBack, initialData }: Bus
               value={state} 
               onChange={e => setState(e.target.value)} 
               placeholder="Texas"
-              className="w-full bg-gray-50 dark:bg-slate-800 border-2 border-transparent focus:border-blue-600 focus:bg-white dark:focus:bg-slate-700 rounded-xl px-5 py-4 text-sm font-bold transition-all outline-none dark:text-white"
+              className="w-full bg-gray-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary focus:bg-white dark:focus:bg-slate-700 rounded-xl px-5 py-4 text-sm font-bold transition-all outline-none dark:text-white"
             />
           </div>
 
@@ -75,7 +75,7 @@ export default function BusinessDetails({ onComplete, onBack, initialData }: Bus
               value={zip} 
               onChange={e => setZip(e.target.value)} 
               placeholder="78701"
-              className="w-full bg-gray-50 dark:bg-slate-800 border-2 border-transparent focus:border-blue-600 focus:bg-white dark:focus:bg-slate-700 rounded-xl px-5 py-4 text-sm font-bold transition-all outline-none dark:text-white"
+              className="w-full bg-gray-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary focus:bg-white dark:focus:bg-slate-700 rounded-xl px-5 py-4 text-sm font-bold transition-all outline-none dark:text-white"
             />
           </div>
 
@@ -97,7 +97,7 @@ export default function BusinessDetails({ onComplete, onBack, initialData }: Bus
               value={phone} 
               onChange={e => setPhone(e.target.value)} 
               placeholder="+1 (555) 000-0000"
-              className="w-full bg-gray-50 dark:bg-slate-800 border-2 border-transparent focus:border-blue-600 focus:bg-white dark:focus:bg-slate-700 rounded-xl px-5 py-4 text-sm font-bold transition-all outline-none dark:text-white"
+              className="w-full bg-gray-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary focus:bg-white dark:focus:bg-slate-700 rounded-xl px-5 py-4 text-sm font-bold transition-all outline-none dark:text-white"
             />
           </div>
 
@@ -126,7 +126,7 @@ export default function BusinessDetails({ onComplete, onBack, initialData }: Bus
           <button 
             disabled={!isFormValid}
             onClick={() => onComplete({ address, city, state, zip, country, phone, description })}
-            className="flex-[2] bg-navy text-white font-bold py-5 rounded-2xl text-lg disabled:opacity-20 hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-blue-100 dark:shadow-none"
+            className="flex-[2] bg-primary text-white font-bold py-5 rounded-2xl text-lg disabled:opacity-20 hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-primary/10 dark:shadow-none"
           >
             Continue →
           </button>

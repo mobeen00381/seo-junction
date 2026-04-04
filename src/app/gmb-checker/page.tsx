@@ -95,18 +95,18 @@ export default function GmbCheckerPage() {
       {/* NAV */}
       <nav className="bg-white border-b px-6 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-sm" style={{background:'#1565C0'}}>S</div>
-          <span className="font-bold text-gray-900" style={{fontFamily:'Syne, sans-serif'}}>SEO Junction</span>
+          <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-sm" style={{background:'var(--primary)'}}>S</div>
+          <span className="font-bold text-gray-900 tracking-tight">SEO Junction</span>
         </Link>
-        <Link href="/onboarding" className="text-sm font-bold text-white px-4 py-2 rounded-lg" style={{background:'#F59E0B', color:'#000'}}>
+        <Link href="/onboarding" className="text-sm font-bold text-primary-dark px-4 py-2 rounded-lg" style={{background:'var(--amber)', color:'#000'}}>
           Start Free Trial
         </Link>
       </nav>
 
       <div className="max-w-xl mx-auto px-6 py-16">
         <div className="text-center mb-10">
-          <div className="text-xs font-bold tracking-widest uppercase text-blue-600 mb-3">Free Tool</div>
-          <h1 className="text-3xl font-black text-gray-900 mb-3" style={{fontFamily:'Syne, sans-serif'}}>
+          <div className="text-xs font-bold tracking-widest uppercase text-primary mb-3">Free Tool</div>
+          <h1 className="text-3xl font-black text-gray-900 mb-3 tracking-tight">
             Free Google My Business<br />Score Checker
           </h1>
           <p className="text-gray-500 text-sm max-w-sm mx-auto">Enter your business details. Get your GMB health score and 3 quick wins in 10 seconds. Free. No signup required.</p>
@@ -121,7 +121,7 @@ export default function GmbCheckerPage() {
                 <input
                   type="text" value={name} onChange={e => setName(e.target.value)}
                   placeholder="e.g. Rodriguez Plumbing"
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-blue-400"
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-primary"
                 />
               </div>
               <div>
@@ -129,13 +129,13 @@ export default function GmbCheckerPage() {
                 <input
                   type="text" value={city} onChange={e => setCity(e.target.value)}
                   placeholder="e.g. Austin, TX"
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-blue-400"
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-primary"
                 />
               </div>
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1.5">Business Type</label>
                 <select value={trade} onChange={e => setTrade(e.target.value)}
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-blue-400 bg-white">
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-primary bg-white">
                   {Object.keys(TRADE_WINS).map(t => <option key={t}>{t}</option>)}
                 </select>
               </div>
@@ -143,7 +143,7 @@ export default function GmbCheckerPage() {
                 onClick={handleCheck}
                 disabled={!name.trim() || !city.trim()}
                 className="w-full font-bold text-white py-4 rounded-xl text-base transition-all hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed"
-                style={{background:'#1565C0'}}>
+                style={{background:'var(--primary)'}}>
                 Check My GMB Score →
               </button>
               <p className="text-center text-xs text-gray-400">Free · No signup required · Takes 10 seconds</p>
@@ -154,10 +154,10 @@ export default function GmbCheckerPage() {
         {/* LOADING */}
         {loading && (
           <div className="bg-white rounded-2xl border border-gray-200 p-12 shadow-sm text-center">
-            <div className="w-12 h-12 border-4 border-blue-100 border-t-blue-500 rounded-full animate-spin mx-auto mb-6"></div>
+            <div className="w-12 h-12 border-4 border-primary/10 border-t-primary rounded-full animate-spin mx-auto mb-6"></div>
             <p className="text-gray-600 font-medium text-sm">{loadingMessages[loadStep]}</p>
             <div className="mt-4 bg-gray-100 rounded-full h-2 overflow-hidden">
-              <div className="h-full bg-blue-500 rounded-full transition-all duration-700" style={{width:`${((loadStep+1)/3)*100}%`}}></div>
+              <div className="h-full bg-primary rounded-full transition-all duration-700" style={{width:`${((loadStep+1)/3)*100}%`}}></div>
             </div>
           </div>
         )}
@@ -188,21 +188,21 @@ export default function GmbCheckerPage() {
               <div className="space-y-4">
                 {wins.map((w, i) => (
                   <div key={i} className="flex gap-3">
-                    <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white flex-shrink-0 mt-0.5" style={{background:'#1565C0'}}>{i+1}</div>
+                    <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white flex-shrink-0 mt-0.5" style={{background:'var(--primary)'}}>{i+1}</div>
                     <p className="text-sm text-gray-700 leading-relaxed">{w}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="bg-blue-600 rounded-2xl p-6 text-white text-center">
+            <div className="bg-primary rounded-2xl p-6 text-white text-center shadow-xl shadow-primary/20">
               <h3 className="font-bold text-lg mb-2">Want us to fix all of this automatically?</h3>
               <p className="text-sm opacity-80 mb-5">SEO Junction handles your Google profile, posts content every week, and improves your ranking — you just run your business.</p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Link href="/onboarding" className="font-bold px-6 py-3 rounded-xl text-sm transition-all hover:opacity-90" style={{background:'#F59E0B', color:'#000'}}>
+                <Link href="/onboarding" className="font-bold px-6 py-3 rounded-xl text-sm transition-all hover:opacity-90" style={{background:'var(--amber)', color:'#000'}}>
                   Start Free Trial →
                 </Link>
-                <Link href="/" className="font-semibold px-6 py-3 rounded-xl text-sm border border-white border-opacity-30 hover:bg-white hover:text-blue-600 transition-all">
+                <Link href="/" className="font-semibold px-6 py-3 rounded-xl text-sm border border-white border-opacity-30 hover:bg-white hover:text-primary transition-all">
                   See How It Works
                 </Link>
               </div>

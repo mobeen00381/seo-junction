@@ -39,7 +39,7 @@ export default function StripePayment({ domainName, onSuccess, onBack }: StripeP
                <div className="text-sm font-bold text-emerald-600">30 Days Free</div>
             </div>
             <div className="flex justify-between items-center">
-               <div className="text-sm font-bold text-gray-900 dark:text-white">Domain: <span className="text-blue-600">{domainName}</span></div>
+               <div className="text-sm font-bold text-gray-900 dark:text-white">Domain: <span className="text-primary">{domainName}</span></div>
                <div className="text-sm font-bold text-gray-900 dark:text-white">$19.99</div>
             </div>
             <div className="pt-4 mt-4 border-t border-gray-200 dark:border-slate-700 flex justify-between items-center">
@@ -61,7 +61,7 @@ export default function StripePayment({ domainName, onSuccess, onBack }: StripeP
                 <input 
                   type="text" 
                   placeholder="1234 5678 1234 5678"
-                  className="w-full bg-gray-50 dark:bg-slate-800 border-2 border-transparent focus:border-blue-600 focus:bg-white dark:focus:bg-slate-700 rounded-xl px-5 py-4 text-sm font-bold transition-all outline-none dark:text-white"
+                  className="w-full bg-gray-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary focus:bg-white dark:focus:bg-slate-700 rounded-xl px-5 py-4 text-sm font-bold transition-all outline-none dark:text-white"
                   required
                 />
                 <div className="absolute right-4 top-1/2 -translate-y-1/2 flex gap-2">
@@ -90,7 +90,7 @@ export default function StripePayment({ domainName, onSuccess, onBack }: StripeP
           <button 
             type="submit"
             disabled={isProcessing}
-            className="w-full bg-navy text-white font-bold py-6 rounded-2xl text-xl hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-blue-100 dark:shadow-none flex items-center justify-center gap-3"
+            className="w-full bg-primary text-white font-bold py-6 rounded-2xl text-xl hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-primary/10 dark:shadow-none flex items-center justify-center gap-3"
           >
             {isProcessing ? (
               <>

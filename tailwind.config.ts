@@ -10,6 +10,14 @@ const config: Config = {
     extend: {
       colors: {
         navy: '#0B1F3A',
+        primary: {
+          DEFAULT: 'var(--primary)',
+          dark: 'var(--primary-active)',
+          light: 'var(--primary-light)',
+        },
+        secondary: {
+          DEFAULT: 'var(--secondary)',
+        },
         blue: {
           600: '#1565C0',
           700: '#0D47A1',

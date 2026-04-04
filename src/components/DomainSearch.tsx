@@ -57,13 +57,13 @@ export default function DomainSearch({ businessName, onSelect, onBack }: DomainS
               onChange={e => setQuery(e.target.value)}
               onKeyDown={e => e.key === 'Enter' && handleSearch()}
               placeholder="Enter business name or keyword..."
-              className="w-full bg-gray-50 dark:bg-slate-800 border-2 border-transparent focus:border-blue-600 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-8 py-6 text-xl font-bold transition-all outline-none dark:text-white"
+              className="w-full bg-gray-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-8 py-6 text-xl font-bold transition-all outline-none dark:text-white"
             />
             <div className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-300 pointer-events-none">.com</div>
           </div>
           <button 
             onClick={handleSearch}
-            className="bg-navy text-white px-10 rounded-2xl font-bold text-lg hover:opacity-90 transition-all flex items-center justify-center min-w-[160px]"
+            className="bg-primary text-white px-10 rounded-2xl font-bold text-lg hover:opacity-90 transition-all flex items-center justify-center min-w-[160px]"
           >
             {isSearching ? (
               <div className="w-6 h-6 border-4 border-white/30 border-t-white rounded-full animate-spin"></div>
@@ -77,18 +77,18 @@ export default function DomainSearch({ businessName, onSelect, onBack }: DomainS
               <div 
                 key={i} 
                 onClick={() => setSelectedDomain(res.name)}
-                className={`flex items-center justify-between p-6 rounded-3xl border-2 transition-all cursor-pointer ${selectedDomain === res.name ? 'border-blue-600 bg-blue-50/50 dark:bg-blue-900/10' : 'border-gray-50 dark:border-slate-800 hover:border-gray-100 dark:hover:border-slate-700'}`}
+                className={`flex items-center justify-between p-6 rounded-3xl border-2 transition-all cursor-pointer ${selectedDomain === res.name ? 'border-primary bg-primary-light/50 dark:bg-primary-dark/10' : 'border-gray-50 dark:border-slate-800 hover:border-gray-100 dark:hover:border-slate-700'}`}
               >
                 <div className="flex items-center gap-6">
-                  <div className="w-16 h-16 rounded-2xl bg-gray-50 dark:bg-slate-800 flex items-center justify-center font-black text-blue-600 dark:text-blue-400 text-xs tracking-tighter">.{res.tld}</div>
+                  <div className="w-16 h-16 rounded-2xl bg-gray-50 dark:bg-slate-800 flex items-center justify-center font-black text-primary dark:text-primary-light text-xs tracking-tighter">.{res.tld}</div>
                   <div>
                     <div className="text-xl font-bold text-gray-900 dark:text-white">{res.name}</div>
-                    {res.badge && <span className="text-[10px] font-bold text-blue-500 uppercase tracking-widest">{res.badge}</span>}
+                    {res.badge && <span className="text-[10px] font-bold text-primary dark:text-primary-light uppercase tracking-widest">{res.badge}</span>}
                   </div>
                 </div>
                 <div className="text-right flex items-center gap-6">
                    <div className="text-lg font-black text-gray-900 dark:text-white">{res.price}</div>
-                   <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all ${selectedDomain === res.name ? 'bg-blue-600 border-blue-600' : 'border-gray-200'}`}>
+                   <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all ${selectedDomain === res.name ? 'bg-primary border-primary' : 'border-gray-200'}`}>
                       {selectedDomain === res.name && <div className="w-2.5 h-2.5 rounded-full bg-white"></div>}
                    </div>
                 </div>
@@ -109,13 +109,13 @@ export default function DomainSearch({ businessName, onSelect, onBack }: DomainS
         <button 
           disabled={!selectedDomain}
           onClick={() => onSelect(selectedDomain)}
-          className="w-full bg-navy text-white font-bold py-6 rounded-3xl text-2xl disabled:opacity-20 hover:scale-[1.02] active:scale-95 transition-all shadow-2xl shadow-blue-200 dark:shadow-none"
+          className="w-full bg-primary text-white font-bold py-6 rounded-3xl text-2xl disabled:opacity-20 hover:scale-[1.02] active:scale-95 transition-all shadow-2xl shadow-primary/20 dark:shadow-none"
         >
           Secure Domain & Continue →
         </button>
         <div className="flex justify-between items-center px-4">
            <button onClick={onBack} className="text-sm font-bold text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">← Back to style</button>
-           <button className="text-sm font-bold text-blue-600 dark:text-blue-400 hover:underline">I already own a domain</button>
+           <button className="text-sm font-bold text-primary dark:text-primary-light hover:underline">I already own a domain</button>
         </div>
       </div>
     </div>
