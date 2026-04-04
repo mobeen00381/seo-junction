@@ -11,8 +11,10 @@ const STEPS = [
 ]
 
 const TESTIMONIALS = [
-  { name: 'Mike Thompson', trade: 'Electrician', city: 'London, UK', quote: "I don’t understand websites, but now my business shows online.", star: 5, color: '#1565C0' },
-  { name: 'Sandra Miller', trade: 'Plumber', city: 'Austin, USA', quote: "This helped me show my work without any effort. My phone actually rings.", star: 5, color: '#7C3AED' },
+  { name: 'Mike Thompson', trade: 'Electrician', city: 'London, UK', quote: "I don’t understand websites, but now my business shows online.", star: 5, image: '/testimonials/mike.png' },
+  { name: 'Sandra Miller', trade: 'Plumber', city: 'Austin, USA', quote: "This helped me show my work without any effort. My phone actually rings.", star: 5, image: '/testimonials/sandra.png' },
+  { name: 'David Chen', trade: 'HVAC Technician', city: 'San Francisco, USA', quote: "Finally, a way to show my installs to local neighbors without being a tech expert.", star: 5, image: '/testimonials/david.png' },
+  { name: 'Sarah Johnson', trade: 'Home Cleaner', city: 'Sydney, AU', quote: "I just send a photo of my work, and it's on my site. My booking rate tripled!", star: 5, image: '/testimonials/sarah.png' },
 ]
 
 export default function HomePage() {
@@ -132,15 +134,17 @@ export default function HomePage() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white tracking-tight">Built for real service professionals</h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {TESTIMONIALS.map((t, i) => (
-              <div key={i} className="bg-white dark:bg-slate-800 p-10 rounded-[40px] shadow-sm border border-gray-100 dark:border-slate-700 flex flex-col items-center text-center">
-                <div className="w-16 h-16 rounded-full font-bold text-white flex items-center justify-center text-xl mb-6 shadow-lg rotate-3" style={{ background: t.color }}>{t.name[0]}</div>
-                <div className="text-amber-400 text-xl mb-6">★★★★★</div>
-                <p className="text-xl font-bold text-gray-800 dark:text-gray-200 italic leading-relaxed mb-8">&ldquo;{t.quote}&rdquo;</p>
-                <div>
-                  <div className="text-sm font-black text-gray-900 dark:text-white uppercase tracking-widest">{t.name}</div>
-                  <div className="text-xs text-gray-400 dark:text-gray-500 mt-1 font-bold">{t.trade} · {t.city}</div>
+              <div key={i} className="bg-white dark:bg-slate-800 p-8 rounded-[40px] shadow-sm border border-gray-100 dark:border-slate-700 flex flex-col items-center text-center transition-transform hover:scale-[1.02]">
+                <div className="w-20 h-20 rounded-full mb-6 shadow-xl border-4 border-white dark:border-slate-700 overflow-hidden bg-gray-100">
+                  <img src={t.image} alt={t.name} className="w-full h-full object-cover" />
+                </div>
+                <div className="text-amber-400 text-sm mb-4">★★★★★</div>
+                <p className="text-sm font-bold text-gray-800 dark:text-gray-200 italic leading-relaxed mb-6">&ldquo;{t.quote}&rdquo;</p>
+                <div className="mt-auto">
+                  <div className="text-[10px] font-black text-gray-900 dark:text-white uppercase tracking-[2px]">{t.name}</div>
+                  <div className="text-[10px] text-gray-400 dark:text-gray-500 mt-1 font-bold">{t.trade} · {t.city}</div>
                 </div>
               </div>
             ))}
