@@ -6,6 +6,14 @@ const TEMPLATES = [
   { id: 'electrician', name: 'Electrician', color: '#FACC15', emoji: '⚡', desc: 'High-visibility yellow with bold typography.' },
   { id: 'hvac', name: 'HVAC Specialist', color: '#3B82F6', emoji: '❄️', desc: 'Cool, modern aesthetic for heating & air services.' },
   { id: 'cleaning', name: 'Premium Cleaning', color: '#10B981', emoji: '🧹', desc: 'Fresh, clean palette with minimalist layout.' },
+  { id: 'dentist', name: 'Modern Dentist', color: '#06B6D4', emoji: '🦷', desc: 'Clinic-fresh design focused on patient trust.' },
+  { id: 'grocery', name: 'Fresh Grocery', color: '#059669', emoji: '🍎', desc: 'Vibrant, green-focused layout for local markets.' },
+  { id: 'hardware', name: 'Hardware Pro', color: '#EA580C', emoji: '🛠️', desc: 'Brave, orange-themed utility design for DIY stores.' },
+  { id: 'sanitary', name: 'Sanitary & Tiles', color: '#4F46E5', emoji: '🚿', desc: 'Elegant, high-contrast look for bathroom showrooms.' },
+  { id: 'roofing', name: 'Expert Roofing', color: '#4B5563', emoji: '🏠', desc: 'Solid, reliable styling for construction trades.' },
+  { id: 'locksmith', name: '24/7 Locksmith', color: '#B91C1C', emoji: '🔑', desc: 'High-urgency red for emergency service providers.' },
+  { id: 'pet-grooming', name: 'Pet Grooming', color: '#D946EF', emoji: '🐶', desc: 'Playful, soft tones for pet care professionals.' },
+  { id: 'landscaping', name: 'Landscaping', color: '#15803D', emoji: '🌳', desc: 'Natural, organic green for outdoor specialists.' },
 ]
 
 export default function TemplateGallery({ onSelect }: { onSelect?: (id: string) => void }) {

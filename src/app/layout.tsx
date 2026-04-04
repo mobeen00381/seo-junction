@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import ThemeColorPicker from '@/components/ThemeColorPicker'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -41,6 +42,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   var supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
                   if (!theme && supportDarkMode) theme = 'dark';
                   if (theme === 'dark') document.documentElement.classList.add('dark');
+                  
+                  // Apply persisted brand color
+                  var color = localStorage.getItem('theme-color');
+                  if (color) {
+                    document.documentElement.style.setProperty('--primary', color);
+                    // Standard SEO Junction brand color palette derived from primary
+                    // For now we just set the primary to avoid the flash of SEO Blue
+                  }
                 } catch (e) {}
               })();
             `,
@@ -85,8 +94,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className="antialiased font-sans selection:bg-blue-100 dark:selection:bg-blue-900 selection:text-blue-900 dark:selection:text-blue-100 transition-colors duration-300">
+      <body className="antialiased font-sans selection:bg-blue-100 dark:selection:bg-blue-900 selection:text-blue-900 dark:selection:text-blue-100 transition-colors duration-300 overflow-x-hidden">
         {children}
+        <ThemeColorPicker />
       </body>
     </html>
   )

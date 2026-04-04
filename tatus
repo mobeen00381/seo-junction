@@ -1,0 +1,8 @@
+[33m85d2729[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m fix: safety section heading visibility on dark background
+[33me99492c[m feat: expand testimonials and add high-fidelity profile photos
+[33mc3a1da9[m feat: expanded 6-step onboarding with detailed profiling, multi-TLD domain search, and stripe trial integration
+[33m68db407[m feat: Standardize typography to Inter for high readability and professional look
+[33md99f05e[m feat: High-converting SaaS landing and onboarding experience
+[33m90f55c3[m feat: improve product clarity and user activation with simplified landing page and functional dashboard
+[33mef319cc[m feat: implement Demo Hub with trade-specific demos for plumbing, electrical, and dental
+[33mfb781fb[m feat: initial project setup with Next.js 16 and linting fixes
