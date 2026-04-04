@@ -99,7 +99,7 @@ export default function HomePage() {
       {/* CONTROL & SAFETY SECTION */}
       <section className="py-32 bg-navy text-white relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-          <h2 className="text-3xl font-bold mb-12 tracking-tight">You are always in control.</h2>
+          <h2 className="text-3xl font-bold mb-12 tracking-tight text-white uppercase tracking-widest">You are always in control.</h2>
           <div className="grid md:grid-cols-2 gap-10 text-left">
             <div className="p-10 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm">
                <h3 className="text-lg font-bold mb-5 flex items-center gap-3 text-white">
