@@ -46,41 +46,74 @@ function DashboardContent() {
 
       <main className="max-w-xl mx-auto px-6 py-12">
         
+        {/* MOBILE UPDATE QR SECTION (Primary CTA) */}
+        <div className="bg-white border-2 border-primary/10 rounded-[40px] p-8 mb-10 shadow-2xl shadow-primary/5 relative overflow-hidden group">
+           <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
+              <div className="w-40 h-40 bg-gray-50 rounded-3xl p-4 flex items-center justify-center border-2 border-dashed border-gray-200 group-hover:border-primary/30 transition-all">
+                <img 
+                  src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent('https://seo-junction.vercel.app/post/demo-user')}`} 
+                  alt="Mobile Update QR" 
+                  className="w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500"
+                />
+              </div>
+              <div className="flex-1 text-center md:text-left">
+                 <h3 className="text-2xl font-black text-gray-900 mb-2 tracking-tight">Update via Phone</h3>
+                 <p className="text-sm text-gray-500 mb-6 font-medium">Scan with your phone to send updates instantly. **No login required.**</p>
+                 <div className="flex flex-wrap justify-center md:justify-start gap-3">
+                    <button 
+                      onClick={() => {
+                        navigator.clipboard.writeText('https://seo-junction.vercel.app/post/demo-user');
+                        alert('Link copied to clipboard!');
+                      }}
+                      className="text-[10px] font-black text-primary bg-primary-light px-5 py-2.5 rounded-full uppercase tracking-widest hover:bg-primary hover:text-white transition-all shadow-sm"
+                     >
+                      Copy Direct Link
+                    </button>
+                    <span className="text-[10px] font-black text-emerald-600 bg-emerald-50 px-3 py-2.5 rounded-full uppercase tracking-widest flex items-center gap-2 border border-emerald-100">
+                       <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                       PWA Ready
+                    </span>
+                 </div>
+              </div>
+           </div>
+           <div className="absolute top-0 right-0 p-8 opacity-5 pointer-events-none text-9xl -translate-y-8 translate-x-8 group-hover:translate-x-4 transition-transform duration-1000">📱</div>
+        </div>
+
         {/* SUCCESS FEEDBACK */}
         {showSuccess && (
-          <div className="bg-green-600 text-white p-4 rounded-2xl mb-8 flex items-center justify-between shadow-lg animate-in fade-in slide-in-from-top-4 duration-500">
-            <div className="flex items-center gap-3">
-              <span className="text-xl">✅</span>
+          <div className="bg-emerald-600 text-white p-5 rounded-[24px] mb-10 flex items-center justify-between shadow-xl shadow-emerald-600/20 animate-in fade-in slide-in-from-top-4 duration-500">
+            <div className="flex items-center gap-4">
+              <span className="text-2xl">✨</span>
               <div>
-                <div className="font-bold">Your update is live on your website</div>
-                <div className="text-xs opacity-90">Google is now indexing your new content.</div>
+                <div className="font-bold text-lg leading-none mb-1">Your update is live!</div>
+                <div className="text-xs opacity-80">Google is now indexing your new content.</div>
               </div>
             </div>
-            <button onClick={() => setShowSuccess(false)} className="text-white opacity-60 hover:opacity-100">✕</button>
+            <button onClick={() => setShowSuccess(false)} className="text-white opacity-40 hover:opacity-100 transition-opacity">✕</button>
           </div>
         )}
 
         {/* ACTIVATION BANNER (If no update sent) */}
         {!hasSentUpdate && !isUpdating && (
-          <div className="bg-white border-2 border-primary/10 rounded-3xl p-8 text-center mb-10 shadow-sm transition-all duration-300">
-            <div className="w-16 h-16 bg-primary-light text-primary rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6">📢</div>
-            <h2 className="text-2xl font-black text-gray-900 mb-2 tracking-tight">Activate Your Website</h2>
-            <p className="text-gray-500 mb-8">Send your first update to start getting more local customers from Google.</p>
+          <div className="bg-white border-2 border-primary/5 rounded-[40px] p-10 text-center mb-10 shadow-sm transition-all duration-300">
+            <div className="w-20 h-20 bg-primary-light text-primary rounded-[28px] flex items-center justify-center text-4xl mx-auto mb-8 shadow-inner ring-1 ring-primary/10">📢</div>
+            <h2 className="text-3xl font-black text-gray-900 mb-3 tracking-tighter decoration-primary decoration-4 underline-offset-8">Activate Your Business</h2>
+            <p className="text-gray-500 mb-10 font-medium">Send your first update to start getting more local customers from Google.</p>
             
             <div className="grid grid-cols-2 gap-4">
               <button 
                 onClick={() => handleSendUpdate('image')}
-                className="flex flex-col items-center justify-center gap-3 p-6 bg-gray-50 rounded-2xl border-2 border-transparent hover:border-primary hover:bg-primary-light transition-all group"
+                className="flex flex-col items-center justify-center gap-4 p-8 bg-gray-50 rounded-[32px] border-2 border-transparent hover:border-primary hover:bg-white transition-all group shadow-sm hover:shadow-xl hover:shadow-primary/5"
               >
-                <span className="text-3xl group-hover:scale-110 transition-transform">📸</span>
-                <span className="font-bold text-sm text-gray-900">Upload Image</span>
+                <span className="text-4xl group-hover:scale-110 transition-transform">📸</span>
+                <span className="font-black text-xs text-gray-900 uppercase tracking-widest">Post Photo</span>
               </button>
               <button 
                 onClick={() => handleSendUpdate('voice')}
-                className="flex flex-col items-center justify-center gap-3 p-6 bg-gray-50 rounded-2xl border-2 border-transparent hover:border-primary hover:bg-primary-light transition-all group"
+                className="flex flex-col items-center justify-center gap-4 p-8 bg-gray-50 rounded-[32px] border-2 border-transparent hover:border-primary hover:bg-white transition-all group shadow-sm hover:shadow-xl hover:shadow-primary/5"
               >
-                <span className="text-3xl group-hover:scale-110 transition-transform">🎙️</span>
-                <span className="font-bold text-sm text-gray-900">Record Voice</span>
+                <span className="text-4xl group-hover:scale-110 transition-transform">🎙️</span>
+                <span className="font-black text-xs text-gray-900 uppercase tracking-widest">Voice Note</span>
               </button>
             </div>
           </div>
@@ -88,88 +121,55 @@ function DashboardContent() {
 
         {/* UPDATING STATE */}
         {isUpdating && (
-          <div className="bg-white rounded-3xl p-12 text-center shadow-sm border border-gray-100">
-            <div className="w-12 h-12 border-4 border-blue-100 border-t-blue-600 rounded-full animate-spin mx-auto mb-6"></div>
-            <h2 className="font-bold text-gray-900 mb-1">Posting Update...</h2>
-            <p className="text-sm text-gray-400">Processing your {updateType} and updating your website.</p>
+          <div className="bg-white rounded-[40px] p-16 text-center shadow-sm border border-gray-100 animate-pulse">
+            <div className="w-16 h-16 border-4 border-primary/20 border-t-primary rounded-full animate-spin mx-auto mb-8"></div>
+            <h2 className="font-black text-xl text-gray-900 mb-1 tracking-tight">AI Post in Progress...</h2>
+            <p className="text-sm text-gray-400 font-medium uppercase tracking-widest">Applying AEO/GEO SEO signals for ${updateType}.</p>
           </div>
         )}
 
         {/* REINFORCEMENT MESSAGE */}
         {hasSentUpdate && !isUpdating && (
-          <div className="bg-primary rounded-3xl p-8 mb-10 text-white relative overflow-hidden shadow-xl shadow-primary/20 transition-all duration-300">
+          <div className="bg-primary rounded-[40px] p-10 mb-10 text-white relative overflow-hidden shadow-2xl shadow-primary/30 transition-all duration-300">
             <div className="relative z-10 text-left">
-              <h2 className="text-2xl font-black mb-2 tracking-tight">Keep It Up!</h2>
-              <p className="opacity-80 text-sm mb-6">Regular updates from your phone help you get more visibility on Google.</p>
+              <h2 className="text-3xl font-black mb-2 tracking-tighter">Consistency Wins!</h2>
+              <p className="opacity-80 text-sm mb-8 font-medium leading-relaxed">Regular updates from your phone build your local "E-E-A-T" ranking on Google Search & Maps.</p>
               
               <div className="flex gap-4">
-                <button onClick={() => handleSendUpdate('image')} className="bg-white/20 hover:bg-white/30 backdrop-blur-sm px-4 py-2 rounded-xl text-sm font-bold transition-all">📸 New Image</button>
-                <button onClick={() => handleSendUpdate('voice')} className="bg-white/20 hover:bg-white/30 backdrop-blur-sm px-4 py-2 rounded-xl text-sm font-bold transition-all">🎙️ New Voice</button>
+                <button onClick={() => handleSendUpdate('image')} className="bg-white/20 hover:bg-white/30 backdrop-blur-sm px-6 py-3 rounded-2xl text-sm font-black uppercase tracking-widest transition-all ring-1 ring-white/30">📸 New Photo</button>
+                <button onClick={() => handleSendUpdate('voice')} className="bg-white/20 hover:bg-white/30 backdrop-blur-sm px-6 py-3 rounded-2xl text-sm font-black uppercase tracking-widest transition-all ring-1 ring-white/30">🎙️ New Voice</button>
               </div>
             </div>
-            <div className="absolute top-0 right-0 text-8xl opacity-10 translate-x-4 -translate-y-4">🚀</div>
+            <div className="absolute top-0 right-0 text-[160px] opacity-10 translate-x-12 -translate-y-12 rotate-12 transition-transform duration-[4000ms] group-hover:rotate-45">🚀</div>
           </div>
         )}
 
-        {/* MOBILE UPDATE QR SECTION */}
-        <div className="bg-white border border-gray-100 rounded-[32px] p-8 mb-10 shadow-sm relative overflow-hidden group">
-           <div className="flex flex-col md:flex-row items-center gap-8">
-              <div className="w-40 h-40 bg-gray-50 rounded-3xl p-4 flex items-center justify-center border-2 border-dashed border-gray-200 group-hover:border-primary/30 transition-colors">
-                <img 
-                  src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent('https://seo-junction.vercel.app/post/demo-user')}`} 
-                  alt="Mobile Update QR" 
-                  className="w-full h-full grayscale group-hover:grayscale-0 transition-all"
-                />
-              </div>
-              <div className="flex-1 text-center md:text-left">
-                 <h3 className="text-xl font-black text-gray-900 mb-2 tracking-tight">Update via Phone</h3>
-                 <p className="text-sm text-gray-500 mb-6">Scan this QR code with your phone camera to send updates instantly. **No login required.**</p>
-                 <div className="flex flex-wrap justify-center md:justify-start gap-4">
-                    <button 
-                      onClick={() => {
-                        navigator.clipboard.writeText('https://seo-junction.vercel.app/post/demo-user');
-                        alert('Link copied to clipboard!');
-                      }}
-                      className="text-xs font-bold text-primary bg-primary-light px-4 py-2 rounded-full uppercase tracking-widest hover:bg-primary hover:text-white transition-all"
-                     >
-                      Copy Direct Link
-                    </button>
-                    <span className="text-[10px] font-black text-emerald-600 bg-emerald-50 px-3 py-2 rounded-full uppercase tracking-widest flex items-center gap-1">
-                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                       Active Now
-                    </span>
-                 </div>
-              </div>
-           </div>
-           <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none text-6xl">📱</div>
-        </div>
-
         {/* STATS / FEED (Only visible after activation) */}
         {hasSentUpdate && (
-          <div className="space-y-6">
-            <div className="flex justify-between items-end">
-              <h3 className="font-bold text-gray-900">Recent Activity</h3>
-              <div className="text-xs font-bold text-blue-600">Total Updates: 1</div>
+          <div className="space-y-8">
+            <div className="flex justify-between items-end border-b border-gray-100 pb-4">
+              <h3 className="font-black text-lg text-gray-900 tracking-tight">Recent Activity</h3>
+              <div className="text-[10px] font-black text-primary uppercase tracking-[2px]">Total AI Updates: 1</div>
             </div>
             
-            <div className="bg-white rounded-2xl border border-gray-100 p-4 flex gap-4 items-center">
-              <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center text-xl">✅</div>
+            <div className="bg-white rounded-3xl border border-gray-100 p-6 flex gap-5 items-center shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl border border-emerald-100 shadow-inner">✨</div>
               <div>
-                <div className="text-sm font-bold text-gray-900">First Update Sent</div>
-                <div className="text-xs text-gray-400">Just now · Website & GMB Updated</div>
+                <div className="text-sm font-black text-gray-900 tracking-tight">First AI SEO Update Published</div>
+                <div className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Just now · Website & GMB Synced</div>
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white rounded-2xl border border-gray-100 p-4">
-                <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Google Views</div>
-                <div className="text-xl font-black text-gray-900" style={{fontFamily:'Syne,sans-serif'}}>0</div>
-                <div className="text-[10px] text-gray-400 font-medium">Updates take 24-48h to reflect in stats</div>
+              <div className="bg-white rounded-[32px] border border-gray-100 p-6 shadow-sm">
+                <div className="text-[10px] font-black text-gray-400 uppercase tracking-[3px] mb-2 leading-none">Google Views</div>
+                <div className="text-4xl font-black text-gray-900 leading-none">0<span className="text-xs opacity-20 ml-1">K</span></div>
+                <p className="text-[9px] text-gray-400 font-bold uppercase tracking-widest mt-4 leading-relaxed">Updates take 24-48h to reflect in GMB stats</p>
               </div>
-              <div className="bg-white rounded-2xl border border-gray-100 p-4">
-                <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">New Leads</div>
-                <div className="text-xl font-black text-gray-900" style={{fontFamily:'Syne,sans-serif'}}>0</div>
-                <div className="text-[10px] text-gray-400 font-medium">Keep posting to get your first call</div>
+              <div className="bg-white rounded-[32px] border border-gray-100 p-6 shadow-sm">
+                <div className="text-[10px] font-black text-gray-400 uppercase tracking-[3px] mb-2 leading-none">New Leads</div>
+                <div className="text-4xl font-black text-gray-900 leading-none">0</div>
+                <p className="text-[9px] text-gray-400 font-bold uppercase tracking-widest mt-4 leading-relaxed">Keep posting to trigger your first ranking</p>
               </div>
             </div>
           </div>

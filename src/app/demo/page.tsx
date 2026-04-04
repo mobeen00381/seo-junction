@@ -60,7 +60,7 @@ export default function DemoHubPage() {
       <section className="px-6 py-24 text-center bg-gray-50 dark:bg-slate-900/50 border-b border-gray-100 dark:border-slate-800">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
-            See What Your Website <br /><span className="text-blue-600 dark:text-blue-400 font-bold">Will Look Like</span>
+            See What Your Website <br /><span className="text-primary dark:text-primary-light font-bold">Will Look Like</span>
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
             These are actual demo sites built by our system in under 24 hours. Every trade has a custom optimized experience designed to generate more calls.

@@ -30,10 +30,10 @@ export default function PlumbingDemoPage() {
       <nav className="bg-white border-b px-6 py-6 flex justify-between items-center sticky top-0 z-40 shadow-sm">
         <div className="font-bold text-gray-900 text-xl tracking-tight">Elite Plumbing Pro</div>
         <div className="hidden md:flex gap-10 text-sm font-semibold text-gray-500">
-          <a href="#services" className="hover:text-blue-600">Services</a>
-          <a href="#about" className="hover:text-blue-600">About</a>
-          <a href="#reviews" className="hover:text-blue-600">Reviews</a>
-          <a href="#faq" className="hover:text-blue-600">FAQ</a>
+          <a href="#services" className="hover:text-primary">Services</a>
+          <a href="#about" className="hover:text-primary">About</a>
+          <a href="#reviews" className="hover:text-primary">Reviews</a>
+          <a href="#faq" className="hover:text-primary">FAQ</a>
         </div>
         <a href="tel:5125554821" className="font-bold text-white px-6 py-3 rounded-xl text-sm transition-all hover:opacity-90" style={{ background: '#DC2626' }}>
           Call Now
@@ -68,7 +68,7 @@ export default function PlumbingDemoPage() {
             <div className="w-20 h-20 rounded-full flex items-center justify-center text-white font-bold text-2xl flex-shrink-0 shadow-lg" style={{ background: '#1565C0' }}>CR</div>
             <div>
               <div className="font-bold text-gray-900 text-xl mb-1">Carlos Reyes — TX Licensed Master Plumber</div>
-              <div className="text-sm text-blue-600 font-bold mb-6 uppercase tracking-wide">License #MP-44821 · 16 years serving Austin · Backflow Preventer Certified</div>
+              <div className="text-sm text-primary font-bold mb-6 uppercase tracking-wide">License #MP-44821 · 16 years serving Austin · Backflow Preventer Certified</div>
               <p className="text-gray-700 leading-relaxed text-lg">I grew up in South Congress. I have worked on every type of Austin home — old bungalows in Travis Heights, new builds in Bouldin Creek, and everything in between. I started Elite Plumbing Pro to give Austin families honest, fair plumbing at a price that makes sense. These are my neighbors — I treat every job that way.</p>
             </div>
           </div>
@@ -95,7 +95,7 @@ export default function PlumbingDemoPage() {
                 <div className="text-4xl mb-6 transition-transform group-hover:scale-110">{s.icon}</div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{s.title}</h3>
                 <p className="text-gray-600 leading-relaxed mb-6">{s.desc}</p>
-                <div className="text-xs font-bold text-blue-600 uppercase tracking-widest">{s.nlp}</div>
+                <div className="text-xs font-bold text-primary uppercase tracking-widest">{s.nlp}</div>
               </div>
             ))}
           </div>
@@ -163,7 +163,7 @@ export default function PlumbingDemoPage() {
               </tbody>
             </table>
           </div>
-          <p className="text-xs text-blue-600 mt-3 text-center font-medium">💡 Diagnostic fee waived when you hire us for the repair. Ask when you call.</p>
+          <p className="text-xs text-primary mt-3 text-center font-medium">💡 Diagnostic fee waived when you hire us for the repair. Ask when you call.</p>
         </div>
       </section>
 
@@ -199,9 +199,9 @@ export default function PlumbingDemoPage() {
       </section>
 
       {/* ── BACK TO SEO JUNCTION ── */}
-      <div className="bg-blue-600 text-white text-center py-5 px-6">
+      <div className="bg-primary text-white text-center py-5 px-6">
         <p className="text-sm font-medium mb-2">This site was built by <strong>SEO Junction</strong> in under 24 hours — automatically.</p>
-        <Link href="/onboarding" className="inline-block font-bold text-blue-600 bg-white px-6 py-2 rounded-lg text-sm hover:bg-blue-50 transition-colors">
+        <Link href="/onboarding" className="inline-block font-bold text-primary bg-white px-6 py-2 rounded-lg text-sm hover:bg-gray-50 transition-colors">
           Get a site like this → Start Free Trial
         </Link>
       </div>

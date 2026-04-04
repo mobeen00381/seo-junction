@@ -104,10 +104,10 @@ export default function AgencyPage() {
           <div className="grid md:grid-cols-3 gap-6 mb-10">
             {AGENCY_PLANS.map((p, i) => (
               <div key={i} className={`rounded-2xl border p-6 relative bg-white ${p.popular ? 'border-blue-500 shadow-xl shadow-blue-100' : 'border-gray-200'}`}>
-                {p.popular && <div className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-bold text-white px-4 py-1 rounded-full" style={{ background: '#1565C0' }}>Best Value</div>}
+                {p.popular && <div className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-bold text-white px-4 py-1 rounded-full bg-primary shadow-lg ring-2 ring-white">Best Value</div>}
                 <div className="font-bold text-gray-900 mb-1">{p.name}</div>
                 <div className="text-4xl font-black text-gray-900 mb-1" style={{ fontFamily: 'Syne,sans-serif' }}>${p.price}<span className="text-sm font-normal text-gray-400">/mo</span></div>
-                <div className="text-xs text-blue-600 font-bold mb-2">Up to {p.clients} clients · {p.posts} posts/mo</div>
+                <div className="text-xs text-primary font-bold mb-2">Up to {p.clients} clients · {p.posts} posts/mo</div>
                 <div className="text-xs text-green-600 font-bold bg-green-50 rounded px-2 py-1 mb-5">💰 {p.revenue}</div>
                 <ul className="space-y-2 mb-6">
                   {p.features.map((f, fi) => <li key={fi} className="text-sm text-gray-600 flex gap-2"><span className="text-green-500">✓</span>{f}</li>)}

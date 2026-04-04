@@ -79,7 +79,7 @@ export default function OnboardingPage() {
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
               </span>
            </div>
-           <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-4">Website Live Preview</div>
+           <div className="text-xs font-bold text-primary dark:text-primary-light uppercase tracking-widest mb-4">Website Live Preview</div>
            <div className="aspect-video bg-gray-50 dark:bg-slate-800 rounded-2xl flex flex-col items-center justify-center border border-dashed border-gray-200 dark:border-slate-700 mb-6 px-6 font-bold text-gray-300 dark:text-gray-600 font-inter">
               <div className="text-lg text-blue-500 mb-2">{name}</div>
               <div className="text-[10px] text-gray-400 font-medium mb-4 uppercase tracking-[2px]">{domain}</div>

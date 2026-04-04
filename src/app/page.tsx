@@ -35,8 +35,8 @@ export default function HomePage() {
           <span className="font-bold text-gray-900 dark:text-white text-xl tracking-tight">SEO Junction</span>
         </Link>
         <div className="hidden md:flex gap-10 text-sm font-semibold text-gray-500 dark:text-gray-400">
-          <Link href="/pricing" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Pricing</Link>
-          <Link href="/demo" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Examples</Link>
+          <Link href="/pricing" className="hover:text-primary dark:hover:text-primary-light transition-colors">Pricing</Link>
+          <Link href="/demo" className="hover:text-primary dark:hover:text-primary-light transition-colors">Examples</Link>
         </div>
         <div className="flex gap-5 items-center">
           <ThemeToggle />
@@ -53,7 +53,7 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto px-6 text-center animate-fade-in">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8 leading-[1.1] tracking-tight">
             Show your work.<br />
-            <span className="text-blue-600 dark:text-blue-400">Get discovered on Google.</span>
+            <span className="text-primary dark:text-primary-light">Get discovered on Google.</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
             Send a photo or voice note — we turn it into a professional online presence automatically. No technical skills needed.

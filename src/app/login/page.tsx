@@ -9,7 +9,7 @@ export default function LoginPage() {
           <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-sm" style={{background:'#1565C0'}}>S</div>
           <span className="font-bold" style={{fontFamily:'Syne,sans-serif'}}>SEO Junction</span>
         </Link>
-        <Link href="/onboarding" className="text-sm font-semibold text-blue-600">Create account →</Link>
+        <Link href="/onboarding" className="text-sm font-semibold text-primary">Create account →</Link>
       </nav>
       <div className="flex-1 flex items-center justify-center px-6">
         <div className="bg-white rounded-2xl border border-gray-200 p-8 w-full max-w-sm shadow-sm">
@@ -27,7 +27,7 @@ export default function LoginPage() {
             <button className="w-full font-bold text-white py-3.5 rounded-xl text-sm" style={{background:'#1565C0'}}>Log In</button>
           </div>
           <p className="text-center text-xs text-gray-400 mt-6">
-            No account yet? <Link href="/onboarding" className="text-blue-600 font-semibold">Start free trial →</Link>
+            No account yet? <Link href="/onboarding" className="text-primary font-semibold">Start free trial →</Link>
           </p>
         </div>
       </div>
