@@ -14,15 +14,30 @@
   --glass-border: rgba(255, 255, 255, 0.2);
 }
 
-* { box-sizing: border-box; }
+.dark {
+  --slate-900: #F8FAFC;
+  --glass-bg: rgba(11, 31, 58, 0.3);
+  --glass-border: rgba(255, 255, 255, 0.05);
+}
+
+* { 
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.15s ease;
+}
+
 html { scroll-behavior: smooth; }
 
 body { 
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   color: var(--slate-900);
+  background-color: white;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.dark body {
+  background-color: #020617;
 }
 
 h1, h2, h3, h4, h5, h6 {

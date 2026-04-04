@@ -2,6 +2,7 @@ import Link from 'next/link'
 import LivePreview from '@/components/LivePreview'
 import TemplateGallery from '@/components/TemplateGallery'
 import FaqAccordion from '@/components/FaqAccordion'
+import ThemeToggle from '@/components/ThemeToggle'
 
 const STEPS = [
   { n: '1', icon: '📸', title: 'Send your work', desc: 'Snap a photo or send a voice note of your latest job.' },
@@ -16,7 +17,7 @@ const TESTIMONIALS = [
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white selection:bg-blue-100 selection:text-blue-900">
+    <div className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300">
       
       {/* TOPBAR */}
       <div className="bg-navy text-white text-[10px] py-1.5 px-4 font-bold tracking-widest uppercase flex justify-center gap-8 flex-wrap">
@@ -26,18 +27,19 @@ export default function HomePage() {
       </div>
 
       {/* NAV */}
-      <nav className="bg-white/80 backdrop-blur-md border-b border-gray-100 px-6 py-4 flex justify-between items-center sticky top-0 z-50">
+      <nav className="bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-gray-100 dark:border-slate-800 px-6 py-4 flex justify-between items-center sticky top-0 z-50">
         <Link href="/" className="flex items-center gap-2 group">
           <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold text-xl transition-transform group-hover:scale-105" style={{ background: 'var(--premium-gradient)' }}>S</div>
-          <span className="font-bold text-gray-900 text-xl tracking-tight">SEO Junction</span>
+          <span className="font-bold text-gray-900 dark:text-white text-xl tracking-tight">SEO Junction</span>
         </Link>
-        <div className="hidden md:flex gap-10 text-sm font-semibold text-gray-500">
-          <Link href="/pricing" className="hover:text-blue-600 transition-colors">Pricing</Link>
-          <Link href="/demo" className="hover:text-blue-600 transition-colors">Examples</Link>
+        <div className="hidden md:flex gap-10 text-sm font-semibold text-gray-500 dark:text-gray-400">
+          <Link href="/pricing" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Pricing</Link>
+          <Link href="/demo" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Examples</Link>
         </div>
         <div className="flex gap-5 items-center">
-          <Link href="/login" className="text-sm font-semibold text-gray-500 hover:text-gray-900">Log In</Link>
-          <Link href="/onboarding" className="text-sm font-bold text-white px-6 py-3 rounded-xl shadow-lg shadow-blue-100 hover:opacity-90 transition-all" style={{ background: 'var(--premium-gradient)' }}>
+          <ThemeToggle />
+          <Link href="/login" className="text-sm font-semibold text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">Log In</Link>
+          <Link href="/onboarding" className="text-sm font-bold text-white px-6 py-3 rounded-xl shadow-lg shadow-blue-100 dark:shadow-none hover:opacity-90 transition-all" style={{ background: 'var(--premium-gradient)' }}>
             Get Your Business Online
           </Link>
         </div>
@@ -45,20 +47,20 @@ export default function HomePage() {
 
       {/* HERO SECTION */}
       <section className="relative pt-32 pb-40 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[800px] bg-blue-50/30 rounded-full blur-[120px] -z-10 animate-pulse"></div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[800px] bg-blue-50/30 dark:bg-blue-900/10 rounded-full blur-[120px] -z-10 animate-pulse"></div>
         <div className="max-w-4xl mx-auto px-6 text-center animate-fade-in">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 leading-[1.1] tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8 leading-[1.1] tracking-tight">
             Show your work.<br />
-            <span className="text-blue-600">Get discovered on Google.</span>
+            <span className="text-blue-600 dark:text-blue-400">Get discovered on Google.</span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
             Send a photo or voice note — we turn it into a professional online presence automatically. No technical skills needed.
           </p>
           <div className="flex flex-col items-center gap-6 mb-24">
-            <Link href="/onboarding" className="text-lg font-bold text-white px-12 py-5 rounded-2xl shadow-xl shadow-blue-200 hover:scale-[1.02] active:scale-95 transition-all bg-navy">
+            <Link href="/onboarding" className="text-lg font-bold text-white px-12 py-5 rounded-2xl shadow-xl shadow-blue-200 dark:shadow-none hover:scale-[1.02] active:scale-95 transition-all bg-navy">
               Get Your Business Online
             </Link>
-            <div className="flex items-center gap-6 text-sm font-medium text-gray-400">
+            <div className="flex flex-wrap justify-center items-center gap-6 text-sm font-medium text-gray-400 dark:text-gray-500">
               <span className="flex items-center gap-2">✓ No tech skills needed</span>
               <span className="flex items-center gap-2">✓ Free to start</span>
               <span className="flex items-center gap-2">✓ You stay in control</span>
@@ -73,19 +75,19 @@ export default function HomePage() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="py-32 bg-gray-50 border-y border-gray-100">
+      <section className="py-32 bg-gray-50 dark:bg-slate-900/50 border-y border-gray-100 dark:border-slate-800">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-20">
-            <h2 className="text-3xl font-bold text-gray-900">Three Simple Steps</h2>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Three Simple Steps</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-16">
             {STEPS.map((s, i) => (
               <div key={i} className="text-center">
-                <div className="w-20 h-20 rounded-3xl bg-white shadow-lg flex items-center justify-center text-4xl mx-auto mb-10 border border-gray-100">
+                <div className="w-20 h-20 rounded-3xl bg-white dark:bg-slate-800 shadow-lg flex items-center justify-center text-4xl mx-auto mb-10 border border-gray-100 dark:border-slate-700">
                   {s.icon}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-5">{s.title}</h3>
-                <p className="text-gray-500 leading-relaxed">{s.desc}</p>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-5">{s.title}</h3>
+                <p className="text-gray-500 dark:text-gray-400 leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -120,23 +122,25 @@ export default function HomePage() {
       </section>
 
       {/* TEMPLATE GALLERY SECTION */}
-      <TemplateGallery />
+      <div className="dark:bg-slate-950">
+        <TemplateGallery />
+      </div>
 
       {/* TESTIMONIALS */}
-      <section className="py-24 bg-gray-50 overflow-hidden">
+      <section className="py-24 bg-gray-50 dark:bg-slate-900/50 overflow-hidden">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-gray-900 tracking-tight" style={{ fontFamily: 'var(--font-syne)' }}>Built for real service professionals</h2>
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white tracking-tight">Built for real service professionals</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {TESTIMONIALS.map((t, i) => (
-              <div key={i} className="bg-white p-10 rounded-[40px] shadow-sm border border-gray-100 flex flex-col items-center text-center">
-                <div className="w-16 h-16 rounded-full font-black text-white flex items-center justify-center text-xl mb-6 shadow-lg rotate-3" style={{ background: t.color }}>{t.name[0]}</div>
+              <div key={i} className="bg-white dark:bg-slate-800 p-10 rounded-[40px] shadow-sm border border-gray-100 dark:border-slate-700 flex flex-col items-center text-center">
+                <div className="w-16 h-16 rounded-full font-bold text-white flex items-center justify-center text-xl mb-6 shadow-lg rotate-3" style={{ background: t.color }}>{t.name[0]}</div>
                 <div className="text-amber-400 text-xl mb-6">★★★★★</div>
-                <p className="text-xl font-bold text-gray-800 italic leading-relaxed mb-8">&ldquo;{t.quote}&rdquo;</p>
+                <p className="text-xl font-bold text-gray-800 dark:text-gray-200 italic leading-relaxed mb-8">&ldquo;{t.quote}&rdquo;</p>
                 <div>
-                  <div className="text-sm font-black text-gray-900 uppercase tracking-widest">{t.name}</div>
-                  <div className="text-xs text-gray-400 mt-1 font-bold">{t.trade} · {t.city}</div>
+                  <div className="text-sm font-black text-gray-900 dark:text-white uppercase tracking-widest">{t.name}</div>
+                  <div className="text-xs text-gray-400 dark:text-gray-500 mt-1 font-bold">{t.trade} · {t.city}</div>
                 </div>
               </div>
             ))}
@@ -145,44 +149,44 @@ export default function HomePage() {
       </section>
 
       {/* BENEFIT SECTION */}
-      <section className="py-24 px-6">
+      <section className="py-24 px-6 dark:bg-slate-950">
          <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-12">
             <div className="text-center">
                <div className="text-4xl mb-6">📍</div>
-               <h3 className="font-black text-gray-900 mb-3 uppercase tracking-tight">Be seen by local customers</h3>
-               <p className="text-gray-500 text-sm leading-relaxed">Appear in local searches when neighbors look for your services.</p>
+               <h3 className="font-bold text-gray-900 dark:text-white mb-3 uppercase tracking-tight">Be seen by local customers</h3>
+               <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Appear in local searches when neighbors look for your services.</p>
             </div>
             <div className="text-center">
                <div className="text-4xl mb-6">🤝</div>
-               <h3 className="font-black text-gray-900 mb-3 uppercase tracking-tight">Build trust with your work</h3>
-               <p className="text-gray-500 text-sm leading-relaxed">Show off your craft with photos and voice-to-text project updates.</p>
+               <h3 className="font-bold text-gray-900 dark:text-white mb-3 uppercase tracking-tight">Build trust with your work</h3>
+               <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Show off your craft with photos and voice-to-text project updates.</p>
             </div>
             <div className="text-center">
                <div className="text-4xl mb-6">📈</div>
-               <h3 className="font-black text-gray-900 mb-3 uppercase tracking-tight">Turn your jobs into proof</h3>
-               <p className="text-gray-500 text-sm leading-relaxed">Every job becomes more proof that you are the best pro in town.</p>
+               <h3 className="font-bold text-gray-900 dark:text-white mb-3 uppercase tracking-tight">Turn your jobs into proof</h3>
+               <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Every job becomes more proof that you are the best pro in town.</p>
             </div>
          </div>
       </section>
 
       {/* EXPECTATION SETTING (LEGAL + TRUST) */}
-      <div className="max-w-xl mx-auto text-center pb-20 px-6">
-        <p className="text-[10px] text-gray-400 font-medium uppercase tracking-[2px] mb-8 select-none">
+      <div className="max-w-xl mx-auto text-center pb-20 px-6 dark:bg-slate-950">
+        <p className="text-[10px] text-gray-400 dark:text-gray-500 font-medium uppercase tracking-[2px] mb-8 select-none">
           Results may vary. We help improve your online visibility, not guarantee rankings.
         </p>
-        <Link href="/onboarding" className="inline-flex items-center gap-3 text-lg font-black text-white px-12 py-6 rounded-3xl shadow-3xl shadow-blue-200 hover:scale-105 active:scale-95 transition-all bg-navy">
+        <Link href="/onboarding" className="inline-flex items-center gap-3 text-lg font-black text-white px-12 py-6 rounded-3xl shadow-3xl shadow-blue-200 dark:shadow-none hover:scale-105 active:scale-95 transition-all bg-navy">
           Get Started Now <span className="text-2xl">→</span>
         </Link>
       </div>
 
       {/* FOOTER */}
-      <footer className="bg-white border-t border-gray-100 py-12 px-6">
+      <footer className="bg-white dark:bg-slate-950 border-t border-gray-100 dark:border-slate-800 py-12 px-6">
         <div className="max-w-5xl mx-auto text-center">
           <div className="flex items-center justify-center gap-2 mb-6">
-            <div className="w-7 h-7 rounded-lg bg-navy flex items-center justify-center text-white font-black text-xs">S</div>
-            <span className="font-black text-gray-900 text-sm tracking-tight" style={{ fontFamily: 'var(--font-syne)' }}>SEO Junction</span>
+            <div className="w-7 h-7 rounded-lg bg-navy flex items-center justify-center text-white font-bold text-xs">S</div>
+            <span className="font-bold text-gray-900 dark:text-white text-sm tracking-tight">SEO Junction</span>
           </div>
-          <p className="text-xs text-gray-400 font-bold uppercase tracking-widest">© 2026 SEO Junction. All rights reserved.</p>
+          <p className="text-xs text-gray-400 dark:text-gray-500 font-bold uppercase tracking-widest">© 2026 SEO Junction. All rights reserved.</p>
         </div>
       </footer>
 

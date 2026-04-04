@@ -28,30 +28,30 @@ export default function PricingPage() {
     <div className="min-h-screen bg-white">
       <nav className="border-b px-6 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-sm" style={{background:'#1565C0'}}>S</div>
-          <span className="font-bold" style={{fontFamily:'Syne, sans-serif'}}>SEO Junction</span>
+          <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-sm bg-navy">S</div>
+          <span className="font-bold text-gray-900 tracking-tight">SEO Junction</span>
         </Link>
-        <Link href="/onboarding" className="text-sm font-bold px-4 py-2 rounded-lg" style={{background:'#F59E0B', color:'#000'}}>Start Free Trial</Link>
+        <Link href="/onboarding" className="text-sm font-bold px-6 py-3 rounded-xl bg-navy text-white hover:opacity-90 transition-all shadow-lg shadow-blue-100">Start Free Trial</Link>
       </nav>
 
       <div className="max-w-5xl mx-auto px-6 py-20">
         <div className="text-center mb-16">
-          <div className="text-xs font-bold tracking-widest uppercase text-blue-600 mb-3">Pricing</div>
-          <h1 className="text-4xl font-black text-gray-900 mb-4" style={{fontFamily:'Syne, sans-serif'}}>More Google Calls.<br />Starting at $19/Month.</h1>
-          <p className="text-gray-500 max-w-md mx-auto">30-day free trial on all plans. Only pay the $19.99 domain fee today. Cancel anytime.</p>
+          <div className="text-xs font-bold tracking-widest uppercase text-blue-600 dark:text-blue-400 mb-3">Pricing</div>
+          <h1 className="text-4xl font-black text-gray-900 mb-4 tracking-tight leading-tight">More Google Calls.<br />Starting at $19/Month.</h1>
+          <p className="text-gray-500 max-w-md mx-auto font-medium">30-day free trial on all plans. Only pay the $19.99 domain fee today. Cancel anytime.</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 mb-16">
           {PLANS.map((p) => (
-            <div key={p.name} className={`rounded-2xl border p-6 relative ${p.popular?'border-blue-500 shadow-xl shadow-blue-100':'border-gray-200'}`}>
-              {p.popular&&<div className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-bold text-white px-4 py-1 rounded-full" style={{background:'#1565C0'}}>Most Popular</div>}
-              <div className="font-bold text-gray-900 mb-1">{p.name}</div>
-              <div className="text-4xl font-black text-gray-900 mb-1" style={{fontFamily:'Syne, sans-serif'}}>${p.price}<span className="text-sm font-normal text-gray-400">/mo</span></div>
-              <div className="text-xs text-blue-600 font-bold mb-6">{p.posts} AI posts/month</div>
+            <div key={p.name} className={`rounded-3xl border p-8 relative transition-all ${p.popular?'border-blue-600 shadow-2xl shadow-blue-50':'border-gray-100 hover:border-gray-200 shadow-sm'}`}>
+              {p.popular&&<div className="absolute -top-3 left-1/2 -translate-x-1/2 text-[10px] font-black text-white px-5 py-1.5 rounded-full uppercase tracking-widest bg-navy">Most Popular</div>}
+              <div className="font-bold text-gray-400 uppercase text-[10px] tracking-widest mb-2">{p.name}</div>
+              <div className="text-4xl font-black text-gray-900 mb-1 tracking-tighter">${p.price}<span className="text-sm font-bold text-gray-300">/mo</span></div>
+              <div className="text-xs text-blue-600 font-bold mb-8 uppercase tracking-wide">{p.posts} AI posts/month</div>
               <ul className="space-y-2.5 mb-7">
                 {p.features.map((f,i)=><li key={i} className="text-sm text-gray-600 flex gap-2"><span className="text-green-500 flex-shrink-0">✓</span>{f}</li>)}
               </ul>
-              <Link href="/onboarding" className={`block text-center text-sm font-bold py-3 rounded-xl transition-all ${p.popular?'text-white':'text-gray-900 border border-gray-200'}`} style={p.popular?{background:'#1565C0'}:{}}>
+              <Link href="/onboarding" className={`block text-center text-sm font-bold py-4 rounded-2xl transition-all shadow-lg ${p.popular?'bg-navy text-white hover:scale-[1.02]':'text-gray-900 border-2 border-gray-100 hover:bg-gray-50'}`}>
                 Start 30-Day Free Trial
               </Link>
             </div>
@@ -60,9 +60,9 @@ export default function PricingPage() {
 
         {/* SAMPLE AI POST */}
         <div className="bg-gray-50 rounded-2xl border border-gray-200 p-8 mb-16">
-          <div className="text-center mb-8">
-            <div className="text-xs font-bold tracking-widest uppercase text-blue-600 mb-2">Example Output</div>
-            <h2 className="text-2xl font-black text-gray-900" style={{fontFamily:'Syne, sans-serif'}}>Here Is Exactly What Your AI Post Looks Like</h2>
+          <div className="text-center mb-12">
+            <div className="text-xs font-bold tracking-widest uppercase text-blue-600 mb-3">Example Output</div>
+            <h2 className="text-3xl font-black text-gray-900 tracking-tight">Here Is Exactly What Your AI Post Looks Like</h2>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 overflow-hidden max-w-2xl mx-auto">
             <div className="h-36 flex items-center justify-center text-5xl" style={{background:'linear-gradient(135deg,#EFF6FF,#DBEAFE)'}}>🌡️</div>
@@ -84,8 +84,8 @@ export default function PricingPage() {
         </div>
 
         {/* FAQ */}
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-2xl font-black text-center text-gray-900 mb-8" style={{fontFamily:'Syne, sans-serif'}}>Everything You Need to Know</h2>
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl font-black text-center text-gray-900 mb-12 tracking-tight">Everything You Need to Know</h2>
           <div className="space-y-3">
             {FAQS.map((f,i)=>(
               <details key={i} className="border border-gray-200 rounded-xl">
