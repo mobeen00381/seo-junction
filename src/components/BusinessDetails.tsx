@@ -14,6 +14,7 @@ export default function BusinessDetails({ onComplete, onBack, initialData }: Bus
   const [zip, setZip] = useState(initialData?.zip || '')
   const [country, setCountry] = useState(initialData?.country || 'US')
   const [phone, setPhone] = useState(initialData?.phone || '')
+  const [whatsapp, setWhatsapp] = useState(initialData?.whatsapp || '')
   const [description, setDescription] = useState(initialData?.description || '')
 
   const countries = [
@@ -90,7 +91,7 @@ export default function BusinessDetails({ onComplete, onBack, initialData }: Bus
             </select>
           </div>
 
-          <div className="md:col-span-2">
+          <div>
             <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Business Phone</label>
             <input 
               type="tel" 
@@ -98,6 +99,17 @@ export default function BusinessDetails({ onComplete, onBack, initialData }: Bus
               onChange={e => setPhone(e.target.value)} 
               placeholder="+1 (555) 000-0000"
               className="w-full bg-gray-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary focus:bg-white dark:focus:bg-slate-700 rounded-xl px-5 py-4 text-sm font-bold transition-all outline-none dark:text-white"
+            />
+          </div>
+
+          <div>
+            <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">WhatsApp Number</label>
+            <input 
+              type="tel" 
+              value={whatsapp} 
+              onChange={e => setWhatsapp(e.target.value)} 
+              placeholder="+1 (555) 000-0000"
+              className="w-full bg-gray-50 dark:bg-slate-800 border-2 border-transparent focus:border-emerald-500 focus:bg-white dark:focus:bg-slate-700 rounded-xl px-5 py-4 text-sm font-bold transition-all outline-none dark:text-white"
             />
           </div>
 
@@ -125,7 +137,7 @@ export default function BusinessDetails({ onComplete, onBack, initialData }: Bus
           </button>
           <button 
             disabled={!isFormValid}
-            onClick={() => onComplete({ address, city, state, zip, country, phone, description })}
+            onClick={() => onComplete({ address, city, state, zip, country, phone, whatsapp, description })}
             className="flex-[2] bg-primary text-white font-bold py-5 rounded-2xl text-lg disabled:opacity-20 hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-primary/10 dark:shadow-none"
           >
             Continue →

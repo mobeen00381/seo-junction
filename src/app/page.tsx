@@ -72,7 +72,7 @@ export default function HomePage() {
 
         {/* LIVE PREVIEW INTEGRATION */}
         <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
-          <LivePreview />
+          <LivePreview whatsapp="+1234567890" businessName="Mike's Electric" domain="mikes-electric.com" />
         </div>
       </section>
 
