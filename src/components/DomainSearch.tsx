@@ -31,12 +31,11 @@ export default function DomainSearch({ businessName, onSelect, onBack }: DomainS
     const base = q.toLowerCase().replace(/[^a-zA-Z0-9]/g, '')
     const tlds = [
       { tld: 'com', price: '$19.99/yr', badge: 'Popular' },
-      { tld: 'net', price: '$18.99/yr' },
-      { tld: 'org', price: '$17.99/yr' },
-      { tld: 'us', price: '$14.99/yr', badge: 'US Only' },
-      { tld: 'co', price: '$24.99/yr', badge: 'Trending' },
-      { tld: 'io', price: '$49.99/yr', badge: 'Tech' },
-      { tld: 'ai', price: '$99.99/yr', badge: 'AI Focus' }
+      { tld: 'net', price: '$19.99/yr' },
+      { tld: 'org', price: '$19.99/yr' },
+      { tld: 'us', price: '$19.99/yr', badge: 'US Only' },
+      { tld: 'biz', price: '$19.99/yr' },
+      { tld: 'info', price: '$19.99/yr' }
     ]
 
     // Realistic simulation: Some common names are taken
