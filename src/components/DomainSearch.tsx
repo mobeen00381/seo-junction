@@ -34,6 +34,9 @@ export default function DomainSearch({ businessName, onSelect, onBack }: DomainS
       { tld: 'net', price: '$19.99/yr' },
       { tld: 'org', price: '$19.99/yr' },
       { tld: 'us', price: '$19.99/yr', badge: 'US Only' },
+      { tld: 'ca', price: '$19.99/yr', badge: 'Canada' },
+      { tld: 'in', price: '$19.99/yr', badge: 'India' },
+      { tld: 'pk', price: '$19.99/yr', badge: 'Pakistan' },
       { tld: 'biz', price: '$19.99/yr' },
       { tld: 'info', price: '$19.99/yr' }
     ]
