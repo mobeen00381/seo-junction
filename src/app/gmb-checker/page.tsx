@@ -3,38 +3,52 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import confetti from 'canvas-confetti'
 
-const TRADE_WINS: Record<string, string[]> = {
-  Plumber: [
-    'Add your license number to your description and use conversational tone for AI engines.',
-    'List every specialized service: Leak detection, Pipe lining, Emergency service.',
-    'Entity-based SEO: Your city mentioned and geo-tagged images are top priorities.'
-  ],
-  Electrician: [
-     'Enable Messaging to capture high-intent AEO searches.',
-     'List panel upgrades, EV chargers, and GFCI separately for search density.',
-     'Add ZIP code service areas individually to maximize local map radius.'
-  ],
-  Other: [
-    'Name, Address, Phone (NAP) consistency across directories is non-negotiable.',
-    'Weekly GMB Posts are the highest-value activity you can do for ranking.',
-    'Ask for 5-star reviews immediately upon project completion.'
-  ]
-}
-
-const ANALYSIS_STEPS = [
-  "Scanning Google Search Index...",
-  "Analyzing Answer Engine (AEO) Visibility...",
-  "Evaluating Generative Engine (GEO) Proximity...",
-  "Synthesizing SEO Score Breakdown..."
+const TRADES = [
+  'Plumber', 'Electrician', 'HVAC Technician', 'Roofer', 'Landscaper', 
+  'Locksmith', 'House Cleaner', 'Dentist', 'Lawyer', 'Real Estate Agent'
 ]
 
-function calcBreakdown(name: string, city: string, trade: string) {
-  // Low Initial Scores (Real-world common gaps)
+const TRADE_INSIGHTS: Record<string, { seo: string[], aeo: string[], geo: string[] }> = {
+  Plumber: {
+    seo: ['Missing "Emergency Service" keyword density.', 'NAP inconsistency in Yelp vs GMB.'],
+    aeo: ['No conversational FAQ for "best plumber near me".', 'Missing license # in description for AI trust.'],
+    geo: ['Entity proximity low for neighborhood clusters.', 'No geo-tagged project photos.']
+  },
+  Electrician: {
+    seo: ['Missing panel upgrade specific landing pages.', 'Low mobile speed on current site.'],
+    aeo: ['Voice search "electrician near me" defaults to competitors.', 'No mentions of EV charger installation in entity graph.'],
+    geo: ['Map radius limited by city-only mentions.', 'Zero local citations in trade-specific directories.']
+  },
+  HVAC: {
+    seo: ['Seasonal keywords (AC repair, Heating) not optimized.', 'Low backlink profile for local service area.'],
+    aeo: ['Missing structured data for service availability.', 'AI agents cannot find your business hours.'],
+    geo: ['Proximity score low for 10-mile radius.', 'Competitors have 3x more local geo-checkins.']
+  },
+  Other: {
+    seo: ['Generic metadata without local intent.', 'Low keyword relevance for primary services.'],
+    aeo: ['Missing Answer Engine Schema (FAQ/Service).', 'AI trust score low due to missing credentials.'],
+    geo: ['Entity proximity needs geo-specific content.', 'Local map reach is currently restricted.']
+  }
+}
+
+const ANALYSIS_LOGS = [
+  "Initializing Google Search Index scan...",
+  "Querying ChatGPT-4o Entity database...",
+  "Analyzing Answer Engine (AEO) conversational reach...",
+  "Checking Generative Search (GEO) proximity graph...",
+  "Calculating Schema.org structured data density...",
+  "Verifying NAP (Name, Address, Phone) across 40+ directories...",
+  "Synthesizing final Audit Score..."
+]
+
+function getScores(name: string, city: string, trade: string) {
+  // Simulating realistic start scores
+  const base = 35 + (name.length % 10);
   return {
-    seo: 42 + (name.length % 5),
-    aeo: 38 + (city.length % 5),
-    geo: 31 + (trade.length % 5),
-    total: 42
+    seo: base + (city.length % 5),
+    aeo: base - 5 + (trade.length % 5),
+    geo: base - 8 + (name.length % 3),
+    total: base
   }
 }
 
@@ -43,49 +57,49 @@ export default function GmbCheckerPage() {
   const [city, setCity] = useState('')
   const [trade, setTrade] = useState('Plumber')
   const [step, setStep] = useState<'input' | 'loading' | 'result' | 'optimized'>('input')
-  const [loadStep, setLoadStep] = useState(0)
+  const [logIndex, setLogIndex] = useState(0)
   const [scores, setScores] = useState({ seo: 0, aeo: 0, geo: 0, total: 0 })
   const [animatedScore, setAnimatedScore] = useState(0)
+  const [isFixing, setIsFixing] = useState(false)
 
-  // LOADING SEQUENCE
+  // Loading Sequence (Neural Scan Effect)
   useEffect(() => {
     if (step === 'loading') {
-      let currentStep = 0;
       const interval = setInterval(() => {
-        if (currentStep < ANALYSIS_STEPS.length - 1) {
-          currentStep++;
-          setLoadStep(currentStep);
-        } else {
+        setLogIndex(prev => {
+          if (prev < ANALYSIS_LOGS.length - 1) return prev + 1;
           clearInterval(interval);
-          setScores(calcBreakdown(name, city, trade));
+          setScores(getScores(name, city, trade));
           setStep('result');
-        }
-      }, 1200);
+          return prev;
+        });
+      }, 1000);
       return () => clearInterval(interval);
     }
   }, [step, name, city, trade]);
 
-  // SCORE ANIMATION: Initial
+  // Score Animation
   useEffect(() => {
     if (step === 'result' && animatedScore < scores.total) {
       const timer = setTimeout(() => {
         setAnimatedScore(prev => Math.min(scores.total, prev + 1));
-      }, 20);
+      }, 30);
       return () => clearTimeout(timer);
     }
   }, [step, animatedScore, scores.total]);
 
-  // WOW MOVEMENT: Jump to Optimized
   const handleOptimize = () => {
-    setStep('optimized');
-    let target = 98;
+    setIsFixing(true);
+    let target = 97;
     const interval = setInterval(() => {
       setAnimatedScore(prev => {
         if (prev >= target) {
           clearInterval(interval);
+          setStep('optimized');
+          setIsFixing(false);
           confetti({
              particleCount: 150,
-             spread: 70,
+             spread: 80,
              origin: { y: 0.6 },
              colors: ['#2563EB', '#F59E0B', '#10B981']
           });
@@ -93,8 +107,10 @@ export default function GmbCheckerPage() {
         }
         return prev + 1;
       });
-    }, 15);
+    }, 20);
   };
+
+  const getInsights = (t: string) => TRADE_INSIGHTS[t] || TRADE_INSIGHTS['Other'];
 
   const getHealthColor = (s: number) => {
     if (s > 90) return 'text-emerald-500';
@@ -103,24 +119,17 @@ export default function GmbCheckerPage() {
     return 'text-red-500';
   }
 
-  const getHealthBg = (s: number) => {
-    if (s > 90) return 'bg-emerald-50 text-emerald-600 border-emerald-100';
-    if (s > 80) return 'bg-blue-50 text-blue-600 border-blue-100';
-    if (s > 60) return 'bg-amber-50 text-amber-600 border-amber-100';
-    return 'bg-red-50 text-red-600 border-red-100';
-  }
-
   return (
-    <div className="min-h-screen bg-[#FDFDFD] text-slate-900 font-sans selection:bg-primary/10">
+    <div className="min-h-screen bg-[#FAFAFA] text-slate-900 font-sans selection:bg-primary/20">
       
-      {/* HEADER NAV */}
-      <nav className="px-8 py-6 border-b border-slate-100 flex justify-between items-center bg-white sticky top-0 z-50">
+      {/* HEADER */}
+      <nav className="px-8 py-6 border-b border-slate-100 flex justify-between items-center bg-white/80 backdrop-blur-md sticky top-0 z-50">
         <Link href="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-2xl bg-primary text-white flex items-center justify-center font-black text-xl shadow-xl shadow-primary/20">S</div>
-          <span className="font-black text-xl tracking-tighter text-slate-900">SEO Junction</span>
+          <div className="w-10 h-10 rounded-2xl bg-primary text-white flex items-center justify-center font-black text-xl shadow-xl shadow-primary/30">S</div>
+          <span className="font-black text-2xl tracking-tighter text-slate-900">SEO Junction</span>
         </Link>
-        <Link href="/onboarding" className="bg-slate-900 text-white font-black px-6 py-3 rounded-2xl text-xs uppercase tracking-widest hover:scale-105 active:scale-95 transition-all">
-          Start Free Trial →
+        <Link href="/onboarding" className="bg-slate-900 text-white font-black px-6 py-3 rounded-2xl text-xs uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-lg shadow-slate-200">
+          Get Started →
         </Link>
       </nav>
 
@@ -130,206 +139,236 @@ export default function GmbCheckerPage() {
         {step === 'input' && (
           <div className="animate-in fade-in slide-in-from-bottom-8 duration-700">
              <div className="text-center mb-16">
-                <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-[3px] mb-6 shadow-sm border border-primary/5">Advanced GMB Audit</div>
+                <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-[3.2px] mb-6 border border-primary/10">Neural GMB Audit 4.0</div>
                 <h1 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter mb-6 leading-none">
-                   Is your business<br />
-                   <span className="text-primary underline decoration-primary/20 underline-offset-8">Invisible on Google?</span>
+                   The <span className="text-primary italic">Answers</span> are<br />
+                   changing. Are you?
                 </h1>
-                <p className="text-slate-500 font-medium text-lg max-w-2xl mx-auto">Analyze your ranking potential across SEO, Answer Engines (AEO), and Generative Search (GEO) in seconds.</p>
+                <p className="text-slate-500 font-medium text-lg max-w-2xl mx-auto">See how ChatGPT, Perplexity, and Google's AI Search see your business in 10 seconds.</p>
              </div>
 
-             <div className="bg-white rounded-[48px] border border-slate-100 p-12 shadow-2xl shadow-slate-200/50 relative overflow-hidden group">
-                <div className="absolute top-0 right-0 p-12 text-9xl opacity-5 rotate-12 -translate-y-8 translate-x-8 pointer-events-none">🏢</div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
-                   <div className="space-y-6">
-                      <div>
-                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-2">Business Name</label>
+             <div className="bg-white rounded-[48px] border border-slate-100 p-12 shadow-2xl shadow-slate-200/40 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-12 text-9xl opacity-[0.03] rotate-12 -translate-y-8 translate-x-8 pointer-events-none">🤖</div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 relative z-10">
+                   <div className="space-y-8">
+                      <div className="group">
+                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-3 group-focus-within:text-primary transition-colors">Business Name</label>
                         <input 
                           type="text" value={name} onChange={e => setName(e.target.value)}
-                          placeholder="e.g. Master Plumbers Chicago"
-                          className="w-full bg-slate-50 border border-slate-100 rounded-[28px] px-8 py-6 font-bold focus:bg-white focus:ring-4 focus:ring-primary/5 transition-all outline-none"
+                          placeholder="e.g. Skyline Electrical Solutions"
+                          className="w-full bg-slate-50 border border-slate-100 rounded-[28px] px-8 py-6 font-bold focus:bg-white focus:ring-4 focus:ring-primary/5 focus:border-primary/20 transition-all outline-none"
                         />
                       </div>
                       <div>
-                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-2">City & State</label>
+                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-3">City & State</label>
                         <input 
                           type="text" value={city} onChange={e => setCity(e.target.value)}
-                          placeholder="e.g. Chicago, IL"
-                          className="w-full bg-slate-50 border border-slate-100 rounded-[28px] px-8 py-6 font-bold focus:bg-white focus:ring-4 focus:ring-primary/5 transition-all outline-none"
+                          placeholder="e.g. Austin, TX"
+                          className="w-full bg-slate-50 border border-slate-100 rounded-[28px] px-8 py-6 font-bold focus:bg-white focus:ring-4 focus:ring-primary/5 focus:border-primary/20 transition-all outline-none"
                         />
                       </div>
                    </div>
-                   <div className="space-y-6">
+                   <div className="space-y-8">
                       <div>
-                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-2">Primary Trade</label>
+                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-3">Primary Trade</label>
                         <select 
                           value={trade} onChange={e => setTrade(e.target.value)}
-                          className="w-full bg-slate-50 border border-slate-100 rounded-[28px] px-8 py-6 font-bold focus:bg-white focus:ring-4 focus:ring-primary/5 transition-all outline-none appearance-none"
+                          className="w-full bg-slate-50 border border-slate-100 rounded-[28px] px-8 py-6 font-bold focus:bg-white focus:ring-4 focus:ring-primary/5 focus:border-primary/20 transition-all outline-none appearance-none"
                         >
-                           <option>Plumber</option>
-                           <option>Electrician</option>
-                           <option>HVAC</option>
-                           <option>Roofer</option>
-                           <option>Other Service</option>
+                           {TRADES.map(t => <option key={t}>{t}</option>)}
                         </select>
                       </div>
                       <button 
                          onClick={() => setStep('loading')}
                          disabled={!name || !city}
-                         className="w-full h-full bg-primary text-white font-black py-6 rounded-[28px] text-2xl shadow-2xl shadow-primary/30 hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-30 flex items-center justify-center gap-4"
+                         className="w-full h-[88px] bg-primary text-white font-black rounded-[28px] text-2xl shadow-2xl shadow-primary/30 hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-30 disabled:hover:scale-100 flex items-center justify-center gap-4"
                       >
-                         Audit My GMB →
+                         Scan My Profile →
                       </button>
                    </div>
                 </div>
-                <div className="mt-12 text-center text-[10px] font-bold text-slate-400 uppercase tracking-[4px]">
-                   No Login Required • Total Privacy Guaranteed • 10-Second Analysis
+                <div className="mt-12 text-center text-[10px] font-bold text-slate-400 uppercase tracking-[4px] opacity-60">
+                   Used by 8,400+ Local Businesses Worldwide
                 </div>
              </div>
           </div>
         )}
 
-        {/* STEP 2: LOADING */}
+        {/* STEP 2: NEURAL LOADING */}
         {step === 'loading' && (
            <div className="text-center py-24 animate-in fade-in duration-500">
-              <div className="w-24 h-24 border-8 border-primary/10 border-t-primary rounded-full animate-spin mx-auto mb-12 shadow-xl shadow-primary/20"></div>
-              <h2 className="text-3xl font-black text-slate-900 mb-4 tracking-tight">{ANALYSIS_STEPS[loadStep]}</h2>
-              <p className="text-slate-400 font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2">
-                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                 Neural AI Engine Processing...
-              </p>
+              <div className="w-32 h-32 relative mx-auto mb-16">
+                 <div className="absolute inset-0 border-8 border-primary/10 rounded-full"></div>
+                 <div className="absolute inset-0 border-8 border-t-primary rounded-full animate-spin"></div>
+                 <div className="absolute inset-0 flex items-center justify-center text-4xl animate-pulse">📡</div>
+              </div>
+              <div className="max-w-md mx-auto space-y-4">
+                 <h2 className="text-2xl font-black text-slate-900 tracking-tight">{ANALYSIS_LOGS[logIndex]}</h2>
+                 <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+                    <div 
+                      className="h-full bg-primary transition-all duration-1000 ease-out"
+                      style={{ width: `${((logIndex + 1) / ANALYSIS_LOGS.length) * 100}%` }}
+                    />
+                 </div>
+                 <p className="text-slate-400 font-bold text-[10px] uppercase tracking-widest animate-pulse">
+                    Cross-referencing Generative Graph Indexes...
+                 </p>
+              </div>
            </div>
         )}
 
-        {/* STEP 3 & 4: RESULT / OPTIMIZED */}
+        {/* STEP 3: RESULTS / WOW MOVEMENT */}
         {(step === 'result' || step === 'optimized') && (
            <div className="animate-in fade-in slide-in-from-bottom-8 duration-700">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
                  
-                 {/* MAIN SCORE CARD */}
-                 <div className="bg-white rounded-[48px] border border-slate-100 p-12 shadow-sm text-center flex flex-col items-center justify-center relative overflow-hidden group">
-                    <div className="text-[10px] font-black text-slate-400 uppercase tracking-[4px] mb-10">Local Search Authority</div>
-                    <div className="relative w-56 h-56 flex items-center justify-center mb-10">
+                 {/* SCORE CIRCLE */}
+                 <div className="lg:col-span-5 bg-white rounded-[48px] border border-slate-100 p-12 shadow-sm flex flex-col items-center justify-center relative">
+                    <div className="text-[10px] font-black text-slate-400 uppercase tracking-[4px] mb-10">AI Interaction Score</div>
+                    <div className="relative w-64 h-64 flex items-center justify-center mb-10">
                        <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
-                          <circle cx="50" cy="50" r="44" fill="none" stroke="#F1F5F9" strokeWidth="8"/>
+                          <circle cx="50" cy="50" r="44" fill="none" stroke="#F1F5F9" strokeWidth="6"/>
                           <circle cx="50" cy="50" r="44" fill="none" stroke="currentColor" strokeWidth="8"
                             strokeDasharray={`${(animatedScore/100)*276.5} 276.5`} strokeLinecap="round" 
-                            className={`transition-all duration-500 ${getHealthColor(animatedScore)}`}
+                            className={`transition-all duration-300 ${getHealthColor(animatedScore)}`}
                           />
                        </svg>
                        <div className="absolute inset-0 flex flex-col items-center justify-center">
-                          <span className="text-7xl font-black text-slate-900 tracking-tighter">{animatedScore}</span>
-                          <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest mt-1">out of 100</span>
+                          <span className={`text-8xl font-black tracking-tighter transition-colors duration-500 ${isFixing ? 'text-primary animate-pulse' : 'text-slate-900'}`}>{animatedScore}</span>
+                          <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">out of 100</span>
                        </div>
                     </div>
-                    <div className={`px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest border transition-colors ${getHealthBg(animatedScore)}`}>
-                       {animatedScore > 90 ? 'Elite Performance' : animatedScore > 80 ? 'Good Ranking' : 'Critical Gaps Detected'}
+                    <div className={`px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest border transition-all ${step === 'optimized' ? 'bg-emerald-50 text-emerald-600 border-emerald-100' : 'bg-red-50 text-red-600 border-red-100'}`}>
+                       {step === 'optimized' ? 'AI Optimized Profile' : 'High Friction Detected'}
                     </div>
                  </div>
 
-                 {/* ANALYSIS PILLARS */}
-                 <div className="bg-slate-900 rounded-[48px] p-12 text-white shadow-2xl relative overflow-hidden">
-                    <h3 className="text-xl font-black mb-8 tracking-tight">AI Analysis Breakdown</h3>
-                    <div className="space-y-8">
+                 {/* ANALYTICS PANEL */}
+                 <div className="lg:col-span-7 bg-slate-900 rounded-[48px] p-12 text-white shadow-2xl relative overflow-hidden">
+                    <h3 className="text-2xl font-black mb-10 tracking-tight flex items-center gap-3">
+                       <span className="p-2 bg-white/10 rounded-xl text-lg">📊</span> Detailed Breakdown
+                    </h3>
+                    <div className="space-y-10">
                        {[
-                         { label: 'Search Engine Optimization (SEO)', score: step === 'optimized' ? 98 : scores.seo, total: 100, icon: '🔍' },
-                         { label: 'Answer Engine Optimization (AEO)', score: step === 'optimized' ? 96 : scores.aeo, total: 100, icon: '🤖' },
-                         { label: 'Generative Search (GEO)', score: step === 'optimized' ? 97 : scores.geo, total: 100, icon: '🎙️' }
+                         { label: 'SEO (Search Engine Reach)', score: step === 'optimized' ? 98 : scores.seo, icon: '🔍', color: 'bg-primary' },
+                         { label: 'AEO (Answer Engine Visibility)', score: step === 'optimized' ? 96 : scores.aeo, icon: '🤖', color: 'bg-emerald-500' },
+                         { label: 'GEO (Generative Engine Trust)', score: step === 'optimized' ? 95 : scores.geo, icon: '🎙️', color: 'bg-amber-500' }
                        ].map((p, i) => (
-                         <div key={i} className="space-y-3">
-                            <div className="flex justify-between items-center">
-                               <div className="flex items-center gap-3">
-                                  <span className="text-xl">{p.icon}</span>
-                                  <span className="text-[10px] font-black uppercase tracking-widest opacity-60">{p.label}</span>
+                         <div key={i} className="space-y-4">
+                            <div className="flex justify-between items-center group">
+                               <div className="flex items-center gap-4">
+                                  <span className="text-2xl opacity-80 group-hover:opacity-100 transition-opacity">{p.icon}</span>
+                                  <span className="text-[10px] font-black uppercase tracking-widest opacity-60 group-hover:opacity-100 transition-opacity">{p.label}</span>
                                </div>
-                               <span className="text-xs font-black">{p.score}%</span>
+                               <span className={`text-sm font-black ${isFixing ? 'text-primary' : ''}`}>{p.score}%</span>
                             </div>
-                            <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                            <div className="h-2.5 bg-white/5 rounded-full overflow-hidden">
                                <div 
-                                 className="h-full bg-primary rounded-full transition-all duration-1000" 
+                                 className={`h-full ${p.color} rounded-full transition-all duration-1000 ease-out`} 
                                  style={{ width: `${p.score}%` }}
                                />
                             </div>
                          </div>
                        ))}
                     </div>
-                    <div className="absolute top-0 right-0 p-8 text-8xl opacity-10 rotate-12 -translate-y-8 translate-x-8">📡</div>
                  </div>
               </div>
 
-              {/* ACTION: OPTIMIZE BUTTON (THE WOW MOVEMENT) */}
+              {/* ACTION: OPTIMIZE BUTTON */}
               {step === 'result' && (
-                <div className="bg-primary/5 border border-primary/10 rounded-[48px] p-12 text-center mb-12 animate-pulse-slow">
-                   <h2 className="text-3xl font-black text-slate-900 mb-4 tracking-tighter">Current Score: Critical Gaps Detected ⚠️</h2>
-                   <p className="text-slate-500 font-medium mb-10 max-w-lg mx-auto">Your GMB Profile isn't optimized for the new **Answer Engines** (ChatGPT/Perplexity). You are losing ~64% of local reach.</p>
+                <div className="bg-white border-2 border-slate-100 rounded-[48px] p-12 text-center shadow-xl shadow-slate-200/20 relative overflow-hidden group">
+                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 via-primary to-emerald-500"></div>
+                   <h2 className="text-4xl font-black text-slate-900 mb-4 tracking-tighter">Profile Friction Detected ⚠️</h2>
+                   <p className="text-slate-500 font-medium mb-12 max-w-2xl mx-auto text-lg leading-relaxed">
+                      AI agents (ChatGPT) are currently ranking your competitors <span className="text-slate-900 font-bold underline">Above You</span> because your entity data is fragmented.
+                   </p>
+                   
+                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 text-left">
+                      {Object.entries(getInsights(trade)).map(([key, tips], idx) => (
+                        <div key={idx} className="bg-slate-50 p-6 rounded-3xl border border-slate-100">
+                           <div className="text-[8px] font-black uppercase tracking-widest text-slate-400 mb-4">{key} Errors</div>
+                           <ul className="space-y-3">
+                              {tips.map((t, i) => (
+                                <li key={i} className="text-[11px] font-bold text-slate-600 flex items-start gap-2">
+                                   <span className="text-red-500">✕</span> {t}
+                                </li>
+                              ))}
+                           </ul>
+                        </div>
+                      ))}
+                   </div>
+
                    <button 
                      onClick={handleOptimize}
-                     className="bg-primary text-white font-black px-12 py-7 rounded-[32px] text-xl shadow-2xl shadow-primary/30 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-4 mx-auto group"
+                     disabled={isFixing}
+                     className="bg-primary text-white font-black px-12 py-8 rounded-[32px] text-2xl shadow-[0_30px_60px_-15px_rgba(21,101,192,0.4)] hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-4 mx-auto group relative overflow-hidden"
                    >
-                     Fix All Gaps & See Optimized Score 
-                     <span className="group-hover:translate-x-2 transition-transform">→</span>
+                     <span className="relative z-10">{isFixing ? 'Optimizing Entity Graph...' : 'Fix All Gaps & Unlock Ranking →'}</span>
+                     <div className="absolute inset-0 bg-white/10 -translate-y-full group-hover:translate-y-0 transition-transform"></div>
                    </button>
                 </div>
               )}
 
-              {/* POST-OPTIMIZATION: BEFORE & AFTER */}
+              {/* POST-OPTIMIZATION: THE WOW EXPERIENCE */}
               {step === 'optimized' && (
-                <div className="space-y-12 animate-in fade-in slide-in-from-bottom-12 duration-1000 pb-24">
-                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                      <div className="bg-white rounded-[40px] border border-slate-100 p-8 opacity-50 relative">
-                         <div className="absolute top-4 left-4 text-[8px] font-black text-slate-400 border border-slate-200 px-3 py-1 rounded-full uppercase">Current Profile</div>
-                         <div className="pt-8 space-y-4">
-                            <div className="h-6 w-1/2 bg-slate-100 rounded-lg"></div>
-                            <div className="h-4 w-full bg-slate-50 rounded-lg"></div>
-                            <div className="h-4 w-5/6 bg-slate-50 rounded-lg"></div>
-                            <div className="pt-4 flex gap-2">
-                               <div className="h-20 w-20 bg-slate-100 rounded-2xl"></div>
-                               <div className="h-20 w-20 bg-slate-100 rounded-2xl"></div>
+                <div className="space-y-16 animate-in fade-in slide-in-from-bottom-12 duration-1000 pb-24">
+                   <div className="text-center">
+                      <h2 className="text-5xl font-black text-slate-900 tracking-tighter mb-4">You are now AI-Optimized. ✨</h2>
+                      <p className="text-slate-500 font-bold text-sm uppercase tracking-widest">Visibility Potential: 100% Entity Reach Achieved</p>
+                   </div>
+
+                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                      <div className="relative group">
+                         <div className="absolute inset-0 bg-emerald-500/20 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                         <div className="bg-white border-2 border-primary rounded-[40px] p-10 relative z-10 shadow-2xl shadow-primary/10 transition-transform hover:-rotate-1">
+                            <div className="flex items-center gap-3 mb-8">
+                               <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-xl">🚀</div>
+                               <div>
+                                  <h4 className="font-black text-lg leading-none">Instant Authority</h4>
+                                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Done-for-you Activation</p>
+                               </div>
                             </div>
+                            <ul className="space-y-5">
+                               {['Converational FAQ Injected', 'Geotagged Content Sync', 'Entity-First Description', 'NAP Global Consistency'].map((t, i) => (
+                                 <li key={i} className="flex items-center gap-3 text-sm font-bold text-slate-700">
+                                    <div className="w-5 h-5 bg-emerald-500 text-white rounded-full flex items-center justify-center text-[10px]">✓</div>
+                                    {t}
+                                 </li>
+                               ))}
+                            </ul>
                          </div>
                       </div>
-                      <div className="bg-emerald-50 rounded-[40px] border-4 border-white shadow-xl p-8 relative ring-8 ring-emerald-50/50">
-                        <div className="absolute top-4 left-4 text-[8px] font-black text-emerald-600 bg-emerald-100/50 px-3 py-1 rounded-full uppercase">AI-Optimized Profile</div>
-                        <div className="pt-8 space-y-4">
-                            <div className="h-6 w-3/4 bg-emerald-200/50 rounded-lg animate-pulse"></div>
-                            <div className="h-4 w-full bg-emerald-100/30 rounded-lg"></div>
-                            <div className="h-4 w-full bg-emerald-100/30 rounded-lg"></div>
-                            <div className="h-4 w-5/6 bg-emerald-100/30 rounded-lg"></div>
-                            <div className="pt-4 flex gap-4">
-                               <div className="h-20 w-32 bg-emerald-200/50 rounded-2xl flex items-center justify-center text-xl">📸</div>
-                               <div className="h-20 w-32 bg-emerald-200/50 rounded-2xl flex items-center justify-center text-xl">✨</div>
-                               <div className="h-20 w-32 bg-emerald-200/50 rounded-2xl flex items-center justify-center text-xl">🎙️</div>
-                            </div>
-                        </div>
+                      <div className="bg-slate-900 rounded-[40px] p-10 flex flex-col justify-between text-white relative h-full transition-transform hover:rotate-1">
+                         <div>
+                            <div className="text-primary text-4xl mb-6 font-black tracking-tighter">Wait.</div>
+                            <p className="text-slate-300 font-medium leading-relaxed">Optimization like this normally takes 6 months of agency work ($2,400+ cost).</p>
+                         </div>
+                         <div className="pt-8">
+                             <div className="text-sm font-black mb-2">CURRENT STATUS</div>
+                             <div className="text-[10px] font-black uppercase tracking-widest text-emerald-400 animate-pulse">Unlocked for 24 Hours</div>
+                         </div>
                       </div>
                    </div>
 
-                   {/* BIG FREE TRIAL CTA */}
-                   <div className="text-center space-y-10">
-                      <div className="max-w-2xl mx-auto">
-                        <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tighter decoration-primary decoration-8 underline-offset-8">Achieve This Result in 24 Hours.</h2>
-                        <p className="text-slate-500 font-semibold mb-10">SEO Junction handles all AI Optimization, GMB Sync, and Content Weekly.</p>
-                      </div>
-
-                      <div className="flex flex-col items-center gap-6">
-                        <Link 
-                          href="/onboarding"
-                          className="w-full md:w-auto bg-primary text-white font-black px-16 py-10 rounded-[40px] text-3xl shadow-[0_40px_80px_-20px_rgba(21,101,192,0.6)] hover:scale-105 active:scale-95 transition-all ring-[12px] ring-primary/10 group relative overflow-hidden"
-                        >
-                          <span className="relative z-10">START FREE 7-DAY TRIAL →</span>
-                          <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                        </Link>
-                        
-                        <div className="flex flex-wrap justify-center gap-8 items-center text-[10px] font-black text-slate-400 uppercase tracking-[4px]">
-                          <div className="flex items-center gap-2">
-                             <span className="text-emerald-500 text-lg">✓</span> 30-Day Money Back
-                          </div>
-                          <div className="flex items-center gap-2">
-                             <span className="text-emerald-500 text-lg">✓</span> Instant GMB Sync
-                          </div>
-                          <div className="flex items-center gap-2">
-                             <span className="text-emerald-500 text-lg">✓</span> 100% Guaranteed Ranking
-                          </div>
+                   {/* FINAL HIGH-GLOW CTA */}
+                   <div className="text-center pt-10">
+                      <Link 
+                        href="/onboarding"
+                        className="inline-block bg-primary text-white font-black px-16 py-10 rounded-[40px] text-3xl shadow-[0_40px_100px_-20px_rgba(21,101,192,0.6)] hover:scale-105 active:scale-95 transition-all ring-[16px] ring-primary/5 group relative overflow-hidden"
+                      >
+                        <span className="relative z-10 uppercase tracking-tight">Claim Your Free Trial →</span>
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-shimmer"></div>
+                      </Link>
+                      
+                      <div className="mt-12 flex flex-wrap justify-center gap-10 items-center text-[11px] font-black text-slate-400 uppercase tracking-[4px]">
+                        <div className="flex items-center gap-2">
+                           <span className="text-emerald-500 text-xl">★</span> 4.9/5 Rating
+                        </div>
+                        <div className="flex items-center gap-2">
+                           <span className="text-emerald-500 text-xl">★</span> Top Choice 2026
+                        </div>
+                        <div className="flex items-center gap-2">
+                           <span className="text-emerald-500 text-xl">★</span> Instant Set-up
                         </div>
                       </div>
                    </div>
