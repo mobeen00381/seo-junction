@@ -30,11 +30,14 @@ export default function AIAssistant() {
     }
   }, [messages, isTyping])
 
-  // Auto-popup after 5 seconds
+  // Auto-popup after delay (longer on mobile to avoid obscuring headline)
   useEffect(() => {
+    const isMobile = window.innerWidth < 768
+    const delay = isMobile ? 12000 : 5000 // 12s for mobile, 5s for desktop
+    
     const timer = setTimeout(() => {
       setIsOpen(true)
-    }, 5000)
+    }, delay)
     return () => clearTimeout(timer)
   }, [])
 

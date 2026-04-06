@@ -30,7 +30,7 @@ export default function Navbar() {
       </div>
 
       {/* 2. MAIN NAVIGATION */}
-      <nav className={`w-full pointer-events-auto transition-all duration-300 ${isScrolled || isMenuOpen ? 'bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-gray-100 dark:border-slate-800 py-3 shadow-xl' : 'bg-transparent py-6'}`}>
+      <nav className={`w-full pointer-events-auto transition-all duration-300 ${isScrolled || isMenuOpen ? 'bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-gray-100 dark:border-slate-800 py-3 shadow-xl' : 'bg-transparent py-4 md:py-6'}`}>
         <div className="max-w-7xl mx-auto px-6 md:px-14 flex justify-between items-center transition-all">
           
           <Link href="/" className="flex items-center gap-2 md:gap-3 group">
