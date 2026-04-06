@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
 import Link from 'next/link'
 import LivePreview from '@/components/LivePreview'
@@ -172,16 +173,7 @@ export default function HomePage() {
         </Link>
       </div>
 
-      {/* FOOTER */}
-      <footer className="bg-white dark:bg-slate-950 border-t border-gray-100 dark:border-slate-800 py-12 px-6">
-        <div className="max-w-5xl mx-auto text-center">
-          <div className="flex items-center justify-center gap-2 mb-6">
-            <div className="w-7 h-7 rounded-lg bg-navy flex items-center justify-center text-white font-bold text-xs">S</div>
-            <span className="font-bold text-gray-900 dark:text-white text-sm tracking-tight">SEO Junction</span>
-          </div>
-          <p className="text-xs text-gray-400 dark:text-gray-500 font-bold uppercase tracking-widest">© 2026 SEO Junction. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer />
 
     </div>
   )

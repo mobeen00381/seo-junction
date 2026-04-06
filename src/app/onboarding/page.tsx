@@ -1,4 +1,5 @@
 'use client'
+import Footer from '@/components/Footer'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import TemplateGallery from '@/components/TemplateGallery'
@@ -281,10 +282,7 @@ export default function OnboardingPage() {
 
       </main>
 
-      {/* FOOTER INFO */}
-      <footer className="text-center py-10 opacity-40 select-none">
-         <p className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-[3px]">Secure Registration • Domain Privacy Included • No Hidden Fees</p>
-      </footer>
+      <Footer />
     </div>
   )
 }

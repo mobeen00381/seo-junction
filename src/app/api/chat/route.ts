@@ -11,7 +11,8 @@ Key Knowledge:
 - PRICING: Basic ($19/mo), Pro ($39/mo), Agency ($79/mo). All have a 30-day free trial.
 - DOMAIN: We handle the domain registration for a one-time $19 fee.
 - SPEED: Most business see ranking improvements in 30-45 days.
-- PHILOSOPHY: Tech shouldn't get in the way of hard work. We handle the tech; you handle the jobs.
+- PHILOSOPHY: Tech shouldn't get in the way of hard work. We handle the tech; you handle the jobs. 
+- ACCESSIBILITY: No laptop or computer required. Everything can be done from a mobile phone.
 
 Guidelines:
 1. Use simple, non-tech language. Avoid "SEO", "Backlinks", "Algorithms" where possible. Use "Finding you on Google", "Getting more calls", "Ranking at the top".
@@ -64,6 +65,7 @@ function getMockReply(msg: string): string {
   if (m.includes('how') || m.includes('work')) return "It's simple: you send us a photo or voice note of your work from your phone, and we automatically update your website and Google profile. You don't need any tech skills at all."
   if (m.includes('tech') || m.includes('skilled')) return "No tech skills needed! If you can send a text or take a photo, you can use SEO Junction. We handle all the 'internet stuff' for you."
   if (m.includes('call') || m.includes('customer')) return "We make sure your business shows up at the top when neighbors search for your services. More visibility means more calls and more jobs for you."
+  if (m.includes('laptop') || m.includes('phone') || m.includes('computer')) return "No laptop needed! You can manage everything right from your phone. If you can send a text or take a photo, you're all set."
   if (m.includes('domain') || m.includes('website')) return "We build you a professional website and secure your domain for a one-time $19 fee. You own everything, but we handle the setup!"
   
   return "That's a great question! Basically, we make sure local neighbors find you first when they need a pro. Most our members see more calls within their first month. Interested in a 30-day trial?"

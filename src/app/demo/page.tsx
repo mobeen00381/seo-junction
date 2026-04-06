@@ -1,9 +1,11 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'SEO Junction Demos | Experience Your New AI Website',
-  description: 'See live examples of websites built automatically by SEO Junction for plumbers, electricians, and dentists.',
+  title: 'Demo Sites — Experience Your New AI Website | SEO Junction',
+  description: 'Explore live demo websites built automatically by SEO Junction for plumbers, electricians, landscapers, and more.',
 }
 
 const DEMO_CARDS = [
@@ -12,10 +14,9 @@ const DEMO_CARDS = [
     city: 'Austin, TX',
     trade: 'Plumber',
     result: '+350% Google calls',
-    days: 90,
     emoji: '🔧',
     color: '#1565C0',
-    link: '/demo/plumbing',
+    link: '/seo-for-plumbers',
     desc: 'High-conversion plumbing site with same-day booking focus and local service area optimization.'
   },
   {
@@ -23,10 +24,9 @@ const DEMO_CARDS = [
     city: 'Denver, CO',
     trade: 'Electrician',
     result: 'Top 3 Map Pack',
-    days: 60,
     emoji: '⚡',
     color: '#7C3AED',
-    link: '/demo/electrical',
+    link: '/seo-for-electricians',
     desc: 'Electrical contractor site optimized for high-value keywords like "panel upgrades" and "EV chargers".'
   },
   {
@@ -34,48 +34,129 @@ const DEMO_CARDS = [
     city: 'Miami, FL',
     trade: 'Dentist',
     result: '42 new reviews',
-    days: 120,
     emoji: '🦷',
     color: '#059669',
-    link: '/demo/dental',
+    link: '/seo-for-dentists',
     desc: 'Premium clinic site focused on patient reviews, insurance transparency, and online appointment booking.'
   },
+  {
+    name: 'Green Leaf Gardeners',
+    city: 'Portland, OR',
+    trade: 'Landscaping',
+    result: '+280% local reach',
+    emoji: '🌿',
+    color: '#10B981',
+    link: '/seo-for-landscaping',
+    desc: 'Visual-heavy landscaping site showcasing recent project galleries and seasonal maintenance booking.'
+  },
+  {
+    name: 'Arctic Air Solutions',
+    city: 'Phoenix, AZ',
+    trade: 'HVAC',
+    result: '15 lead calls daily',
+    emoji: '❄️',
+    color: '#3B82F6',
+    link: '/seo-for-hvac',
+    desc: 'Optimized HVAC site for emergency repairs and annual maintenance membership signups.'
+  },
+  {
+    name: 'Safe Haven Locksmith',
+    city: 'Chicago, IL',
+    trade: 'Locksmith',
+    result: '#1 for 24/7 Keywords',
+    emoji: '🔑',
+    color: '#F59E0B',
+    link: '/seo-for-locksmith',
+    desc: 'Hyper-local locksmith site designed for rapid mobile interaction and mobile service verification.'
+  },
+  {
+    name: 'Fresh Start Cleaners',
+    city: 'London, UK',
+    trade: 'Cleaning',
+    result: '300% booking growth',
+    emoji: '🧹',
+    color: '#EC4899',
+    link: '/seo-for-cleaning',
+    desc: 'Streamlined cleaning services site with instant pricing transparency and recurring service booking.'
+  },
+  {
+    name: 'Top Tier Roofing',
+    city: 'Sydney, AU',
+    trade: 'Roofer',
+    result: 'Top 3 Google Search',
+    emoji: '🏠',
+    color: '#EF4444',
+    link: '/seo-for-roofers',
+    desc: 'Robust roofing site highlighting material warranties, safety certifications, and insurance claims help.'
+  },
+  {
+    name: 'Happy Paws Grooming',
+    city: 'Toronto, CA',
+    trade: 'Pet Grooming',
+    result: 'Fully Booked / 2 Weeks',
+    emoji: '🐕',
+    color: '#8B5CF6',
+    link: '/seo-for-pet-grooming',
+    desc: 'Friendly pet care site featuring service packages, breed portfolios, and automated booking.'
+  },
+  {
+    name: 'Pro Scan Sanitary',
+    city: 'Dubai, UAE',
+    trade: 'Sanitary',
+    result: '40% Cost per Lead reduction',
+    emoji: '🚽',
+    color: '#64748B',
+    link: '/seo-for-sanitary',
+    desc: 'B2B and B2C sanitary services site focusing on rapid response and large-scale facility maintenance.'
+  },
+  {
+    name: 'Mega Mart Local',
+    city: 'Mumbai, IN',
+    trade: 'Grocery',
+    result: '2.5x delivery increase',
+    emoji: '🛒',
+    color: '#F97316',
+    link: '/seo-for-grocery',
+    desc: 'Local grocery site optimized for neighborhood inventory search and recurring delivery models.'
+  },
+  {
+    name: 'Builder Pro Hardware',
+    city: 'New York, US',
+    trade: 'Hardware',
+    result: '500+ Local Inquiries',
+    emoji: '🛠️',
+    color: '#475569',
+    link: '/seo-for-hardware',
+    desc: 'Heavy-duty hardware site showcasing stock availability and pro-contractor account features.'
+  }
 ]
 
 export default function DemoHubPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300">
-      {/* ── NAV ── */}
-      <nav className="bg-white dark:bg-slate-950/80 border-b border-gray-100 dark:border-slate-800 px-6 py-6 flex justify-between items-center sticky top-0 z-50 backdrop-blur-md">
-        <Link href="/" className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold text-xl transition-transform group-hover:scale-105" style={{ background: 'var(--premium-gradient)' }}>S</div>
-          <span className="font-bold text-gray-900 dark:text-white text-xl tracking-tight">SEO Junction</span>
-        </Link>
-        <Link href="/onboarding" className="text-sm font-bold text-white px-6 py-3 rounded-xl shadow-lg shadow-blue-100 dark:shadow-none hover:opacity-90 transition-all bg-navy">
-          Back to Onboarding
-        </Link>
-      </nav>
+      <Navbar />
 
       {/* ── HERO ── */}
-      <section className="px-6 py-24 text-center bg-gray-50 dark:bg-slate-900/50 border-b border-gray-100 dark:border-slate-800">
+      <section className="px-6 pt-40 pb-24 text-center bg-gray-50 dark:bg-slate-900/50 border-b border-gray-100 dark:border-slate-800">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
-            See What Your Website <br /><span className="text-primary dark:text-primary-light font-bold">Will Look Like</span>
+          <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-[3.2px] mb-8 border border-primary/10">Industry Demo Sites</div>
+          <h1 className="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-8 leading-none tracking-tighter">
+             Select Your Trade — <br /><span className="text-transparent bg-clip-text" style={{ backgroundImage: 'var(--premium-gradient)' }}>See Your New Website</span>
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-            These are actual demo sites built by our system in under 24 hours. Every trade has a custom optimized experience designed to generate more calls.
+          <p className="text-xl text-gray-500 dark:text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed italic">
+            "These are live versions of what our AI builds for you in seconds."
           </p>
         </div>
       </section>
 
       {/* ── DEMO GRID ── */}
       <section className="py-24 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {DEMO_CARDS.map((d, i) => (
-              <div key={i} className="group relative rounded-3xl overflow-hidden border border-gray-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl shadow-gray-100 dark:shadow-none transition-all hover:-translate-y-2 hover:shadow-2xl hover:border-blue-200 dark:hover:border-blue-900">
+              <div key={i} className="group relative rounded-[48px] overflow-hidden border border-gray-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl shadow-gray-100 dark:shadow-none transition-all hover:scale-[1.02] hover:border-blue-200 dark:hover:border-blue-900">
                 {/* EMOJI PREVIEW */}
-                <div className="h-52 flex items-center justify-center text-8xl transition-transform group-hover:scale-110" style={{ background: d.color + '15' }}>
+                <div className="h-52 flex items-center justify-center text-8xl transition-all group-hover:scale-110" style={{ background: d.color + '15' }}>
                   {d.emoji}
                 </div>
 
@@ -83,23 +164,24 @@ export default function DemoHubPage() {
                 <div className="p-10">
                   <div className="flex justify-between items-start mb-6">
                     <div>
-                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{d.name}</h3>
-                      <p className="text-sm text-gray-400 dark:text-gray-500 font-bold uppercase tracking-wider">{d.trade} · {d.city}</p>
+                      <h3 className="text-2xl font-black text-gray-900 dark:text-white mb-1 tracking-tight">{d.name}</h3>
+                      <p className="text-[10px] text-gray-400 dark:text-gray-500 font-black uppercase tracking-[3px]">{d.trade} · {d.city}</p>
                     </div>
                   </div>
 
-                  <p className="text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-10">
+                  <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-10 h-10 overflow-hidden">
                     {d.desc}
                   </p>
 
                   {/* RESULTS BADGE */}
-                  <div className="bg-emerald-50 dark:bg-emerald-900/10 text-emerald-700 dark:text-emerald-400 rounded-2xl px-6 py-4 mb-10 border border-emerald-100 dark:border-emerald-900/30">
-                    <div className="text-[10px] font-bold uppercase tracking-widest text-emerald-500 mb-2">90-Day Result</div>
-                    <div className="text-lg font-bold">{d.result}</div>
+                  <div className="bg-slate-50 dark:bg-slate-800/50 rounded-3xl px-8 py-5 mb-10 border border-slate-100 dark:border-slate-700 relative overflow-hidden group/badge">
+                    <div className="absolute inset-0 bg-emerald-500/5 -translate-y-full group-hover/badge:translate-y-0 transition-transform"></div>
+                    <div className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Impact Result</div>
+                    <div className="text-lg font-black text-slate-900 dark:text-white">{d.result}</div>
                   </div>
 
-                  <Link href={d.link} className="block w-full text-center py-5 rounded-2xl font-bold text-white transition-all shadow-lg hover:shadow-xl active:scale-95 text-lg" style={{ background: d.color }}>
-                    View {d.trade} Demo
+                  <Link href={d.link} className="block w-full text-center py-6 rounded-2xl font-black text-white transition-all shadow-2xl hover:shadow-primary/30 active:scale-95 text-lg uppercase tracking-widest" style={{ background: d.color }}>
+                    Launch Demo →
                   </Link>
                 </div>
               </div>
@@ -109,25 +191,19 @@ export default function DemoHubPage() {
       </section>
 
       {/* ── BOTTOM CTA ── */}
-      <section className="py-24 px-6 text-center border-t border-gray-100 dark:border-slate-800 bg-gray-50 dark:bg-slate-900/50">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Ready to Build Your Own?</h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-12 text-lg leading-relaxed">Select your trade, and your site will be live within 24 hours.</p>
-          <Link href="/onboarding" className="inline-block font-bold text-white px-12 py-5 rounded-3xl text-lg shadow-xl shadow-blue-200 dark:shadow-none hover:scale-105 transition-all bg-navy">
-            Start Free Trial Today
+      <section className="py-32 px-6 text-center border-t border-gray-100 dark:border-slate-800 bg-navy text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 p-32 text-9xl opacity-[0.03] rotate-12 -translate-y-8 translate-x-8 pointer-events-none">🚀</div>
+        <div className="max-w-2xl mx-auto relative z-10">
+          <h2 className="text-4xl font-black mb-8 tracking-tighter uppercase">Don't see your trade?</h2>
+          <p className="text-gray-300 mb-12 text-lg leading-relaxed font-medium italic">Our AI adapts to any local service profession in seconds.</p>
+          <Link href="/onboarding" className="inline-block bg-white text-navy font-black px-12 py-6 rounded-2xl text-xl shadow-2xl hover:scale-105 active:scale-95 transition-all">
+            Build Your Own Now →
           </Link>
-          <p className="text-xs text-gray-400 dark:text-gray-500 mt-10 font-bold uppercase tracking-widest">30-day free trial • Cancel anytime • No tech skills needed</p>
+          <p className="text-[10px] text-white/40 mt-12 font-black uppercase tracking-[4px]">Verified Security · No Tech Skills Needed · Instant Launch</p>
         </div>
       </section>
 
-      {/* ── FOOTER ── */}
-      <footer className="py-12 border-t border-gray-100 dark:border-slate-800 text-center dark:bg-slate-950">
-        <div className="flex items-center justify-center gap-2 mb-4 opacity-50 grayscale dark:invert">
-          <div className="w-6 h-6 rounded flex items-center justify-center text-white font-bold text-[10px]" style={{ background: '#1565C0' }}>S</div>
-          <span className="font-bold text-gray-900 text-xs tracking-tight">SEO JUNCTION</span>
-        </div>
-        <p className="text-[10px] text-gray-400 dark:text-gray-500 uppercase tracking-widest font-bold">© 2026 AI Website Builder for Local Service Businesses</p>
-      </footer>
+      <Footer />
     </div>
   )
 }

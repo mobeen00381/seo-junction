@@ -30,6 +30,14 @@ export default function AIAssistant() {
     }
   }, [messages, isTyping])
 
+  // Auto-popup after 5 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsOpen(true)
+    }, 5000)
+    return () => clearTimeout(timer)
+  }, [])
+
   const handleSend = async (text: string) => {
     if (!text.trim()) return
     
@@ -65,7 +73,11 @@ export default function AIAssistant() {
           className="group relative w-16 h-16 rounded-full bg-navy shadow-3xl shadow-blue-400/20 flex items-center justify-center transition-all hover:scale-110 active:scale-95 animate-pulse-subtle"
         >
           <div className="absolute inset-0 rounded-full bg-primary/20 animate-ping"></div>
-          <span className="text-3xl relative z-10">🤖</span>
+          <img 
+            src="/assistant-avatar.png" 
+            alt="Assistant" 
+            className="w-full h-full rounded-full object-cover relative z-10 border-2 border-white/20"
+          />
           {/* Badge */}
           <div className="absolute -top-1 -right-1 w-5 h-5 bg-emerald-500 rounded-full border-4 border-white dark:border-slate-900 group-hover:scale-125 transition-transform"></div>
         </button>
@@ -77,7 +89,9 @@ export default function AIAssistant() {
           {/* Header */}
           <div className="bg-navy p-6 flex justify-between items-center text-white">
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-xl">🤖</div>
+              <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white/20 shadow-lg">
+                <img src="/assistant-avatar.png" alt="AI" className="w-full h-full object-cover" />
+              </div>
               <div>
                 <div className="font-bold text-sm tracking-tight">Growth Assistant</div>
                 <div className="text-[10px] opacity-60 flex items-center gap-1.5 font-bold uppercase tracking-widest">
