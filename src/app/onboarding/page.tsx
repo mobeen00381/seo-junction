@@ -209,7 +209,7 @@ export default function OnboardingPage() {
         {/* STEP 3: TEMPLATE SELECTION */}
         {step === 3 && (
           <div className="animate-fade-in">
-             <TemplateGallery onSelect={(id, color) => { 
+             <TemplateGallery showBranding={true} onSelect={(id, color) => { 
                 setTemplate(id); 
                 if (color) localStorage.setItem('theme-color', color);
                 nextStep(); 
