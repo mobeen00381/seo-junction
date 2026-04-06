@@ -17,8 +17,6 @@ export default function Navbar() {
     { name: 'About', href: '/about' },
     { name: 'GMB Checker', href: '/gmb-checker' },
     { name: 'Blog', href: '/blog' },
-    { name: 'Contact', href: '/contact' },
-    { name: 'Examples', href: '/examples' },
   ]
 
   return (
