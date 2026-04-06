@@ -152,35 +152,35 @@ export default function DemoHubPage() {
       {/* ── DEMO GRID ── */}
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {DEMO_CARDS.map((d, i) => (
-              <div key={i} className="group relative rounded-[48px] overflow-hidden border border-gray-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl shadow-gray-100 dark:shadow-none transition-all hover:scale-[1.02] hover:border-blue-200 dark:hover:border-blue-900">
+              <div key={i} className="group relative rounded-[40px] overflow-hidden border border-gray-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl shadow-gray-100 dark:shadow-none transition-all hover:scale-[1.02] hover:border-blue-200 dark:hover:border-blue-900">
                 {/* EMOJI PREVIEW */}
-                <div className="h-52 flex items-center justify-center text-8xl transition-all group-hover:scale-110" style={{ background: d.color + '15' }}>
+                <div className="h-44 flex items-center justify-center text-7xl transition-all group-hover:scale-110" style={{ background: d.color + '15' }}>
                   {d.emoji}
                 </div>
 
                 {/* CONTENT */}
-                <div className="p-10">
-                  <div className="flex justify-between items-start mb-6">
+                <div className="p-8">
+                  <div className="flex justify-between items-start mb-4">
                     <div>
-                      <h3 className="text-2xl font-black text-gray-900 dark:text-white mb-1 tracking-tight">{d.name}</h3>
-                      <p className="text-[10px] text-gray-400 dark:text-gray-500 font-black uppercase tracking-[3px]">{d.trade} · {d.city}</p>
+                      <h3 className="text-xl font-black text-gray-900 dark:text-white mb-1 tracking-tight truncate">{d.name}</h3>
+                      <p className="text-[9px] text-gray-400 dark:text-gray-500 font-black uppercase tracking-[2px]">{d.trade} · {d.city}</p>
                     </div>
                   </div>
 
-                  <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-10 h-10 overflow-hidden">
+                  <p className="text-[13px] text-gray-500 dark:text-gray-400 leading-relaxed mb-8 h-10 overflow-hidden line-clamp-2">
                     {d.desc}
                   </p>
 
                   {/* RESULTS BADGE */}
-                  <div className="bg-slate-50 dark:bg-slate-800/50 rounded-3xl px-8 py-5 mb-10 border border-slate-100 dark:border-slate-700 relative overflow-hidden group/badge">
+                  <div className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl px-6 py-4 mb-8 border border-slate-100 dark:border-slate-700 relative overflow-hidden group/badge">
                     <div className="absolute inset-0 bg-emerald-500/5 -translate-y-full group-hover/badge:translate-y-0 transition-transform"></div>
-                    <div className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">Impact Result</div>
-                    <div className="text-lg font-black text-slate-900 dark:text-white">{d.result}</div>
+                    <div className="text-[8px] font-black uppercase tracking-widest text-gray-400 mb-1">Impact Result</div>
+                    <div className="text-base font-black text-slate-900 dark:text-white">{d.result}</div>
                   </div>
 
-                  <Link href={d.link} className="block w-full text-center py-6 rounded-2xl font-black text-white transition-all shadow-2xl hover:shadow-primary/30 active:scale-95 text-lg uppercase tracking-widest" style={{ background: d.color }}>
+                  <Link href={d.link} className="block w-full text-center py-4.5 rounded-xl font-black text-white transition-all shadow-2xl hover:shadow-primary/30 active:scale-95 text-sm uppercase tracking-widest" style={{ background: d.color }}>
                     Launch Demo →
                   </Link>
                 </div>
