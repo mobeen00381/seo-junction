@@ -34,16 +34,6 @@ export default function DashboardSidebar({ currentView, onViewChange }: Dashboar
 
       <nav className="flex-1 space-y-2">
         <SidebarItem 
-          icon="🛡️" 
-          label="Admin Dashboard" 
-          active={currentView.startsWith('admin')} 
-          onClick={() => {
-            onViewChange('admin_main');
-            window.location.href = '/admin';
-          }} 
-        />
-        <div className="py-4 border-b border-slate-50 mb-4 opacity-20"></div>
-        <SidebarItem 
           icon="📊" 
           label="My Business" 
           active={currentView === 'main'} 
