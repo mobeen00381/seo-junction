@@ -105,8 +105,8 @@ export default function TemplateGallery({ onSelect, showBranding = false }: Temp
                   <div className="w-24 h-1 bg-gray-200/50 rounded-full"></div>
                 </div>
                 
-                {/* ACTION OVERLAY */}
-                <div className="absolute inset-0 bg-navy/90 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all flex flex-col items-center justify-center p-8 gap-4">
+                {/* ACTION OVERLAY (ALWAYS VISIBLE ON MOBILE) */}
+                <div className="absolute inset-0 bg-navy/80 md:bg-navy/90 backdrop-blur-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all flex flex-col items-center justify-center p-8 gap-4">
                    <a 
                      href={t.demoLink}
                      target="_blank"

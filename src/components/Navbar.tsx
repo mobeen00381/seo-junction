@@ -25,19 +25,19 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 flex flex-col pointer-events-none">
       
       {/* 1. TOP ANNOUNCEMENT BAR (Grows Confidence Globally) */}
-      <div className={`bg-navy text-white text-[10px] py-2 px-6 font-black tracking-[2px] uppercase flex justify-center gap-10 flex-wrap pointer-events-auto transition-all duration-500 overflow-hidden ${isScrolled ? 'max-h-0 py-0 opacity-0' : 'max-h-20 opacity-100'}`}>
-        <span className="flex items-center gap-2">⭐ 50+ local businesses</span>
-        <span className="flex items-center gap-2">⏱ 300+ updates published</span>
-        <span className="flex items-center gap-2 text-emerald-400">✅ No tech skills needed</span>
+      <div className={`bg-navy text-white text-[10px] py-2 px-6 font-black tracking-[2px] uppercase flex justify-center gap-6 md:gap-10 flex-wrap pointer-events-auto transition-all duration-500 overflow-hidden ${isScrolled ? 'max-h-0 py-0 opacity-0' : 'max-h-24 md:max-h-20 opacity-100'}`}>
+        <span className="flex items-center gap-2">⭐ 50+ businesses</span>
+        <span className="hidden sm:flex items-center gap-2">⏱ 300+ updates</span>
+        <span className="flex items-center gap-2 text-emerald-400">✅ No tech skills</span>
       </div>
 
       {/* 2. MAIN NAVIGATION */}
       <nav className={`w-full pointer-events-auto transition-all duration-300 ${isScrolled || isMenuOpen ? 'bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-gray-100 dark:border-slate-800 py-3 shadow-xl' : 'bg-transparent py-6'}`}>
-        <div className="max-w-7xl mx-auto px-10 md:px-14 flex justify-between items-center transition-all">
+        <div className="max-w-7xl mx-auto px-6 md:px-14 flex justify-between items-center transition-all">
           
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-11 h-11 rounded-2xl flex items-center justify-center text-white font-black text-xl transition-transform group-hover:scale-110 shadow-lg shadow-primary/20" style={{ background: 'var(--premium-gradient)' }}>S</div>
-            <span className="font-black text-gray-900 dark:text-white text-xl tracking-tighter">SEO Junction</span>
+          <Link href="/" className="flex items-center gap-2 md:gap-3 group">
+            <div className="w-10 h-10 md:w-11 md:h-11 rounded-2xl flex items-center justify-center text-white font-black text-lg md:text-xl transition-transform group-hover:scale-110 shadow-lg shadow-primary/20" style={{ background: 'var(--premium-gradient)' }}>S</div>
+            <span className="font-black text-gray-900 dark:text-white text-lg md:text-xl tracking-tighter">SEO Junction</span>
           </Link>
 
           {/* Desktop Links - Optimized Spacing */}

@@ -27,10 +27,10 @@ export default function HomePage() {
       <Navbar />
 
       {/* HERO SECTION */}
-      <section className="relative pt-32 pb-40 overflow-hidden">
+      <section className="relative pt-16 md:pt-32 pb-24 md:pb-40 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[800px] bg-blue-50/30 dark:bg-blue-900/10 rounded-full blur-[120px] -z-10 animate-pulse"></div>
         <div className="max-w-4xl mx-auto px-6 text-center animate-fade-in">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8 leading-[1.1] tracking-tight">
+          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 md:mb-8 leading-[1.2] md:leading-[1.1] tracking-tight">
             Show your work.<br />
             <span className="text-primary dark:text-primary-light">Get discovered on Google.</span>
           </h1>
@@ -120,7 +120,7 @@ export default function HomePage() {
                     <img 
                       src={t.image} 
                       alt={t.name} 
-                      className="w-full h-full object-cover rounded-full filter grayscale hover:grayscale-0 transition-all duration-700" 
+                      className="w-full h-full object-cover rounded-full md:filter md:grayscale md:hover:grayscale-0 transition-all duration-700" 
                     />
                   </div>
                   <div className="text-amber-400 text-sm mb-4">★★★★★</div>
