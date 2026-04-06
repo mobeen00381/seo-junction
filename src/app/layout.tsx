@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import ThemeColorPicker from '@/components/ThemeColorPicker'
 import AIAssistant from '@/components/AIAssistant'
 
 const inter = Inter({
@@ -97,7 +96,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="antialiased font-sans selection:bg-blue-100 dark:selection:bg-blue-900 selection:text-blue-900 dark:selection:text-blue-100 transition-colors duration-300 overflow-x-hidden">
         {children}
-        <ThemeColorPicker />
         <AIAssistant />
       </body>
     </html>

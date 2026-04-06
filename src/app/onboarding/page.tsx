@@ -209,7 +209,11 @@ export default function OnboardingPage() {
         {/* STEP 3: TEMPLATE SELECTION */}
         {step === 3 && (
           <div className="animate-fade-in">
-             <TemplateGallery onSelect={(id) => { setTemplate(id); nextStep(); }} />
+             <TemplateGallery onSelect={(id, color) => { 
+                setTemplate(id); 
+                if (color) localStorage.setItem('theme-color', color);
+                nextStep(); 
+             }} />
              <div className="text-center mt-12">
                 <button onClick={prevStep} className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest hover:text-gray-900 dark:hover:text-white transition-colors">
                    ← Back to details

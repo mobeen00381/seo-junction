@@ -23,13 +23,6 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300">
       
-      {/* TOPBAR */}
-      <div className="bg-navy text-white text-[10px] py-1.5 px-4 font-bold tracking-widest uppercase flex justify-center gap-8 flex-wrap">
-        <span>⭐ 50+ local businesses using this</span>
-        <span>⏱ 300+ updates published</span>
-        <span>✅ No tech skills needed</span>
-      </div>
-
       {/* NAV */}
       <Navbar />
 
