@@ -36,7 +36,7 @@ export default function SeoForPlumbersPage() {
             {[
               { icon: '📵', title: "No Time for Marketing", desc: "You're on job sites all day. You have no time to write posts or update Google. Meanwhile, your competitor who does is getting your calls." },
               { icon: '📍', title: "Invisible on Maps", desc: "When someone searches 'plumber near me' you should be in the top 3. If you're not, those high-value calls go to someone else — every single day." },
-              { icon: '😤', title: "SEO That Actually Works", desc: "Most agencies charge $500/month for 'reports'. SEO Junction is $19.99. We show you exactly what posts go live and exactly where you rank." },
+              { icon: '😤', title: "SEO That Actually Works", desc: "Most agencies charge $500/month for 'reports'. SEO Junction is $19. We show you exactly what posts go live and exactly where you rank." },
             ].map((p, i) => (
               <div key={i} className="bg-white dark:bg-slate-900 rounded-[32px] p-8 shadow-sm border border-gray-100 dark:border-slate-800 transition-transform hover:scale-[1.03] text-left">
                 <div className="text-4xl mb-6">{p.icon}</div>
@@ -73,7 +73,7 @@ export default function SeoForPlumbersPage() {
       <section className="py-20 px-6 bg-[#0B1F3A] text-white">
         <div className="max-w-3xl mx-auto text-center border-b border-white/10 pb-20">
           <h2 className="text-4xl font-black mb-6 tracking-tight italic">30-Day Free Trial</h2>
-          <p className="text-xl text-blue-200 mb-10 uppercase tracking-widest font-black">Get Your Site Live For Only <span className="text-white">$19.99 One-Time</span></p>
+          <p className="text-xl text-blue-200 mb-10 uppercase tracking-widest font-black">Get Your Site Live For Only <span className="text-white">$19 One-Time</span></p>
           <Link href="/onboarding" className="inline-block font-bold text-blue-900 bg-white px-12 py-5 rounded-2xl shadow-2xl transition-all hover:scale-105">Start Free Trial — Built for Plumbers →</Link>
         </div>
 

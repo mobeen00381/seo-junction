@@ -7,9 +7,9 @@ export const metadata: Metadata = {
 }
 
 const PLANS = [
-  { name:'Basic', price:'19.99', posts:10, features:['Done-for-you website','10 AI posts/month (website + GMB)','Google Business updates','Photo & voice uploads','Cancel anytime'], popular:false },
-  { name:'Pro', price:'39.99', posts:30, features:['Everything in Basic','30 AI posts/month','Priority AI responses','Full GMB management','Dedicated support','Monthly SEO report PDF','Free domain transfer'], popular:true },
-  { name:'Agency', price:'79.00', posts:60, features:['Up to 5 client sites','60 AI posts/month','White-label client reports','Client dashboard','API access','Dedicated Slack support'], popular:false },
+  { name:'Basic', price:'19', posts:10, features:['Done-for-you website','10 AI posts/month (website + GMB)','Google Business updates','Photo & voice uploads','Cancel anytime'], popular:false },
+  { name:'Pro', price:'39', posts:30, features:['Everything in Basic','30 AI posts/month','Priority AI responses','Full GMB management','Dedicated support','Monthly SEO report PDF','Free domain transfer'], popular:true },
+  { name:'Agency', price:'79', posts:60, features:['Up to 5 client sites','60 AI posts/month','White-label client reports','Client dashboard','API access','Dedicated Slack support'], popular:false },
 ]
 
 const FAQS = [
@@ -38,7 +38,7 @@ export default function PricingPage() {
         <div className="text-center mb-16">
           <div className="text-xs font-bold tracking-widest uppercase text-primary dark:text-primary-light mb-3">Pricing</div>
           <h1 className="text-4xl font-black text-gray-900 mb-4 tracking-tight leading-tight">More Google Calls.<br />Starting at $19/Month.</h1>
-          <p className="text-gray-500 max-w-md mx-auto font-medium">30-day free trial on all plans. Only pay the $19.99 domain fee today. Cancel anytime.</p>
+          <p className="text-gray-500 max-w-md mx-auto font-medium">30-day free trial on all plans. Only pay the $19 domain fee today. Cancel anytime.</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 mb-16">

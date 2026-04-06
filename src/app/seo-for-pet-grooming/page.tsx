@@ -61,7 +61,7 @@ export default function SeoForPetGroomingPage() {
       <section className="py-20 px-6 bg-white dark:bg-slate-950 border-t border-gray-100 dark:border-slate-800">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-6 tracking-tight text-center italic">30-Day Free Trial</h2>
-          <p className="text-xl text-gray-500 dark:text-gray-400 mb-10 text-center uppercase tracking-widest font-bold font-inter">Get Your Salon Live For Only <span className="text-gray-900 dark:text-white">$19.99 One-Time</span></p>
+          <p className="text-xl text-pink-600 dark:text-pink-400 mb-10 text-center uppercase tracking-widest font-bold font-inter">Get Your Shop Live For Only <span className="text-gray-900 dark:text-white">$19 One-Time</span></p>
           <Link href="/onboarding" className="inline-block font-bold text-white px-12 py-5 rounded-2xl shadow-2xl transition-all hover:scale-105" style={{background:'var(--premium-gradient)'}}>Start Free Trial — Built for Groomers →</Link>
           <p className="mt-6 text-gray-400 text-xs font-bold leading-relaxed uppercase tracking-tighter">No long term contracts. cancel anytime.</p>
         </div>

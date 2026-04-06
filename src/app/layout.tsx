@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import ThemeColorPicker from '@/components/ThemeColorPicker'
+import AIAssistant from '@/components/AIAssistant'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -70,7 +71,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 {
                   "@type": "Offer",
                   "name": "Basic Plan",
-                  "price": "19.99",
+                  "price": "19",
                   "priceCurrency": "USD",
                   "billingIncrement": "P1M",
                   "description": "10 AI posts/month, done-for-you website, GMB updates"
@@ -78,7 +79,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 {
                   "@type": "Offer",
                   "name": "Pro Plan",
-                  "price": "39.99",
+                  "price": "39",
                   "priceCurrency": "USD",
                   "billingIncrement": "P1M",
                   "description": "Everything businesses need to get found on Google"
@@ -97,6 +98,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="antialiased font-sans selection:bg-blue-100 dark:selection:bg-blue-900 selection:text-blue-900 dark:selection:text-blue-100 transition-colors duration-300 overflow-x-hidden">
         {children}
         <ThemeColorPicker />
+        <AIAssistant />
       </body>
     </html>
   )

@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
+import Navbar from '@/components/Navbar'
 import Link from 'next/link'
 import confetti from 'canvas-confetti'
 
@@ -123,15 +124,7 @@ export default function GmbCheckerPage() {
     <div className="min-h-screen bg-[#FAFAFA] text-slate-900 font-sans selection:bg-primary/20">
       
       {/* HEADER */}
-      <nav className="px-8 py-6 border-b border-slate-100 flex justify-between items-center bg-white/80 backdrop-blur-md sticky top-0 z-50">
-        <Link href="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-2xl bg-primary text-white flex items-center justify-center font-black text-xl shadow-xl shadow-primary/30">S</div>
-          <span className="font-black text-2xl tracking-tighter text-slate-900">SEO Junction</span>
-        </Link>
-        <Link href="/onboarding" className="bg-slate-900 text-white font-black px-6 py-3 rounded-2xl text-xs uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-lg shadow-slate-200">
-          Get Started →
-        </Link>
-      </nav>
+      <Navbar />
 
       <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
         

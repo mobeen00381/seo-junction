@@ -40,11 +40,11 @@ export default function StripePayment({ domainName, onSuccess, onBack }: StripeP
             </div>
             <div className="flex justify-between items-center">
                <div className="text-sm font-bold text-gray-900 dark:text-white">Domain: <span className="text-primary">{domainName}</span></div>
-               <div className="text-sm font-bold text-gray-900 dark:text-white">$19.99</div>
+               <div className="text-sm font-bold text-gray-900 dark:text-white">$19</div>
             </div>
             <div className="pt-4 mt-4 border-t border-gray-200 dark:border-slate-700 flex justify-between items-center">
                <div className="text-lg font-black text-gray-900 dark:text-white">Total Due Today</div>
-               <div className="text-2xl font-black text-gray-900 dark:text-white">$19.99</div>
+               <div className="text-2xl font-black text-gray-900 dark:text-white">$19</div>
             </div>
             <p className="text-[10px] text-gray-400 dark:text-gray-500 font-bold uppercase tracking-widest text-center mt-4">
               Your subscription ($39/mo) will start after 30 days. Cancel anytime.
@@ -98,7 +98,7 @@ export default function StripePayment({ domainName, onSuccess, onBack }: StripeP
                 Processing...
               </>
             ) : (
-              `Pay $19.99 & Start Trial →`
+              `Pay $19 & Start Trial →`
             )}
           </button>
 

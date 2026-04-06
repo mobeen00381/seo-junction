@@ -71,7 +71,7 @@ export default function SeoForHvacPage() {
 
         <div className="max-w-3xl mx-auto text-center mt-20">
           <h2 className="text-4xl font-black mb-6 tracking-tight italic text-gray-900 dark:text-white">30-Day Free Trial</h2>
-          <p className="text-xl text-cyan-600 dark:text-cyan-400 mb-10 uppercase tracking-widest font-black">Get Your HVAC Site Live For Only <span className="text-gray-900 dark:text-white">$19.99 One-Time</span></p>
+          <p className="text-xl text-cyan-600 dark:text-cyan-400 mb-10 uppercase tracking-widest font-black">Get Your HVAC Site Live For Only <span className="text-gray-900 dark:text-white">$19 One-Time</span></p>
           <Link href="/onboarding" className="inline-block font-bold text-white px-12 py-5 rounded-2xl shadow-2xl transition-all hover:scale-105" style={{background:'var(--premium-gradient)'}}>Start Free Trial — Built for HVAC →</Link>
         </div>
       </section>

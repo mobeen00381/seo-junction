@@ -33,7 +33,7 @@ export default function TermsPage() {
 
           <section className="mb-12">
              <h2 className="text-2xl font-black text-gray-900 dark:text-white mb-6 uppercase tracking-widest text-xs">3. Cancellation and Refunds</h2>
-             <p className="text-gray-500 dark:text-gray-400 text-lg leading-relaxed">We offer a 30-day free trial. After the trial ends, the $19.99 setup fee is non-refundable. Monthly subscriptions can be cancelled at any time through the billing dashboard.</p>
+             <p className="text-gray-500 dark:text-gray-400 text-lg leading-relaxed">We offer a 30-day free trial. After the trial ends, the $19 setup fee is non-refundable. Monthly subscriptions can be cancelled at any time through the billing dashboard.</p>
           </section>
 
           <section className="mb-12">

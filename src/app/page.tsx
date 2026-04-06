@@ -1,3 +1,4 @@
+import Navbar from '@/components/Navbar'
 import Link from 'next/link'
 import LivePreview from '@/components/LivePreview'
 import TemplateGallery from '@/components/TemplateGallery'
@@ -29,23 +30,7 @@ export default function HomePage() {
       </div>
 
       {/* NAV */}
-      <nav className="bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-gray-100 dark:border-slate-800 px-6 py-4 flex justify-between items-center sticky top-0 z-50">
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold text-xl transition-transform group-hover:scale-105" style={{ background: 'var(--premium-gradient)' }}>S</div>
-          <span className="font-bold text-gray-900 dark:text-white text-xl tracking-tight">SEO Junction</span>
-        </Link>
-        <div className="hidden md:flex gap-10 text-sm font-semibold text-gray-500 dark:text-gray-400">
-          <Link href="/pricing" className="hover:text-primary dark:hover:text-primary-light transition-colors">Pricing</Link>
-          <Link href="/demo" className="hover:text-primary dark:hover:text-primary-light transition-colors">Examples</Link>
-        </div>
-        <div className="flex gap-5 items-center">
-          <ThemeToggle />
-          <Link href="/login" className="text-sm font-semibold text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">Log In</Link>
-          <Link href="/onboarding" className="text-sm font-bold text-white px-6 py-3 rounded-xl shadow-lg shadow-blue-100 dark:shadow-none hover:opacity-90 transition-all" style={{ background: 'var(--premium-gradient)' }}>
-            Get Your Business Online
-          </Link>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* HERO SECTION */}
       <section className="relative pt-32 pb-40 overflow-hidden">
@@ -135,19 +120,23 @@ export default function HomePage() {
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white tracking-tight">Built for real service professionals</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {TESTIMONIALS.map((t, i) => (
-              <div key={i} className="bg-white dark:bg-slate-800 p-8 rounded-[40px] shadow-sm border border-gray-100 dark:border-slate-700 flex flex-col items-center text-center transition-transform hover:scale-[1.02]">
-                <div className="w-20 h-20 rounded-full mb-6 shadow-xl border-4 border-white dark:border-slate-700 overflow-hidden bg-gray-100">
-                  <img src={t.image} alt={t.name} className="w-full h-full object-cover" />
+            {TESTIMONIALS.map((t, i) => {
+              const colors = ['bg-blue-600', 'bg-purple-600', 'bg-emerald-600', 'bg-rose-600'];
+              const initials = t.name.split(' ').map(n => n[0]).join('');
+              return (
+                <div key={i} className="bg-white dark:bg-slate-800 p-8 rounded-[40px] shadow-sm border border-gray-100 dark:border-slate-700 flex flex-col items-center text-center transition-transform hover:scale-[1.02]">
+                  <div className={`w-20 h-20 rounded-full mb-6 shadow-xl border-4 border-white dark:border-slate-700 flex items-center justify-center text-2xl font-black text-white ${colors[i % colors.length]}`}>
+                    {initials}
+                  </div>
+                  <div className="text-amber-400 text-sm mb-4">★★★★★</div>
+                  <p className="text-sm font-bold text-gray-800 dark:text-gray-200 italic leading-relaxed mb-6">&ldquo;{t.quote}&rdquo;</p>
+                  <div className="mt-auto">
+                    <div className="text-[10px] font-black text-gray-900 dark:text-white uppercase tracking-[2px]">{t.name}</div>
+                    <div className="text-[10px] text-gray-400 dark:text-gray-500 mt-1 font-bold">{t.trade} · {t.city}</div>
+                  </div>
                 </div>
-                <div className="text-amber-400 text-sm mb-4">★★★★★</div>
-                <p className="text-sm font-bold text-gray-800 dark:text-gray-200 italic leading-relaxed mb-6">&ldquo;{t.quote}&rdquo;</p>
-                <div className="mt-auto">
-                  <div className="text-[10px] font-black text-gray-900 dark:text-white uppercase tracking-[2px]">{t.name}</div>
-                  <div className="text-[10px] text-gray-400 dark:text-gray-500 mt-1 font-bold">{t.trade} · {t.city}</div>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

@@ -30,15 +30,15 @@ export default function DomainSearch({ businessName, onSelect, onBack }: DomainS
   const generateDomains = (q: string): DomainResult[] => {
     const base = q.toLowerCase().replace(/[^a-zA-Z0-9]/g, '')
     const tlds = [
-      { tld: 'com', price: '$19.99/yr', badge: 'Popular' },
-      { tld: 'net', price: '$19.99/yr' },
-      { tld: 'org', price: '$19.99/yr' },
-      { tld: 'us', price: '$19.99/yr', badge: 'US Only' },
-      { tld: 'ca', price: '$19.99/yr', badge: 'Canada' },
-      { tld: 'in', price: '$19.99/yr', badge: 'India' },
-      { tld: 'pk', price: '$19.99/yr', badge: 'Pakistan' },
-      { tld: 'biz', price: '$19.99/yr' },
-      { tld: 'info', price: '$19.99/yr' }
+      { tld: 'com', price: '$19/yr', badge: 'Popular' },
+      { tld: 'net', price: '$19/yr' },
+      { tld: 'org', price: '$19/yr' },
+      { tld: 'us', price: '$19/yr', badge: 'US Only' },
+      { tld: 'ca', price: '$19/yr', badge: 'Canada' },
+      { tld: 'in', price: '$19/yr', badge: 'India' },
+      { tld: 'pk', price: '$19/yr', badge: 'Pakistan' },
+      { tld: 'biz', price: '$19/yr' },
+      { tld: 'info', price: '$19/yr' }
     ]
 
     // Realistic simulation: Some common names are taken
