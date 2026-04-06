@@ -15,9 +15,9 @@ export default function SeoForPlumbersPage() {
     <div className="min-h-screen bg-white dark:bg-slate-950 font-inter text-left">
       <Navbar />
 
-      <section style={{background:'linear-gradient(135deg,#0B1F3A,#162944)'}} className="px-6 py-40 text-center text-white">
+      <section style={{background:'linear-gradient(135deg, #1565C0, #0D47A1)'}} className="px-6 py-40 text-center text-white">
         <div className="max-w-3xl mx-auto">
-          <div className="inline-block text-[10px] font-black tracking-[2px] uppercase px-4 py-1.5 rounded-full mb-6 border" style={{background:'rgba(21,101,192,0.2)',borderColor:'rgba(21,101,192,0.4)',color:'#90CAF9'}}>🔧 Built for Plumbing Companies</div>
+          <div className="inline-block text-[10px] font-black tracking-[2px] uppercase px-4 py-1.5 rounded-full mb-6 border" style={{background:'rgba(21,101,192,0.2)',borderColor:'rgba(21,101,192,0.4)',color:'#90CAF9'}}>🔧 Industry Certified · Plumbing Pro</div>
           <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight text-center text-white">
             Get Your Plumbing Business<br /><span className="text-amber-400">to the Top of Google</span><br />On 100% Autopilot
           </h1>

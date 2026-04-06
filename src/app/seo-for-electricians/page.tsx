@@ -15,9 +15,9 @@ export default function SeoForElectriciansPage() {
     <div className="min-h-screen bg-white dark:bg-slate-950 font-inter text-left text-gray-900 dark:text-white">
       <Navbar />
 
-      <section style={{background:'linear-gradient(135deg,#1E1B4B,#312E81)'}} className="px-6 py-40 text-center text-white">
+      <section style={{background:'linear-gradient(135deg, #FACC15, #EAB308)'}} className="px-6 py-40 text-center text-white">
         <div className="max-w-3xl mx-auto">
-          <div className="inline-block text-[10px] font-black tracking-[2px] uppercase px-4 py-1.5 rounded-full mb-6 border" style={{background:'rgba(245,158,11,0.2)',borderColor:'rgba(245,158,11,0.4)',color:'#FCD34D'}}>⚡ High-Voltage Growth SEO</div>
+          <div className="inline-block text-[10px] font-black tracking-[2px] uppercase px-4 py-1.5 rounded-full mb-6 border" style={{background:'rgba(31,41,55,0.2)',borderColor:'rgba(31,41,55,0.4)',color:'#111827'}}>⚡ Industry Certified · Electrician Pro</div>
           <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight text-center text-white">
             The Number #1 Choice For <br /><span className="text-amber-400">Electrical Calls</span> — 100% Autopilot
           </h1>

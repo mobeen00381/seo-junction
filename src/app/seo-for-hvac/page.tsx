@@ -15,9 +15,9 @@ export default function SeoForHvacPage() {
     <div className="min-h-screen bg-white dark:bg-slate-950 font-inter">
       <Navbar />
 
-      <section style={{background:'linear-gradient(135deg,#012B38,#014F68)'}} className="px-6 py-40 text-center text-white">
+      <section style={{background:'linear-gradient(135deg, #3B82F6, #2563EB)'}} className="px-6 py-40 text-center text-white">
         <div className="max-w-3xl mx-auto">
-          <div className="inline-block text-[10px] font-black tracking-[2px] uppercase px-4 py-1.5 rounded-full mb-6 border" style={{background:'rgba(8,145,178,0.2)',borderColor:'rgba(8,145,178,0.4)',color:'#67E8F9'}}>❄️ Built for HVAC Contractors</div>
+          <div className="inline-block text-[10px] font-black tracking-[2px] uppercase px-4 py-1.5 rounded-full mb-6 border" style={{background:'rgba(255,255,255,0.1)',borderColor:'rgba(255,255,255,0.2)',color:'#DBEAFE'}}>❄️ Industry Certified · HVAC Pro</div>
           <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight text-center text-white">
             Get More HVAC Calls<br /><span className="text-amber-400">Every Season</span> — Without<br />Any Extra Work
           </h1>

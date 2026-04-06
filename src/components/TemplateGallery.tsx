@@ -2,18 +2,18 @@
 import { useState, useEffect } from 'react'
 
 const TEMPLATES = [
-  { id: 'plumbing', name: 'Plumbing Pro', color: '#1565C0', emoji: '🔧', desc: 'Trustworthy, solid blue for established trades.', demoLink: '/seo-for-plumbers' },
-  { id: 'electrician', name: 'Bright Spark', color: '#FACC15', emoji: '⚡', desc: 'High-visibility safety yellow with bold accents.', demoLink: '/seo-for-electricians' },
-  { id: 'hvac', name: 'Climate Control', color: '#3B82F6', emoji: '❄️', desc: 'Modern, balanced blue for clean service vibes.', demoLink: '/seo-for-hvac' },
-  { id: 'cleaning', name: 'Fresh Estate', color: '#10B981', emoji: '🧹', desc: 'Eco-friendly emerald for premium cleaning.', demoLink: '/seo-for-cleaning' },
-  { id: 'dentist', name: 'Pure Smile', color: '#06B6D4', emoji: '🦷', desc: 'Clinic-fresh Cyan focused on hygiene & trust.', demoLink: '/seo-for-dentists' },
-  { id: 'landscaping', name: 'Green Canopy', color: '#15803D', emoji: '🌳', desc: 'Natural forest tones for outdoor mastery.', demoLink: '/seo-for-landscaping' },
-  { id: 'roofing', name: 'Slate Guard', color: '#4B5563', emoji: '🏠', desc: 'Rugged, reliable grey for construction power.', demoLink: '/seo-for-roofers' },
-  { id: 'locksmith', name: 'Rapid Shield', color: '#B91C1C', emoji: '🔑', desc: 'Emergency red for immediate site confidence.', demoLink: '/seo-for-locksmith' },
-  { id: 'pet-grooming', name: 'Happy Paws', color: '#8B5CF6', emoji: '🐕', desc: 'Modern, playful tones for pet care professionals.', demoLink: '/seo-for-pet-grooming' },
-  { id: 'sanitary', name: 'Pro Scan', color: '#64748B', emoji: '🚽', desc: 'B2B and B2C sanitary services site with Cost per Lead focus.', demoLink: '/seo-for-sanitary' },
-  { id: 'grocery', name: 'Local Mart', color: '#F97316', emoji: '🛒', desc: 'Neighborhood inventory search and delivery focused.', demoLink: '/seo-for-grocery' },
-  { id: 'hardware', name: 'Project Pro', color: '#475569', emoji: '🛠️', desc: 'Heavy-duty hardware site with contractor account features.', demoLink: '/seo-for-hardware' },
+  { id: 'plumbing', name: 'Plumbing Pro', color: '#1565C0', emoji: '🔧', desc: 'Trustworthy, solid blue for established trades.', demoLink: '/seo-for-plumbers', screenshot: '/templates/plumbing.png' },
+  { id: 'electrician', name: 'Bright Spark', color: '#FACC15', emoji: '⚡', desc: 'High-visibility safety yellow with bold accents.', demoLink: '/seo-for-electricians', screenshot: '/templates/electrician.png' },
+  { id: 'hvac', name: 'Climate Control', color: '#3B82F6', emoji: '❄️', desc: 'Modern, balanced blue for clean service vibes.', demoLink: '/seo-for-hvac', screenshot: '/templates/hvac.png' },
+  { id: 'cleaning', name: 'Fresh Estate', color: '#10B981', emoji: '🧹', desc: 'Eco-friendly emerald for premium cleaning.', demoLink: '/seo-for-cleaning', screenshot: '/templates/cleaning.png' },
+  { id: 'dentist', name: 'Pure Smile', color: '#06B6D4', emoji: '🦷', desc: 'Clinic-fresh Cyan focused on hygiene & trust.', demoLink: '/seo-for-dentists', screenshot: '/templates/dentist.png' },
+  { id: 'landscaping', name: 'Green Canopy', color: '#15803D', emoji: '🌳', desc: 'Natural forest tones for outdoor mastery.', demoLink: '/seo-for-landscaping', screenshot: '/templates/landscaping.png' },
+  { id: 'roofing', name: 'Slate Guard', color: '#4B5563', emoji: '🏠', desc: 'Rugged, reliable grey for construction power.', demoLink: '/seo-for-roofers', screenshot: '/templates/roofing.png' },
+  { id: 'locksmith', name: 'Rapid Shield', color: '#B91C1C', emoji: '🔑', desc: 'Emergency red for immediate site confidence.', demoLink: '/seo-for-locksmith', screenshot: '/templates/locksmith.png' },
+  { id: 'pet-grooming', name: 'Happy Paws', color: '#8B5CF6', emoji: '🐕', desc: 'Modern, playful tones for pet care professionals.', demoLink: '/seo-for-pet-grooming', screenshot: '/templates/pet-grooming.png' },
+  { id: 'sanitary', name: 'Pro Scan', color: '#64748B', emoji: '🚽', desc: 'B2B and B2C sanitary services site with Cost per Lead focus.', demoLink: '/seo-for-sanitary', screenshot: '/templates/sanitary.png' },
+  { id: 'grocery', name: 'Local Mart', color: '#F97316', emoji: '🛒', desc: 'Neighborhood inventory search and delivery focused.', demoLink: '/seo-for-grocery', screenshot: '/templates/grocery.png' },
+  { id: 'hardware', name: 'Project Pro', color: '#475569', emoji: '🛠️', desc: 'Heavy-duty hardware site with contractor account features.', demoLink: '/seo-for-hardware', screenshot: '/templates/hardware.png' },
 ]
 
 const BRAND_COLORS = [
@@ -32,6 +32,7 @@ interface TemplateGalleryProps {
 export default function TemplateGallery({ onSelect, showBranding = false }: TemplateGalleryProps) {
   const [selectedTemplate, setSelectedTemplate] = useState('plumbing')
   const [selectedColor, setSelectedColor] = useState(BRAND_COLORS[0].primary)
+  const [previewTemplate, setPreviewTemplate] = useState<typeof TEMPLATES[0] | null>(null)
 
   useEffect(() => {
     const saved = localStorage.getItem('theme-color')
@@ -51,7 +52,7 @@ export default function TemplateGallery({ onSelect, showBranding = false }: Temp
 
   return (
     <section className="py-20 px-6">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto font-inter">
         
         {/* BRAND COLOR SELECTION (ONLY SHOW IN ONBOARDING) */}
         {showBranding && (
@@ -93,8 +94,8 @@ export default function TemplateGallery({ onSelect, showBranding = false }: Temp
           {TEMPLATES.map((t) => (
             <div 
               key={t.id} 
-              className={`group relative rounded-[40px] border-2 transition-all p-4 cursor-pointer overflow-hidden ${selectedTemplate === t.id ? 'border-primary shadow-3xl shadow-primary/20 bg-white dark:bg-slate-900' : 'border-gray-50 dark:border-slate-800/50 hover:border-gray-200'}`}
-              onClick={() => setSelectedTemplate(t.id)}
+              className={`group relative rounded-[40px] border-2 transition-all p-4 cursor-pointer overflow-hidden ${selectedTemplate === t.id ? 'border-primary shadow-3xl shadow-primary/20 bg-white dark:bg-slate-900' : 'border-gray-50 dark:border-slate-800/50 hover:border-gray-200 hover:shadow-xl'}`}
+              onClick={() => setPreviewTemplate(t)}
             >
               {/* Template Preview Card */}
               <div className="rounded-[32px] overflow-hidden aspect-[4/5] bg-gray-50 dark:bg-slate-950/80 relative mb-6">
@@ -107,18 +108,16 @@ export default function TemplateGallery({ onSelect, showBranding = false }: Temp
                 
                 {/* ACTION OVERLAY (ALWAYS VISIBLE ON MOBILE) */}
                 <div className="absolute inset-0 bg-navy/80 md:bg-navy/90 backdrop-blur-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all flex flex-col items-center justify-center p-8 gap-4">
-                   <a 
-                     href={t.demoLink}
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     onClick={(e) => e.stopPropagation()}
+                   <div className="text-white font-black text-[10px] uppercase tracking-[3px] mb-4 opacity-70">Click to Preview</div>
+                   <button 
                      className="w-full bg-white/10 text-white font-black py-4 rounded-xl text-xs shadow-lg hover:bg-white/20 active:scale-95 transition-all uppercase tracking-widest border border-white/10 text-center"
                    >
-                     👁️ Live Preview
-                   </a>
+                     👁️ Quick View
+                   </button>
                    <button 
                      onClick={(e) => {
                        e.stopPropagation();
+                       setSelectedTemplate(t.id);
                        onSelect?.(t.id, selectedColor);
                      }}
                      className="w-full bg-primary text-white font-black py-5 rounded-2xl text-[10px] shadow-2xl hover:scale-105 active:scale-95 transition-all uppercase tracking-widest"
@@ -139,6 +138,81 @@ export default function TemplateGallery({ onSelect, showBranding = false }: Temp
           ))}
         </div>
       </div>
+
+      {/* PREVIEW MODAL */}
+      {previewTemplate && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 animate-in fade-in duration-300">
+          <div 
+            className="absolute inset-0 bg-navy/60 backdrop-blur-xl"
+            onClick={() => setPreviewTemplate(null)}
+          />
+          
+          <div className="relative bg-white dark:bg-slate-900 w-full max-w-5xl rounded-[48px] shadow-4xl overflow-hidden border border-white/10 flex flex-col md:flex-row animate-in slide-in-from-bottom-12 duration-500">
+            {/* CLOSE BUTTON */}
+            <button 
+              onClick={() => setPreviewTemplate(null)}
+              className="absolute top-8 right-8 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center backdrop-blur-md border border-white/10 transition-all active:scale-90"
+            >
+              <span className="text-2xl leading-none">×</span>
+            </button>
+
+            {/* SCREENSHOT SECTION */}
+            <div className="md:w-2/3 bg-gray-100 dark:bg-slate-950 p-4 md:p-8 flex items-center justify-center">
+               <div className="relative w-full aspect-[16/10] bg-white dark:bg-slate-900 rounded-2xl shadow-3xl overflow-hidden border border-gray-200 dark:border-slate-800 group">
+                  <img 
+                    src={previewTemplate.screenshot} 
+                    alt={previewTemplate.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+               </div>
+            </div>
+
+            {/* INFO SECTION */}
+            <div className="md:w-1/3 p-10 md:p-12 flex flex-col justify-center">
+               <div className="text-4xl mb-6">{previewTemplate.emoji}</div>
+               <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-[8px] font-black uppercase tracking-[2.4px] mb-4 border border-primary/10">Industry Certified</div>
+               <h3 className="text-3xl font-black text-gray-900 dark:text-white mb-6 uppercase italic tracking-tighter">{previewTemplate.name}</h3>
+               <p className="text-sm text-gray-500 dark:text-gray-400 mb-10 leading-relaxed font-bold uppercase tracking-widest text-[10px] italic">"{previewTemplate.desc}"</p>
+               
+               <div className="space-y-4 mb-12">
+                  {[
+                    "Optimized for High-Intent Leads",
+                    "Voice-to-Text Project Updates",
+                    "Automatic GMB Weekly Posts",
+                    "Premium Design Aesthetics"
+                  ].map((f, i) => (
+                    <div key={i} className="flex items-center gap-3 text-xs font-bold text-gray-600 dark:text-gray-300">
+                      <span className="w-5 h-5 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center text-[10px]">✓</span>
+                      {f}
+                    </div>
+                  ))}
+               </div>
+
+               <div className="flex flex-col gap-4">
+                  <button 
+                    onClick={() => {
+                      setSelectedTemplate(previewTemplate.id);
+                      onSelect?.(previewTemplate.id, selectedColor);
+                      setPreviewTemplate(null);
+                    }}
+                    className="w-full bg-primary text-white font-black py-6 rounded-2xl text-xs shadow-2xl hover:scale-105 active:scale-95 transition-all uppercase tracking-widest"
+                  >
+                    🚀 Use This Style
+                  </button>
+                  <a 
+                    href={previewTemplate.demoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full text-center py-4 text-[10px] font-black text-gray-400 hover:text-gray-600 dark:hover:text-white transition-colors uppercase tracking-[3px]"
+                  >
+                    View Live Example →
+                  </a>
+               </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
