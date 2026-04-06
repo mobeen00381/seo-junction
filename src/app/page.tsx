@@ -27,33 +27,79 @@ export default function HomePage() {
       <Navbar />
 
       {/* HERO SECTION */}
-      <section className="relative pt-32 md:pt-40 pb-24 md:pb-40 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[800px] bg-blue-50/30 dark:bg-blue-900/10 rounded-full blur-[120px] -z-10 animate-pulse"></div>
-        <div className="max-w-4xl mx-auto px-6 text-center animate-fade-in">
-          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 md:mb-8 leading-[1.2] md:leading-[1.1] tracking-tight">
-            Show your work.<br />
-            <span className="text-primary dark:text-primary-light">Get discovered on Google.</span>
-          </h1>
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
-            Send a photo or voice note — we turn it into a professional online presence automatically. No technical skills needed.
-          </p>
-          <div className="flex flex-col items-center gap-6 mb-24">
-            <Link href="/onboarding" className="text-lg font-bold text-white px-12 py-5 rounded-2xl shadow-xl shadow-blue-200 dark:shadow-none hover:scale-[1.02] active:scale-95 transition-all bg-navy">
-              Get Your Business Online
-            </Link>
-            <div className="flex flex-wrap justify-center items-center gap-6 text-sm font-medium text-gray-400 dark:text-gray-500">
-              <span className="flex items-center gap-2">✓ No tech skills needed</span>
-              <span className="flex items-center gap-2">✓ Free to start</span>
-              <span className="flex items-center gap-2">✓ You stay in control</span>
+      <section className="relative pt-24 md:pt-40 pb-24 md:pb-40 overflow-hidden border-b border-gray-100 dark:border-slate-900">
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/10 dark:bg-primary/5 rounded-full blur-[120px] -z-10 animate-pulse"></div>
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+          
+          <div className="animate-fade-in text-left">
+            <div className="inline-flex items-center gap-3 text-[10px] md:text-11px font-black tracking-[2px] uppercase text-slate-500 mb-8 border-b border-slate-200 dark:border-slate-800 pb-2">
+              <span className="w-12 h-[1px] bg-slate-200 dark:bg-slate-800"></span>
+              For local service businesses
+            </div>
+            <h1 className="mb-8 font-poppins text-slate-900 dark:text-white">
+              Show your work.<br />
+              Get found on <span className="italic-accent text-secondary">Google.</span>
+            </h1>
+            <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 mb-12 max-w-xl leading-relaxed font-medium">
+              Send a photo or voice note from any job — we turn it into a professional website and Google presence 
+              <span className="text-slate-900 dark:text-white font-bold italic"> automatically.</span> No technical skills needed.
+            </p>
+            <div className="flex flex-col sm:flex-row items-start gap-6 mb-12">
+              <Link href="/onboarding" className="w-full sm:w-auto text-sm font-black text-navy bg-primary px-10 py-5 rounded-full shadow-2xl shadow-primary/20 hover:scale-[1.05] active:scale-95 transition-all text-center uppercase tracking-widest">
+                Get Your Business Online →
+              </Link>
+              <Link href="/examples" className="w-full sm:w-auto text-sm font-black text-slate-400 hover:text-slate-900 dark:hover:text-white p-5 transition-all uppercase tracking-widest text-center">
+                See examples →
+              </Link>
+            </div>
+            <div className="flex items-center gap-4 pt-8 border-t border-gray-100 dark:border-slate-900">
+               <div className="flex -space-x-3">
+                 {['MT', 'SM', 'DC', 'SJ'].map((p, i) => (
+                   <div key={i} className="w-10 h-10 rounded-full border-2 border-white dark:border-slate-950 bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-[10px] font-black text-slate-500">{p}</div>
+                 ))}
+               </div>
+               <div className="text-[11px] font-black text-slate-400 uppercase tracking-widest">
+                 <span className="text-slate-900 dark:text-white">50+ local businesses</span> already live
+               </div>
             </div>
           </div>
-        </div>
 
-        {/* LIVE PREVIEW INTEGRATION */}
-        <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
-          <LivePreview whatsapp="+1234567890" businessName="Mike's Electric" domain="mikes-electric.com" />
+          <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <div className="mb-8 flex gap-4">
+               <div className="flex-1 glass p-6 rounded-[32px] border-slate-200/50 dark:border-slate-800/50">
+                 <div className="text-3xl font-black text-slate-900 dark:text-white mb-1 italic tracking-tighter">50+</div>
+                 <div className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Businesses online</div>
+               </div>
+               <div className="flex-1 glass p-6 rounded-[32px] border-slate-200/50 dark:border-slate-800/50">
+                 <div className="text-3xl font-black text-slate-900 dark:text-white mb-1 italic tracking-tighter">300+</div>
+                 <div className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Updates published</div>
+               </div>
+            </div>
+            <div className="animate-float">
+              <LivePreview whatsapp="+1234567890" businessName="Mike's Electric" domain="mikes-electric.com" />
+            </div>
+          </div>
+
         </div>
       </section>
+
+      {/* STATS TICKER */}
+      <div className="bg-slate-50 dark:bg-slate-900/50 border-b border-gray-100 dark:border-slate-800 py-6 overflow-hidden">
+        <div className="flex items-center gap-12 animate-slide whitespace-nowrap px-6">
+           {[
+             { n: '50+', l: 'Local businesses using SEO Junction' },
+             { n: '300+', l: 'Job updates published this month' },
+             { n: '0', l: 'Tech skills needed to get started' },
+             { n: 'USA · UK · UAE · AU', l: 'Serving businesses across four markets' }
+           ].map((item, i) => (
+             <div key={i} className="flex items-center gap-3">
+               <span className="text-lg font-black text-secondary italic">{item.n}</span>
+               <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{item.l}</span>
+               {i < 3 && <div className="w-[1px] h-4 bg-slate-200 dark:bg-slate-800 ml-8"></div>}
+             </div>
+           ))}
+        </div>
+      </div>
 
       {/* HOW IT WORKS */}
       <section className="py-32 bg-gray-50 dark:bg-slate-900/50 border-y border-gray-100 dark:border-slate-800">

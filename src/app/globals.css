@@ -3,25 +3,28 @@
 @tailwind utilities;
 
 :root {
-  --primary: #1565C0; /* Default SEO Blue */
-  --primary-active: #0D47A1;
-  --primary-light: #E3F2FD;
-  --secondary: #7C3AED;
-  --navy: #0B1F3A;
+  --primary: #b8e040; /* Lime Highlight from redesign */
+  --primary-active: #9dc435;
+  --primary-light: #f5f3ee;
+  --secondary: #d4a843; /* Gold Accent */
+  --navy: #0c0c0b;
   --blue: #1565C0;
-  --amber: #F59E0B;
-  --green: #10B981;
+  --amber: #d4a843;
+  --green: #b8e040;
   --red: #EF4444;
-  --slate-900: #111827;
+  --slate-900: #1a1a19;
+  --slate-500: #6a6760;
   --premium-gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   --glass-bg: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(255, 255, 255, 0.2);
 }
 
 .dark {
-  --slate-900: #F8FAFC;
-  --glass-bg: rgba(11, 31, 58, 0.3);
+  --slate-900: #f5f3ee;
+  --slate-500: #a8a49a;
+  --glass-bg: rgba(12, 12, 11, 0.3);
   --glass-border: rgba(255, 255, 255, 0.05);
+  --navy: #0c0c0b;
 }
 
 * { 
@@ -41,18 +44,45 @@ body {
 }
 
 .dark body {
-  background-color: #020617;
+  background-color: #0c0c0b; /* Premium Dark from redesign */
+  color: #f5f3ee;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  line-height: 1.2;
+h1, h2, h3 {
   color: var(--slate-900);
+  letter-spacing: -0.02em;
 }
 
-h1 { font-size: clamp(32px, 5vw, 40px); }
-h2 { font-size: clamp(24px, 4vw, 28px); font-weight: 600; }
-h3 { font-size: clamp(18px, 3vw, 22px); font-weight: 600; }
+h1 { 
+  font-family: var(--font-poppins), sans-serif;
+  font-size: clamp(40px, 8vw, 68px); 
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 38px; }
+}
+
+h2 { 
+  font-family: var(--font-poppins), sans-serif;
+  font-size: clamp(28px, 5vw, 42px); 
+  font-weight: 700; 
+  line-height: 1.1;
+}
+
+h3 { 
+  font-family: var(--font-poppins), sans-serif;
+  font-size: clamp(20px, 3.5vw, 26px); 
+  font-weight: 600; 
+}
+
+.italic-accent {
+  font-family: serif; /* Fallback for now */
+  font-style: italic;
+  font-weight: 400;
+}
 
 p { font-size: 16px; line-height: 1.7; }
 
@@ -99,5 +129,25 @@ p { font-size: 16px; line-height: 1.7; }
 @keyframes pulse-subtle {
   0%, 100% { transform: scale(1); opacity: 1; }
   50% { transform: scale(1.01); opacity: 0.9; }
+}
+
+@keyframes slide {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-slide {
+  animation: slide 30s linear infinite;
+  display: flex;
+  width: max-content;
+}
+
+.animate-in {
+  animation: animateIn 0.5s ease-out forwards;
+}
+
+@keyframes animateIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
