@@ -24,7 +24,7 @@ export default function SeoForCleaningPage() {
           <p className="mb-10 text-lg opacity-80 max-w-xl mx-auto leading-relaxed text-blue-50 font-medium italic">When homeowners search 'house cleaning' or 'janitorial services near me', your company should be the top result. We automate your expertise on Google daily.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/onboarding" className="font-bold text-slate-900 bg-white px-8 py-4 rounded-xl text-base shadow-xl hover:bg-slate-50 transition-all">Start 30-Day Free Trial →</Link>
-            <Link href="/demo" className="font-semibold px-8 py-4 rounded-xl text-base border border-white/30 hover:bg-white/10 transition-all">See Live Demo</Link>
+            <Link href="/examples" className="font-semibold px-8 py-4 rounded-xl text-base border border-white/30 hover:bg-white/10 transition-all">See Examples</Link>
           </div>
         </div>
       </section>

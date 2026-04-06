@@ -4,11 +4,11 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Demo Sites — Experience Your New AI Website | SEO Junction',
-  description: 'Explore live demo websites built automatically by SEO Junction for plumbers, electricians, landscapers, and more.',
+  title: 'Examples — Experience Your New AI Website | SEO Junction',
+  description: 'Explore live examples built automatically by SEO Junction for plumbers, electricians, landscapers, and more.',
 }
 
-const DEMO_CARDS = [
+const EXAMPLE_CARDS = [
   {
     name: 'Elite Plumbing Pro',
     city: 'Austin, TX',
@@ -131,7 +131,7 @@ const DEMO_CARDS = [
   }
 ]
 
-export default function DemoHubPage() {
+export default function ExamplesHubPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300">
       <Navbar />
@@ -139,7 +139,7 @@ export default function DemoHubPage() {
       {/* ── HERO ── */}
       <section className="px-6 pt-40 pb-24 text-center bg-gray-50 dark:bg-slate-900/50 border-b border-gray-100 dark:border-slate-800">
         <div className="max-w-4xl mx-auto">
-          <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-[3.2px] mb-8 border border-primary/10">Industry Demo Sites</div>
+          <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-[3.2px] mb-8 border border-primary/10">Industry Examples</div>
           <h1 className="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-8 leading-none tracking-tighter">
              Select Your Trade — <br /><span className="text-transparent bg-clip-text" style={{ backgroundImage: 'var(--premium-gradient)' }}>See Your New Website</span>
           </h1>
@@ -149,11 +149,11 @@ export default function DemoHubPage() {
         </div>
       </section>
 
-      {/* ── DEMO GRID ── */}
+      {/* ── EXAMPLES GRID ── */}
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {DEMO_CARDS.map((d, i) => (
+            {EXAMPLE_CARDS.map((d, i) => (
               <div key={i} className="group relative rounded-[40px] overflow-hidden border border-gray-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl shadow-gray-100 dark:shadow-none transition-all hover:scale-[1.02] hover:border-blue-200 dark:hover:border-blue-900">
                 {/* EMOJI PREVIEW */}
                 <div className="h-44 flex items-center justify-center text-7xl transition-all group-hover:scale-110" style={{ background: d.color + '15' }}>
@@ -181,7 +181,7 @@ export default function DemoHubPage() {
                   </div>
 
                   <Link href={d.link} className="block w-full text-center py-4.5 rounded-xl font-black text-white transition-all shadow-2xl hover:shadow-primary/30 active:scale-95 text-sm uppercase tracking-widest" style={{ background: d.color }}>
-                    Launch Demo →
+                    Launch Example →
                   </Link>
                 </div>
               </div>

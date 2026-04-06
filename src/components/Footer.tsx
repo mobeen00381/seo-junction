@@ -47,7 +47,7 @@ export default function Footer() {
            <h4 className="font-bold text-gray-900 dark:text-white mb-6 uppercase tracking-[3px] text-[10px]">Tools & Support</h4>
            <ul className="space-y-4">
               <li><Link href="/gmb-checker" className="text-sm font-bold text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors">GMB Checker</Link></li>
-              <li><Link href="/demo" className="text-sm font-bold text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors">Live Demo</Link></li>
+              <li><Link href="/examples" className="text-sm font-bold text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors">Examples</Link></li>
               <li><Link href="/contact" className="text-sm font-bold text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors">Contact Support</Link></li>
            </ul>
         </div>

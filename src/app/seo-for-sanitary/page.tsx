@@ -24,7 +24,7 @@ export default function SeoForSanitaryPage() {
           <p className="mb-10 text-lg opacity-80 max-w-xl mx-auto leading-relaxed text-indigo-100 font-medium">When homeowners search for 'luxury tiles' or 'bathroom vanities', your showroom should be the top result. We optimize your Google profile with expert terms like 'ceramic tiles' and 'CP fittings' automatically.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/onboarding" className="font-bold text-indigo-900 bg-white px-8 py-4 rounded-xl text-base shadow-xl hover:bg-indigo-50 transition-all">Start 30-Day Free Trial →</Link>
-            <Link href="/demo" className="font-semibold px-8 py-4 rounded-xl text-base border border-white/30 hover:bg-white/10 transition-all">See Live Demo</Link>
+            <Link href="/examples" className="font-semibold px-8 py-4 rounded-xl text-base border border-white/30 hover:bg-white/10 transition-all">See Examples</Link>
           </div>
         </div>
       </section>
