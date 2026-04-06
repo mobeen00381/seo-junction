@@ -18,7 +18,7 @@ export default function SeoForHvacPage() {
       <section style={{background:'linear-gradient(135deg,#012B38,#014F68)'}} className="px-6 py-40 text-center text-white">
         <div className="max-w-3xl mx-auto">
           <div className="inline-block text-[10px] font-black tracking-[2px] uppercase px-4 py-1.5 rounded-full mb-6 border" style={{background:'rgba(8,145,178,0.2)',borderColor:'rgba(8,145,178,0.4)',color:'#67E8F9'}}>❄️ Built for HVAC Contractors</div>
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight text-center">
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight text-center text-white">
             Get More HVAC Calls<br /><span className="text-amber-400">Every Season</span> — Without<br />Any Extra Work
           </h1>
           <p className="mb-10 text-lg opacity-80 max-w-xl mx-auto leading-relaxed text-cyan-100 font-medium">Summer AC calls. Winter heating calls. Year-round Google visibility. SEO Junction manages your Google presence so customers find you first — in every season.</p>

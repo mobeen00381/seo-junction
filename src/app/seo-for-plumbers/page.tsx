@@ -18,7 +18,7 @@ export default function SeoForPlumbersPage() {
       <section style={{background:'linear-gradient(135deg,#0B1F3A,#162944)'}} className="px-6 py-40 text-center text-white">
         <div className="max-w-3xl mx-auto">
           <div className="inline-block text-[10px] font-black tracking-[2px] uppercase px-4 py-1.5 rounded-full mb-6 border" style={{background:'rgba(21,101,192,0.2)',borderColor:'rgba(21,101,192,0.4)',color:'#90CAF9'}}>🔧 Built for Plumbing Companies</div>
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight text-center">
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight text-center text-white">
             Get Your Plumbing Business<br /><span className="text-amber-400">to the Top of Google</span><br />On 100% Autopilot
           </h1>
           <p className="text-blue-100 opacity-80 mb-10 text-lg max-w-xl mx-auto leading-relaxed">You fix pipes. We fix your Google ranking. We build your website, manage your GMB profile, and post fresh plumbing content every week — automatically.</p>

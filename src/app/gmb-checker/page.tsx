@@ -132,7 +132,7 @@ export default function GmbCheckerPage() {
         {step === 'input' && (
           <div className="animate-in fade-in slide-in-from-bottom-8 duration-700">
              <div className="text-center mb-16">
-                <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-[3.2px] mb-6 border border-primary/10">Neural GMB Audit 4.0</div>
+                <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-[3.2px] mb-12 border border-primary/10">Neural GMB Audit 4.0</div>
                 <h1 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter mb-6 leading-none">
                    The <span className="text-primary italic">Answers</span> are<br />
                    changing. Are you?

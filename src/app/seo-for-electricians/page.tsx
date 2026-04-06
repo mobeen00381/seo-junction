@@ -18,7 +18,7 @@ export default function SeoForElectriciansPage() {
       <section style={{background:'linear-gradient(135deg,#1E1B4B,#312E81)'}} className="px-6 py-40 text-center text-white">
         <div className="max-w-3xl mx-auto">
           <div className="inline-block text-[10px] font-black tracking-[2px] uppercase px-4 py-1.5 rounded-full mb-6 border" style={{background:'rgba(245,158,11,0.2)',borderColor:'rgba(245,158,11,0.4)',color:'#FCD34D'}}>⚡ High-Voltage Growth SEO</div>
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight text-center">
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight text-center text-white">
             The Number #1 Choice For <br /><span className="text-amber-400">Electrical Calls</span> — 100% Autopilot
           </h1>
           <p className="mb-10 text-lg opacity-80 max-w-xl mx-auto leading-relaxed text-indigo-50 font-medium italic">When homeowners search 'emergency electrician' or 'panel upgrade near me', your company should be the top result. We automate your expertise on Google daily.</p>

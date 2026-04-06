@@ -35,7 +35,7 @@ export default function Navbar() {
           
           <Link href="/" className="flex items-center gap-2 md:gap-3 group">
             <div className="w-10 h-10 md:w-11 md:h-11 rounded-2xl flex items-center justify-center text-white font-black text-lg md:text-xl transition-transform group-hover:scale-110 shadow-lg shadow-primary/20" style={{ background: 'var(--premium-gradient)' }}>S</div>
-            <span className="font-black text-gray-900 dark:text-white text-lg md:text-xl tracking-tighter">SEO Junction</span>
+            <span className={`font-black text-lg md:text-xl tracking-tighter transition-colors ${isScrolled || isMenuOpen ? 'text-gray-900 dark:text-white' : 'text-gray-900 dark:text-white md:text-gray-900'}`}>SEO Junction</span>
           </Link>
 
           {/* Desktop Links - Optimized Spacing */}
