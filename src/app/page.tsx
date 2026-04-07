@@ -52,7 +52,7 @@ export default function HomePage() {
 
       {/* ⚡ HERO SECTION ⚡ */}
       <section className="relative pt-18 md:pt-24 pb-16 md:pb-0 overflow-hidden" style={{borderBottom:'1px solid var(--border)'}}>
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-[2.333fr_1fr] gap-0 items-stretch min-h-[75vh]">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-0 items-stretch min-h-[75vh]">
           
           {/* Left - Copy */}
           <div className="flex flex-col justify-center py-12 md:py-20 md:pr-14 animate-fade-in">
