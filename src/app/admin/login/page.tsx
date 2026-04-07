@@ -85,7 +85,7 @@ export default function AdminLoginPage() {
 
         {/* FOOTER INFO */}
         <div className="mt-12 text-center text-slate-600 font-black text-[9px] uppercase tracking-[5px] select-none">
-            AES-256 System Encryption • Global Network Hub
+            AES-256 System Encryption • Worldwide Network Presence
         </div>
       </div>
     </div>

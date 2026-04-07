@@ -73,7 +73,7 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 flex-wrap" style={{borderTop:'1px solid rgba(255,255,255,0.07)'}}>
         <div className="text-[12px]" style={{color:'var(--ink4)'}}>© 2026 Neerzy. Built for Trades.</div>
-        <div className="text-[11px] tracking-wide" style={{color:'var(--ink4)'}}>USA · UK · UAE · AU</div>
+        <div className="text-[11px] tracking-wide font-bold uppercase" style={{color:'var(--ink4)'}}>Served Worldwide</div>
         <div className="flex gap-4">
            <Link href="/terms" className="text-[12px] transition-colors hover:opacity-100" style={{color:'var(--ink4)'}}>Terms</Link>
            <Link href="/privacy-policy" className="text-[12px] transition-colors hover:opacity-100" style={{color:'var(--ink4)'}}>Privacy</Link>

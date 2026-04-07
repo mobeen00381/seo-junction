@@ -36,13 +36,13 @@ export default function Navbar() {
           
           {/* Neerzy Logo */}
           <Link href="/" className="flex items-center gap-2 md:gap-3 group">
-            <svg className="w-9 h-9 md:w-10 md:h-10 transition-transform group-hover:scale-110" viewBox="0 0 30 30" fill="none">
+            <svg className="w-12 h-12 md:w-14 md:h-14 transition-transform group-hover:scale-110" viewBox="0 0 30 30" fill="none">
               <rect width="30" height="30" rx="8" fill="#1d9e75"/>
               <circle cx="15" cy="13" r="5" fill="none" stroke="#a8f0c8" strokeWidth="1.8"/>
               <circle cx="15" cy="13" r="2" fill="#a8f0c8"/>
               <path d="M10 21 Q15 17 20 21" stroke="#a8f0c8" strokeWidth="1.8" strokeLinecap="round" fill="none"/>
             </svg>
-            <span className="font-bold text-lg md:text-xl tracking-tight font-display" style={{color:'var(--ink)'}}>
+            <span className="font-bold text-xl md:text-2xl tracking-tight font-display" style={{color:'var(--ink)'}}>
               Neer<span style={{color:'var(--teal2)'}}>zy</span>
             </span>
           </Link>
