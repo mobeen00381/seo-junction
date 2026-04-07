@@ -149,7 +149,7 @@ function DashboardContent() {
              <h3 className="text-2xl font-black mb-2 tracking-tighter">Mobile QR Update</h3>
              <p className="opacity-60 text-sm mb-10 font-medium italic">"Scan from job site, post in 10 seconds."</p>
              <div className="w-40 h-40 bg-white rounded-3xl p-3 mb-8 ring-8 ring-white/10 mx-auto md:mx-0">
-               <img src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent('https://seo-junction.vercel.app/post/demo-user')}`} alt="QR" className="w-full h-full" />
+               <img src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent('https://www.neerzy.com/post/demo-user')}`} alt="QR" className="w-full h-full" />
              </div>
              <p className="text-[10px] font-black uppercase tracking-[3px] opacity-40">No Login Required • PWA Enabled</p>
            </div>

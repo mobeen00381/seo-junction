@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Agency Plan — White-Label Local SEO for Marketing Agencies | SEO Junction',
-  description: 'Manage all your local business clients under your brand. SEO Junction Agency lets you deliver done-for-you local SEO and GMB management for 5–40+ clients without extra headcount.',
+  title: 'Agency Plan — White-Label Local SEO for Marketing Agencies | Neerzy',
+  description: 'Manage all your local business clients under your brand. Neerzy Agency lets you deliver done-for-you local SEO and GMB management for 5–40+ clients without extra headcount.',
   keywords: 'white-label local SEO, SEO agency tool, local SEO platform for agencies, GMB management agency, resell local SEO',
 }
 
@@ -29,7 +29,7 @@ export default function AgencyPage() {
       <nav className="border-b px-6 py-4 flex justify-between items-center sticky top-0 bg-white z-40 shadow-sm">
         <Link href="/" className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-sm" style={{ background: '#1565C0' }}>S</div>
-          <span className="font-bold" style={{ fontFamily: 'Syne,sans-serif' }}>SEO Junction</span>
+          <span className="font-bold" style={{ fontFamily: 'Syne,sans-serif' }}>Neerzy</span>
         </Link>
         <Link href="/onboarding" className="text-sm font-bold px-4 py-2 rounded-lg text-white" style={{ background: '#1565C0' }}>Start Agency Trial</Link>
       </nav>
@@ -40,7 +40,7 @@ export default function AgencyPage() {
           <h1 className="text-4xl md:text-5xl font-black text-white mb-5 leading-tight" style={{ fontFamily: 'Syne,sans-serif' }}>
             Manage All Your Local<br />Business Clients —<br /><span style={{ color: '#F59E0B' }}>Under Your Brand</span>
           </h1>
-          <p className="text-blue-200 opacity-80 mb-10 text-lg max-w-xl mx-auto">SEO Junction Agency lets you deliver done-for-you local SEO and GMB management for 5, 15, or 40 clients — without hiring a single extra person.</p>
+          <p className="text-blue-200 opacity-80 mb-10 text-lg max-w-xl mx-auto">Neerzy Agency lets you deliver done-for-you local SEO and GMB management for 5, 15, or 40 clients — without hiring a single extra person.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/onboarding" className="font-bold text-black px-8 py-4 rounded-xl text-base" style={{ background: '#F59E0B' }}>Start Agency Free Trial →</Link>
             <a href="mailto:agency@seo-junction.com" className="font-semibold px-8 py-4 rounded-xl text-base border text-white" style={{ borderColor: 'rgba(255,255,255,0.25)' }}>Book a Demo Call</a>
@@ -56,7 +56,7 @@ export default function AgencyPage() {
             {[
               { icon: '⏰', title: 'You spend hours manually posting to GMB profiles', desc: 'Every week you are logging into multiple client Google accounts, writing posts, uploading photos, responding to reviews. It takes hours. It does not scale.' },
               { icon: '📈', title: "You can't grow past 10 clients", desc: 'Taking on client 11 means either working weekends or hiring someone. Neither is a good answer. You need a system that scales without adding headcount.' },
-              { icon: '😟', title: 'Clients ask why their GMB is not being updated', desc: 'You mean to post weekly but bigger priorities get in the way. Clients notice. It hurts retention. SEO Junction posts automatically so you never miss a week.' },
+              { icon: '😟', title: 'Clients ask why their GMB is not being updated', desc: 'You mean to post weekly but bigger priorities get in the way. Clients notice. It hurts retention. Neerzy posts automatically so you never miss a week.' },
             ].map((p, i) => (
               <div key={i} className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
                 <div className="text-3xl mb-4">{p.icon}</div>
@@ -135,7 +135,7 @@ export default function AgencyPage() {
               {icon:'📊',title:'Branded monthly PDF reports',desc:'Auto-generated ranking reports with your agency branding. Send them to clients with one click.'},
               {icon:'👥',title:'Client-facing dashboard',desc:'Each client gets their own login to see their posts, ranking, and review activity — under your brand.'},
               {icon:'⚡',title:'Bulk CSV onboarding',desc:'Add 10 clients at once by uploading a CSV. No manual entry. Scale without the busywork.'},
-              {icon:'🔌',title:'API access',desc:'Integrate SEO Junction into your own platform or reporting dashboard using our REST API.'},
+              {icon:'🔌',title:'API access',desc:'Integrate Neerzy into your own platform or reporting dashboard using our REST API.'},
               {icon:'💬',title:'Dedicated Slack support',desc:'A real person in your Slack channel — not a ticket queue. For questions, escalations, and custom requests.'},
             ].map((f,i)=>(
               <div key={i} className="flex gap-4 p-5 rounded-xl border border-gray-100 hover:border-blue-200 transition-colors">
@@ -156,7 +156,7 @@ export default function AgencyPage() {
           <h2 className="text-2xl font-black text-center text-gray-900 mb-10" style={{fontFamily:'Syne,sans-serif'}}>Agency Questions</h2>
           <div className="space-y-3">
             {[
-              {q:"Can my clients see that SEO Junction powers their SEO?",a:"No. Every client-facing element — reports, dashboards, emails — shows your agency brand only. SEO Junction is invisible to your clients. You look like the expert. We are the engine behind the scenes."},
+              {q:"Can my clients see that Neerzy powers their SEO?",a:"No. Every client-facing element — reports, dashboards, emails — shows your agency brand only. Neerzy is invisible to your clients. You look like the expert. We are the engine behind the scenes."},
               {q:"What happens to my clients' sites if I cancel?",a:"Your clients' websites and domains belong to them — not to you or to us. If you cancel, we give you a 30-day wind-down period to transition clients. Their sites keep running during that time."},
               {q:"Can I set different post frequencies for different clients?",a:"Yes. Each client account has independent settings. You can run one client at 10 posts/month and another at 30 posts/month from the same agency dashboard."},
               {q:"Do you have an affiliate or referral program?",a:"Yes — agencies who refer other agencies earn 20% recurring commission for 12 months. Contact agency@seo-junction.com to set this up."},

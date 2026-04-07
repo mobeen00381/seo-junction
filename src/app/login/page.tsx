@@ -7,14 +7,14 @@ export default function LoginPage() {
       <nav className="bg-white border-b px-6 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-sm" style={{background:'#1565C0'}}>S</div>
-          <span className="font-bold" style={{fontFamily:'Syne,sans-serif'}}>SEO Junction</span>
+          <span className="font-bold" style={{fontFamily:'Syne,sans-serif'}}>Neerzy</span>
         </Link>
         <Link href="/onboarding" className="text-sm font-semibold text-primary">Create account →</Link>
       </nav>
       <div className="flex-1 flex items-center justify-center px-6">
         <div className="bg-white rounded-2xl border border-gray-200 p-8 w-full max-w-sm shadow-sm">
           <h1 className="text-2xl font-black text-gray-900 mb-2 text-center" style={{fontFamily:'Syne,sans-serif'}}>Welcome back</h1>
-          <p className="text-gray-500 text-sm text-center mb-8">Log in to your SEO Junction dashboard</p>
+          <p className="text-gray-500 text-sm text-center mb-8">Log in to your Neerzy dashboard</p>
           <div className="space-y-4">
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-1.5">Email</label>

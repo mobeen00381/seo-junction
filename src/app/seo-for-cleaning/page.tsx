@@ -5,8 +5,8 @@ import Footer from '@/components/Footer'
 import ProjectGallery from '@/components/ProjectGallery'
 
 export const metadata: Metadata = {
-  title: 'SEO for Cleaning Services — Get More Office & Home Bookings | SEO Junction',
-  description: 'SEO Junction helps cleaning companies rank for "house cleaning near me" and "commercial janitorial". Done-for-you hygiene-focused AI posts. 30-day free trial.',
+  title: 'SEO for Cleaning Services — Get More Office & Home Bookings | Neerzy',
+  description: 'Neerzy helps cleaning companies rank for "house cleaning near me" and "commercial janitorial". Done-for-you hygiene-focused AI posts. 30-day free trial.',
   keywords: 'SEO for cleaning services, maid service marketing, local cleaner SEO, rank janitorial business Google, deep cleaning SEO',
 }
 

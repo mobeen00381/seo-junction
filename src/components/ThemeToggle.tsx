@@ -25,23 +25,23 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="w-12 h-6 rounded-full bg-gray-200 dark:bg-gray-700 relative p-1 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95 border"
+      style={{
+        background: theme === 'dark' ? 'var(--paper3)' : 'var(--paper2)',
+        borderColor: 'var(--border2)',
+        color: 'var(--ink)',
+      }}
       aria-label="Toggle dark mode"
     >
-      <div 
-        className={`w-4 h-4 rounded-full bg-white dark:bg-blue-400 shadow-md transform transition-transform duration-300 flex items-center justify-center ${theme === 'dark' ? 'translate-x-6' : 'translate-x-0'}`}
-      >
-        {theme === 'light' ? (
-          <svg className="w-2.5 h-2.5 text-amber-500" fill="currentColor" viewBox="0 0 20 20 shadow">
-            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0V3a1 1 0 102 0v2zm4.5 .5a1 1 0 10-1.414-1.414l-1.414 1.414a1 1 0 101.414 1.414l1.414-1.414zM17 11a1 1 0 100-2h-2a1 1 0 100 2h2zm-1.5 4.5a1 1 0 101.414-1.414l-1.414-1.414a1 1 0 10-1.414 1.414l1.414 1.414zM11 17a1 1 0 10-2 0v2a1 1 0 102 0v-2zm-4.5-.5a1 1 0 101.414 1.414l1.414-1.414a1 1 0 10-1.414-1.414l-1.414 1.414zM3 11a1 1 0 100-2H1a1 1 0 100 2h2zM4.5 5.5a1 1 0 101.414 1.414L4.5 4.086A1 1 0 103.086 5.5L4.5 5.5z" clipRule="evenodd" />
-          </svg>
-        ) : (
-          <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-          </svg>
-        )}
-      </div>
+      {theme === 'light' ? (
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+        </svg>
+      ) : (
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" />
+        </svg>
+      )}
     </button>
   )
 }

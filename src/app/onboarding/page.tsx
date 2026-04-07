@@ -119,7 +119,7 @@ export default function OnboardingPage() {
       <nav className="px-6 py-8 border-b border-gray-50 dark:border-slate-900 flex justify-between items-center bg-white/80 dark:bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
         <Link href="/" className="flex items-center gap-2">
           <div className="w-9 h-9 rounded-lg flex items-center justify-center text-white font-bold text-sm" style={{ background: 'var(--premium-gradient)' }}>S</div>
-          <span className="font-bold text-gray-900 dark:text-white tracking-tight">SEO Junction</span>
+          <span className="font-bold text-gray-900 dark:text-white tracking-tight">Neerzy</span>
         </Link>
         <div className="flex items-center gap-6">
            <div className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">Step {step} of 6</div>

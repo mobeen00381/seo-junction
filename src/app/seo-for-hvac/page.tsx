@@ -5,8 +5,8 @@ import Footer from '@/components/Footer'
 import ProjectGallery from '@/components/ProjectGallery'
 
 export const metadata: Metadata = {
-  title: 'SEO for HVAC Companies — Rank on Google & Get More HVAC Calls | SEO Junction',
-  description: 'SEO Junction helps HVAC contractors rank on Google Maps and local search. Done-for-you website, GMB management, seasonal AI posts. 30-day free trial.',
+  title: 'SEO for HVAC Companies — Rank on Google & Get More HVAC Calls | Neerzy',
+  description: 'Neerzy helps HVAC contractors rank on Google Maps and local search. Done-for-you website, GMB management, seasonal AI posts. 30-day free trial.',
   keywords: 'SEO for HVAC, Google My Business for HVAC, HVAC local SEO, rank HVAC business Google, get more HVAC customers',
 }
 
@@ -21,7 +21,7 @@ export default function SeoForHvacPage() {
           <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight text-center text-white">
             Get More HVAC Calls<br /><span className="text-amber-400">Every Season</span> — Without<br />Any Extra Work
           </h1>
-          <p className="mb-10 text-lg opacity-80 max-w-xl mx-auto leading-relaxed text-cyan-100 font-medium">Summer AC calls. Winter heating calls. Year-round Google visibility. SEO Junction manages your Google presence so customers find you first — in every season.</p>
+          <p className="mb-10 text-lg opacity-80 max-w-xl mx-auto leading-relaxed text-cyan-100 font-medium">Summer AC calls. Winter heating calls. Year-round Google visibility. Neerzy manages your Google presence so customers find you first — in every season.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/onboarding" className="font-bold text-cyan-900 bg-white px-8 py-4 rounded-xl text-base shadow-xl hover:bg-cyan-50 transition-all">Start 30-Day Free Trial →</Link>
             <Link href="/examples" className="font-semibold px-8 py-4 rounded-xl text-base border border-white/30 hover:bg-white/10 transition-all">See Examples</Link>
@@ -36,7 +36,7 @@ export default function SeoForHvacPage() {
             {[
               {icon:'☀️',title:'Seasonal Spikes',desc:'When temperatures spike, HVAC searches jump 400%. The contractors who prepared their Google presence in spring are the ones who get flooded with summer AC calls.'},
               {icon:'🗺️',title:'Map Pack Dominance',desc:'The local 3-pack gets 70% of all HVAC clicks. If your three main competitors show up there and you do not, you are working twice as hard for half the calls.'},
-              {icon:'🔄',title:'Automated Content',desc:'To rank well year-round, you need fresh posts every month — Tun-ups, emergency cooling, heating prep. SEO Junction does it automatically for your business.'},
+              {icon:'🔄',title:'Automated Content',desc:'To rank well year-round, you need fresh posts every month — Tun-ups, emergency cooling, heating prep. Neerzy does it automatically for your business.'},
             ].map((p,i)=>(
               <div key={i} className="bg-white dark:bg-slate-900 rounded-[32px] p-8 shadow-sm border border-gray-100 dark:border-slate-800 transition-transform hover:scale-[1.03] text-left">
                 <div className="text-4xl mb-6">{p.icon}</div>

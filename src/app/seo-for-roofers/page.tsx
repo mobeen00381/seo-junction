@@ -5,8 +5,8 @@ import Footer from '@/components/Footer'
 import ProjectGallery from '@/components/ProjectGallery'
 
 export const metadata: Metadata = {
-  title: 'SEO for Roofers — Get More Commercial & Residential Leads | SEO Junction',
-  description: 'SEO Junction helps roofing contractors rank for "roof repair near me" and "new roof estimate". Done-for-you storm damage AI posts and map ranking. 30-day free trial.',
+  title: 'SEO for Roofers — Get More Commercial & Residential Leads | Neerzy',
+  description: 'Neerzy helps roofing contractors rank for "roof repair near me" and "new roof estimate". Done-for-you storm damage AI posts and map ranking. 30-day free trial.',
   keywords: 'SEO for roofers, roofing marketing, local roofer SEO, rank roofing company Google, roof shingles SEO',
 }
 

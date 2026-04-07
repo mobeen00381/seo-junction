@@ -3,8 +3,8 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — SEO Junction',
-  description: 'Learn how we protect your business data and user privacy here at SEO Junction.',
+  title: 'Privacy Policy — Neerzy',
+  description: 'Learn how we protect your business data and user privacy here at Neerzy.',
 }
 
 export default function PrivacyPolicyPage() {
@@ -38,7 +38,7 @@ export default function PrivacyPolicyPage() {
 
           <section className="mb-12">
              <h2 className="text-2xl font-black text-gray-900 dark:text-white mb-6 uppercase tracking-widest text-xs">4. Compliance</h2>
-             <p className="text-gray-500 dark:text-gray-400 text-lg leading-relaxed italic">"Privacy is a human right." SEO Junction complies with GDPR and CCPA standards where applicable to ensure user safety and transparency at all times.</p>
+             <p className="text-gray-500 dark:text-gray-400 text-lg leading-relaxed italic">"Privacy is a human right." Neerzy complies with GDPR and CCPA standards where applicable to ensure user safety and transparency at all times.</p>
           </section>
         </div>
       </article>

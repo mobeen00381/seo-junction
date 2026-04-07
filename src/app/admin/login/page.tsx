@@ -42,7 +42,7 @@ export default function AdminLoginPage() {
             <Link href="/" className="inline-flex items-center gap-3 group mb-8">
                 <div className="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center text-white font-black text-2xl shadow-2xl transition-transform group-hover:scale-105">S</div>
                 <div className="text-left">
-                    <div className="text-2xl font-black tracking-tighter text-white">SEO Junction</div>
+                    <div className="text-2xl font-black tracking-tighter text-white">Neerzy</div>
                     <div className="text-[10px] font-black text-slate-500 uppercase tracking-[4px]">Mission Control</div>
                 </div>
             </Link>

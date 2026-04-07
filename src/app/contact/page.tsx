@@ -3,8 +3,8 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Contact SEO Junction — Get Expert Support',
-  description: 'Need help with your Google ranking? Reach out to SEO Junction support. We are here to help local businesses grow.',
+  title: 'Contact Neerzy — Get Expert Support',
+  description: 'Need help with your Google ranking? Reach out to Neerzy support. We are here to help local businesses grow.',
 }
 
 export default function ContactPage() {

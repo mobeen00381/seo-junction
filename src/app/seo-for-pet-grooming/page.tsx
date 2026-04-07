@@ -5,8 +5,8 @@ import Footer from '@/components/Footer'
 import ProjectGallery from '@/components/ProjectGallery'
 
 export const metadata: Metadata = {
-  title: 'SEO for Pet Groomers — Book More Grooming Appointments | SEO Junction',
-  description: 'SEO Junction helps pet groomers rank for "dog grooming near me". Automated breed-specific SEO posts, grooming tips, and local ranking. 30-day free trial.',
+  title: 'SEO for Pet Groomers — Book More Grooming Appointments | Neerzy',
+  description: 'Neerzy helps pet groomers rank for "dog grooming near me". Automated breed-specific SEO posts, grooming tips, and local ranking. 30-day free trial.',
   keywords: 'SEO for pet groomers, dog grooming marketing, rank pet grooming Google, cat grooming SEO, pet groomer near me',
 }
 

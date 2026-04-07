@@ -9,7 +9,31 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        navy: '#0B1F3A',
+        ink: {
+          DEFAULT: 'var(--ink)',
+          2: 'var(--ink2)',
+          3: 'var(--ink3)',
+          4: 'var(--ink4)',
+        },
+        paper: {
+          DEFAULT: 'var(--paper)',
+          2: 'var(--paper2)',
+          3: 'var(--paper3)',
+          4: 'var(--paper4)',
+        },
+        teal: {
+          DEFAULT: 'var(--teal)',
+          2: 'var(--teal2)',
+          3: 'var(--teal3)',
+          soft: 'var(--teal-soft)',
+        },
+        mint: 'var(--mint)',
+        sun: {
+          DEFAULT: 'var(--sun)',
+          2: 'var(--sun2)',
+          soft: 'var(--sun-soft)',
+        },
+        navy: 'var(--ink)',
         primary: {
           DEFAULT: 'var(--primary)',
           dark: 'var(--primary-active)',
@@ -18,14 +42,13 @@ const config: Config = {
         secondary: {
           DEFAULT: 'var(--secondary)',
         },
-        blue: {
-          600: '#1565C0',
-          700: '#0D47A1',
-        },
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        poppins: ['var(--font-poppins)', 'sans-serif'],
+        sans: ['var(--font-jakarta)', 'Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+        display: ['var(--font-fraunces)', 'Fraunces', 'Georgia', 'serif'],
+      },
+      borderColor: {
+        DEFAULT: 'var(--border)',
       },
     },
   },

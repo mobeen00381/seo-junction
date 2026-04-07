@@ -49,7 +49,7 @@ export default function AdminLayout({
         <header className="px-10 py-8 flex justify-between items-center bg-slate-950/80 backdrop-blur-xl border-b border-white/5 sticky top-0 z-40">
            <div>
               <h2 className="text-[10px] font-black text-slate-500 uppercase tracking-[4px]">System Administration Grid</h2>
-              <h1 className="text-xl font-black tracking-tight text-white mt-1">SEO Junction Mission Control</h1>
+              <h1 className="text-xl font-black tracking-tight text-white mt-1">Neerzy Mission Control</h1>
            </div>
 
            <div className="flex items-center gap-6">

@@ -11,7 +11,7 @@ interface Message {
 export default function AIAssistant() {
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState<Message[]>([
-    { id: '1', role: 'assistant', content: "Hi! I'm your Growth Assistant. I can help explain how SEO Junction gets you more calls without you needing any tech skills. Got a quick question?" }
+    { id: '1', role: 'assistant', content: "Hi! I'm your Growth Assistant. I can help explain how Neerzy gets you more calls without you needing any tech skills. Got a quick question?" }
   ])
   const [input, setInput] = useState('')
   const [isTyping, setIsTyping] = useState(false)
@@ -176,7 +176,7 @@ export default function AIAssistant() {
             </div>
             {/* Disclaimer */}
             <div className="text-center mt-4 italic text-[10px] text-gray-400 uppercase tracking-widest font-bold">
-               Powered by SEO Junction AI
+               Powered by Neerzy AI
             </div>
           </div>
         </div>

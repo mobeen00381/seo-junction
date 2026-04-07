@@ -5,8 +5,8 @@ import Footer from '@/components/Footer'
 import ProjectGallery from '@/components/ProjectGallery'
 
 export const metadata: Metadata = {
-  title: 'SEO for Locksmiths — Rank #1 for Emergency Searches | SEO Junction',
-  description: 'SEO Junction helps locksmiths dominate the Google Map Pack. Done-for-you emergency lockout posts, car key AI terms, and more. 30-day free trial.',
+  title: 'SEO for Locksmiths — Rank #1 for Emergency Searches | Neerzy',
+  description: 'Neerzy helps locksmiths dominate the Google Map Pack. Done-for-you emergency lockout posts, car key AI terms, and more. 30-day free trial.',
   keywords: 'SEO for locksmiths, locksmith GMB marketing, rank locksmith near me, emergency locksmith SEO, locksmith calls',
 }
 

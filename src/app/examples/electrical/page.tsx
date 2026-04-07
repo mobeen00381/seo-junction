@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Live Demo — Spark Electrical Denver CO | SEO Junction',
-  description: 'See exactly what your SEO Junction website looks like. This is a live demo site for Spark Electrical in Denver, CO — built and managed by SEO Junction AI.',
+  title: 'Live Demo — Spark Electrical Denver CO | Neerzy',
+  description: 'See exactly what your Neerzy website looks like. This is a live demo site for Spark Electrical in Denver, CO — built and managed by Neerzy AI.',
 }
 
 export default function ElectricalDemoPage() {
@@ -12,7 +12,7 @@ export default function ElectricalDemoPage() {
 
       {/* ── DEMO BANNER ── */}
       <div className="text-white text-center py-3 px-4 text-sm font-semibold relative z-50" style={{ background: '#7C3AED' }}>
-        🎯 DEMO SITE — This is what your business website will look like, powered by SEO Junction.
+        🎯 DEMO SITE — This is what your business website will look like, powered by Neerzy.
         <Link href="/onboarding" className="ml-3 underline font-bold hover:opacity-80">
           Want a site like this? Start free →
         </Link>
@@ -197,9 +197,9 @@ export default function ElectricalDemoPage() {
         <p className="text-xs mt-4 opacity-30 text-white">CO License #EJ-99281 · Available 24/7 · Safety-First focus</p>
       </section>
 
-      {/* ── BACK TO SEO JUNCTION ── */}
+      {/* ── BACK TO Neerzy ── */}
       <div className="bg-purple-600 text-white text-center py-5 px-6">
-        <p className="text-sm font-medium mb-2">This site was built by <strong>SEO Junction</strong> in under 24 hours — automatically.</p>
+        <p className="text-sm font-medium mb-2">This site was built by <strong>Neerzy</strong> in under 24 hours — automatically.</p>
         <Link href="/onboarding" className="inline-block font-bold text-purple-600 bg-white px-6 py-2 rounded-lg text-sm hover:bg-blue-50 transition-colors">
           Get a site like this → Start Free Trial
         </Link>

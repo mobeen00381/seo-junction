@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Pricing — Local SEO Plans from $19/month | SEO Junction',
-  description: 'SEO Junction plans from $19/month. Done-for-you website, AI posts, and Google Business management. 30-day free trial. See a real AI post example before you sign up.',
+  title: 'Pricing — Local SEO Plans from $19/month | Neerzy',
+  description: 'Neerzy plans from $19/month. Done-for-you website, AI posts, and Google Business management. 30-day free trial. See a real AI post example before you sign up.',
 }
 
 const PLANS = [
@@ -16,9 +16,9 @@ const FAQS = [
   { q:'What happens after my 30-day free trial?', a:'You will be charged your plan price automatically. Cancel anytime before the trial ends and you pay nothing. We send a reminder 3 days before your trial ends.' },
   { q:'What does one AI post actually include?', a:'Each post is 300–500 words written for your business, city, and trade. It includes your keywords, local neighborhood names, services, and phone number. It posts to your website and Google Business Profile the same day.' },
   { q:'Do I own my domain and website?', a:'Yes, 100%. The domain is in your name. Transfer it out anytime. Your website content is always yours — we never hold it hostage.' },
-  { q:'How is this different from Google Ads?', a:'Google Ads stop the moment you stop paying. SEO Junction builds ranking that compounds — the longer you run it, the stronger your position. Most customers see better ROI from our SEO than Ads by month 3.' },
+  { q:'How is this different from Google Ads?', a:'Google Ads stop the moment you stop paying. Neerzy builds ranking that compounds — the longer you run it, the stronger your position. Most customers see better ROI from our SEO than Ads by month 3.' },
   { q:'Will AI posts sound like my actual business?', a:'Yes. Our AI uses your business name, city, services, and trade-specific language in every post. Local neighborhood names and your phone number are included. Customers frequently cannot tell it from human-written content.' },
-  { q:'Do I need any technical knowledge?', a:'Zero. Send a photo from your phone, a voice note, or a text message. Our AI does everything else — writing, posting, optimizing. If you can send a text, you can use SEO Junction.' },
+  { q:'Do I need any technical knowledge?', a:'Zero. Send a photo from your phone, a voice note, or a text message. Our AI does everything else — writing, posting, optimizing. If you can send a text, you can use Neerzy.' },
   { q:'What if I already have a website?', a:'We can work alongside your existing site or replace it. Many customers keep their old site and add our GMB management and content layer on top. Discuss this during onboarding.' },
   { q:'Can I change plans later?', a:'Yes — upgrade or downgrade anytime from your dashboard. Changes take effect on your next billing cycle. No fees for switching.' },
 ]
@@ -29,7 +29,7 @@ export default function PricingPage() {
       <nav className="border-b px-6 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-sm bg-navy">S</div>
-          <span className="font-bold text-gray-900 tracking-tight">SEO Junction</span>
+          <span className="font-bold text-gray-900 tracking-tight">Neerzy</span>
         </Link>
         <Link href="/onboarding" className="text-sm font-bold px-6 py-3 rounded-xl bg-navy text-white hover:opacity-90 transition-all shadow-lg shadow-blue-100">Start Free Trial</Link>
       </nav>

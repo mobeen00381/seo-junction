@@ -5,8 +5,8 @@ import Footer from '@/components/Footer'
 import ProjectGallery from '@/components/ProjectGallery'
 
 export const metadata: Metadata = {
-  title: 'SEO for Dentists — Get More New Patients & Rank #1 | SEO Junction',
-  description: 'SEO Junction helps dentists rank on Google Maps and local search. Done-for-you hygiene reminders, emergency dental AI posts, and more. 30-day free trial.',
+  title: 'SEO for Dentists — Get More New Patients & Rank #1 | Neerzy',
+  description: 'Neerzy helps dentists rank on Google Maps and local search. Done-for-you hygiene reminders, emergency dental AI posts, and more. 30-day free trial.',
   keywords: 'SEO for dentists, Google My Business for dentists, local dental SEO, dental practice marketing, get more dental patients',
 }
 

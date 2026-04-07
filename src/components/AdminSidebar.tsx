@@ -27,7 +27,7 @@ export default function AdminSidebar() {
       <div className="flex items-center gap-4 mb-14 px-2">
         <div className="w-12 h-12 rounded-2xl bg-primary flex items-center justify-center text-white font-black text-2xl shadow-xl shadow-primary/20">S</div>
         <div>
-           <span className="font-black text-xl tracking-tighter text-white block leading-none">SEO Junction</span>
+           <span className="font-black text-xl tracking-tighter text-white block leading-none">Neerzy</span>
            <span className="text-[9px] font-black text-primary uppercase tracking-[3px] mt-1 block">Superuser Panel</span>
         </div>
       </div>

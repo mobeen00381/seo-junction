@@ -5,8 +5,8 @@ import Footer from '@/components/Footer'
 import ProjectGallery from '@/components/ProjectGallery'
 
 export const metadata: Metadata = {
-  title: 'SEO for Grocery Stores — Weekly Deals & Local Visibility | SEO Junction',
-  description: 'SEO Junction helps local grocery stores rank for "fresh produce near me". Automated weekly specials posts and local inventory SEO. 30-day free trial.',
+  title: 'SEO for Grocery Stores — Weekly Deals & Local Visibility | Neerzy',
+  description: 'Neerzy helps local grocery stores rank for "fresh produce near me". Automated weekly specials posts and local inventory SEO. 30-day free trial.',
   keywords: 'SEO for grocery stores, local supermarket marketing, rank grocery store Google, fresh produce SEO, grocery near me',
 }
 

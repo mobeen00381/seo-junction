@@ -5,8 +5,8 @@ import Footer from '@/components/Footer'
 import ProjectGallery from '@/components/ProjectGallery'
 
 export const metadata: Metadata = {
-  title: 'Hardware SEO — DIY & Tools Visibility | SEO Junction',
-  description: 'SEO Junction helps local hardware stores rank for tools, paint, and garden supplies. Automated SEO posts for seasonal hardware needs. 30-day free trial.',
+  title: 'Hardware SEO — DIY & Tools Visibility | Neerzy',
+  description: 'Neerzy helps local hardware stores rank for tools, paint, and garden supplies. Automated SEO posts for seasonal hardware needs. 30-day free trial.',
   keywords: 'SEO for hardware stores, tool shop marketing, local hardware SEO, DIY supplies near me, hardware store Google rank',
 }
 

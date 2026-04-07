@@ -5,8 +5,8 @@ import Footer from '@/components/Footer'
 import ProjectGallery from '@/components/ProjectGallery'
 
 export const metadata: Metadata = {
-  title: 'SEO for Plumbers — Rank on Google & Get More Plumbing Calls | SEO Junction',
-  description: 'SEO Junction helps plumbers rank on Google and Google Maps. Done-for-you website + AI posts + GMB management. 30-day free trial. Most plumbers see results in 45 days.',
+  title: 'SEO for Plumbers — Rank on Google & Get More Plumbing Calls | Neerzy',
+  description: 'Neerzy helps plumbers rank on Google and Google Maps. Done-for-you website + AI posts + GMB management. 30-day free trial. Most plumbers see results in 45 days.',
   keywords: 'SEO for plumbers, Google My Business for plumbers, plumber local SEO, rank plumbing business Google, get more plumbing customers',
 }
 
@@ -36,7 +36,7 @@ export default function SeoForPlumbersPage() {
             {[
               { icon: '📵', title: "No Time for Marketing", desc: "You're on job sites all day. You have no time to write posts or update Google. Meanwhile, your competitor who does is getting your calls." },
               { icon: '📍', title: "Invisible on Maps", desc: "When someone searches 'plumber near me' you should be in the top 3. If you're not, those high-value calls go to someone else — every single day." },
-              { icon: '😤', title: "SEO That Actually Works", desc: "Most agencies charge $500/month for 'reports'. SEO Junction is $19. We show you exactly what posts go live and exactly where you rank." },
+              { icon: '😤', title: "SEO That Actually Works", desc: "Most agencies charge $500/month for 'reports'. Neerzy is $19. We show you exactly what posts go live and exactly where you rank." },
             ].map((p, i) => (
               <div key={i} className="bg-white dark:bg-slate-900 rounded-[32px] p-8 shadow-sm border border-gray-100 dark:border-slate-800 transition-transform hover:scale-[1.03] text-left">
                 <div className="text-4xl mb-6">{p.icon}</div>
@@ -81,10 +81,10 @@ export default function SeoForPlumbersPage() {
           <h2 className="text-2xl font-black text-center text-white mb-10 italic uppercase tracking-tighter">Plumber SEO Questions — Answered</h2>
           <div className="space-y-4">
             {[
-              {q:'How do I get my plumbing business on Google Maps?',a:'Three things drive Google Maps ranking for plumbers: a fully optimized Google Business Profile, consistent weekly posts to that profile, and a website with local keywords. SEO Junction handles all three automatically. Most plumbers see map pack movement within 30–60 days.'},
-              {q:'How long does SEO take to work for a plumbing company?',a:'Most plumbers using SEO Junction see their first ranking improvements within 30–45 days. Calls and inquiries typically increase by month 2. SEO compounds over time — the longer you run it, the stronger your position gets.'},
-              {q:'What keywords should a plumber target on Google?',a:'Start with your core service plus city — "plumber Austin TX," "emergency plumber Denver," "drain cleaning near me." Then add service-specific terms: water heater repair, pipe leak, sewer line. SEO Junction targets all of these automatically for your location.'},
-              {q:'Do I need a website to rank on Google Maps?',a:'Technically no — but plumbers with a linked website rank 40% higher in Google Maps than those without one. SEO Junction builds the website for you as part of every plan.'},
+              {q:'How do I get my plumbing business on Google Maps?',a:'Three things drive Google Maps ranking for plumbers: a fully optimized Google Business Profile, consistent weekly posts to that profile, and a website with local keywords. Neerzy handles all three automatically. Most plumbers see map pack movement within 30–60 days.'},
+              {q:'How long does SEO take to work for a plumbing company?',a:'Most plumbers using Neerzy see their first ranking improvements within 30–45 days. Calls and inquiries typically increase by month 2. SEO compounds over time — the longer you run it, the stronger your position gets.'},
+              {q:'What keywords should a plumber target on Google?',a:'Start with your core service plus city — "plumber Austin TX," "emergency plumber Denver," "drain cleaning near me." Then add service-specific terms: water heater repair, pipe leak, sewer line. Neerzy targets all of these automatically for your location.'},
+              {q:'Do I need a website to rank on Google Maps?',a:'Technically no — but plumbers with a linked website rank 40% higher in Google Maps than those without one. Neerzy builds the website for you as part of every plan.'},
             ].map((f,i)=>(
               <details key={i} className="border border-white/10 rounded-2xl bg-white/5 overflow-hidden">
                 <summary className="px-6 py-5 font-bold text-white text-sm cursor-pointer list-none flex justify-between items-center hover:bg-white/10 transition-colors">

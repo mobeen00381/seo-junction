@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server'
 
 const SYSTEM_PROMPT = `
-You are the SEO Junction Growth Assistant, a helpful AI guide for local service business owners (plumbers, electricians, cleaners, etc.) who are NOT tech-savvy.
+You are the Neerzy Growth Assistant, a helpful AI guide for local service business owners (plumbers, electricians, cleaners, etc.) who are NOT tech-savvy.
 
-Your goal is to explain how SEO Junction helps them get more customers from Google without them needing to do any complex work themselves.
+Your goal is to explain how Neerzy helps them get more customers from Google without them needing to do any complex work themselves.
 
 Key Knowledge:
 - SERVICE: We build an SEO-optimized website, manage Google Business Profiles, and post fresh content automatically.
@@ -55,7 +55,7 @@ export async function POST(req: Request) {
 
   } catch (error) {
     console.error('Chat Error:', error)
-    return NextResponse.json({ reply: "I'm having a little trouble thinking right now. But I can tell you this: SEO Junction is built to get you more calls with zero effort. Why not start a trial?" })
+    return NextResponse.json({ reply: "I'm having a little trouble thinking right now. But I can tell you this: Neerzy is built to get you more calls with zero effort. Why not start a trial?" })
   }
 }
 
@@ -63,7 +63,7 @@ function getMockReply(msg: string): string {
   const m = msg.toLowerCase()
   if (m.includes('cost') || m.includes('price')) return "Our plans start at just $19/month, and we even offer a 30-day free trial so you can see the results first. No contracts, cancel anytime!"
   if (m.includes('how') || m.includes('work')) return "It's simple: you send us a photo or voice note of your work from your phone, and we automatically update your website and Google profile. You don't need any tech skills at all."
-  if (m.includes('tech') || m.includes('skilled')) return "No tech skills needed! If you can send a text or take a photo, you can use SEO Junction. We handle all the 'internet stuff' for you."
+  if (m.includes('tech') || m.includes('skilled')) return "No tech skills needed! If you can send a text or take a photo, you can use Neerzy. We handle all the 'internet stuff' for you."
   if (m.includes('call') || m.includes('customer')) return "We make sure your business shows up at the top when neighbors search for your services. More visibility means more calls and more jobs for you."
   if (m.includes('laptop') || m.includes('phone') || m.includes('computer')) return "No laptop needed! You can manage everything right from your phone. If you can send a text or take a photo, you're all set."
   if (m.includes('domain') || m.includes('website')) return "We build you a professional website and secure your domain for a one-time $19 fee. You own everything, but we handle the setup!"

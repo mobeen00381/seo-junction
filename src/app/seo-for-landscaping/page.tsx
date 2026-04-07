@@ -5,8 +5,8 @@ import Footer from '@/components/Footer'
 import ProjectGallery from '@/components/ProjectGallery'
 
 export const metadata: Metadata = {
-  title: 'SEO for Landscaping — Transform Your Yard Business | SEO Junction',
-  description: 'SEO Junction helps local landscaping companies rank for "gardening near me" and "hardscaping". Done-for-you seasonal AI posts and Map Pack SEO. 30-day free trial.',
+  title: 'SEO for Landscaping — Transform Your Yard Business | Neerzy',
+  description: 'Neerzy helps local landscaping companies rank for "gardening near me" and "hardscaping". Done-for-you seasonal AI posts and Map Pack SEO. 30-day free trial.',
   keywords: 'SEO for landscaping, gardening service marketing, local landscaping SEO, rank landscaping company Google, landscaper near me',
 }
 

@@ -4,7 +4,7 @@ import Footer from '@/components/Footer'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Blog — Local SEO Tips & AI Automation | SEO Junction',
+  title: 'Blog — Local SEO Tips & AI Automation | Neerzy',
   description: 'Expert advice on how to grow your local service business using AI and Google Business Profile optimization.',
 }
 

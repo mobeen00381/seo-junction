@@ -1,44 +1,43 @@
 import type { Metadata } from 'next'
-import { Inter, Poppins } from 'next/font/google'
+import { Plus_Jakarta_Sans, Fraunces } from 'next/font/google'
 import './globals.css'
 import AIAssistant from '@/components/AIAssistant'
 
-const inter = Inter({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-jakarta',
 })
 
-const poppins = Poppins({
+const fraunces = Fraunces({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800'],
   display: 'swap',
-  variable: '--font-poppins',
+  variable: '--font-fraunces',
 })
 
 export const metadata: Metadata = {
-  title: 'SEO Junction | We help customers find your business on Google',
-  description: 'Send a photo or voice note — we turn it into a professional online presence automatically. No tech skills needed. 30-day free trial.',
-  keywords: 'local service business, Google visibility, contractor marketing, professional website',
-  metadataBase: new URL('https://seo-junction.vercel.app'),
+  title: 'Neerzy | Neighbours find you on Google',
+  description: 'Snap a photo of your latest job — we turn it into a professional website and Google presence automatically. No tech skills needed. Free to start.',
+  keywords: 'local service business, Google visibility, contractor marketing, neighbours find you, neerzy',
+  metadataBase: new URL('https://www.neerzy.com'),
   openGraph: {
-    title: 'SEO Junction | Get discovered on Google',
-    description: 'We help customers find your business on Google.',
-    url: 'https://seo-junction.vercel.app',
-    siteName: 'SEO Junction',
+    title: 'Neerzy | Neighbours find you on Google',
+    description: 'Snap a photo of your work — we handle the rest. Your neighbours will find you.',
+    url: 'https://www.neerzy.com',
+    siteName: 'Neerzy',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SEO Junction | Get discovered on Google',
-    description: 'We help customers find your business on Google.',
+    title: 'Neerzy | Neighbours find you on Google',
+    description: 'Snap a photo of your work — we handle the rest. Your neighbours will find you.',
   },
   robots: { index: true, follow: true },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
+    <html lang="en" className={`${jakarta.variable} ${fraunces.variable}`}>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -49,14 +48,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   var supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
                   if (!theme && supportDarkMode) theme = 'dark';
                   if (theme === 'dark') document.documentElement.classList.add('dark');
-                  
-                  // Apply persisted brand color
-                  var color = localStorage.getItem('theme-color');
-                  if (color) {
-                    document.documentElement.style.setProperty('--primary', color);
-                    // Standard SEO Junction brand color palette derived from primary
-                    // For now we just set the primary to avoid the flash of SEO Blue
-                  }
                 } catch (e) {}
               })();
             `,
@@ -68,11 +59,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "SoftwareApplication",
-              "name": "SEO Junction",
+              "name": "Neerzy",
               "applicationCategory": "BusinessApplication",
               "operatingSystem": "Web",
-              "url": "https://seo-junction.vercel.app",
-              "description": "Helping local service businesses get found on Google without technical skills.",
+              "url": "https://www.neerzy.com",
+              "description": "Helping local service businesses get found by neighbours on Google — with zero tech skills needed.",
               "offers": [
                 {
                   "@type": "Offer",
@@ -101,7 +92,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className="antialiased font-sans selection:bg-blue-100 dark:selection:bg-blue-900 selection:text-blue-900 dark:selection:text-blue-100 transition-colors duration-300 overflow-x-hidden">
+      <body className="antialiased font-sans selection:bg-teal-100 dark:selection:bg-teal-900 selection:text-teal-900 dark:selection:text-teal-100 transition-colors duration-300 overflow-x-hidden">
         {children}
         <AIAssistant />
       </body>

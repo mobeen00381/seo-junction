@@ -4,8 +4,8 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'About SEO Junction — Our Mission to Help Local Trades',
-  description: 'SEO Junction was built to help plumber, electricians, and contractors get found on Google without technical headaches. Our AI-first mission.',
+  title: 'About Neerzy — Our Mission to Help Local Trades',
+  description: 'Neerzy was built to help plumber, electricians, and contractors get found on Google without technical headaches. Our AI-first mission.',
 }
 
 export default function AboutPage() {
@@ -26,7 +26,7 @@ export default function AboutPage() {
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">Why We Exist</h2>
             <div className="space-y-6 text-gray-500 dark:text-gray-400 text-lg leading-relaxed">
               <p>For years, local trade businesses have been priced out of the search engine game. Big agencies charge thousands while delivering confusing reports and zero calls.</p>
-              <p>We built **SEO Junction** to flip the script. By using AI to automate the tedious work of local SEO—posts, updates, and site management—we bring professional results to every local contractor at a fraction of the cost.</p>
+              <p>We built **Neerzy** to flip the script. By using AI to automate the tedious work of local SEO—posts, updates, and site management—we bring professional results to every local contractor at a fraction of the cost.</p>
               <p>Today, we serve over 200+ local businesses spanning across 12 different industries, helping them rank where it matters most: the Google Map Pack.</p>
             </div>
           </div>

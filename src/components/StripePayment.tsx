@@ -35,7 +35,7 @@ export default function StripePayment({ domainName, onSuccess, onBack }: StripeP
         <div className="p-8 bg-gray-50 dark:bg-slate-800/50 border-b border-gray-100 dark:border-slate-800">
           <div className="space-y-4">
             <div className="flex justify-between items-center">
-               <div className="text-sm font-bold text-gray-900 dark:text-white">SEO Junction Pro (Monthly)</div>
+               <div className="text-sm font-bold text-gray-900 dark:text-white">Neerzy Pro (Monthly)</div>
                <div className="text-sm font-bold text-emerald-600">30 Days Free</div>
             </div>
             <div className="flex justify-between items-center">

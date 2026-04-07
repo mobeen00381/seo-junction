@@ -29,7 +29,7 @@ export default function DashboardSidebar({ currentView, onViewChange }: Dashboar
     <aside className="hidden lg:flex flex-col w-[280px] bg-white border-r border-slate-100 h-screen sticky top-0 p-6">
       <div className="flex items-center gap-3 mb-12 px-2">
         <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-primary/20">S</div>
-        <span className="font-black text-xl tracking-tighter text-slate-900">SEO Junction</span>
+        <span className="font-black text-xl tracking-tighter text-slate-900">Neerzy</span>
       </div>
 
       <nav className="flex-1 space-y-2">

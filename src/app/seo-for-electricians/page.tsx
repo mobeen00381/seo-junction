@@ -5,8 +5,8 @@ import Footer from '@/components/Footer'
 import ProjectGallery from '@/components/ProjectGallery'
 
 export const metadata: Metadata = {
-  title: 'SEO for Electricians — Spark Growth with Local Ranking | SEO Junction',
-  description: 'SEO Junction helps electricians rank for "emergency electrician near me" and "EV charger install". Done-for-you technical AI posts and map management. 30-day free trial.',
+  title: 'SEO for Electricians — Spark Growth with Local Ranking | Neerzy',
+  description: 'Neerzy helps electricians rank for "emergency electrician near me" and "EV charger install". Done-for-you technical AI posts and map management. 30-day free trial.',
   keywords: 'SEO for electricians, electrical marketing, local electrician SEO, rank electrical company Google, electrical panel upgrade SEO',
 }
 

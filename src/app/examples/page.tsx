@@ -4,8 +4,8 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Examples — Experience Your New AI Website | SEO Junction',
-  description: 'Explore live examples built automatically by SEO Junction for plumbers, electricians, landscapers, and more.',
+  title: 'Examples — Experience Your New AI Website | Neerzy',
+  description: 'Explore live examples built automatically by Neerzy for plumbers, electricians, landscapers, and more.',
 }
 
 const EXAMPLE_CARDS = [

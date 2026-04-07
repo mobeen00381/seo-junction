@@ -5,8 +5,8 @@ import Footer from '@/components/Footer'
 import ProjectGallery from '@/components/ProjectGallery'
 
 export const metadata: Metadata = {
-  title: 'Sanitary & Tiles SEO — Showroom Visibility | SEO Junction',
-  description: 'SEO Junction helps sanitary stores rank for luxury tiles, bathroom fittings, and kitchen fixtures. Automated showroom SEO. 30-day free trial.',
+  title: 'Sanitary & Tiles SEO — Showroom Visibility | Neerzy',
+  description: 'Neerzy helps sanitary stores rank for luxury tiles, bathroom fittings, and kitchen fixtures. Automated showroom SEO. 30-day free trial.',
   keywords: 'SEO for sanitary stores, tile shop marketing, local bathroom fittings SEO, luxury tiles near me, sanitary store Google rank',
 }
 

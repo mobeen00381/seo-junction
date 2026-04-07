@@ -3,8 +3,8 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Terms of Service — SEO Junction',
-  description: 'Read the terms and conditions for using the SEO Junction platform.',
+  title: 'Terms of Service — Neerzy',
+  description: 'Read the terms and conditions for using the Neerzy platform.',
 }
 
 export default function TermsPage() {
@@ -23,7 +23,7 @@ export default function TermsPage() {
         <div className="max-w-3xl mx-auto prose prose-slate dark:prose-invert">
           <section className="mb-12">
             <h2 className="text-2xl font-black text-gray-900 dark:text-white mb-6 uppercase tracking-widest text-xs">1. Acceptance of Terms</h2>
-            <p className="text-gray-500 dark:text-gray-400 text-lg leading-relaxed">By accessing or using the SEO Junction platform, you agree to be bound by these Terms of Service. If you do not agree to all of the terms and conditions, you may not access the service.</p>
+            <p className="text-gray-500 dark:text-gray-400 text-lg leading-relaxed">By accessing or using the Neerzy platform, you agree to be bound by these Terms of Service. If you do not agree to all of the terms and conditions, you may not access the service.</p>
           </section>
 
           <section className="mb-12">
