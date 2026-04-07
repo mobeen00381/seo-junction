@@ -4,8 +4,13 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Examples — Experience Your New AI Website | Neerzy',
-  description: 'Explore live examples built automatically by Neerzy for plumbers, electricians, landscapers, and more.',
+  title: 'Neerzy Examples — See Your Trade Website in Seconds',
+  description: 'Browse live websites built by Neerzy for plumbers, electricians, HVAC, roofers, dentists and more. See exactly what yours will look like — before you sign up.',
+  openGraph: {
+    title: 'Neerzy — 12 Live Trade Website Examples',
+    description: 'Plumbers in Austin. Electricians in London. Roofers in Sydney. See what Neerzy builds for your trade in seconds.',
+    url: 'https://www.neerzy.com/examples',
+  },
 }
 
 const EXAMPLE_CARDS = [

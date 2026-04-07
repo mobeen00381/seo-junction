@@ -5,9 +5,14 @@ import Footer from '@/components/Footer'
 import ProjectGallery from '@/components/ProjectGallery'
 
 export const metadata: Metadata = {
-  title: 'SEO for Roofers — Get More Commercial & Residential Leads | Neerzy',
-  description: 'Neerzy helps roofing contractors rank for "roof repair near me" and "new roof estimate". Done-for-you storm damage AI posts and map ranking. 30-day free trial.',
-  keywords: 'SEO for roofers, roofing marketing, local roofer SEO, rank roofing company Google, roof shingles SEO',
+  title: 'SEO for Roofers — Be First When Neighbours Need You',
+  description: 'After every storm, neighbours search for roofers urgently. Neerzy keeps your Google profile active so you are first when they need you. Try free today.',
+  keywords: 'SEO for roofers, roofing company Google Maps, storm damage leads, local roofer website, roof repair near me ranking',
+  openGraph: {
+    title: 'SEO for Roofers — Neerzy',
+    description: 'Storm hits. Neighbours search. Be the roofer they find first. Neerzy keeps your Google profile ready.',
+    url: 'https://www.neerzy.com/seo-for-roofers',
+  },
 }
 
 export default function SeoForRoofersPage() {

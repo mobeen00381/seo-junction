@@ -4,8 +4,13 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'About Neerzy — Our Mission to Help Local Trades',
-  description: 'Neerzy was built to help plumber, electricians, and contractors get found on Google without technical headaches. Our AI-first mission.',
+  title: 'About Neerzy — Built for Trades. Not for Tech Bros.',
+  description: 'Neerzy was built so local tradespeople could compete on Google without paying agencies thousands. AI does the work. You just show us your jobs.',
+  openGraph: {
+    title: 'About Neerzy — Our Mission',
+    description: 'Big agencies charge thousands while delivering nothing. Neerzy flips the script — professional local SEO for every trades business at a fair price.',
+    url: 'https://www.neerzy.com/about',
+  },
 }
 
 export default function AboutPage() {

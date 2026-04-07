@@ -5,9 +5,14 @@ import Footer from '@/components/Footer'
 import ProjectGallery from '@/components/ProjectGallery'
 
 export const metadata: Metadata = {
-  title: 'SEO for Plumbers — Rank on Google & Get More Plumbing Calls | Neerzy',
-  description: 'Neerzy helps plumbers rank on Google and Google Maps. Done-for-you website + AI posts + GMB management. 30-day free trial. Most plumbers see results in 45 days.',
-  keywords: 'SEO for plumbers, Google My Business for plumbers, plumber local SEO, rank plumbing business Google, get more plumbing customers',
+  title: 'SEO for Plumbers — Neighbours Find You on Google Maps',
+  description: 'Neerzy helps plumbers rank on Google Maps and Google Search. Snap a photo from the job site — we write the post, update your profile, and rank you locally. Try free.',
+  keywords: 'SEO for plumbers, plumber Google Maps ranking, get more plumbing calls, local SEO plumber UK, plumber website builder',
+  openGraph: {
+    title: 'SEO for Plumbers — Neerzy',
+    description: 'You fix pipes. We fix your Google ranking. Snap a photo from your next job. We handle the rest.',
+    url: 'https://www.neerzy.com/seo-for-plumbers',
+  },
 }
 
 export default function SeoForPlumbersPage() {

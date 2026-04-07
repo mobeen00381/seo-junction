@@ -3,6 +3,17 @@ import Navbar from '@/components/Navbar'
 import Link from 'next/link'
 import LivePreview from '@/components/LivePreview'
 import TemplateGallery from '@/components/TemplateGallery'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Neerzy — Your Neighbours Are Searching. Be There.',
+  description: 'Snap a photo of your latest job — we build your website, manage your Google profile, and post updates automatically. No tech skills. Free to start.',
+  openGraph: {
+    title: 'Neerzy — Your Neighbours Are Searching. Be There.',
+    description: 'Snap a photo. We handle the website, Google profile, and content. Your neighbours find you.',
+    url: 'https://www.neerzy.com',
+  },
+}
 
 const STEPS = [
   { n: '01', icon: '📸', title: 'Send your work', desc: 'Snap a photo or voice note from the job site. WhatsApp, SMS — your choice. That\'s literally it.' },

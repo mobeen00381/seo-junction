@@ -16,23 +16,28 @@ const fraunces = Fraunces({
 })
 
 export const metadata: Metadata = {
-  title: 'Neerzy | Neighbours find you on Google',
-  description: 'Snap a photo of your latest job — we turn it into a professional website and Google presence automatically. No tech skills needed. Free to start.',
-  keywords: 'local service business, Google visibility, contractor marketing, neighbours find you, neerzy',
   metadataBase: new URL('https://www.neerzy.com'),
+  title: {
+    default: 'Neerzy — Your Neighbours Are Searching. Be There.',
+    template: '%s | Neerzy',
+  },
+  description: 'Snap a photo of your latest job. Neerzy turns it into a professional website and Google presence automatically. No tech skills. No stress. Just more calls from neighbours.',
+  keywords: 'local business website, Google My Business management, local SEO for tradespeople, get more local customers, neighbour marketing',
+  authors: [{ name: 'Neerzy' }],
+  creator: 'Neerzy',
+  robots: { index: true, follow: true },
   openGraph: {
-    title: 'Neerzy | Neighbours find you on Google',
-    description: 'Snap a photo of your work — we handle the rest. Your neighbours will find you.',
-    url: 'https://www.neerzy.com',
-    siteName: 'Neerzy',
     type: 'website',
+    siteName: 'Neerzy',
+    title: 'Neerzy — Your Neighbours Are Searching. Be There.',
+    description: 'Snap a photo. We handle the website, Google profile, and monthly content. Your neighbours find you — automatically.',
+    url: 'https://www.neerzy.com',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Neerzy | Neighbours find you on Google',
-    description: 'Snap a photo of your work — we handle the rest. Your neighbours will find you.',
+    title: 'Neerzy — Neighbours Find You on Google',
+    description: 'Snap a photo from your latest job. We do the rest.',
   },
-  robots: { index: true, follow: true },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

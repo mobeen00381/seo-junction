@@ -5,9 +5,14 @@ import Footer from '@/components/Footer'
 import ProjectGallery from '@/components/ProjectGallery'
 
 export const metadata: Metadata = {
-  title: 'SEO for HVAC Companies — Rank on Google & Get More HVAC Calls | Neerzy',
-  description: 'Neerzy helps HVAC contractors rank on Google Maps and local search. Done-for-you website, GMB management, seasonal AI posts. 30-day free trial.',
-  keywords: 'SEO for HVAC, Google My Business for HVAC, HVAC local SEO, rank HVAC business Google, get more HVAC customers',
+  title: 'SEO for HVAC — Neighbours Call You Every Season',
+  description: 'Rank for AC repair in summer and heating in winter. Neerzy posts seasonal updates automatically so neighbours find you when they need you most. Try free.',
+  keywords: 'SEO for HVAC, HVAC Google Maps ranking, AC repair local SEO, heating engineer website, HVAC near me ranking',
+  openGraph: {
+    title: 'SEO for HVAC — Neerzy',
+    description: 'Summer or winter — your neighbours always find you first. Neerzy posts seasonal content automatically.',
+    url: 'https://www.neerzy.com/seo-for-hvac',
+  },
 }
 
 export default function SeoForHvacPage() {

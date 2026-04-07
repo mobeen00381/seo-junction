@@ -2,8 +2,13 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Pricing — Local SEO Plans from $19/month | Neerzy',
-  description: 'Neerzy plans from $19/month. Done-for-you website, AI posts, and Google Business management. 30-day free trial. See a real AI post example before you sign up.',
+  title: 'Neerzy Pricing — Local SEO From $19.99/Month',
+  description: 'Plans from $19.99/month. Your website live in 24 hours. AI posts sent to your website and Google profile every month. 30-day free trial. No contracts. No tech skills needed.',
+  openGraph: {
+    title: 'Neerzy Pricing — From $19.99/Month',
+    description: '30-day free trial. No contracts. Your website live in 24 hours. Neighbours start finding you immediately.',
+    url: 'https://www.neerzy.com/pricing',
+  },
 }
 
 const PLANS = [

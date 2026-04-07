@@ -5,9 +5,14 @@ import Footer from '@/components/Footer'
 import ProjectGallery from '@/components/ProjectGallery'
 
 export const metadata: Metadata = {
-  title: 'SEO for Electricians — Spark Growth with Local Ranking | Neerzy',
-  description: 'Neerzy helps electricians rank for "emergency electrician near me" and "EV charger install". Done-for-you technical AI posts and map management. 30-day free trial.',
-  keywords: 'SEO for electricians, electrical marketing, local electrician SEO, rank electrical company Google, electrical panel upgrade SEO',
+  title: 'SEO for Electricians — Get Into Your Neighbours Top 3',
+  description: 'Rank on Google for EV chargers, panel upgrades, and electrician near me. Neerzy posts from your job site automatically. Your neighbours find you first. Try free.',
+  keywords: 'SEO for electricians, electrician Google Maps, EV charger installation SEO, local electrician website, get more electrical jobs',
+  openGraph: {
+    title: 'SEO for Electricians — Neerzy',
+    description: 'You wire the homes. We wire your Google ranking. Snap a job photo — Neerzy posts it automatically.',
+    url: 'https://www.neerzy.com/seo-for-electricians',
+  },
 }
 
 export default function SeoForElectriciansPage() {
