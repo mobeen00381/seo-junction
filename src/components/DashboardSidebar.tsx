@@ -69,7 +69,10 @@ export default function DashboardSidebar({ currentView, onViewChange }: Dashboar
       </nav>
 
       <div className="mt-auto pt-6 border-t border-slate-50">
-        <button className="w-full flex items-center gap-4 px-6 py-4 rounded-2xl text-red-500 hover:bg-red-50 transition-all group">
+        <button 
+          onClick={() => logout()}
+          className="w-full flex items-center gap-4 px-6 py-4 rounded-2xl text-red-500 hover:bg-red-50 transition-all group"
+        >
           <span className="text-xl group-hover:scale-110 transition-transform">🚪</span>
           <span className="font-bold text-sm tracking-tight">Log Out</span>
         </button>

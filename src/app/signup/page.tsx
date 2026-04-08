@@ -1,14 +1,10 @@
 'use client'
 import Link from 'next/link'
-import { login } from '@/app/auth/actions'
+import { signup } from '@/app/auth/actions'
 import { useState } from 'react'
-import { useSearchParams } from 'next/navigation'
 
-export default function LoginPage() {
+export default function SignupPage() {
   const [isLoading, setIsLoading] = useState(false)
-  const searchParams = useSearchParams()
-  const error = searchParams.get('error')
-  const message = searchParams.get('message')
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
@@ -17,31 +13,19 @@ export default function LoginPage() {
           <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-sm" style={{background:'#1565C0'}}>S</div>
           <span className="font-bold" style={{fontFamily:'Syne,sans-serif'}}>Neerzy</span>
         </Link>
-        <Link href="/signup" className="text-sm font-semibold text-primary">Create account →</Link>
+        <Link href="/login" className="text-sm font-semibold text-primary">Login →</Link>
       </nav>
       <div className="flex-1 flex items-center justify-center px-6">
         <div className="bg-white rounded-2xl border border-gray-200 p-8 w-full max-w-sm shadow-sm">
-          <h1 className="text-2xl font-black text-gray-900 mb-2 text-center" style={{fontFamily:'Syne,sans-serif'}}>Welcome back</h1>
-          <p className="text-gray-500 text-sm text-center mb-8">Log in to your Neerzy dashboard</p>
+          <h1 className="text-2xl font-black text-gray-900 mb-2 text-center" style={{fontFamily:'Syne,sans-serif'}}>Create your account</h1>
+          <p className="text-gray-500 text-sm text-center mb-8">Start your 30-day free trial today</p>
           
-          {error && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-100 text-red-600 text-xs rounded-xl font-medium">
-              {error}
-            </div>
-          )}
-
-          {message && (
-            <div className="mb-6 p-4 bg-emerald-50 border border-emerald-100 text-emerald-600 text-xs rounded-xl font-medium">
-              {message}
-            </div>
-          )}
-
           <form 
             action={async (formData) => {
               setIsLoading(true)
-              await login(formData)
+              await signup(formData)
               setIsLoading(false)
-            }}
+            }} 
             className="space-y-4"
           >
             <div>
@@ -70,12 +54,12 @@ export default function LoginPage() {
               className="w-full font-bold text-white py-3.5 rounded-xl text-sm transition-opacity disabled:opacity-50" 
               style={{background:'#1565C0'}}
             >
-              {isLoading ? 'Logging in...' : 'Log In'}
+              {isLoading ? 'Creating account...' : 'Start Free Trial'}
             </button>
           </form>
           
           <p className="text-center text-xs text-gray-400 mt-6">
-            No account yet? <Link href="/signup" className="text-primary font-semibold">Start free trial →</Link>
+            Already have an account? <Link href="/login" className="text-primary font-semibold">Log in →</Link>
           </p>
         </div>
       </div>

@@ -4,8 +4,16 @@ import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import DashboardSidebar from '@/components/DashboardSidebar'
 
+import { createClient } from '@/lib/supabase/client'
+import { useRouter } from 'next/navigation'
+
 function DashboardContent() {
+  const router = useRouter()
+  const supabase = createClient()
   const searchParams = useSearchParams()
+  
+  const [user, setUser] = useState<any>(null)
+  const [profile, setProfile] = useState<any>(null)
   const [currentView, setCurrentView] = useState('main')
   const [hasSentUpdate, setHasSentUpdate] = useState(false)
   const [isUpdating, setIsUpdating] = useState(false)
@@ -18,12 +26,42 @@ function DashboardContent() {
   const [gmbStep, setGmbStep] = useState(0)
   const [timeframe, setTimeframe] = useState('30d')
 
-  const handleGMBConnect = () => {
+  useEffect(() => {
+    const getData = async () => {
+      const { data: { user } } = await supabase.auth.getUser()
+      if (!user) {
+        router.push('/login')
+        return
+      }
+      setUser(user)
+
+      const { data: profileData } = await supabase
+        .from('profiles')
+        .select('*')
+        .eq('id', user.id)
+        .single()
+      
+      if (profileData) {
+        setProfile(profileData)
+        setIsGMBConnected(profileData.gmb_connected)
+      }
+    }
+    getData()
+  }, [])
+
+  const handleGMBConnect = async () => {
     setIsGMBConnecting(true)
     setGmbStep(1)
     setTimeout(() => setGmbStep(2), 1200)
     setTimeout(() => setGmbStep(3), 2400)
-    setTimeout(() => {
+    setTimeout(async () => {
+      // Persistence
+      if (user) {
+        await supabase
+          .from('profiles')
+          .update({ gmb_connected: true })
+          .eq('id', user.id)
+      }
       setIsGMBConnecting(false)
       setIsGMBConnected(true)
       setGmbStep(0)
@@ -42,11 +80,23 @@ function DashboardContent() {
     }, 2000)
   }
 
-  const handleApprove = () => {
+  const handleApprove = async () => {
     setPendingApproval(false)
     setIsApproved(true)
     setHasSentUpdate(true)
     setShowSuccess(true)
+    
+    // Persist Post
+    if (user) {
+       await supabase.from('posts').insert({
+          user_id: user.id,
+          content_type: updateType === 'image' ? 'image' : 'voice',
+          ai_draft: "Emergency boiler repair in Croydon — replaced a faulty pressure valve and restored heating. Fast response, fixed same day. Call us for...",
+          status: 'published',
+          published_at: new Date().toISOString()
+       })
+    }
+    
     setUpdateType(null)
   }
 
