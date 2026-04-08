@@ -89,10 +89,10 @@ export default function DomainSearch({ businessName, onSelect, onBack }: DomainS
         <p className="text-gray-500 dark:text-gray-400 font-medium">Search for your perfect domain name below.</p>
       </div>
 
-      <div className="bg-white dark:bg-slate-900 rounded-[48px] shadow-2xl border border-gray-100 dark:border-slate-800 p-10 mb-12 relative overflow-hidden">
+      <div className="bg-white dark:bg-slate-900 rounded-[24px] md:rounded-[48px] shadow-2xl border border-gray-100 dark:border-slate-800 p-5 md:p-10 mb-8 md:mb-12 relative overflow-hidden">
         <div className="absolute top-0 right-0 p-12 text-9xl opacity-[0.03] rotate-12 -translate-y-8 translate-x-8 pointer-events-none">🌐</div>
         
-        <div className="flex gap-4 mb-12 relative z-10">
+        <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-8 md:mb-12 relative z-10">
           <div className="flex-1 relative group">
             <input 
               type="text" 
@@ -100,13 +100,13 @@ export default function DomainSearch({ businessName, onSelect, onBack }: DomainS
               onChange={e => setQuery(e.target.value)}
               onKeyDown={e => e.key === 'Enter' && handleSearch()}
               placeholder="Enter your business name..."
-              className="w-full bg-gray-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary focus:bg-white dark:focus:bg-slate-700 rounded-3xl px-8 py-6 text-xl font-bold transition-all outline-none dark:text-white"
+              className="w-full bg-gray-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary focus:bg-white dark:focus:bg-slate-700 rounded-2xl md:rounded-3xl px-5 md:px-8 py-4 md:py-6 text-base md:text-xl font-bold transition-all outline-none dark:text-white"
             />
-            <div className="absolute right-8 top-1/2 -translate-y-1/2 text-gray-300 dark:text-slate-600 font-black pointer-events-none">TRY .COM</div>
+            <div className="absolute right-5 md:right-8 top-1/2 -translate-y-1/2 text-gray-300 dark:text-slate-600 font-black pointer-events-none text-xs md:text-base">TRY .COM</div>
           </div>
           <button 
             onClick={handleSearch}
-            className="bg-primary text-white px-12 rounded-3xl font-black text-xl hover:scale-105 active:scale-95 transition-all shadow-xl shadow-primary/20 flex items-center justify-center min-w-[180px]"
+            className="bg-primary text-white px-8 md:px-12 py-4 md:py-0 rounded-2xl md:rounded-3xl font-black text-base md:text-xl hover:scale-105 active:scale-95 transition-all shadow-xl shadow-primary/20 flex items-center justify-center sm:min-w-[160px] md:min-w-[180px]"
           >
             {isSearching ? (
               <div className="w-6 h-6 border-4 border-white/30 border-t-white rounded-full animate-spin"></div>
@@ -122,7 +122,7 @@ export default function DomainSearch({ businessName, onSelect, onBack }: DomainS
                 <div 
                   key={i} 
                   onClick={() => handleSelect(res)}
-                  className={`flex items-center justify-between p-6 rounded-[32px] border-2 transition-all relative overflow-hidden ${
+                  className={`flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 md:p-6 rounded-[20px] md:rounded-[32px] border-2 transition-all relative overflow-hidden gap-3 sm:gap-0 ${
                     res.status === 'taken' 
                       ? 'border-gray-50 dark:border-slate-800 opacity-40 cursor-not-allowed bg-gray-50/50 dark:bg-slate-900/50 grayscale' 
                       : selectedDomain === res.name 
@@ -146,15 +146,15 @@ export default function DomainSearch({ businessName, onSelect, onBack }: DomainS
                     </div>
                   )}
 
-                <div className="flex items-center gap-8 relative z-10">
-                  <div className={`w-16 h-16 rounded-2xl flex flex-col items-center justify-center font-black transition-colors ${
+                <div className="flex items-center gap-3 md:gap-8 relative z-10">
+                  <div className={`w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl flex flex-col items-center justify-center font-black transition-colors shrink-0 ${
                     res.status === 'taken' ? 'bg-gray-200 dark:bg-slate-700 text-gray-500' : 'bg-primary/10 text-primary'
                   }`}>
-                    <span className="text-[10px] opacity-70 uppercase tracking-tighter">TLD</span>
-                    <span className="text-sm">.{res.tld.toLowerCase()}</span>
+                    <span className="text-[8px] md:text-[10px] opacity-70 uppercase tracking-tighter">TLD</span>
+                    <span className="text-xs md:text-sm">.{res.tld.toLowerCase()}</span>
                   </div>
                   <div>
-                    <div className={`text-xl font-black tracking-tight ${res.status === 'taken' ? 'text-gray-400' : 'text-gray-900 dark:text-white'}`}>
+                    <div className={`text-sm md:text-xl font-black tracking-tight break-all ${res.status === 'taken' ? 'text-gray-400' : 'text-gray-900 dark:text-white'}`}>
                       {res.name}
                     </div>
                     <div className="flex items-center gap-3 mt-1">
@@ -172,7 +172,7 @@ export default function DomainSearch({ businessName, onSelect, onBack }: DomainS
                     </div>
                   </div>
                 </div>
-                <div className="text-right flex items-center gap-8 relative z-10">
+                <div className="flex items-center gap-3 md:gap-8 relative z-10 self-end sm:self-auto">
                    <div className={`text-lg font-black ${res.status === 'taken' ? 'text-gray-400' : 'text-slate-900 dark:text-white'}`}>
                       {res.status === 'taken' ? 'N/A' : res.price}
                    </div>
@@ -202,9 +202,9 @@ export default function DomainSearch({ businessName, onSelect, onBack }: DomainS
         )}
 
         {results.length === 0 && !isSearching && (
-          <div className="py-24 text-center border-4 border-dashed border-gray-50 dark:border-slate-800 rounded-[48px] relative z-10 transition-colors">
-             <div className="text-8xl mb-8 opacity-20 grayscale">🛡️</div>
-             <p className="text-gray-400 font-bold uppercase tracking-[4px]">Enter business name to verify</p>
+          <div className="py-12 md:py-24 text-center border-4 border-dashed border-gray-50 dark:border-slate-800 rounded-[24px] md:rounded-[48px] relative z-10 transition-colors">
+             <div className="text-5xl md:text-8xl mb-4 md:mb-8 opacity-20 grayscale">🛡️</div>
+             <p className="text-gray-400 font-bold uppercase tracking-[2px] md:tracking-[4px] text-xs md:text-base">Enter business name to verify</p>
           </div>
         )}
       </div>
@@ -213,7 +213,7 @@ export default function DomainSearch({ businessName, onSelect, onBack }: DomainS
         <button 
           disabled={!selectedDomain}
           onClick={() => onSelect(selectedDomain)}
-          className="w-full bg-primary text-white font-black py-8 rounded-[32px] text-2xl disabled:opacity-20 hover:scale-[1.02] active:scale-95 transition-all shadow-2xl shadow-primary/30 group relative overflow-hidden"
+          className="w-full bg-primary text-white font-black py-5 md:py-8 rounded-[20px] md:rounded-[32px] text-base md:text-2xl disabled:opacity-20 hover:scale-[1.02] active:scale-95 transition-all shadow-2xl shadow-primary/30 group relative overflow-hidden"
         >
           <span className="relative z-10">Secure Domain & Start Free Trial →</span>
           <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
