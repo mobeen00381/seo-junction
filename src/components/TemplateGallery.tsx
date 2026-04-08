@@ -90,16 +90,16 @@ export default function TemplateGallery({ onSelect, showBranding = false }: Temp
           <p className="text-gray-500 font-bold uppercase tracking-widest text-[9px] italic">"Choose a template optimized for your industry's conversion."</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
           {TEMPLATES.map((t) => (
             <div 
               key={t.id} 
-              className={`group relative rounded-[40px] border-2 transition-all p-4 cursor-pointer overflow-hidden ${selectedTemplate === t.id ? 'border-primary shadow-3xl shadow-primary/20 bg-white dark:bg-slate-900' : 'border-gray-50 dark:border-slate-800/50 hover:border-gray-200 hover:shadow-xl'}`}
+              className={`group relative rounded-[40px] border-2 transition-all p-3 cursor-pointer overflow-hidden ${selectedTemplate === t.id ? 'border-primary shadow-3xl shadow-primary/20 bg-white dark:bg-slate-900' : 'border-gray-50 dark:border-slate-800/50 hover:border-gray-200 hover:shadow-xl'}`}
               onClick={() => setPreviewTemplate(t)}
             >
               {/* Template Preview Card */}
-              <div className="rounded-[32px] overflow-hidden aspect-[4/5] bg-gray-50 dark:bg-slate-950/80 relative mb-6">
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center bg-[radial-gradient(circle_at_50%_10%,rgba(0,0,0,0.02),transparent)]">
+              <div className="rounded-[32px] overflow-hidden aspect-[4/5] bg-gray-50 dark:bg-slate-950/80 relative mb-4">
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center bg-[radial-gradient(circle_at_50%_10%,rgba(0,0,0,0.02),transparent)]">
                   <div className="text-6xl mb-6 group-hover:scale-125 transition-all duration-500 origin-center drop-shadow-2xl">{t.emoji}</div>
                   <div className="w-12 h-2 rounded-full mb-4" style={{ background: (showBranding ? selectedColor : t.color) + '44' }}></div>
                   <div className="w-20 h-1 bg-gray-200/50 rounded-full mb-1"></div>
@@ -107,7 +107,7 @@ export default function TemplateGallery({ onSelect, showBranding = false }: Temp
                 </div>
                 
                 {/* ACTION OVERLAY (ALWAYS VISIBLE ON MOBILE) */}
-                <div className="absolute inset-0 bg-navy/80 md:bg-navy/90 backdrop-blur-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all flex flex-col items-center justify-center p-8 gap-4">
+                <div className="absolute inset-0 bg-navy/80 md:bg-navy/90 backdrop-blur-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all flex flex-col items-center justify-center p-5 gap-3">
                    <div className="text-white font-black text-[10px] uppercase tracking-[3px] mb-4 opacity-70">Click to Preview</div>
                    <button 
                      className="w-full bg-white/10 text-white font-black py-4 rounded-xl text-xs shadow-lg hover:bg-white/20 active:scale-95 transition-all uppercase tracking-widest border border-white/10 text-center"
@@ -132,7 +132,7 @@ export default function TemplateGallery({ onSelect, showBranding = false }: Temp
                     {t.name}
                     <span className="text-[8px] font-black text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded-full uppercase tracking-widest">Optimized</span>
                 </div>
-                <p className="text-[10px] text-gray-400 dark:text-gray-500 font-bold uppercase tracking-[2px] leading-relaxed italic">{t.desc}</p>
+                 <p className="text-[9px] text-gray-400 dark:text-gray-500 font-bold uppercase tracking-[2px] leading-relaxed italic">{t.desc}</p>
               </div>
             </div>
           ))}
