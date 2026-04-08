@@ -142,43 +142,81 @@ function DashboardContent() {
         </div>
       )}
 
-      {/* MOBILE UPDATE FLOW */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="bg-slate-950 rounded-[40px] p-8 text-white relative overflow-hidden shadow-2xl">
-           <div className="relative z-10">
-             <h3 className="text-2xl font-black mb-2 tracking-tighter">Mobile QR Update</h3>
-             <p className="opacity-60 text-sm mb-10 font-medium italic">"Scan from job site, post in 10 seconds."</p>
-             <div className="w-40 h-40 bg-white rounded-3xl p-3 mb-8 ring-8 ring-white/10 mx-auto md:mx-0">
-               <img src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent('https://www.neerzy.com/post/demo-user')}`} alt="QR" className="w-full h-full" />
-             </div>
-             <p className="text-[10px] font-black uppercase tracking-[3px] opacity-40">No Login Required • PWA Enabled</p>
-           </div>
-           <div className="absolute top-0 right-0 p-8 text-9xl opacity-20 translate-x-8 -translate-y-8 rotate-12">📱</div>
+      {/* ACCESS METHODS & POSTING */}
+      <section>
+        <div className="flex items-center gap-3 mb-6">
+          <h3 className="text-xl font-black text-slate-900 tracking-tight">Quick Access</h3>
+          <span className="text-[9px] font-black text-primary bg-primary/10 px-2.5 py-1 rounded-full uppercase tracking-widest">3 ways to post</span>
         </div>
 
-        <div className="space-y-8 flex flex-col justify-center">
-            <div>
-               <h3 className="text-xl font-black text-slate-900 tracking-tight mb-2">Direct AI Posting</h3>
-               <p className="text-slate-500 text-sm font-medium">Capture work updates directly from your dashboard if you are on desktop.</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+          {/* Home Screen — Primary */}
+          <div className="bg-slate-950 rounded-[28px] p-6 text-white relative overflow-hidden group">
+            <div className="relative z-10">
+              <div className="w-12 h-12 rounded-[14px] flex items-center justify-center text-2xl mb-4" style={{background:'rgba(29,158,117,0.2)'}}>📱</div>
+              <h4 className="text-base font-black mb-1 tracking-tight">Home Screen</h4>
+              <p className="text-[12px] opacity-50 mb-4 leading-relaxed">Add Neerzy to your phone&apos;s home screen. One tap — you&apos;re posting.</p>
+              <div className="flex items-center gap-2">
+                <span className="text-[8px] font-black uppercase tracking-widest bg-emerald-500 text-white px-2.5 py-1 rounded-full">Recommended</span>
+                <span className="text-[8px] font-black uppercase tracking-widest text-white/30">No login needed</span>
+              </div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <button 
-                onClick={() => handleSendUpdate('image')}
-                className="flex flex-col items-center justify-center gap-4 p-8 bg-white rounded-[32px] border-2 border-slate-50 hover:border-primary transition-all group shadow-sm"
-              >
-                <span className="text-4xl group-hover:rotate-12 transition-transform">📸</span>
-                <span className="font-black text-xs text-slate-900 uppercase tracking-widest">Image</span>
-              </button>
-              <button 
-                onClick={() => handleSendUpdate('voice')}
-                className="flex flex-col items-center justify-center gap-4 p-8 bg-white rounded-[32px] border-2 border-slate-50 hover:border-primary transition-all group shadow-sm"
-              >
-                <span className="text-4xl group-hover:rotate-12 transition-transform">🎙️</span>
-                <span className="font-black text-xs text-slate-900 uppercase tracking-widest">Voice</span>
-              </button>
+            <div className="absolute top-0 right-0 p-6 text-7xl opacity-[0.04] translate-x-4 -translate-y-4 pointer-events-none group-hover:scale-110 transition-transform duration-700">📱</div>
+          </div>
+
+          {/* Direct Link */}
+          <div className="bg-white rounded-[28px] p-6 border border-slate-100 shadow-sm relative overflow-hidden group hover:shadow-lg transition-all">
+            <div className="relative z-10">
+              <div className="w-12 h-12 rounded-[14px] flex items-center justify-center text-2xl mb-4 bg-blue-50">🔗</div>
+              <h4 className="text-base font-black text-slate-900 mb-1 tracking-tight">Direct Link</h4>
+              <p className="text-[12px] text-slate-400 mb-4 leading-relaxed">Bookmark your posting URL. Works from any browser, any device.</p>
+              <div className="bg-slate-50 rounded-xl px-4 py-2.5 flex items-center justify-between gap-2">
+                <code className="text-[10px] font-bold text-slate-500 truncate">neerzy.com/post/demo-user</code>
+                <button className="text-[8px] font-black text-primary uppercase tracking-widest shrink-0 hover:underline">Copy</button>
+              </div>
             </div>
+          </div>
+
+          {/* QR Code */}
+          <div className="bg-white rounded-[28px] p-6 border border-slate-100 shadow-sm relative overflow-hidden group hover:shadow-lg transition-all">
+            <div className="relative z-10">
+              <div className="w-12 h-12 rounded-[14px] flex items-center justify-center text-2xl mb-4 bg-amber-50">📷</div>
+              <h4 className="text-base font-black text-slate-900 mb-1 tracking-tight">QR Code</h4>
+              <p className="text-[12px] text-slate-400 mb-4 leading-relaxed">Scan from any phone to open your posting page instantly.</p>
+              <div className="w-24 h-24 bg-white rounded-xl p-1.5 border border-slate-100 mx-auto md:mx-0">
+                <img src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent('https://www.neerzy.com/post/demo-user')}`} alt="QR" className="w-full h-full" />
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+
+        {/* Desktop Posting */}
+        <div className="bg-white rounded-[28px] p-6 border border-slate-100 shadow-sm">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-5">
+            <div>
+              <h4 className="text-base font-black text-slate-900 tracking-tight mb-1">Desktop Posting</h4>
+              <p className="text-[12px] text-slate-400">Send an update from your computer right now.</p>
+            </div>
+            <span className="text-[8px] font-black text-slate-300 uppercase tracking-widest">Or use your phone above</span>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            <button 
+              onClick={() => handleSendUpdate('image')}
+              className="flex items-center justify-center gap-3 p-5 bg-slate-50 rounded-2xl border border-slate-100 hover:border-primary hover:bg-primary/5 transition-all group"
+            >
+              <span className="text-2xl group-hover:rotate-12 transition-transform">📸</span>
+              <span className="font-black text-xs text-slate-900 uppercase tracking-widest">Upload Photo</span>
+            </button>
+            <button 
+              onClick={() => handleSendUpdate('voice')}
+              className="flex items-center justify-center gap-3 p-5 bg-slate-50 rounded-2xl border border-slate-100 hover:border-primary hover:bg-primary/5 transition-all group"
+            >
+              <span className="text-2xl group-hover:rotate-12 transition-transform">🎙️</span>
+              <span className="font-black text-xs text-slate-900 uppercase tracking-widest">Voice Note</span>
+            </button>
+          </div>
+        </div>
+      </section>
     </div>
   )
 
