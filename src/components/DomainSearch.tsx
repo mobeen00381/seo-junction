@@ -157,8 +157,8 @@ export default function DomainSearch({ businessName, onSelect, onBack }: DomainS
                     <div className={`text-sm md:text-xl font-black tracking-tight break-all ${res.status === 'taken' ? 'text-gray-400' : 'text-gray-900 dark:text-white'}`}>
                       {res.name}
                     </div>
-                    <div className="flex items-center gap-3 mt-1">
-                       <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider flex items-center gap-1.5 ${
+                    <div className="flex flex-wrap items-center gap-2 mt-1">
+                       <span className={`px-2.5 py-1 rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-wider flex items-center gap-1.5 shrink-0 ${
                          res.status === 'taken' 
                            ? 'bg-rose-50 text-rose-600 border border-rose-100 dark:bg-rose-950/20 dark:border-rose-900/30' 
                            : 'bg-emerald-50 text-emerald-600 border border-emerald-100 dark:bg-emerald-950/20 dark:border-emerald-900/30'
@@ -167,7 +167,7 @@ export default function DomainSearch({ businessName, onSelect, onBack }: DomainS
                           {res.status === 'taken' ? 'Unavailable' : 'Available'}
                        </span>
                        {res.badge && res.status !== 'taken' && (
-                         <span className="text-[10px] font-bold text-primary opacity-60 uppercase tracking-widest bg-primary/5 px-2 py-0.5 rounded-lg border border-primary/10">{res.badge}</span>
+                         <span className="text-[9px] md:text-[10px] font-bold text-primary opacity-60 uppercase tracking-widest bg-primary/5 px-2 py-0.5 rounded-lg border border-primary/10 shrink-0">{res.badge}</span>
                        )}
                     </div>
                   </div>
