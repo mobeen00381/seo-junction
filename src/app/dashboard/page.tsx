@@ -240,52 +240,25 @@ function DashboardContent() {
         </div>
       )}
 
-      {/* ACCESS METHODS & POSTING */}
+      {/* ACCESS METHOD */}
       <section>
         <div className="flex items-center gap-3 mb-6">
           <h3 className="text-xl font-black text-slate-900 tracking-tight">Quick Access</h3>
-          <span className="text-[9px] font-black text-primary bg-primary/10 px-2.5 py-1 rounded-full uppercase tracking-widest">3 ways to post</span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-          {/* Home Screen — Primary */}
-          <div className="bg-slate-950 rounded-[28px] p-6 text-white relative overflow-hidden group">
-            <div className="relative z-10">
-              <div className="w-12 h-12 rounded-[14px] flex items-center justify-center text-2xl mb-4" style={{background:'rgba(29,158,117,0.2)'}}>📱</div>
-              <h4 className="text-base font-black mb-1 tracking-tight">Home Screen</h4>
-              <p className="text-[12px] opacity-50 mb-4 leading-relaxed">Add Neerzy to your phone&apos;s home screen. One tap — you&apos;re posting.</p>
-              <div className="flex items-center gap-2">
-                <span className="text-[8px] font-black uppercase tracking-widest bg-emerald-500 text-white px-2.5 py-1 rounded-full">Recommended</span>
-                <span className="text-[8px] font-black uppercase tracking-widest text-white/30">No login needed</span>
-              </div>
+        <div className="bg-slate-950 rounded-[28px] p-6 md:p-8 text-white relative overflow-hidden group mb-8">
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-6 relative z-10">
+            <div className="w-14 h-14 rounded-[16px] flex items-center justify-center text-3xl shrink-0" style={{background:'rgba(29,158,117,0.2)'}}>📱</div>
+            <div className="flex-1">
+              <h4 className="text-lg font-black mb-1 tracking-tight">Add Neerzy to your Home Screen</h4>
+              <p className="text-[13px] opacity-50 leading-relaxed max-w-lg">One tap from your phone — you&apos;re posting a job. No browser, no login, no searching. Lives right next to WhatsApp.</p>
             </div>
-            <div className="absolute top-0 right-0 p-6 text-7xl opacity-[0.04] translate-x-4 -translate-y-4 pointer-events-none group-hover:scale-110 transition-transform duration-700">📱</div>
-          </div>
-
-          {/* Direct Link */}
-          <div className="bg-white rounded-[28px] p-6 border border-slate-100 shadow-sm relative overflow-hidden group hover:shadow-lg transition-all">
-            <div className="relative z-10">
-              <div className="w-12 h-12 rounded-[14px] flex items-center justify-center text-2xl mb-4 bg-blue-50">🔗</div>
-              <h4 className="text-base font-black text-slate-900 mb-1 tracking-tight">Direct Link</h4>
-              <p className="text-[12px] text-slate-400 mb-4 leading-relaxed">Bookmark your posting URL. Works from any browser, any device.</p>
-              <div className="bg-slate-50 rounded-xl px-4 py-2.5 flex items-center justify-between gap-2">
-                <code className="text-[10px] font-bold text-slate-500 truncate">neerzy.com/post/demo-user</code>
-                <button className="text-[8px] font-black text-primary uppercase tracking-widest shrink-0 hover:underline">Copy</button>
-              </div>
+            <div className="flex items-center gap-3 shrink-0">
+              <span className="text-[8px] font-black uppercase tracking-widest bg-emerald-500 text-white px-3 py-1.5 rounded-full">Recommended</span>
+              <span className="text-[8px] font-black uppercase tracking-widest text-white/30">No login needed</span>
             </div>
           </div>
-
-          {/* QR Code */}
-          <div className="bg-white rounded-[28px] p-6 border border-slate-100 shadow-sm relative overflow-hidden group hover:shadow-lg transition-all">
-            <div className="relative z-10">
-              <div className="w-12 h-12 rounded-[14px] flex items-center justify-center text-2xl mb-4 bg-amber-50">📷</div>
-              <h4 className="text-base font-black text-slate-900 mb-1 tracking-tight">QR Code</h4>
-              <p className="text-[12px] text-slate-400 mb-4 leading-relaxed">Scan from any phone to open your posting page instantly.</p>
-              <div className="w-24 h-24 bg-white rounded-xl p-1.5 border border-slate-100 mx-auto md:mx-0">
-                <img src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent('https://www.neerzy.com/post/demo-user')}`} alt="QR" className="w-full h-full" />
-              </div>
-            </div>
-          </div>
+          <div className="absolute top-0 right-0 p-6 text-7xl opacity-[0.04] translate-x-4 -translate-y-4 pointer-events-none group-hover:scale-110 transition-transform duration-700">📱</div>
         </div>
 
         {/* Desktop Posting */}
