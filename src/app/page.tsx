@@ -476,6 +476,42 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* 🔒 SAFE & SECURE SECTION 🔒 */}
+      <section className="py-20 md:py-28 px-6 md:px-12" style={{background:'var(--paper)', borderTop:'1px solid var(--border)', borderBottom:'1px solid var(--border)'}}>
+        <div className="max-w-5xl mx-auto grid md:grid-cols-[1fr_1.2fr] gap-16 md:gap-20 items-center">
+          
+          {/* Left — Copy */}
+          <div>
+            <div className="text-[10px] font-bold tracking-[2.5px] uppercase mb-5 flex items-center gap-3" style={{color:'var(--ink4)'}}>
+              Trust &amp; Security
+              <span className="h-px w-7" style={{background:'var(--paper4)'}}></span>
+            </div>
+            <h2 className="mb-4">Safe. Secure.<br/><em>Always yours.</em></h2>
+            <p className="text-[15px] max-w-[400px] leading-relaxed" style={{color:'var(--ink3)'}}>
+              Your livelihood depends on your online presence. We protect it like our own.
+            </p>
+          </div>
+
+          {/* Right — Security Cards */}
+          <div className="grid sm:grid-cols-2 gap-3">
+            {[
+              { icon: '🔒', title: 'Device binding', desc: "Your account is tied to your device. A stranger with your link can\u2019t access your account on their phone." },
+              { icon: '🔑', title: 'New device protection', desc: "If you switch phones, we send a one-time code to verify it\u2019s really you." },
+              { icon: '⏱️', title: 'Auto session expiry', desc: "Sessions expire automatically. You\u2019re never left exposed." },
+              { icon: '🏠', title: 'Your domain, your data', desc: "Your website, your Google profile, your reviews. We never lock you in." },
+            ].map((s, i) => (
+              <div key={i} className="rounded-[18px] p-6" style={{background:'var(--paper2)', border:'1px solid var(--border2)'}}>
+                <div className="w-10 h-10 rounded-[11px] flex items-center justify-center text-lg mb-4" style={{background:'var(--teal-soft)', border:'1px solid rgba(15,110,86,0.12)'}}>
+                  {s.icon}
+                </div>
+                <h3 className="font-display text-[15px] font-bold mb-1.5" style={{color:'var(--ink)'}}>{s.title}</h3>
+                <p className="text-[12px] leading-relaxed" style={{color:'var(--ink3)'}}>{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 🚀 CTA BAND 🚀 */}
       <section className="py-20 px-6 md:px-12 grid md:grid-cols-[1fr_auto] gap-12 items-center" style={{background:'var(--sun)'}}>
         <div>
