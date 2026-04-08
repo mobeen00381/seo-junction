@@ -78,7 +78,8 @@ export default function SeoForPlumbersPage() {
       <section className="py-20 px-6 bg-[#0B1F3A] text-white">
         <div className="max-w-3xl mx-auto text-center border-b border-white/10 pb-20">
           <h2 className="text-4xl font-black mb-6 tracking-tight italic">30-Day Free Trial</h2>
-          <p className="text-xl text-blue-200 mb-10 uppercase tracking-widest font-black">Get Your Site Live For Only <span className="text-white">$19 One-Time</span></p>
+          <p className="text-xl text-blue-200 mb-4 uppercase tracking-widest font-black">Launch your real business online — your own domain, for a one-time <span className="text-white">£19/$19</span> setup fee.</p>
+          <p className="text-sm text-blue-300/50 mb-10 italic max-w-md mx-auto">This is your business. Your name on the door. Yours forever — even if you leave Neerzy.</p>
           <Link href="/onboarding" className="inline-block font-bold text-blue-900 bg-white px-12 py-5 rounded-2xl shadow-2xl transition-all hover:scale-105">Start Free Trial — Built for Plumbers →</Link>
         </div>
 

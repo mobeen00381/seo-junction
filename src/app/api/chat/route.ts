@@ -9,7 +9,7 @@ Key Knowledge:
 - SERVICE: We build an SEO-optimized website, manage Google Business Profiles, and post fresh content automatically.
 - WORKFLOW: The user sends a photo or voice note of their work from their phone. We turn it into a high-ranking Google post.
 - PRICING: Basic ($19/mo), Pro ($39/mo), Agency ($79/mo). All have a 30-day free trial.
-- DOMAIN: We handle the domain registration for a one-time $19 fee.
+- DOMAIN: We handle the domain registration for a one-time £19/$19 fee. The domain is registered in your name and is yours forever.
 - SPEED: Most business see ranking improvements in 30-45 days.
 - PHILOSOPHY: Tech shouldn't get in the way of hard work. We handle the tech; you handle the jobs. 
 - ACCESSIBILITY: No laptop or computer required. Everything can be done from a mobile phone.
@@ -66,7 +66,7 @@ function getMockReply(msg: string): string {
   if (m.includes('tech') || m.includes('skilled')) return "No tech skills needed! If you can send a text or take a photo, you can use Neerzy. We handle all the 'internet stuff' for you."
   if (m.includes('call') || m.includes('customer')) return "We make sure your business shows up at the top when neighbors search for your services. More visibility means more calls and more jobs for you."
   if (m.includes('laptop') || m.includes('phone') || m.includes('computer')) return "No laptop needed! You can manage everything right from your phone. If you can send a text or take a photo, you're all set."
-  if (m.includes('domain') || m.includes('website')) return "We build you a professional website and secure your domain for a one-time $19 fee. You own everything, but we handle the setup!"
+  if (m.includes('domain') || m.includes('website')) return "We build you a professional website and secure your domain for a one-time £19/$19 fee. It's registered in your name — yours forever, even if you leave Neerzy!"
   
   return "That's a great question! Basically, we make sure local neighbors find you first when they need a pro. Most our members see more calls within their first month. Interested in a 30-day trial?"
 }

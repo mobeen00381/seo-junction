@@ -7,7 +7,7 @@ const FAQS = [
   { q:'How long does it take to see results?', a:'Most businesses see ranking improvements within 30–45 days. Calls and inquiries typically increase by month 2. SEO compounds — the longer you run it, the stronger your position gets.' },
   { q:'Do I own my website and domain?', a:'Yes — 100%. The domain is registered in your name. The website content is yours. You can transfer everything out at any time with no restrictions.' },
   { q:'What is included in each AI post?', a:'Each post is 300–500 words written for your business, city, and trade. It includes local keywords, your services, and contact info. It posts to your website and Google Business Profile automatically.' },
-  { q:'How much does Neerzy cost?', a:'Plans start at $19/month after a 30-day free trial. The domain setup is a one-time $19 fee. No contracts — cancel anytime.' },
+  { q:'How much does Neerzy cost?', a:'Plans start at $19/month after a 30-day free trial. The domain setup is a one-time £19/$19 fee — registered in your name, yours forever. No contracts — cancel anytime.' },
 ]
 
 export default function FaqAccordion() {

@@ -43,7 +43,8 @@ export default function PricingPage() {
         <div className="text-center mb-16">
           <div className="text-xs font-bold tracking-widest uppercase text-primary dark:text-primary-light mb-3">Pricing</div>
           <h1 className="text-4xl font-black text-gray-900 mb-4 tracking-tight leading-tight">More Google Calls.<br />Starting at $19/Month.</h1>
-          <p className="text-gray-500 max-w-md mx-auto font-medium">30-day free trial on all plans. Only pay the $19 domain fee today. Cancel anytime.</p>
+          <p className="text-gray-500 max-w-lg mx-auto font-medium">Launch your real business online today — your own domain, registered in your name, for a one-time £19/$19 setup fee.</p>
+          <p className="text-gray-400 max-w-md mx-auto text-sm mt-2 italic">This is your business. Your name on the door. Yours forever — even if you leave Neerzy.</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 mb-16">
