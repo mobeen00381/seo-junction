@@ -68,65 +68,122 @@ function DashboardContent() {
         </div>
       )}
 
-      {/* PERFORMANCE GRID */}
-      <section>
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-6">
+      {/* PERFORMANCE ANALYTICS */}
+      <section className="bg-white rounded-[28px] border border-slate-100 shadow-sm overflow-hidden">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center p-5 md:p-6 border-b border-slate-50 gap-4">
           <div>
-            <h3 className="text-2xl font-black text-slate-900 tracking-tight mb-1">Business Performance</h3>
-            <p className="text-xs text-slate-400 font-bold uppercase tracking-widest">Real-time local SEO impact</p>
+            <h3 className="text-lg font-black text-slate-900 tracking-tight mb-0.5">Business Performance</h3>
+            <p className="text-[11px] text-slate-400 font-bold uppercase tracking-widest">Real-time local SEO impact</p>
           </div>
           
-          <div className="flex bg-slate-100 p-1.5 rounded-2xl gap-1">
+          <div className="flex bg-slate-100 p-1 rounded-xl gap-0.5">
             {['24h', '7d', '30d', '1y', 'all'].map((t) => (
               <button 
                 key={t}
                 onClick={() => setTimeframe(t)}
-                className={`px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${timeframe === t ? 'bg-white text-primary shadow-sm shadow-primary/10' : 'text-slate-400 hover:text-slate-600'}`}
+                className={`px-3 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest transition-all ${timeframe === t ? 'bg-white text-primary shadow-sm' : 'text-slate-400 hover:text-slate-600'}`}
               >
-                {t === 'all' ? 'All Time' : t}
+                {t === 'all' ? 'All' : t}
               </button>
             ))}
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white rounded-[40px] border border-slate-100 p-10 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all group relative overflow-hidden">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">👀</div>
-              <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none">Profile Views</div>
+        {/* Metrics Row */}
+        <div className="grid grid-cols-3 divide-x divide-slate-50">
+          {[
+            { label: 'Profile Views', value: metrics.views, icon: '👀', color: 'text-primary' },
+            { label: 'Organic Calls', value: metrics.calls, icon: '📞', color: 'text-emerald-600' },
+            { label: 'Website Visits', value: metrics.visits, icon: '🌐', color: 'text-blue-600' },
+          ].map((m, i) => (
+            <div key={i} className="p-4 md:p-6 text-center">
+              <div className="text-lg md:text-2xl mb-1">{m.icon}</div>
+              <div className={`text-2xl md:text-4xl font-black tracking-tighter leading-none mb-1 ${m.color}`}>{m.value}</div>
+              <div className="text-[8px] md:text-[9px] font-bold text-slate-400 uppercase tracking-widest">{m.label}</div>
             </div>
-            <div className="text-6xl font-black text-slate-900 leading-none mb-2 tracking-tighter">{metrics.views}</div>
-            <div className="text-[10px] font-bold text-emerald-600 uppercase tracking-widest flex items-center gap-2">
-               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-               {metrics.growth} vs prev period
-            </div>
-            <div className="absolute top-0 right-0 p-8 opacity-[0.02] text-9xl pointer-events-none group-hover:scale-110 transition-transform duration-1000">📈</div>
-          </div>
+          ))}
+        </div>
 
-          <div className="bg-white rounded-[40px] border border-slate-100 p-10 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all group relative overflow-hidden">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">📞</div>
-              <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none">Organic Calls</div>
-            </div>
-            <div className="text-6xl font-black text-slate-900 leading-none mb-2 tracking-tighter">{metrics.calls}</div>
-            <div className="text-[10px] font-bold text-emerald-600 uppercase tracking-widest flex items-center gap-2">
-               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-               {metrics.growth} vs prev period
-            </div>
-            <div className="absolute top-0 right-0 p-8 opacity-[0.02] text-9xl pointer-events-none group-hover:scale-110 transition-transform duration-1000">📞</div>
-          </div>
+        {/* Growth Badge */}
+        <div className="px-5 md:px-6 py-3 bg-emerald-50/50 border-t border-b border-slate-50 flex items-center justify-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span className="text-[10px] font-black text-emerald-600 uppercase tracking-widest">{metrics.growth} growth vs previous period</span>
+        </div>
 
-          <div className="bg-white rounded-[40px] border border-slate-100 p-10 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all group relative overflow-hidden">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">🌐</div>
-              <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none">Website Visits</div>
+        {/* Chart Area */}
+        <div className="p-5 md:p-6">
+          <div className="relative h-48 md:h-56 w-full">
+            {/* Y-axis labels */}
+            <div className="absolute left-0 top-0 bottom-6 flex flex-col justify-between text-[8px] font-bold text-slate-300 uppercase tracking-widest w-8">
+              <span>High</span>
+              <span></span>
+              <span>Low</span>
             </div>
-            <div className="text-6xl font-black text-slate-900 leading-none mb-2 tracking-tighter">{metrics.visits}</div>
-            <div className="text-[10px] font-bold text-emerald-600 uppercase tracking-widest flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-               {metrics.growth} vs prev period
+            
+            {/* Chart */}
+            <div className="ml-10 h-full relative">
+              <svg viewBox="0 0 400 160" className="w-full h-full" preserveAspectRatio="none">
+                {/* Grid lines */}
+                <line x1="0" y1="40" x2="400" y2="40" stroke="#f1f5f9" strokeWidth="1"/>
+                <line x1="0" y1="80" x2="400" y2="80" stroke="#f1f5f9" strokeWidth="1"/>
+                <line x1="0" y1="120" x2="400" y2="120" stroke="#f1f5f9" strokeWidth="1"/>
+                
+                {/* Area fill */}
+                <defs>
+                  <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor={timeframe === '24h' ? '#3b82f6' : timeframe === '7d' ? '#6366f1' : '#10b981'} stopOpacity="0.15"/>
+                    <stop offset="100%" stopColor={timeframe === '24h' ? '#3b82f6' : timeframe === '7d' ? '#6366f1' : '#10b981'} stopOpacity="0.01"/>
+                  </linearGradient>
+                </defs>
+                
+                {/* Different chart shapes per timeframe */}
+                {timeframe === '24h' && (
+                  <>
+                    <path d="M0,120 Q50,110 100,105 Q150,95 200,100 Q250,90 300,85 Q350,80 400,75 L400,160 L0,160 Z" fill="url(#chartGradient)"/>
+                    <path d="M0,120 Q50,110 100,105 Q150,95 200,100 Q250,90 300,85 Q350,80 400,75" fill="none" stroke="#3b82f6" strokeWidth="2.5" strokeLinecap="round"/>
+                    <circle cx="400" cy="75" r="4" fill="#3b82f6"/>
+                  </>
+                )}
+                {timeframe === '7d' && (
+                  <>
+                    <path d="M0,130 Q60,120 120,95 Q180,85 220,90 Q280,70 340,55 Q370,45 400,40 L400,160 L0,160 Z" fill="url(#chartGradient)"/>
+                    <path d="M0,130 Q60,120 120,95 Q180,85 220,90 Q280,70 340,55 Q370,45 400,40" fill="none" stroke="#6366f1" strokeWidth="2.5" strokeLinecap="round"/>
+                    <circle cx="400" cy="40" r="4" fill="#6366f1"/>
+                  </>
+                )}
+                {timeframe === '30d' && (
+                  <>
+                    <path d="M0,140 Q40,135 80,120 Q120,110 160,95 Q200,85 240,70 Q280,60 320,45 Q360,35 400,25 L400,160 L0,160 Z" fill="url(#chartGradient)"/>
+                    <path d="M0,140 Q40,135 80,120 Q120,110 160,95 Q200,85 240,70 Q280,60 320,45 Q360,35 400,25" fill="none" stroke="#10b981" strokeWidth="2.5" strokeLinecap="round"/>
+                    <circle cx="400" cy="25" r="4" fill="#10b981"/>
+                  </>
+                )}
+                {timeframe === '1y' && (
+                  <>
+                    <path d="M0,145 Q30,140 60,135 Q90,125 120,105 Q160,90 200,80 Q240,65 280,45 Q320,30 360,18 Q380,12 400,8 L400,160 L0,160 Z" fill="url(#chartGradient)"/>
+                    <path d="M0,145 Q30,140 60,135 Q90,125 120,105 Q160,90 200,80 Q240,65 280,45 Q320,30 360,18 Q380,12 400,8" fill="none" stroke="#10b981" strokeWidth="2.5" strokeLinecap="round"/>
+                    <circle cx="400" cy="8" r="4" fill="#10b981"/>
+                  </>
+                )}
+                {timeframe === 'all' && (
+                  <>
+                    <path d="M0,150 Q25,148 50,145 Q75,140 100,130 Q130,115 160,100 Q190,85 220,70 Q250,55 280,40 Q310,28 340,18 Q370,10 400,5 L400,160 L0,160 Z" fill="url(#chartGradient)"/>
+                    <path d="M0,150 Q25,148 50,145 Q75,140 100,130 Q130,115 160,100 Q190,85 220,70 Q250,55 280,40 Q310,28 340,18 Q370,10 400,5" fill="none" stroke="#10b981" strokeWidth="2.5" strokeLinecap="round"/>
+                    <circle cx="400" cy="5" r="4" fill="#10b981"/>
+                  </>
+                )}
+              </svg>
+              
+              {/* X-axis labels */}
+              <div className="flex justify-between mt-2 text-[8px] font-bold text-slate-300 uppercase tracking-widest">
+                {timeframe === '24h' && <><span>12am</span><span>6am</span><span>12pm</span><span>6pm</span><span>Now</span></>}
+                {timeframe === '7d' && <><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Today</span></>}
+                {timeframe === '30d' && <><span>Week 1</span><span>Week 2</span><span>Week 3</span><span>Week 4</span><span>Now</span></>}
+                {timeframe === '1y' && <><span>Jan</span><span>Apr</span><span>Jul</span><span>Oct</span><span>Now</span></>}
+                {timeframe === 'all' && <><span>Start</span><span>Month 3</span><span>Month 6</span><span>Month 9</span><span>Now</span></>}
+              </div>
             </div>
-            <div className="absolute top-0 right-0 p-8 opacity-[0.02] text-9xl pointer-events-none group-hover:scale-110 transition-transform duration-1000">🌎</div>
           </div>
         </div>
       </section>
