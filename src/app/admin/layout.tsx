@@ -2,6 +2,7 @@
 import { useState, useEffect, Suspense } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 import AdminSidebar from '@/components/AdminSidebar'
+import { createClient } from '@/lib/supabase/client'
 
 export default function AdminLayout({
   children,
@@ -11,36 +12,35 @@ export default function AdminLayout({
   const [isAuthorized, setIsAuthorized] = useState<boolean | null>(null)
   const router = useRouter()
   const pathname = usePathname()
+  const supabase = createClient()
 
   useEffect(() => {
-    // Skip auth check for the login page itself
-    if (pathname === '/admin/login') {
-      setIsAuthorized(true)
-      return
+    const checkAuth = async () => {
+      const { data: { user } } = await supabase.auth.getUser()
+      
+      if (!user) {
+        router.push('/login')
+        return
+      }
+
+      // Check for Admin role in profiles table
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('role')
+        .eq('id', user.id)
+        .single()
+
+      if (profile?.role === 'admin') {
+        setIsAuthorized(true)
+      } else {
+        setIsAuthorized(false)
+        router.push('/dashboard?error=unauthorized')
+      }
     }
 
-    const auth = localStorage.getItem('seo_admin_auth')
-    if (auth === 'true') {
-      setIsAuthorized(true)
-    } else {
-      setIsAuthorized(false)
-      router.push('/admin/login')
-    }
+    checkAuth()
   }, [pathname, router])
 
-  // Show nothing while checking auth to prevent UI flicker
-  if (isAuthorized === null) {
-    return (
-      <div className="min-h-screen bg-slate-950 flex items-center justify-center">
-        <div className="w-16 h-16 border-4 border-primary/10 border-t-primary rounded-full animate-spin"></div>
-      </div>
-    )
-  }
-
-  // Login page layout (no sidebar)
-  if (pathname === '/admin/login') {
-    return <>{children}</>
-  }
 
   return (
     <div className="flex min-h-screen bg-slate-950 text-white selection:bg-primary/20">

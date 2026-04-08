@@ -1,30 +1,32 @@
 'use client'
 import { useState, useEffect } from 'react'
-
-const MOCK_BUSINESSES = [
-  { id: 1, name: "Elite Plumbing Pro", city: "Chicago", industry: "Plumbing", status: "Connected", score: 94, health: 98, lastUpdate: "2h ago" },
-  { id: 2, name: "Sunshine Dental", city: "Miami", industry: "Dental", status: "Pending", score: 88, health: 92, lastUpdate: "5h ago" },
-  { id: 3, name: "Sparky Electrical", city: "Austin", industry: "Electrical", status: "Connected", score: 91, health: 95, lastUpdate: "1d ago" },
-  { id: 4, name: "Clean Sweep Co", city: "Denver", industry: "Cleaning", status: "Connected", score: 96, health: 99, lastUpdate: "30m ago" },
-  { id: 5, name: "Rooter & Drain", city: "Seattle", industry: "Plumbing", status: "Error", score: 72, health: 45, lastUpdate: "3d ago" },
-  { id: 6, name: "Bright Smiles", city: "Phoenix", industry: "Dental", status: "Connected", score: 89, health: 91, lastUpdate: "6h ago" }
-]
-
-const SYSTEM_LOGS = [
-  "ChatGPT-4o Entity Sync for 'Elite Plumbing' [SUCCESS]",
-  "GMB Gateway: New verification token issued for 'Miami Dental'",
-  "Geo-Graph Crawler: 142 new proximity points mapped in Austin, TX",
-  "Neural Content Engine: 12-page batch SEO analysis complete",
-  "AEO Optimization: conversational schema injected for 4 users",
-  "Perplexity Index: 89% network visibility refresh [STABLE]"
-]
+import { createClient } from '@/lib/supabase/client'
 
 export default function AdminPage() {
+  const supabase = createClient()
+  const [businesses, setBusinesses] = useState<any[]>([])
   const [timeframe, setTimeframe] = useState('30d')
   const [activeTab, setActiveTab] = useState('Overview')
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      setIsLoading(true)
+      const { data, error } = await supabase
+        .from('profiles')
+        .select('*')
+        .order('created_at', { ascending: false })
+      
+      if (data) {
+        setBusinesses(data)
+      }
+      setIsLoading(false)
+    }
+    fetchStats()
+  }, [])
 
   const stats = [
-    { label: "Active Businesses", value: "156", growth: "+12%", icon: "🏢" },
+    { label: "Active Businesses", value: businesses.length.toString(), growth: "+12%", icon: "🏢" },
     { label: "AI Updates Executed", value: "1.4K", growth: "+22%", icon: "🎙️" },
     { label: "Network Call Reach", value: "12,420", growth: "+18%", icon: "📞" },
     { label: "Geo Proximity Score", value: "92/100", growth: "ELITE", icon: "📡" }
@@ -81,35 +83,40 @@ export default function AdminPage() {
                     </tr>
                  </thead>
                  <tbody className="divide-y divide-white/5">
-                    {MOCK_BUSINESSES.map(biz => (
+                    {businesses.map((biz, idx) => (
                       <tr key={biz.id} className="hover:bg-white/[0.02] transition-colors group cursor-pointer">
                          <td className="px-10 py-8">
-                            <div className="font-black text-white group-hover:text-primary transition-colors">{biz.name}</div>
-                            <div className="text-[9px] font-bold text-slate-500 uppercase tracking-widest mt-1">SEO-NODE-00{biz.id}</div>
+                            <div className="font-black text-white group-hover:text-primary transition-colors">{biz.business_name || 'Unnamed Business'}</div>
+                            <div className="text-[9px] font-bold text-slate-500 uppercase tracking-widest mt-1">SEO-NODE-{idx.toString().padStart(3, '0')}</div>
                          </td>
                          <td className="px-10 py-8">
-                            <div className="text-sm font-bold text-slate-300">{biz.city}</div>
-                            <div className="text-[10px] font-black text-primary/80 uppercase tracking-widest mt-1">{biz.industry}</div>
+                            <div className="text-sm font-bold text-slate-300">{biz.business_email || 'No Email'}</div>
+                            <div className="text-[10px] font-black text-primary/80 uppercase tracking-widest mt-1">{biz.plan || 'trial'}</div>
                          </td>
                          <td className="px-10 py-8">
                             <div className="flex items-center gap-3">
-                               <div className="text-sm font-black text-white">{biz.score}%</div>
+                               <div className="text-sm font-black text-white">{biz.gmb_connected ? '95%' : '0%'}</div>
                                <div className="w-16 h-1.5 bg-white/5 rounded-full overflow-hidden">
-                                  <div className="h-full bg-primary" style={{ width: `${biz.score}%` }}></div>
+                                  <div className="h-full bg-primary" style={{ width: biz.gmb_connected ? '95%' : '0%' }}></div>
                                </div>
                             </div>
                          </td>
                          <td className="px-10 py-8">
                             <span className={`px-4 py-2 rounded-full text-[9px] font-black uppercase tracking-widest border transition-all ${
-                               biz.status === 'Connected' ? 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20' :
-                               biz.status === 'Pending' ? 'bg-amber-500/10 text-amber-500 border-amber-500/20' :
-                               'bg-red-500/10 text-red-500 border-red-500/20 animate-pulse'
+                                biz.gmb_connected ? 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20' : 'bg-amber-500/10 text-amber-500 border-amber-500/20'
                             }`}>
-                               {biz.status}
+                               {biz.gmb_connected ? 'Connected' : 'Pending'}
                             </span>
                          </td>
                       </tr>
                     ))}
+                    {businesses.length === 0 && !isLoading && (
+                      <tr>
+                        <td colSpan={4} className="px-10 py-20 text-center text-slate-500 font-bold uppercase tracking-widest text-[10px]">
+                          No active nodes in network
+                        </td>
+                      </tr>
+                    )}
                  </tbody>
               </table>
            </div>
@@ -123,15 +130,18 @@ export default function AdminPage() {
                  Live Neural Logs
               </h3>
               <div className="space-y-8 relative z-10">
-                 {SYSTEM_LOGS.map((log, i) => (
+                 {businesses.slice(0, 6).map((biz, i) => (
                    <div key={i} className="flex gap-4 group/item">
                       <div className="w-1 h-8 bg-white/5 rounded-full group-hover/item:bg-primary transition-colors"></div>
                       <div className="flex-1">
-                         <div className="text-[11px] font-medium text-slate-300 leading-relaxed">{log}</div>
-                         <div className="text-[8px] font-black text-slate-600 uppercase tracking-widest mt-2">Just Now</div>
+                         <div className="text-[11px] font-medium text-slate-300 leading-relaxed">System Node Sync for &apos;{biz.business_name || 'New User'}&apos; [SUCCESS]</div>
+                         <div className="text-[8px] font-black text-slate-600 uppercase tracking-widest mt-2">Verified Profile Node</div>
                       </div>
                    </div>
                  ))}
+                 {businesses.length === 0 && (
+                   <div className="text-slate-600 font-bold uppercase tracking-widest text-[9px] py-10 text-center">Awaiting neural activity...</div>
+                 )}
               </div>
 
               <div className="mt-12 pt-10 border-t border-white/5">

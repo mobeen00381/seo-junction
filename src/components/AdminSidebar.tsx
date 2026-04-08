@@ -19,6 +19,8 @@ const AdminSidebarItem = ({ icon, label, active, onClick }: AdminSidebarItemProp
   </button>
 )
 
+import { logout } from '@/app/auth/actions'
+
 export default function AdminSidebar() {
   const pathname = usePathname()
 
@@ -82,7 +84,10 @@ export default function AdminSidebar() {
               <span className="text-xs font-bold text-slate-300">Operational</span>
            </div>
         </div>
-        <button className="w-full flex items-center gap-4 px-6 py-4 rounded-2xl text-slate-400 hover:bg-white/5 hover:text-white transition-all group">
+        <button 
+          onClick={() => logout()}
+          className="w-full flex items-center gap-4 px-6 py-4 rounded-2xl text-slate-400 hover:bg-white/5 hover:text-white transition-all group"
+        >
           <span className="text-xl group-hover:scale-110 transition-transform">🚪</span>
           <span className="font-bold text-sm tracking-tight text-red-500/80">Exit Admin Mode</span>
         </button>

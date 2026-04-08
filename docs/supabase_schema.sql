@@ -1,3 +1,10 @@
+-- CLEAN START (Deletes existing tables to prevent errors)
+DROP TRIGGER IF EXISTS on_auth_user_created ON auth.users;
+DROP FUNCTION IF EXISTS public.handle_new_user;
+DROP TABLE IF EXISTS public.domains;
+DROP TABLE IF EXISTS public.posts;
+DROP TABLE IF EXISTS public.profiles;
+
 -- 1. PROFILES TABLE
 -- Stores business-specific information for each user.
 CREATE TABLE public.profiles (
@@ -6,6 +13,7 @@ CREATE TABLE public.profiles (
   business_email TEXT,
   phone_number TEXT,
   plan TEXT DEFAULT 'free_trial',
+  role TEXT DEFAULT 'user' CHECK (role IN ('user', 'admin')),
   gmb_connected BOOLEAN DEFAULT FALSE,
   gmb_location_id TEXT,
   website_url TEXT,
