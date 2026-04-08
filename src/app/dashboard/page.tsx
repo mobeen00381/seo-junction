@@ -261,30 +261,122 @@ function DashboardContent() {
           <div className="absolute top-0 right-0 p-6 text-7xl opacity-[0.04] translate-x-4 -translate-y-4 pointer-events-none group-hover:scale-110 transition-transform duration-700">📱</div>
         </div>
 
-        {/* Desktop Posting */}
-        <div className="bg-white rounded-[28px] p-6 border border-slate-100 shadow-sm">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-5">
-            <div>
-              <h4 className="text-base font-black text-slate-900 tracking-tight mb-1">Desktop Posting</h4>
-              <p className="text-[12px] text-slate-400">Send an update from your computer right now.</p>
+        {/* Mobile Posting Mockup */}
+        <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-6 items-start">
+          
+          {/* Phone Mockup */}
+          <div className="flex justify-center">
+            <div className="w-[240px] rounded-[36px] p-2" style={{background:'#1a1a1a', border:'1px solid rgba(255,255,255,0.08)', boxShadow:'0 25px 50px -12px rgba(0,0,0,0.25)'}}>
+              <div className="w-full rounded-[28px] overflow-hidden flex flex-col" style={{background:'#f8fafc', height:'420px'}}>
+                
+                {/* Phone Header */}
+                <div className="px-4 py-3 flex items-center gap-3" style={{background:'#0f172a'}}>
+                  <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-black text-white" style={{background:'linear-gradient(135deg, #1d9e75, #0f6e56)'}}>N</div>
+                  <div>
+                    <div className="text-[11px] font-bold text-white leading-none">Neerzy</div>
+                    <div className="text-[8px] text-emerald-400 font-bold">● Ready to post</div>
+                  </div>
+                </div>
+
+                {/* Chat Body */}
+                <div className="flex-1 p-3 space-y-3 overflow-hidden" style={{background:'#f1f5f9'}}>
+                  {/* Bot message */}
+                  <div className="flex gap-2">
+                    <div className="w-5 h-5 rounded-full shrink-0 flex items-center justify-center text-[7px] font-black text-white mt-0.5" style={{background:'#1d9e75'}}>N</div>
+                    <div className="bg-white rounded-2xl rounded-tl-md px-3 py-2 shadow-sm max-w-[85%]">
+                      <p className="text-[10px] text-slate-700 leading-relaxed">What did you work on today? Send a photo or voice note and I&apos;ll create your Google post 🚀</p>
+                    </div>
+                  </div>
+
+                  {/* User photo message */}
+                  {isUpdating && updateType === 'image' && (
+                    <div className="flex justify-end">
+                      <div className="bg-primary text-white rounded-2xl rounded-tr-md px-3 py-2 max-w-[70%]">
+                        <p className="text-[10px] font-medium">📸 Photo uploading...</p>
+                        <div className="w-full bg-white/20 rounded-full h-1 mt-1.5">
+                          <div className="bg-white h-full rounded-full animate-pulse" style={{width:'60%'}}></div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {isUpdating && updateType === 'voice' && (
+                    <div className="flex justify-end">
+                      <div className="bg-primary text-white rounded-2xl rounded-tr-md px-3 py-2 max-w-[70%]">
+                        <p className="text-[10px] font-medium">🎙️ Voice note processing...</p>
+                        <div className="flex gap-0.5 mt-1.5">
+                          {[...Array(12)].map((_, i) => (
+                            <div key={i} className="w-1 rounded-full bg-white/60" style={{height: `${6 + Math.sin(i * 0.8) * 6}px`, animationDelay: `${i * 0.1}s`}}></div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {hasSentUpdate && !isUpdating && (
+                    <>
+                      <div className="flex justify-end">
+                        <div className="bg-primary text-white rounded-2xl rounded-tr-md px-3 py-2 max-w-[70%]">
+                          <p className="text-[10px] font-medium">✅ Sent!</p>
+                        </div>
+                      </div>
+                      <div className="flex gap-2">
+                        <div className="w-5 h-5 rounded-full shrink-0 flex items-center justify-center text-[7px] font-black text-white mt-0.5" style={{background:'#1d9e75'}}>N</div>
+                        <div className="bg-white rounded-2xl rounded-tl-md px-3 py-2 shadow-sm max-w-[85%]">
+                          <p className="text-[10px] text-slate-700 leading-relaxed">Done! Your post is now live on your website + Google Business Profile ✨</p>
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </div>
+
+                {/* Input Bar */}
+                <div className="px-3 py-2.5 flex items-center gap-2 border-t border-slate-200 bg-white">
+                  <button 
+                    onClick={() => handleSendUpdate('image')}
+                    disabled={isUpdating}
+                    className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-base hover:bg-primary/20 transition-all disabled:opacity-30 active:scale-90"
+                  >📸</button>
+                  <button 
+                    onClick={() => handleSendUpdate('voice')}
+                    disabled={isUpdating}
+                    className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-base hover:bg-primary/20 transition-all disabled:opacity-30 active:scale-90"
+                  >🎙️</button>
+                  <div className="flex-1 bg-slate-100 rounded-full px-3 py-1.5 text-[9px] text-slate-400 font-medium">Type a message...</div>
+                  <div className="w-7 h-7 rounded-full bg-primary flex items-center justify-center">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                  </div>
+                </div>
+
+                {/* Home Indicator */}
+                <div className="h-4 flex items-center justify-center bg-white">
+                  <div className="w-20 h-1 rounded-full bg-slate-200"></div>
+                </div>
+              </div>
             </div>
-            <span className="text-[8px] font-black text-slate-300 uppercase tracking-widest">Or use your phone above</span>
           </div>
-          <div className="grid grid-cols-2 gap-3">
-            <button 
-              onClick={() => handleSendUpdate('image')}
-              className="flex items-center justify-center gap-3 p-5 bg-slate-50 rounded-2xl border border-slate-100 hover:border-primary hover:bg-primary/5 transition-all group"
-            >
-              <span className="text-2xl group-hover:rotate-12 transition-transform">📸</span>
-              <span className="font-black text-xs text-slate-900 uppercase tracking-widest">Upload Photo</span>
-            </button>
-            <button 
-              onClick={() => handleSendUpdate('voice')}
-              className="flex items-center justify-center gap-3 p-5 bg-slate-50 rounded-2xl border border-slate-100 hover:border-primary hover:bg-primary/5 transition-all group"
-            >
-              <span className="text-2xl group-hover:rotate-12 transition-transform">🎙️</span>
-              <span className="font-black text-xs text-slate-900 uppercase tracking-widest">Voice Note</span>
-            </button>
+
+          {/* Right — Instructions */}
+          <div className="flex flex-col justify-center gap-5 py-4">
+            <div>
+              <h4 className="text-lg font-black text-slate-900 tracking-tight mb-2">Post from your phone</h4>
+              <p className="text-[13px] text-slate-400 leading-relaxed max-w-sm">Snap a photo of your work or record a voice note. Our AI writes the perfect Google post in seconds.</p>
+            </div>
+            <div className="space-y-3">
+              {[
+                { icon: '📸', title: 'Send a photo', desc: 'Take a picture of your finished job' },
+                { icon: '🎙️', title: 'Send a voice note', desc: '"Just finished a rewire in Brixton"' },
+                { icon: '✨', title: 'AI writes your post', desc: 'Published to website + Google in 30 seconds' },
+              ].map((step, i) => (
+                <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+                  <div className="w-9 h-9 rounded-[10px] bg-white border border-slate-100 flex items-center justify-center text-lg shrink-0 shadow-sm">{step.icon}</div>
+                  <div>
+                    <div className="text-[12px] font-bold text-slate-900">{step.title}</div>
+                    <div className="text-[10px] text-slate-400">{step.desc}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
