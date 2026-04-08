@@ -11,6 +11,8 @@ function DashboardContent() {
   const [isUpdating, setIsUpdating] = useState(false)
   const [showSuccess, setShowSuccess] = useState(false)
   const [updateType, setUpdateType] = useState<'image' | 'voice' | null>(null)
+  const [pendingApproval, setPendingApproval] = useState(false)
+  const [isApproved, setIsApproved] = useState(false)
   const [isGMBConnected, setIsGMBConnected] = useState(false)
   const [isGMBConnecting, setIsGMBConnecting] = useState(false)
   const [gmbStep, setGmbStep] = useState(0)
@@ -31,12 +33,21 @@ function DashboardContent() {
   const handleSendUpdate = (type: 'image' | 'voice') => {
     setUpdateType(type)
     setIsUpdating(true)
+    setPendingApproval(false)
+    setIsApproved(false)
+    setHasSentUpdate(false)
     setTimeout(() => {
       setIsUpdating(false)
-      setHasSentUpdate(true)
-      setShowSuccess(true)
-      setUpdateType(null)
+      setPendingApproval(true)
     }, 2000)
+  }
+
+  const handleApprove = () => {
+    setPendingApproval(false)
+    setIsApproved(true)
+    setHasSentUpdate(true)
+    setShowSuccess(true)
+    setUpdateType(null)
   }
 
   const getMetrics = () => {
@@ -313,17 +324,33 @@ function DashboardContent() {
                     </div>
                   )}
 
-                  {hasSentUpdate && !isUpdating && (
+                  {/* AI Draft Preview — Awaiting Approval */}
+                  {pendingApproval && !isUpdating && (
+                    <div className="flex gap-2">
+                      <div className="w-5 h-5 rounded-full shrink-0 flex items-center justify-center text-[7px] font-black text-white mt-0.5" style={{background:'#1d9e75'}}>N</div>
+                      <div className="bg-white rounded-2xl rounded-tl-md px-3 py-2 shadow-sm max-w-[90%]">
+                        <p className="text-[8px] font-black text-primary uppercase tracking-widest mb-1">Draft Preview</p>
+                        <p className="text-[9px] text-slate-700 leading-relaxed mb-2">"Emergency boiler repair in Croydon — replaced a faulty pressure valve and restored heating. Fast response, fixed same day. Call us for..."</p>
+                        <div className="flex gap-1.5">
+                          <button onClick={handleApprove} className="flex-1 bg-primary text-white text-[8px] font-black uppercase tracking-widest py-1.5 rounded-lg hover:bg-primary/90 transition-all active:scale-95">✓ Approve</button>
+                          <button className="flex-1 bg-slate-100 text-slate-500 text-[8px] font-black uppercase tracking-widest py-1.5 rounded-lg hover:bg-slate-200 transition-all">✎ Edit</button>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Approved & Published */}
+                  {isApproved && hasSentUpdate && !isUpdating && (
                     <>
                       <div className="flex justify-end">
                         <div className="bg-primary text-white rounded-2xl rounded-tr-md px-3 py-2 max-w-[70%]">
-                          <p className="text-[10px] font-medium">✅ Sent!</p>
+                          <p className="text-[10px] font-medium">✅ Approved!</p>
                         </div>
                       </div>
                       <div className="flex gap-2">
                         <div className="w-5 h-5 rounded-full shrink-0 flex items-center justify-center text-[7px] font-black text-white mt-0.5" style={{background:'#1d9e75'}}>N</div>
                         <div className="bg-white rounded-2xl rounded-tl-md px-3 py-2 shadow-sm max-w-[85%]">
-                          <p className="text-[10px] text-slate-700 leading-relaxed">Done! Your post is now live on your website + Google Business Profile ✨</p>
+                          <p className="text-[10px] text-slate-700 leading-relaxed">Published! Your post is now live on your website + Google Business Profile ✨</p>
                         </div>
                       </div>
                     </>
@@ -366,7 +393,8 @@ function DashboardContent() {
               {[
                 { icon: '📸', title: 'Send a photo', desc: 'Take a picture of your finished job' },
                 { icon: '🎙️', title: 'Send a voice note', desc: '"Just finished a rewire in Brixton"' },
-                { icon: '✨', title: 'AI writes your post', desc: 'Published to website + Google in 30 seconds' },
+                { icon: '📝', title: 'Review AI draft', desc: 'Preview the post before it goes live' },
+                { icon: '✅', title: 'Approve & publish', desc: 'Nothing posts without your OK' },
               ].map((step, i) => (
                 <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
                   <div className="w-9 h-9 rounded-[10px] bg-white border border-slate-100 flex items-center justify-center text-lg shrink-0 shadow-sm">{step.icon}</div>
