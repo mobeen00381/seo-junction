@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 const PLANS = [
   { name:'Basic', price:'19', posts:10, features:['Done-for-you website','10 AI posts/month (website + GMB)','Google Business updates','Photo & voice uploads','Cancel anytime'], popular:false },
-  { name:'Pro', price:'39', posts:30, features:['Everything in Basic','30 AI posts/month','Priority AI responses','Full GMB management','Dedicated support','Monthly SEO report PDF','Free domain transfer'], popular:true },
+  { name:'Pro', price:'39', posts:30, features:['Everything in Basic','30 AI posts/month','Priority AI responses','Full GMB management','🔔 Smart activity reminders','Dedicated support','Monthly SEO report PDF','Free domain transfer'], popular:true },
   { name:'Agency', price:'79', posts:60, features:['Up to 5 client sites','60 AI posts/month','White-label client reports','Client dashboard','API access','Dedicated Slack support'], popular:false },
 ]
 
