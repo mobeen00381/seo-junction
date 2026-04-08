@@ -12,7 +12,21 @@ function DashboardContent() {
   const [showSuccess, setShowSuccess] = useState(false)
   const [updateType, setUpdateType] = useState<'image' | 'voice' | null>(null)
   const [isGMBConnected, setIsGMBConnected] = useState(false)
+  const [isGMBConnecting, setIsGMBConnecting] = useState(false)
+  const [gmbStep, setGmbStep] = useState(0)
   const [timeframe, setTimeframe] = useState('30d')
+
+  const handleGMBConnect = () => {
+    setIsGMBConnecting(true)
+    setGmbStep(1)
+    setTimeout(() => setGmbStep(2), 1200)
+    setTimeout(() => setGmbStep(3), 2400)
+    setTimeout(() => {
+      setIsGMBConnecting(false)
+      setIsGMBConnected(true)
+      setGmbStep(0)
+    }, 3600)
+  }
 
   const handleSendUpdate = (type: 'image' | 'voice') => {
     setUpdateType(type)
@@ -119,26 +133,53 @@ function DashboardContent() {
 
       {/* GMB CONNECTION CTA */}
       {!isGMBConnected && (
-        <section className="bg-white border-4 border-primary/5 rounded-[40px] p-10 flex flex-col md:flex-row items-center gap-10 shadow-2xl shadow-primary/5 relative overflow-hidden group">
-          <div className="w-32 h-32 rounded-[32px] bg-primary/10 flex items-center justify-center text-6xl relative z-10 group-hover:rotate-6 transition-transform duration-500">🏢</div>
+        <section className="bg-white border border-slate-100 rounded-[28px] p-6 md:p-10 flex flex-col md:flex-row items-center gap-6 md:gap-10 shadow-sm relative overflow-hidden group">
+          <div className="w-20 h-20 md:w-32 md:h-32 rounded-[20px] md:rounded-[32px] bg-primary/10 flex items-center justify-center text-4xl md:text-6xl relative z-10 group-hover:rotate-6 transition-transform duration-500 shrink-0">🏢</div>
           <div className="flex-1 text-center md:text-left relative z-10">
-            <h2 className="text-3xl font-black text-slate-900 mb-3 tracking-tighter decoration-primary decoration-4 underline-offset-8">Connect Google My Business</h2>
-            <p className="text-slate-500 font-medium mb-8 max-w-md">Sync your phone updates directly to Google Maps and Search. **10x your local reach instantly.**</p>
-            <button 
-              onClick={() => setIsGMBConnected(true)}
-              className="bg-primary text-white font-black px-10 py-5 rounded-[24px] text-lg hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-primary/30 ring-4 ring-primary/10"
-            >
-              Connect My Business Profile →
-            </button>
+            <h2 className="text-xl md:text-3xl font-black text-slate-900 mb-2 md:mb-3 tracking-tighter">Connect Google My Business</h2>
+            <p className="text-slate-500 font-medium mb-5 md:mb-8 max-w-md text-sm">Sync your phone updates directly to Google Maps and Search. 10x your local reach instantly.</p>
+            
+            {isGMBConnecting ? (
+              <div className="space-y-4 max-w-sm">
+                <div className="flex items-center gap-3">
+                  <div className="w-5 h-5 border-2 border-primary/30 border-t-primary rounded-full animate-spin shrink-0"></div>
+                  <span className="text-sm font-bold text-slate-900">{gmbStep === 1 ? 'Connecting to Google...' : gmbStep === 2 ? 'Verifying business profile...' : 'Syncing data...'}</span>
+                </div>
+                <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+                  <div className="bg-primary h-full rounded-full transition-all duration-700" style={{width: gmbStep === 1 ? '33%' : gmbStep === 2 ? '66%' : '100%'}}></div>
+                </div>
+              </div>
+            ) : (
+              <button 
+                onClick={handleGMBConnect}
+                className="bg-primary text-white font-black px-8 md:px-10 py-4 md:py-5 rounded-[20px] md:rounded-[24px] text-sm md:text-lg hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-primary/30 ring-4 ring-primary/10"
+              >
+                Connect My Business Profile →
+              </button>
+            )}
           </div>
           <div className="absolute top-0 right-0 p-10 opacity-5 text-9xl translate-x-8 -translate-y-8 pointer-events-none group-hover:translate-x-4 transition-transform duration-1000">🗺️</div>
         </section>
       )}
 
       {isGMBConnected && (
-        <div className="bg-emerald-500 text-white p-4 rounded-full flex items-center justify-center gap-2 font-black text-[10px] uppercase tracking-widest animate-in slide-in-from-top-4">
-           <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
-           Synced to Google Business Profile @ Elite Plumbing Pro
+        <div className="bg-white border border-slate-100 rounded-[28px] p-5 md:p-6 shadow-sm">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="flex items-center gap-4">
+              <div className="w-11 h-11 rounded-[12px] bg-emerald-50 flex items-center justify-center text-xl shrink-0 border border-emerald-100">✅</div>
+              <div>
+                <div className="text-sm font-black text-slate-900 mb-0.5">Google Business Profile Connected</div>
+                <div className="text-[11px] text-slate-400">Elite Plumbing Pro · Updates sync automatically</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-[8px] font-black uppercase tracking-widest text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-100 flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                Live Sync
+              </span>
+              <button onClick={() => setIsGMBConnected(false)} className="text-[9px] font-bold text-slate-300 uppercase tracking-widest hover:text-red-500 transition-colors">Disconnect</button>
+            </div>
+          </div>
         </div>
       )}
 
