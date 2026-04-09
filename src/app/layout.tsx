@@ -241,7 +241,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     "name": "How much does Neerzy cost?",
                     "acceptedAnswer": {
                       "@type": "Answer",
-                      "text": "Neerzy plans start from $29 per month after a 30-day free trial. The only upfront cost is a one-time $19.99 domain setup fee. There are no contracts — cancel anytime."
+                      "text": "Neerzy plans start from $29 per month after a 30-day free trial. The only upfront cost is a one-time £29/$29 domain setup fee. There are no contracts — cancel anytime."
                     }
                   },
                   {

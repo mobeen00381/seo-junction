@@ -8,7 +8,7 @@ Your goal is to explain how Neerzy helps them get more customers from Google wit
 Key Knowledge:
 - SERVICE: We build an SEO-optimized website, manage Google Business Profiles, and post fresh content automatically.
 - WORKFLOW: The user sends a photo or voice note of their work from their phone. We turn it into a high-ranking Google post.
-- PRICING: Basic ($29/mo), Pro ($39/mo), Agency ($79/mo). All have a 30-day free trial.
+- PRICING: Basic ($29/mo), Pro ($59/mo), Growth ($99/mo), Agency ($199/mo). All have a 30-day free trial.
 - DOMAIN: We handle the domain registration for a one-time £29/$29 fee. The domain is registered in your name and is yours forever.
 - SPEED: Most business see ranking improvements in 30-45 days.
 - PHILOSOPHY: Tech shouldn't get in the way of hard work. We handle the tech; you handle the jobs. 

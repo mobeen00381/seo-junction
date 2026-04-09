@@ -12,9 +12,76 @@ export const metadata: Metadata = {
 }
 
 const PLANS = [
-  { name:'Basic', price:'29', posts:10, features:['Done-for-you website','10 AI posts/month (website + GMB)','Google Business updates','Photo & voice uploads','Cancel anytime'], popular:false },
-  { name:'Pro', price:'39', posts:30, features:['Everything in Basic','30 AI posts/month','Priority AI responses','Full GMB management','🔔 Smart activity reminders','Dedicated support','Monthly SEO report PDF','Free domain transfer'], popular:true },
-  { name:'Agency', price:'79', posts:60, features:['Up to 5 client sites','60 AI posts/month','White-label client reports','Client dashboard','API access','Dedicated Slack support'], popular:false },
+  {
+    name: 'Starter',
+    price: '29',
+    posts: 10,
+    popular: false,
+    badge: null,
+    desc: 'For new businesses getting online',
+    features: [
+      'Done-for-you website',
+      '10 AI job posts/month (website + GMB)',
+      'Google Business updates',
+      'Photo & voice uploads',
+      'Auto review link after every job',
+      'Home screen access — no login',
+      'Cancel anytime',
+    ],
+  },
+  {
+    name: 'Pro',
+    price: '59',
+    posts: 30,
+    popular: true,
+    badge: '⭐ Most Popular',
+    desc: 'For active trades dominating their area',
+    features: [
+      'Everything in Starter',
+      '30 AI job posts/month',
+      'Priority AI — post live in 2 minutes',
+      'Full GMB management',
+      'Smart review reminders',
+      'Monthly ranking report PDF',
+      'Dedicated support',
+      'Free domain transfer',
+    ],
+  },
+  {
+    name: 'Growth',
+    price: '99',
+    posts: 60,
+    popular: false,
+    badge: '🔥 Growth',
+    desc: 'For the #1 trade in their postcode',
+    features: [
+      'Everything in Pro',
+      '60 AI job posts/month',
+      'Competitor rank tracker',
+      'Review response AI',
+      'Social media posting',
+      'WhatsApp integration',
+      'Priority phone support',
+    ],
+  },
+  {
+    name: 'Agency',
+    price: '199',
+    posts: 'Unlimited',
+    popular: false,
+    badge: '🏢 Agency',
+    clients: 'Up to 10 client sites',
+    desc: 'For agencies managing multiple trade clients',
+    features: [
+      'Up to 10 client sites',
+      'Unlimited AI posts',
+      'White-label client reports',
+      'Client dashboard access',
+      'API access',
+      'Dedicated Slack support',
+      'Custom branding',
+    ],
+  },
 ]
 
 const FAQS = [
@@ -42,17 +109,18 @@ export default function PricingPage() {
       <div className="max-w-5xl mx-auto px-6 py-20">
         <div className="text-center mb-16">
           <div className="text-xs font-bold tracking-widest uppercase text-primary dark:text-primary-light mb-3">Pricing</div>
-          <h1 className="text-4xl font-black text-gray-900 mb-4 tracking-tight leading-tight">More Google Calls.<br />Starting at $29/Month.</h1>
-          <p className="text-gray-500 max-w-lg mx-auto font-medium">Launch your real business online today — your own domain, registered in your name, for a one-time £29/$29 setup fee.</p>
+          <h1 className="text-4xl font-black text-gray-900 mb-4 tracking-tight leading-tight">More Neighbours Calling.<br />Starting at $29/Month.</h1>
+          <p className="text-gray-500 max-w-lg mx-auto font-medium">Launch your real business online — your own domain for a one-time £29/$29 setup fee.</p>
           <p className="text-gray-400 max-w-md mx-auto text-sm mt-2 italic">This is your business. Your name on the door. Yours forever — even if you leave Neerzy.</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {PLANS.map((p) => (
             <div key={p.name} className={`rounded-3xl border p-8 relative transition-all ${p.popular?'border-primary shadow-2xl shadow-primary/10':'border-gray-100 hover:border-gray-200 shadow-sm'}`}>
-              {p.popular&&<div className="absolute -top-3 left-1/2 -translate-x-1/2 text-[10px] font-black text-white px-5 py-1.5 rounded-full uppercase tracking-widest bg-navy">Most Popular</div>}
+              {p.badge && <div className="absolute -top-3 left-1/2 -translate-x-1/2 text-[10px] font-black text-white px-5 py-1.5 rounded-full uppercase tracking-widest bg-navy whitespace-nowrap">{p.badge}</div>}
               <div className="font-bold text-gray-400 uppercase text-[10px] tracking-widest mb-2">{p.name}</div>
               <div className="text-4xl font-black text-gray-900 mb-1 tracking-tighter">${p.price}<span className="text-sm font-bold text-gray-300">/mo</span></div>
+              <div className="text-[11px] text-gray-500 mb-4 h-10 line-clamp-2">{p.desc}</div>
               <div className="text-xs text-primary font-bold mb-8 uppercase tracking-wide">{p.posts} AI posts/month</div>
               <ul className="space-y-2.5 mb-7">
                 {p.features.map((f,i)=><li key={i} className="text-sm text-gray-600 flex gap-2"><span className="text-green-500 flex-shrink-0">✓</span>{f}</li>)}
