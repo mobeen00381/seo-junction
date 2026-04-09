@@ -13,9 +13,12 @@
     "@supabase/supabase-js": "^2.102.1",
     "@types/canvas-confetti": "^1.9.0",
     "canvas-confetti": "^1.9.4",
+    "google-auth-library": "^10.6.2",
+    "googleapis": "^171.4.0",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-google-autocomplete": "^2.7.5"
   },
   "devDependencies": {
     "@types/node": "^22",

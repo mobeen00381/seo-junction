@@ -6,6 +6,8 @@ import DashboardSidebar from '@/components/DashboardSidebar'
 
 import { createClient } from '@/lib/supabase/client'
 import { useRouter } from 'next/navigation'
+import { initiateGoogleGMB, syncPostToGMB } from '@/app/auth/actions'
+import GMBLocationSearch from '@/components/GMBLocationSearch'
 
 function DashboardContent() {
   const router = useRouter()
@@ -51,21 +53,7 @@ function DashboardContent() {
 
   const handleGMBConnect = async () => {
     setIsGMBConnecting(true)
-    setGmbStep(1)
-    setTimeout(() => setGmbStep(2), 1200)
-    setTimeout(() => setGmbStep(3), 2400)
-    setTimeout(async () => {
-      // Persistence
-      if (user) {
-        await supabase
-          .from('profiles')
-          .update({ gmb_connected: true })
-          .eq('id', user.id)
-      }
-      setIsGMBConnecting(false)
-      setIsGMBConnected(true)
-      setGmbStep(0)
-    }, 3600)
+    await initiateGoogleGMB()
   }
 
   const handleSendUpdate = (type: 'image' | 'voice') => {
@@ -86,15 +74,22 @@ function DashboardContent() {
     setHasSentUpdate(true)
     setShowSuccess(true)
     
-    // Persist Post
+    const draftContent = "Emergency boiler repair in Croydon — replaced a faulty pressure valve and restored heating. Fast response, fixed same day. Call us for...";
+
+    // 1. Persist Post to Supabase
     if (user) {
        await supabase.from('posts').insert({
           user_id: user.id,
           content_type: updateType === 'image' ? 'image' : 'voice',
-          ai_draft: "Emergency boiler repair in Croydon — replaced a faulty pressure valve and restored heating. Fast response, fixed same day. Call us for...",
+          ai_draft: draftContent,
           status: 'published',
           published_at: new Date().toISOString()
        })
+    }
+
+    // 2. Sync to GMB if connected
+    if (isGMBConnected) {
+      await syncPostToGMB(draftContent);
     }
     
     setUpdateType(null)
@@ -257,27 +252,24 @@ function DashboardContent() {
             <h2 className="text-xl md:text-3xl font-black text-slate-900 mb-2 md:mb-3 tracking-tighter">Connect Google My Business</h2>
             <p className="text-slate-500 font-medium mb-5 md:mb-8 max-w-md text-sm">Sync your phone updates directly to Google Maps and Search. 10x your local reach instantly.</p>
             
-            {isGMBConnecting ? (
-              <div className="space-y-4 max-w-sm">
-                <div className="flex items-center gap-3">
-                  <div className="w-5 h-5 border-2 border-primary/30 border-t-primary rounded-full animate-spin shrink-0"></div>
-                  <span className="text-sm font-bold text-slate-900">{gmbStep === 1 ? 'Connecting to Google...' : gmbStep === 2 ? 'Verifying business profile...' : 'Syncing data...'}</span>
-                </div>
-                <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
-                  <div className="bg-primary h-full rounded-full transition-all duration-700" style={{width: gmbStep === 1 ? '33%' : gmbStep === 2 ? '66%' : '100%'}}></div>
-                </div>
-              </div>
-            ) : (
-              <button 
-                onClick={handleGMBConnect}
-                className="bg-primary text-white font-black px-8 md:px-10 py-4 md:py-5 rounded-[20px] md:rounded-[24px] text-sm md:text-lg hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-primary/30 ring-4 ring-primary/10"
-              >
-                Connect My Business Profile →
-              </button>
-            )}
+            <button 
+              onClick={handleGMBConnect}
+              disabled={isGMBConnecting}
+              className="bg-primary text-white font-black px-8 md:px-10 py-4 md:py-5 rounded-[20px] md:rounded-[24px] text-sm md:text-lg hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-primary/30 ring-4 ring-primary/10 disabled:opacity-50"
+            >
+              {isGMBConnecting ? 'Redirecting to Google...' : 'Connect My Business Profile →'}
+            </button>
           </div>
           <div className="absolute top-0 right-0 p-10 opacity-5 text-9xl translate-x-8 -translate-y-8 pointer-events-none group-hover:translate-x-4 transition-transform duration-1000">🗺️</div>
         </section>
+      )}
+
+      {/* LOCATION SEARCH (After Google Auth success but before linking) */}
+      {isGMBConnected && !profile?.gmb_location_id && (
+        <GMBLocationSearch 
+          apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''} 
+          onSuccess={() => window.location.reload()} 
+        />
       )}
 
       {isGMBConnected && (
@@ -287,7 +279,7 @@ function DashboardContent() {
               <div className="w-11 h-11 rounded-[12px] bg-emerald-50 flex items-center justify-center text-xl shrink-0 border border-emerald-100">✅</div>
               <div>
                 <div className="text-sm font-black text-slate-900 mb-0.5">Google Business Profile Connected</div>
-                <div className="text-[11px] text-slate-400">Elite Plumbing Pro · Updates sync automatically</div>
+                <div className="text-[11px] text-slate-400">{profile?.gmb_location_name || 'Verified Business'} · Updates sync automatically</div>
               </div>
             </div>
             <div className="flex items-center gap-3">

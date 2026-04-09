@@ -17,6 +17,9 @@ CREATE TABLE public.profiles (
   gmb_connected BOOLEAN DEFAULT FALSE,
   gmb_location_id TEXT,
   website_url TEXT,
+  gmb_account_id TEXT,
+  gmb_location_name TEXT,
+  google_refresh_token TEXT,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
