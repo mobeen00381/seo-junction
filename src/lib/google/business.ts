@@ -14,9 +14,6 @@ export async function createGMBPost(
 ) {
   oauth2Client.setCredentials({ refresh_token: refreshToken });
 
-  // GBP API for posting often uses the v4 endpoint directly or via discovery
-  const gmb = google.mybusiness('v4');
-  
   const postData: any = {
     languageCode: 'en-US',
     summary: content,
@@ -33,10 +30,12 @@ export async function createGMBPost(
   }
 
   try {
-    const response = await gmb.accounts.locations.localPosts.create({
-      parent: locationId, // Format: accounts/{account_id}/locations/{location_id}
-      auth: oauth2Client,
-      requestBody: postData
+    // Use direct HTTP request since googleapis doesn't bundle a mybusiness client
+    const url = `https://mybusiness.googleapis.com/v4/${locationId}/localPosts`;
+    const response = await oauth2Client.request({
+      url,
+      method: 'POST',
+      data: postData,
     });
     
     return response.data;
