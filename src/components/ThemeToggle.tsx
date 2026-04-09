@@ -2,18 +2,26 @@
 import { useEffect, useState } from 'react'
 
 export default function ThemeToggle() {
+  const [mounted, setMounted] = useState(false)
   const [theme, setTheme] = useState<'light' | 'dark'>('light')
 
   useEffect(() => {
+    setMounted(true)
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    
     if (savedTheme) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setTheme(savedTheme)
       document.documentElement.classList.toggle('dark', savedTheme === 'dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    } else if (prefersDark) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setTheme('dark')
       document.documentElement.classList.add('dark')
     }
   }, [])
+
+  if (!mounted) return <div className="w-10 h-10" />
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light'

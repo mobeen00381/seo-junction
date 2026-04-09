@@ -40,8 +40,8 @@ Include a subtle call to action.`;
           { type: "text", text: userPrompt },
           ...(contentType === 'image' && inputData.startsWith('http') ? [
             { type: "image_url", image_url: { url: inputData } }
-          ] as any : [])
-        ]}
+          ] : [])
+        ] as OpenAI.Chat.Completions.ChatCompletionContentPart[] }
       ],
       max_tokens: 150,
     });

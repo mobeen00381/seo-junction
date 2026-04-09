@@ -27,10 +27,19 @@ export async function GET(request: Request) {
     );
     oauth2Client.setCredentials(tokens);
 
-    const gmb = google.mybusinessbusinessinformation('v1');
-    const accountsResponse = await google.mybusinessaccountmanagement('v1').accounts.list({
-      auth: oauth2Client,
-    });
+    interface GMBAccountsResponse {
+      data: {
+        accounts?: {
+          name: string;
+        }[];
+      };
+    }
+
+    // Use direct HTTP request since googleapis doesn't bundle a mybusiness client correctly in all environments
+    const accountsResponse = await oauth2Client.request({
+      url: 'https://mybusinessaccountmanagement.googleapis.com/v1/accounts',
+      method: 'GET'
+    }) as GMBAccountsResponse;
     
     const accountName = accountsResponse.data.accounts?.[0]?.name; // Use primary account
 

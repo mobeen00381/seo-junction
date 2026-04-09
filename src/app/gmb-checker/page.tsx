@@ -91,7 +91,7 @@ export default function GmbCheckerPage() {
 
   const handleOptimize = () => {
     setIsFixing(true);
-    let target = 97;
+    const target = 97;
     const interval = setInterval(() => {
       setAnimatedScore(prev => {
         if (prev >= target) {

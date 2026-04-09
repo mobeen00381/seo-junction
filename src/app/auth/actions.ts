@@ -113,8 +113,9 @@ export async function syncPostToGMB(content: string, mediaUrl?: string) {
       mediaUrl
     )
     return { success: true }
-  } catch (error: any) {
-    return { error: error.message || 'Failed to sync to Google' }
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : 'Failed to sync to Google';
+    return { error: errorMessage }
   }
 }
 
@@ -141,7 +142,8 @@ export async function generateAIDraft(contentType: 'image' | 'voice' | 'text', i
       inputData
     })
     return { success: true, draft }
-  } catch (error: any) {
-    return { error: error.message || 'Failed to generate AI draft' }
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : 'Failed to generate AI draft';
+    return { error: errorMessage }
   }
 }

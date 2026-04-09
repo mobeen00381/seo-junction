@@ -43,7 +43,18 @@ export default function OnboardingPage() {
   const nextStep = () => setStep(s => s + 1)
   const prevStep = () => setStep(s => s - 1)
 
-  const handleDetailsComplete = (data: any) => {
+  interface BusinessData {
+    address: string;
+    city: string;
+    state: string;
+    zip: string;
+    country: string;
+    phone: string;
+    whatsapp: string;
+    description: string;
+  }
+
+  const handleDetailsComplete = (data: BusinessData) => {
     setAddress(data.address)
     setCity(data.city)
     setState(data.state)

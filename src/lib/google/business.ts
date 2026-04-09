@@ -14,7 +14,17 @@ export async function createGMBPost(
 ) {
   oauth2Client.setCredentials({ refresh_token: refreshToken });
 
-  const postData: any = {
+  interface GMBPostPayload {
+    languageCode: string;
+    summary: string;
+    topicType: string;
+    media?: {
+      mediaFormat: string;
+      sourceUrl: string;
+    }[];
+  }
+
+  const postData: GMBPostPayload = {
     languageCode: 'en-US',
     summary: content,
     topicType: 'STANDARD',

@@ -31,6 +31,11 @@ export async function POST(req: Request) {
       return NextResponse.json({ reply: getMockReply(message) })
     }
 
+    interface ChatMessage {
+      role: 'user' | 'assistant' | 'system';
+      content: string;
+    }
+
     // ── REAL LLM (Example with OpenAI) ──
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
@@ -42,7 +47,7 @@ export async function POST(req: Request) {
         model: 'gpt-3.5-turbo',
         messages: [
           { role: 'system', content: SYSTEM_PROMPT },
-          ...history.map((m: any) => ({ role: m.role, content: m.content })),
+          ...history.map((m: ChatMessage) => ({ role: m.role, content: m.content })),
           { role: 'user', content: message }
         ],
         temperature: 0.7,

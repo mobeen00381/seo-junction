@@ -1,10 +1,21 @@
 'use client'
 import { useState } from 'react'
 
+interface BusinessData {
+  address: string;
+  city: string;
+  state: string;
+  zip: string;
+  country: string;
+  phone: string;
+  whatsapp: string;
+  description: string;
+}
+
 interface BusinessDetailsProps {
-  onComplete: (data: any) => void
+  onComplete: (data: BusinessData) => void
   onBack: () => void
-  initialData?: any
+  initialData?: Partial<BusinessData>
 }
 
 export default function BusinessDetails({ onComplete, onBack, initialData }: BusinessDetailsProps) {

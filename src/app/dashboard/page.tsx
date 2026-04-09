@@ -8,14 +8,32 @@ import { createClient } from '@/lib/supabase/client'
 import { useRouter } from 'next/navigation'
 import { initiateGoogleGMB, syncPostToGMB, generateAIDraft } from '@/app/auth/actions'
 import GMBLocationSearch from '@/components/GMBLocationSearch'
+import { User } from '@supabase/supabase-js'
+
+interface Profile {
+  id: string;
+  business_name: string | null;
+  city: string | null;
+  trade: string | null;
+  gmb_connected: boolean;
+  gmb_location_id: string | null;
+  gmb_location_name: string | null;
+}
+
+interface MetricData {
+  views: string;
+  calls: string;
+  visits: string;
+  growth: string;
+}
 
 function DashboardContent() {
   const router = useRouter()
   const supabase = createClient()
   const searchParams = useSearchParams()
   
-  const [user, setUser] = useState<any>(null)
-  const [profile, setProfile] = useState<any>(null)
+  const [user, setUser] = useState<User | null>(null)
+  const [profile, setProfile] = useState<Profile | null>(null)
   const [currentView, setCurrentView] = useState('main')
   const [hasSentUpdate, setHasSentUpdate] = useState(false)
   const [isUpdating, setIsUpdating] = useState(false)
@@ -103,7 +121,7 @@ function DashboardContent() {
   }
 
   const getMetrics = () => {
-    const data: Record<string, any> = {
+    const data: Record<string, MetricData> = {
       '24h': { views: '12', calls: '2', visits: '5', growth: '+2%' },
       '7d': { views: '142', calls: '11', visits: '45', growth: '+8%' },
       '30d': { views: '1.2K', calls: '48', visits: '312', growth: '+14%' },

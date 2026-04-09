@@ -16,12 +16,18 @@ export default function GMBLocationSearch({ apiKey, onSuccess }: GMBLocationSear
   const [manualId, setManualId] = useState('')
   const [manualName, setManualName] = useState('')
 
-  const handlePlaceSelected = async (place: any) => {
+  interface GooglePlace {
+    place_id: string;
+    name?: string;
+    formatted_address?: string;
+  }
+
+  const handlePlaceSelected = async (place: GooglePlace) => {
     if (!place.place_id) return
     setIsLinking(true)
     setError(null)
     try {
-      const result = await linkGmbLocation(place.place_id, place.name || place.formatted_address)
+      const result = await linkGmbLocation(place.place_id, place.name || place.formatted_address || 'Unknown Location')
       if (result.error) setError(result.error)
       else onSuccess()
     } catch (err) {
