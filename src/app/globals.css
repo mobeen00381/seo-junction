@@ -131,7 +131,11 @@ p { font-size: 15px; line-height: 1.7; color: var(--ink3); }
 }
 
 .premium-shadow {
-  box-shadow: 0 20px 40px -15px rgba(14, 26, 20, 0.1);
+  box-shadow: 0 10px 30px -10px rgba(14, 26, 20, 0.08), 0 4px 12px -4px rgba(14, 26, 20, 0.03);
+}
+
+.premium-card {
+  @apply transition-all duration-300 ease-out hover:shadow-2xl hover:-translate-y-1;
 }
 
 .animate-pulse-subtle {

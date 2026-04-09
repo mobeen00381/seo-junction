@@ -24,7 +24,7 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 flex flex-col pointer-events-none">
       
       {/* 1. TOP ANNOUNCEMENT BAR */}
-      <div className={`text-[10px] py-2 px-6 font-bold tracking-[2px] uppercase flex justify-center gap-6 md:gap-10 flex-wrap pointer-events-auto transition-all duration-500 overflow-hidden ${isScrolled ? 'max-h-0 py-0 opacity-0' : 'max-h-24 md:max-h-20 opacity-100'}`} style={{background:'var(--teal)', color:'var(--mint)'}}>
+      <div className={`text-[10px] py-1.5 px-6 font-bold tracking-[2px] uppercase flex justify-center gap-6 md:gap-10 flex-wrap pointer-events-auto transition-all duration-500 overflow-hidden ${isScrolled ? 'max-h-0 py-0 opacity-0' : 'max-h-24 md:max-h-20 opacity-100'}`} style={{background:'var(--teal)', color:'var(--mint)'}}>
         <span className="flex items-center gap-2">⭐ 50+ businesses</span>
         <span className="hidden sm:flex items-center gap-2">⏱ 300+ updates</span>
         <span className="flex items-center gap-2" style={{color:'var(--sun)'}}>✅ No tech skills</span>
@@ -36,13 +36,13 @@ export default function Navbar() {
           
           {/* Neerzy Logo */}
           <Link href="/" className="flex items-center gap-2 md:gap-3 group">
-            <svg className="w-12 h-12 md:w-14 md:h-14 transition-transform group-hover:scale-110" viewBox="0 0 30 30" fill="none">
+            <svg className="w-10 h-10 md:w-12 md:h-12 transition-transform group-hover:scale-110" viewBox="0 0 30 30" fill="none">
               <rect width="30" height="30" rx="8" fill="#1d9e75"/>
               <circle cx="15" cy="13" r="5" fill="none" stroke="#a8f0c8" strokeWidth="1.8"/>
               <circle cx="15" cy="13" r="2" fill="#a8f0c8"/>
               <path d="M10 21 Q15 17 20 21" stroke="#a8f0c8" strokeWidth="1.8" strokeLinecap="round" fill="none"/>
             </svg>
-            <span className="font-bold text-xl md:text-2xl tracking-tight font-display" style={{color:'var(--ink)'}}>
+            <span className="font-bold text-lg md:text-xl tracking-tight font-display" style={{color:'var(--ink)'}}>
               Neer<span style={{color:'var(--teal2)'}}>zy</span>
             </span>
           </Link>

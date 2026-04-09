@@ -54,8 +54,8 @@ export default function HomePage() {
       <Navbar />
 
       {/* ⚡ HERO SECTION ⚡ */}
-      <section className="relative pt-18 md:pt-24 pb-16 md:pb-0 overflow-hidden" style={{borderBottom:'1px solid var(--border)'}}>
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-[1.85fr_1fr] gap-0 items-stretch min-h-[75vh]">
+      <section className="relative pt-10 md:pt-14 pb-10 md:pb-0 overflow-hidden" style={{borderBottom:'1px solid var(--border)'}}>
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-[1.85fr_1fr] gap-0 items-stretch min-h-[60vh]">
           
           {/* Left - Copy */}
           <div className="flex flex-col justify-center py-12 md:py-20 md:pr-14 animate-fade-in">
@@ -191,10 +191,10 @@ export default function HomePage() {
       </section>
 
       {/* 🚀 AFTER EVERY JOB FLOW 🚀 */}
-      <section className="py-20 px-6 md:px-12 relative overflow-hidden" style={{background:'var(--paper2)', borderBottom:'1px solid var(--border)'}}>
+      <section className="py-14 px-6 md:px-12 relative overflow-hidden" style={{background:'var(--paper2)', borderBottom:'1px solid var(--border)'}}>
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-bold italic mb-4">Here&apos;s what happens after every job</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-display font-bold italic mb-3">Here&apos;s what happens after every job</h2>
             <div className="h-1.5 w-24 bg-teal-500 mx-auto rounded-full opacity-20"></div>
           </div>
           
@@ -246,17 +246,17 @@ export default function HomePage() {
       </div>
 
       {/* 🛠️ HOW IT WORKS 🛠️ */}
-      <section className="py-20 md:py-24 px-6 md:px-12" style={{background:'var(--ink)'}}>
+      <section className="py-14 md:py-16 px-6 md:px-12" style={{background:'var(--ink)'}}>
         <div className="max-w-6xl mx-auto">
-          <div className="text-[10px] font-bold tracking-[2.5px] uppercase mb-5 flex items-center gap-3" style={{color:'rgba(168,240,200,0.4)'}}>
+          <div className="text-[10px] font-bold tracking-[2.5px] uppercase mb-4 flex items-center gap-3" style={{color:'rgba(168,240,200,0.4)'}}>
             How it works
             <span className="h-px w-7" style={{background:'rgba(168,200,200,0.15)'}}></span>
           </div>
-          <h2 className="mb-4" style={{color:'var(--mint)'}}>Four steps.<br/><em style={{color:'var(--sun)'}}>Zero complexity.</em></h2>
+          <h2 className="mb-3" style={{color:'var(--mint)'}}>Four steps.<br/><em style={{color:'var(--sun)'}}>Zero complexity.</em></h2>
           <p className="text-[15px] max-w-[480px] mb-12" style={{color:'rgba(245,249,246,0.5)'}}>We handle everything behind the scenes. You just show us your latest work.</p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px rounded-[26px] overflow-hidden" style={{border:'1px solid rgba(168,240,200,0.1)', background:'rgba(168,240,200,0.06)'}}>
             {STEPS.map((s, i) => (
-              <div key={i} className="p-8 md:p-10" style={{background:'rgba(14,26,20,0.98)'}}>
+              <div key={i} className="p-8 md:p-10 premium-card" style={{background:'rgba(14,26,20,0.98)'}}>
                 <div className="font-display text-7xl font-bold italic leading-none tracking-tighter mb-4" style={{color:'rgba(168,240,200,0.07)'}}>{s.n}</div>
                 <div className="w-11 h-11 rounded-xl flex items-center justify-center text-xl mb-5" style={{background:'rgba(168,240,200,0.08)', border:'1px solid rgba(168,240,200,0.12)'}}>{s.icon}</div>
                 <h3 className="font-display text-lg font-bold mb-2" style={{color:'var(--paper)'}}>{s.title}</h3>
@@ -268,17 +268,17 @@ export default function HomePage() {
       </section>
 
       {/* 🔐 CONTROL 🔐 */}
-      <section className="py-20 md:py-24 px-6 md:px-12" style={{background:'var(--paper2)', borderTop:'1px solid var(--border)', borderBottom:'1px solid var(--border)'}}>
+      <section className="py-14 md:py-16 px-6 md:px-12" style={{background:'var(--paper2)', borderTop:'1px solid var(--border)', borderBottom:'1px solid var(--border)'}}>
         <div className="max-w-6xl mx-auto">
-          <div className="text-[10px] font-bold tracking-[2.5px] uppercase mb-5 flex items-center gap-3" style={{color:'var(--ink4)'}}>
+          <div className="text-[10px] font-bold tracking-[2.5px] uppercase mb-4 flex items-center gap-3" style={{color:'var(--ink4)'}}>
             Always in control
             <span className="h-px w-7" style={{background:'var(--paper4)'}}></span>
           </div>
-          <h2 className="mb-4">Nothing goes live<br/><em>without your say.</em></h2>
-          <p className="text-[15px] max-w-[480px] mb-12" style={{color:'var(--ink3)'}}>We do all the work. You approve every update before a single neighbour sees it.</p>
+          <h2 className="mb-3">Nothing goes live<br/><em>without your say.</em></h2>
+          <p className="text-[15px] max-w-[480px] mb-10" style={{color:'var(--ink3)'}}>We do all the work. You approve every update before a single neighbour sees it.</p>
           <div className="grid md:grid-cols-2 gap-px rounded-[26px] overflow-hidden" style={{border:'1px solid var(--border2)', background:'var(--border)'}}>
             {CONTROLS.map((c, i) => (
-              <div key={i} className="p-8 md:p-9" style={{background:'var(--paper)'}}>
+              <div key={i} className="p-8 md:p-9 premium-card" style={{background:'var(--paper)'}}>
                 <div className="w-[42px] h-[42px] rounded-[11px] flex items-center justify-center text-lg mb-5" style={{background:'var(--teal-soft)', border:'1px solid rgba(15,110,86,0.12)'}}>{c.icon}</div>
                 <h3 className="font-display text-[17px] font-bold mb-2" style={{color:'var(--ink)'}}>{c.title}</h3>
                 <p className="text-[13px] leading-relaxed" style={{color:'var(--ink3)'}}>{c.desc}</p>
@@ -289,7 +289,7 @@ export default function HomePage() {
       </section>
 
       {/* 📱 HOME SCREEN SECTION 📱 */}
-      <section className="py-20 md:py-28 px-6 md:px-12 overflow-hidden" style={{background:'var(--ink)'}}>
+      <section className="py-14 md:py-20 px-6 md:px-12 overflow-hidden" style={{background:'var(--ink)'}}>
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 md:gap-20 items-center">
           
           {/* Left — Phone Mockup (Home Screen) */}
@@ -430,7 +430,7 @@ export default function HomePage() {
       </div>
 
       {/* ⭐ TESTIMONIALS ⭐ */}
-      <section className="py-20 md:py-24 px-6 md:px-12" style={{background:'var(--paper2)', borderTop:'1px solid var(--border)'}}>
+      <section className="py-14 md:py-16 px-6 md:px-12" style={{background:'var(--paper2)', borderTop:'1px solid var(--border)'}}>
         <div className="max-w-6xl mx-auto">
           <div className="text-[10px] font-bold tracking-[2.5px] uppercase mb-5 flex items-center gap-3" style={{color:'var(--ink4)'}}>
             Real trades professionals
@@ -477,7 +477,7 @@ export default function HomePage() {
       </section>
 
       {/* 🔒 SAFE & SECURE SECTION 🔒 */}
-      <section className="py-20 md:py-28 px-6 md:px-12" style={{background:'var(--paper)', borderTop:'1px solid var(--border)', borderBottom:'1px solid var(--border)'}}>
+      <section className="py-14 md:py-20 px-6 md:px-12" style={{background:'var(--paper)', borderTop:'1px solid var(--border)', borderBottom:'1px solid var(--border)'}}>
         <div className="max-w-5xl mx-auto grid md:grid-cols-[1fr_1.2fr] gap-16 md:gap-20 items-center">
           
           {/* Left — Copy */}
@@ -525,7 +525,7 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-        <Link href="/onboarding" className="inline-block font-bold text-sm px-9 py-4 rounded-full whitespace-nowrap transition-all hover:scale-105 active:scale-95" style={{background:'var(--ink)', color:'var(--mint)'}}>
+        <Link href="/onboarding" className="inline-block font-bold text-sm px-9 py-4 rounded-full whitespace-nowrap transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(15,110,86,0.2)]" style={{background:'var(--ink)', color:'var(--mint)'}}>
           Get Started on Neerzy →
         </Link>
       </section>
