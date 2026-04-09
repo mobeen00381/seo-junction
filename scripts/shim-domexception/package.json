@@ -1,0 +1,6 @@
+{
+  "name": "node-domexception",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "Local shim to resolve deprecation warning in Node 18+"
+}
