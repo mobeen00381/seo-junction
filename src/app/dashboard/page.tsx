@@ -6,7 +6,7 @@ import DashboardSidebar from '@/components/DashboardSidebar'
 
 import { createClient } from '@/lib/supabase/client'
 import { useRouter } from 'next/navigation'
-import { initiateGoogleGMB, syncPostToGMB } from '@/app/auth/actions'
+import { initiateGoogleGMB, syncPostToGMB, generateAIDraft } from '@/app/auth/actions'
 import GMBLocationSearch from '@/components/GMBLocationSearch'
 
 function DashboardContent() {
@@ -27,6 +27,7 @@ function DashboardContent() {
   const [isGMBConnecting, setIsGMBConnecting] = useState(false)
   const [gmbStep, setGmbStep] = useState(0)
   const [timeframe, setTimeframe] = useState('30d')
+  const [aiDraft, setAiDraft] = useState('')
 
   useEffect(() => {
     const getData = async () => {
@@ -56,16 +57,24 @@ function DashboardContent() {
     await initiateGoogleGMB()
   }
 
-  const handleSendUpdate = (type: 'image' | 'voice') => {
+  const handleSendUpdate = async (type: 'image' | 'voice') => {
     setUpdateType(type)
     setIsUpdating(true)
     setPendingApproval(false)
     setIsApproved(false)
     setHasSentUpdate(false)
-    setTimeout(() => {
-      setIsUpdating(false)
-      setPendingApproval(true)
-    }, 2000)
+    
+    // Call AI Generation
+    const result = await generateAIDraft(type, type === 'image' ? 'Analyze recent project photo' : 'Just finished another successful client project')
+    
+    if (result.success) {
+      setAiDraft(result.draft || '')
+    } else {
+      setAiDraft("Expert service provided by our team. Fast, reliable, and family-owned. Contact us for a free estimate!")
+    }
+
+    setIsUpdating(false)
+    setPendingApproval(true)
   }
 
   const handleApprove = async () => {
@@ -74,14 +83,12 @@ function DashboardContent() {
     setHasSentUpdate(true)
     setShowSuccess(true)
     
-    const draftContent = "Emergency boiler repair in Croydon — replaced a faulty pressure valve and restored heating. Fast response, fixed same day. Call us for...";
-
     // 1. Persist Post to Supabase
     if (user) {
        await supabase.from('posts').insert({
           user_id: user.id,
           content_type: updateType === 'image' ? 'image' : 'voice',
-          ai_draft: draftContent,
+          ai_draft: aiDraft,
           status: 'published',
           published_at: new Date().toISOString()
        })
@@ -89,7 +96,7 @@ function DashboardContent() {
 
     // 2. Sync to GMB if connected
     if (isGMBConnected) {
-      await syncPostToGMB(draftContent);
+      await syncPostToGMB(aiDraft);
     }
     
     setUpdateType(null)
@@ -372,7 +379,7 @@ function DashboardContent() {
                       <div className="w-5 h-5 rounded-full shrink-0 flex items-center justify-center text-[7px] font-black text-white mt-0.5" style={{background:'#1d9e75'}}>N</div>
                       <div className="bg-white rounded-2xl rounded-tl-md px-3 py-2 shadow-sm max-w-[90%]">
                         <p className="text-[8px] font-black text-primary uppercase tracking-widest mb-1">Draft Preview</p>
-                        <p className="text-[9px] text-slate-700 leading-relaxed mb-2">"Emergency boiler repair in Croydon — replaced a faulty pressure valve and restored heating. Fast response, fixed same day. Call us for..."</p>
+                        <p className="text-[9px] text-slate-700 leading-relaxed mb-2">"{aiDraft}"</p>
                         <div className="flex gap-1.5">
                           <button onClick={handleApprove} className="flex-1 bg-primary text-white text-[8px] font-black uppercase tracking-widest py-1.5 rounded-lg hover:bg-primary/90 transition-all active:scale-95">✓ Approve</button>
                           <button className="flex-1 bg-slate-100 text-slate-500 text-[8px] font-black uppercase tracking-widest py-1.5 rounded-lg hover:bg-slate-200 transition-all">✎ Edit</button>

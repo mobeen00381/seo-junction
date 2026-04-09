@@ -57,12 +57,12 @@ export default function TemplateGallery({ onSelect, showBranding = false }: Temp
         {/* BRAND COLOR SELECTION (ONLY SHOW IN ONBOARDING) */}
         {showBranding && (
           <>
-            <div className="text-center mb-24 animate-in fade-in slide-in-from-top-4 duration-700">
-              <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-[3.2px] mb-8 border border-primary/10">Site Customization</div>
-              <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-6 tracking-tight italic uppercase">1. Pick Your Brand Identity</h2>
-              <p className="text-gray-500 mb-12 font-bold uppercase tracking-widest text-[9px] italic">"Choose the primary color that represents your business excellence."</p>
+            <div className="text-center mb-16 md:mb-24 animate-in fade-in slide-in-from-top-4 duration-700">
+              <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-[3px] mb-8 border border-primary/10">Step 1: Visual Identity</div>
+              <h2 className="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 tracking-tighter italic uppercase leading-none">Pick Your Brand Aura</h2>
+              <p className="text-gray-400 font-bold uppercase tracking-widest text-[10px]">Select the signature color for your business excellence</p>
               
-              <div className="flex flex-wrap justify-center gap-8">
+              <div className="flex flex-wrap justify-center gap-8 mt-12">
                   {BRAND_COLORS.map((c) => (
                     <button
                       key={c.name}
@@ -83,36 +83,36 @@ export default function TemplateGallery({ onSelect, showBranding = false }: Temp
         )}
 
         {/* TEMPLATE GRID */}
-        <div className="text-center mb-16 animate-in fade-in slide-in-from-top-4 duration-700">
-          <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-4 tracking-tight italic uppercase">
-            {showBranding ? '2. Select Your Structure' : 'Our Industry Templates'}
+        <div className="text-center mb-16 animate-in fade-in slide-in-from-top-4 duration-700 relative z-10">
+          <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-4 tracking-tighter italic uppercase leading-none">
+            {showBranding ? '2. Choose Your Structure' : 'Our Industry Templates'}
           </h2>
-          <p className="text-gray-500 font-bold uppercase tracking-widest text-[9px] italic">"Choose a template optimized for your industry's conversion."</p>
+          <p className="text-gray-400 font-bold uppercase tracking-widest text-[10px]">Optimized for high-intent local conversion</p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 relative z-10">
           {TEMPLATES.map((t) => (
             <div 
               key={t.id} 
-              className={`group relative rounded-[40px] border-2 transition-all p-3 cursor-pointer overflow-hidden ${selectedTemplate === t.id ? 'border-primary shadow-3xl shadow-primary/20 bg-white dark:bg-slate-900' : 'border-gray-50 dark:border-slate-800/50 hover:border-gray-200 hover:shadow-xl'}`}
+              className={`group relative rounded-[48px] border-2 transition-all duration-500 p-4 cursor-pointer overflow-hidden ${selectedTemplate === t.id ? 'border-primary bg-white dark:bg-slate-900 shadow-2xl shadow-primary/20 scale-[1.02]' : 'border-gray-50 dark:border-slate-800/50 hover:border-primary/30 hover:shadow-xl'}`}
               onClick={() => setPreviewTemplate(t)}
             >
               {/* Template Preview Card */}
-              <div className="rounded-[32px] overflow-hidden aspect-[4/5] bg-gray-50 dark:bg-slate-950/80 relative mb-4">
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center bg-[radial-gradient(circle_at_50%_10%,rgba(0,0,0,0.02),transparent)]">
-                  <div className="text-6xl mb-6 group-hover:scale-125 transition-all duration-500 origin-center drop-shadow-2xl">{t.emoji}</div>
-                  <div className="w-12 h-2 rounded-full mb-4" style={{ background: (showBranding ? selectedColor : t.color) + '44' }}></div>
-                  <div className="w-20 h-1 bg-gray-200/50 rounded-full mb-1"></div>
-                  <div className="w-24 h-1 bg-gray-200/50 rounded-full"></div>
+              <div className="rounded-[36px] overflow-hidden aspect-[3/4] bg-gray-50 dark:bg-slate-950/80 relative mb-6">
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+                  <div className="text-7xl mb-8 group-hover:rotate-12 group-hover:scale-110 transition-all duration-700 drop-shadow-2xl">{t.emoji}</div>
+                  <div className="w-16 h-2 rounded-full mb-4 opacity-20" style={{ background: (showBranding ? selectedColor : t.color) }}></div>
+                  <div className="w-24 h-1 bg-gray-200/40 rounded-full mb-1"></div>
+                  <div className="w-28 h-1 bg-gray-200/40 rounded-full"></div>
                 </div>
                 
-                {/* ACTION OVERLAY (ALWAYS VISIBLE ON MOBILE) */}
-                <div className="absolute inset-0 bg-navy/80 md:bg-navy/90 backdrop-blur-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all flex flex-col items-center justify-center p-5 gap-3">
-                   <div className="text-white font-black text-[10px] uppercase tracking-[3px] mb-4 opacity-70">Click to Preview</div>
+                {/* ACTION OVERLAY */}
+                <div className="absolute inset-0 bg-navy/90 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-center p-8 gap-4">
+                   <div className="text-white font-black text-[9px] uppercase tracking-[4px] mb-4 opacity-60">High-Tech Mockup</div>
                    <button 
-                     className="w-full bg-white/10 text-white font-black py-4 rounded-xl text-xs shadow-lg hover:bg-white/20 active:scale-95 transition-all uppercase tracking-widest border border-white/10 text-center"
+                     className="w-full bg-white/10 text-white font-black py-4 rounded-2xl text-[10px] shadow-lg hover:bg-white/20 transition-all uppercase tracking-widest border border-white/10"
                    >
-                     👁️ Quick View
+                     Preview Style
                    </button>
                    <button 
                      onClick={(e) => {
@@ -120,19 +120,25 @@ export default function TemplateGallery({ onSelect, showBranding = false }: Temp
                        setSelectedTemplate(t.id);
                        onSelect?.(t.id, selectedColor);
                      }}
-                     className="w-full bg-primary text-white font-black py-5 rounded-2xl text-[10px] shadow-2xl hover:scale-105 active:scale-95 transition-all uppercase tracking-widest"
+                     className="w-full bg-primary text-white font-black py-5 rounded-2xl text-[11px] shadow-2xl hover:scale-105 active:scale-95 transition-all uppercase tracking-widest"
                    >
-                     🚀 Use This Style
+                     Select Layout
                    </button>
                 </div>
+
+                {selectedTemplate === t.id && (
+                  <div className="absolute top-6 right-6 w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white shadow-xl animate-in zoom-in border-4 border-white dark:border-slate-900">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M5 13l4 4L19 7" /></svg>
+                  </div>
+                )}
               </div>
 
-              <div className="px-4 pb-4 text-left">
-                <div className="font-black text-gray-900 dark:text-white mb-2 tracking-tight flex items-center justify-between">
-                    {t.name}
-                    <span className="text-[8px] font-black text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded-full uppercase tracking-widest">Optimized</span>
+              <div className="px-4 pb-4">
+                <div className="font-black text-gray-900 dark:text-white mb-2 tracking-tighter text-lg uppercase italic">{t.name}</div>
+                <div className="flex flex-wrap gap-2">
+                   <span className="text-[8px] font-black text-emerald-500 bg-emerald-500/10 px-2 py-1 rounded-md uppercase tracking-widest border border-emerald-500/10">AEO Ready</span>
+                   <span className="text-[8px] font-black text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-md uppercase tracking-widest border border-slate-200 dark:border-slate-700">Mobile Vitals</span>
                 </div>
-                 <p className="text-[9px] text-gray-400 dark:text-gray-500 font-bold uppercase tracking-[2px] leading-relaxed italic">{t.desc}</p>
               </div>
             </div>
           ))}

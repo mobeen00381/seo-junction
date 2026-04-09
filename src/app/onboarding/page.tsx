@@ -114,86 +114,90 @@ export default function OnboardingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300">
+  return (
+    <div className="min-h-screen bg-[#FDFDFD] dark:bg-slate-950 transition-colors duration-300 selection:bg-primary/10">
       {/* HEADER */}
-      <nav className="px-6 py-8 border-b border-gray-50 dark:border-slate-900 flex justify-between items-center bg-white/80 dark:bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
-        <Link href="/" className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-lg flex items-center justify-center text-white font-bold text-sm" style={{ background: 'var(--premium-gradient)' }}>S</div>
-          <span className="font-bold text-gray-900 dark:text-white tracking-tight">Neerzy</span>
+      <nav className="px-6 py-4 md:py-6 border-b border-gray-100 dark:border-slate-900 flex justify-between items-center bg-white/70 dark:bg-slate-950/70 backdrop-blur-xl sticky top-0 z-50">
+        <Link href="/" className="flex items-center gap-2 group">
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white font-black text-base shadow-lg shadow-primary/20 transition-transform group-hover:rotate-12" style={{ background: 'var(--premium-gradient)' }}>N</div>
+          <span className="font-black text-gray-900 dark:text-white tracking-tighter text-xl">Neerzy</span>
         </Link>
-        <div className="flex items-center gap-6">
-           <div className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">Step {step} of 6</div>
-           <div className="w-32 h-2 bg-gray-100 dark:bg-slate-800 rounded-full overflow-hidden">
-              <div className="h-full bg-primary transition-all duration-500 ease-out shadow-sm shadow-primary/20" style={{ width: `${(step/6)*100}%` }}></div>
+        <div className="flex items-center gap-4 md:gap-8">
+           <div className="hidden sm:block text-[10px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-widest">Setup Progress</div>
+           <div className="w-24 md:w-40 h-1.5 bg-gray-100 dark:bg-slate-800 rounded-full overflow-hidden relative">
+              <div className="h-full bg-primary transition-all duration-700 ease-out shadow-[0_0_12px_rgba(29,158,117,0.5)]" style={{ width: `${(step/6)*100}%` }}></div>
            </div>
+           <div className="text-[10px] font-black text-primary dark:text-primary-light bg-primary/5 px-2 py-1 rounded-md border border-primary/10 whitespace-nowrap uppercase tracking-widest">Step {step}/6</div>
         </div>
       </nav>
 
-      <main className="max-w-6xl mx-auto py-20">
+      <main className="max-w-6xl mx-auto py-12 md:py-24 px-6 relative">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-lg h-96 bg-primary/5 blur-[120px] pointer-events-none rounded-full"></div>
         
         {feedback && (
-          <div className="mb-16 animate-fade-in text-center">
-             <span className="inline-block bg-primary-light dark:bg-primary-dark/20 text-primary-dark dark:text-primary-light px-5 py-2 rounded-full text-sm font-bold tracking-tight">
-                ✨ {feedback}
+          <div className="mb-12 md:mb-20 animate-fade-in text-center relative z-10">
+             <span className="inline-flex items-center gap-2 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 px-6 py-2.5 rounded-full text-[11px] font-black uppercase tracking-[2px] border border-emerald-100 dark:border-emerald-900/30 shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                {feedback}
              </span>
           </div>
         )}
 
         {/* STEP 1: BASIC INFO */}
         {step === 1 && (
-          <div className="max-w-xl mx-auto animate-fade-in px-6">
+          <div className="max-w-xl mx-auto animate-fade-in relative z-10">
             <div className="text-center mb-12">
-               <h1 className="text-4xl font-black text-gray-900 dark:text-white mb-4 tracking-tight leading-tight">
-                  Let&apos;s build your professional presence
+               <h1 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-6 tracking-tighter leading-none italic uppercase">
+                  Build Your Digital Presence
                </h1>
-               <p className="text-gray-500 dark:text-gray-400 flex items-center justify-center gap-2 font-medium">
-                  <span className="w-2 h-2 rounded-full bg-green-500"></span>
-                  Start your 30-day free trial today
+               <p className="text-gray-400 dark:text-gray-500 font-bold uppercase tracking-[2px] text-xs">
+                  Premium SEO System • 30-Day Free Access
                </p>
             </div>
-            <div className="space-y-8 bg-white dark:bg-slate-900 p-8 rounded-[38px] border border-gray-100 dark:border-slate-800 shadow-2xl shadow-gray-100 dark:shadow-none">
+            <div className="space-y-10 bg-white dark:bg-slate-900 p-8 md:p-12 rounded-[48px] border border-gray-100 dark:border-slate-800 shadow-2xl shadow-gray-200/50 dark:shadow-none">
                <div>
-                  <label className="block text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3">Business Name</label>
+                  <label className="block text-[10px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-4">What is your business called?</label>
                   <input 
                     type="text" 
                     value={name} 
                     onChange={e => setName(e.target.value)} 
-                    placeholder="e.g. Smith Plumbing Services"
-                    className="w-full bg-gray-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-5 text-lg font-bold transition-all outline-none text-gray-900 dark:text-white"
+                    placeholder="e.g. Smith & Sons Plumbing"
+                    className="w-full bg-gray-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-3xl px-8 py-6 text-xl md:text-2xl font-black transition-all outline-none text-gray-900 dark:text-white placeholder:text-gray-200"
                   />
                </div>
-               <div className="grid md:grid-cols-2 gap-8">
+               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
-                    <label className="block text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3">Your Trade</label>
-                    <div className="relative">
+                    <label className="block text-[10px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-4">Your Industry</label>
+                    <div className="relative group">
                       <select 
                         value={trade} 
                         onChange={e => setTrade(e.target.value)}
-                        className="w-full bg-gray-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-5 text-base font-bold transition-all outline-none appearance-none cursor-pointer text-gray-900 dark:text-white"
+                        className="w-full bg-gray-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-5 text-sm font-black transition-all outline-none appearance-none cursor-pointer text-gray-900 dark:text-white uppercase tracking-widest"
                       >
-                        <option value="">Select your trade...</option>
+                        <option value="">Choose Industry...</option>
                         {TRADES.map(t => <option key={t} value={t}>{t}</option>)}
                       </select>
-                      <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">↓</div>
+                      <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-gray-300 font-bold">↓</div>
                     </div>
                   </div>
                   <div>
-                    <label className="block text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3">Primary City</label>
+                    <label className="block text-[10px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-4">Primary Service City</label>
                     <input 
                       type="text" 
                       value={city} 
                       onChange={e => setCity(e.target.value)} 
                       placeholder="e.g. Austin"
-                      className="w-full bg-gray-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-5 text-base font-bold transition-all outline-none text-gray-900 dark:text-white"
+                      className="w-full bg-gray-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-5 text-sm font-black transition-all outline-none text-gray-900 dark:text-white uppercase tracking-widest placeholder:text-gray-200"
                     />
                   </div>
                </div>
                <button 
                  disabled={!name || !trade || !city}
                  onClick={nextStep}
-                 className="w-full bg-primary text-white font-bold py-6 rounded-2xl text-xl mt-4 disabled:opacity-20 hover:scale-[1.02] active:scale-95 transition-all shadow-2xl shadow-primary/20 dark:shadow-none"
+                 className="w-full bg-primary text-white font-black py-7 rounded-[28px] text-xl mt-4 disabled:opacity-20 hover:scale-[1.02] active:scale-95 transition-all shadow-2xl shadow-primary/30 dark:shadow-none group relative overflow-hidden"
                >
-                 Continue →
+                 <span className="relative z-10">Construct My Website →</span>
+                 <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                </button>
             </div>
           </div>

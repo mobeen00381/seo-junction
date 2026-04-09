@@ -89,113 +89,107 @@ export default function DomainSearch({ businessName, onSelect, onBack }: DomainS
         <p className="text-gray-500 dark:text-gray-400 font-medium">Search for your perfect domain name below.</p>
       </div>
 
-      <div className="bg-white dark:bg-slate-900 rounded-[24px] md:rounded-[48px] shadow-2xl border border-gray-100 dark:border-slate-800 p-5 md:p-10 mb-8 md:mb-12 relative overflow-hidden">
-        <div className="absolute top-0 right-0 p-12 text-9xl opacity-[0.03] rotate-12 -translate-y-8 translate-x-8 pointer-events-none">🌐</div>
+      <div className="bg-white dark:bg-[#0B1222] rounded-[32px] md:rounded-[60px] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] border border-gray-100 dark:border-slate-800 p-6 md:p-14 mb-8 md:mb-16 relative overflow-hidden">
+        <div className="absolute top-0 right-0 p-16 text-9xl opacity-[0.02] rotate-12 -translate-y-12 translate-x-12 pointer-events-none text-primary">🌐</div>
         
-        <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-8 md:mb-12 relative z-10">
+        <div className="flex flex-col sm:flex-row gap-4 md:gap-6 mb-10 md:mb-16 relative z-10">
           <div className="flex-1 relative group">
             <input 
               type="text" 
               value={query}
               onChange={e => setQuery(e.target.value)}
               onKeyDown={e => e.key === 'Enter' && handleSearch()}
-              placeholder="Enter your business name..."
-              className="w-full bg-gray-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary focus:bg-white dark:focus:bg-slate-700 rounded-2xl md:rounded-3xl px-5 md:px-8 py-4 md:py-6 text-base md:text-xl font-bold transition-all outline-none dark:text-white"
+              placeholder="Enter business name..."
+              className="w-full bg-gray-50 dark:bg-slate-900 border-2 border-transparent focus:border-primary/40 focus:bg-white dark:focus:bg-slate-800 rounded-2xl md:rounded-[32px] px-6 md:px-10 py-5 md:py-8 text-lg md:text-2xl font-black transition-all outline-none dark:text-white placeholder:text-gray-200"
             />
-            <div className="absolute right-5 md:right-8 top-1/2 -translate-y-1/2 text-gray-300 dark:text-slate-600 font-black pointer-events-none text-xs md:text-base">TRY .COM</div>
+            <div className="absolute right-6 md:right-10 top-1/2 -translate-y-1/2 text-gray-300 dark:text-slate-600 font-black pointer-events-none text-[10px] md:text-xs tracking-[2px]">CHECKING...</div>
           </div>
           <button 
             onClick={handleSearch}
-            className="bg-primary text-white px-8 md:px-12 py-4 md:py-0 rounded-2xl md:rounded-3xl font-black text-base md:text-xl hover:scale-105 active:scale-95 transition-all shadow-xl shadow-primary/20 flex items-center justify-center sm:min-w-[160px] md:min-w-[180px]"
+            className="bg-primary text-white px-10 md:px-16 py-5 md:py-0 rounded-2xl md:rounded-[32px] font-black text-lg md:text-2xl hover:scale-[1.05] active:scale-95 transition-all shadow-2xl shadow-primary/30 flex items-center justify-center sm:min-w-[180px] md:min-w-[220px] group overflow-hidden relative"
           >
-            {isSearching ? (
-              <div className="w-6 h-6 border-4 border-white/30 border-t-white rounded-full animate-spin"></div>
-            ) : 'Check Names'}
+            <span className="relative z-10">{isSearching ? (
+              <div className="flex items-center gap-3">
+                 <div className="w-5 h-5 border-4 border-white/30 border-t-white rounded-full animate-spin"></div>
+                 <span className="text-sm">Scanning...</span>
+              </div>
+            ) : 'Verify Availability'}</span>
+            <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
           </button>
         </div>
 
         {results.length > 0 && (
-          <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 animate-in fade-in slide-in-from-bottom-8 duration-700 relative z-10">
             {(() => {
               const firstAvailableIndex = results.findIndex(r => r.status === 'available');
               return results.map((res, i) => (
                 <div 
                   key={i} 
                   onClick={() => handleSelect(res)}
-                  className={`flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 md:p-6 rounded-[20px] md:rounded-[32px] border-2 transition-all relative overflow-hidden gap-3 sm:gap-0 ${
+                  className={`group flex flex-col p-6 md:p-8 rounded-[28px] md:rounded-[40px] border-2 transition-all relative overflow-hidden cursor-pointer ${
                     res.status === 'taken' 
-                      ? 'border-gray-50 dark:border-slate-800 opacity-40 cursor-not-allowed bg-gray-50/50 dark:bg-slate-900/50 grayscale' 
+                      ? 'border-gray-50 dark:border-slate-800/50 opacity-30 grayscale cursor-not-allowed bg-gray-50/20' 
                       : selectedDomain === res.name 
-                        ? 'border-primary bg-primary/5 ring-4 ring-primary/5' 
+                        ? 'border-primary bg-primary/5 ring-[12px] ring-primary/5 shadow-2xl shadow-primary/20 scale-[1.02]' 
                         : i === firstAvailableIndex
-                          ? 'border-emerald-200 dark:border-emerald-800 bg-emerald-50/30 dark:bg-emerald-950/10 hover:border-emerald-400 cursor-pointer shadow-sm animate-pulse-subtle'
-                          : 'border-gray-100 dark:border-slate-800 hover:border-primary/30 bg-white dark:bg-slate-900 cursor-pointer shadow-sm hover:shadow-md'
+                          ? 'border-emerald-400 bg-emerald-50/40 dark:bg-emerald-950/20 hover:border-emerald-500 shadow-lg shadow-emerald-500/5'
+                          : 'border-gray-100 dark:border-slate-800 hover:border-primary/40 bg-white dark:bg-slate-900 shadow-sm hover:shadow-xl'
                   }`}
                 >
-                  {/* Visual indicator for taken domains */}
                   {res.status === 'taken' && (
-                    <div className="absolute top-0 right-0 p-4 rotate-12 opacity-5 pointer-events-none">
-                      <span className="text-6xl font-black">TAKEN</span>
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-10">
+                       <span className="text-3xl font-black rotate-[-15deg] tracking-[8px]">TAKEN</span>
                     </div>
                   )}
 
-                  {/* Recommendation badge for first available */}
-                  {i === firstAvailableIndex && res.status !== 'taken' && (
-                    <div className="absolute -top-1 -right-1 bg-emerald-500 text-white text-[8px] font-black uppercase tracking-tighter px-3 py-1 rounded-bl-xl shadow-sm z-20">
-                      Top Recommendation
+                  <div className="flex justify-between items-start mb-6">
+                    <div className={`px-4 py-2 rounded-xl text-[10px] font-black tracking-[2px] uppercase ${
+                      res.status === 'taken' ? 'bg-gray-100 text-gray-400' : 'bg-primary/10 text-primary'
+                    }`}>
+                      {res.tld}
                     </div>
-                  )}
-
-                <div className="flex items-center gap-3 md:gap-8 relative z-10">
-                  <div className={`w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl flex flex-col items-center justify-center font-black transition-colors shrink-0 ${
-                    res.status === 'taken' ? 'bg-gray-200 dark:bg-slate-700 text-gray-500' : 'bg-primary/10 text-primary'
-                  }`}>
-                    <span className="text-[8px] md:text-[10px] opacity-70 uppercase tracking-tighter">TLD</span>
-                    <span className="text-xs md:text-sm">.{res.tld.toLowerCase()}</span>
+                    {res.status !== 'taken' && (
+                       <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all ${
+                         selectedDomain === res.name ? 'bg-primary border-primary text-white shadow-lg' : 'border-gray-100 group-hover:border-primary/40 text-transparent'
+                       }`}>
+                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M5 13l4 4L19 7" /></svg>
+                       </div>
+                    )}
                   </div>
-                  <div>
-                    <div className={`text-sm md:text-xl font-black tracking-tight break-all ${res.status === 'taken' ? 'text-gray-400' : 'text-gray-900 dark:text-white'}`}>
+
+                  <div className="mb-6">
+                    <div className={`text-xl md:text-2xl font-black tracking-tighter truncate ${res.status === 'taken' ? 'text-gray-400 line-through' : 'text-gray-900 dark:text-white'}`}>
                       {res.name}
                     </div>
-                    <div className="flex flex-wrap items-center gap-2 mt-1">
-                       <span className={`px-2.5 py-1 rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-wider flex items-center gap-1.5 shrink-0 ${
-                         res.status === 'taken' 
-                           ? 'bg-rose-50 text-rose-600 border border-rose-100 dark:bg-rose-950/20 dark:border-rose-900/30' 
-                           : 'bg-emerald-50 text-emerald-600 border border-emerald-100 dark:bg-emerald-950/20 dark:border-emerald-900/30'
-                       }`}>
-                          <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: res.status === 'taken' ? '#e11d48' : '#10b981' }}></span>
-                          {res.status === 'taken' ? 'Unavailable' : 'Available'}
+                    <div className="flex items-center gap-2 mt-2">
+                       <span className={`w-1.5 h-1.5 rounded-full ${res.status === 'taken' ? 'bg-rose-500' : 'bg-emerald-500 animate-pulse'}`}></span>
+                       <span className={`text-[10px] font-black uppercase tracking-widest ${res.status === 'taken' ? 'text-rose-500' : 'text-emerald-500'}`}>
+                          {res.status === 'taken' ? 'Unavailable' : 'Instantly Available'}
                        </span>
-                       {res.badge && res.status !== 'taken' && (
-                         <span className="text-[9px] md:text-[10px] font-bold text-primary opacity-60 uppercase tracking-widest bg-primary/5 px-2 py-0.5 rounded-lg border border-primary/10 shrink-0">{res.badge}</span>
-                       )}
                     </div>
                   </div>
+
+                  <div className="mt-auto flex justify-between items-center pt-6 border-t border-gray-50 dark:border-slate-800/50">
+                    <div className={`text-lg font-black ${res.status === 'taken' ? 'text-gray-300' : 'text-slate-900 dark:text-white'}`}>
+                      {res.status === 'taken' ? '—' : res.price}
+                    </div>
+                    {res.status !== 'taken' && (
+                      <span className="text-[10px] font-black text-primary uppercase tracking-widest group-hover:translate-x-1 transition-transform">
+                        {selectedDomain === res.name ? 'SELECTED ✓' : 'SELECT NAME →'}
+                      </span>
+                    )}
+                  </div>
+
+                  {i === firstAvailableIndex && res.status !== 'taken' && (
+                    <div className="absolute top-0 right-0 bg-emerald-500 text-white text-[8px] font-black px-4 py-1.5 rounded-bl-2xl shadow-sm tracking-[1px] uppercase">
+                       Top Pick
+                    </div>
+                  )}
                 </div>
-                <div className="flex items-center gap-3 md:gap-8 relative z-10 self-end sm:self-auto">
-                   <div className={`text-lg font-black ${res.status === 'taken' ? 'text-gray-400' : 'text-slate-900 dark:text-white'}`}>
-                      {res.status === 'taken' ? 'N/A' : res.price}
-                   </div>
-                   <div className={`w-10 h-10 rounded-full border-2 flex items-center justify-center transition-all ${
-                     res.status === 'taken' ? 'border-gray-200 bg-gray-100 text-gray-400' : 
-                     selectedDomain === res.name ? 'bg-primary border-primary shadow-lg shadow-primary/30 text-white' : 'border-gray-200 group-hover:border-primary text-transparent hover:text-primary/30'
-                   }`}>
-                      {selectedDomain === res.name ? (
-                        <svg className="w-5 h-5 animate-in zoom-in" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                        </svg>
-                      ) : res.status === 'taken' ? (
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                      ) : (
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M12 4v16m8-8H4" />
-                        </svg>
-                      )}
-                   </div>
-                </div>
-              </div>
+              ));
+            })()}
+          </div>
+        )}
               ));
             })()}
           </div>

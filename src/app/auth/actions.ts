@@ -5,6 +5,7 @@ import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { getGoogleAuthUrl } from '@/lib/google/auth'
 import { createGMBPost } from '@/lib/google/business'
+import { generateAIDraft as generateOpenAIDraft } from '@/lib/openai'
 
 export async function login(formData: FormData) {
   const supabase = await createClient()
@@ -114,5 +115,33 @@ export async function syncPostToGMB(content: string, mediaUrl?: string) {
     return { success: true }
   } catch (error: any) {
     return { error: error.message || 'Failed to sync to Google' }
+  }
+}
+
+export async function generateAIDraft(contentType: 'image' | 'voice' | 'text', inputData: string) {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+
+  if (!user) return { error: 'Not authenticated' }
+
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('business_name, city, trade')
+    .eq('id', user.id)
+    .single()
+
+  if (!profile) return { error: 'Profile not found' }
+
+  try {
+    const draft = await generateOpenAIDraft({
+      businessName: profile.business_name || 'Our Business',
+      city: profile.city || 'local area',
+      trade: profile.trade || 'Professional Services',
+      contentType,
+      inputData
+    })
+    return { success: true, draft }
+  } catch (error: any) {
+    return { error: error.message || 'Failed to generate AI draft' }
   }
 }

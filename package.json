@@ -16,6 +16,7 @@
     "google-auth-library": "^10.6.2",
     "googleapis": "^171.4.0",
     "next": "latest",
+    "openai": "^6.34.0",
     "react": "latest",
     "react-dom": "latest",
     "react-google-autocomplete": "^2.7.5"
