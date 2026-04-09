@@ -1,13 +1,18 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import ProjectGallery from '@/components/ProjectGallery'
 
 export const metadata: Metadata = {
-  title: 'Sanitary & Tiles SEO â€” Showroom Visibility | Neerzy',
-  description: 'Neerzy helps sanitary stores rank for luxury tiles, bathroom fittings, and kitchen fixtures. Automated showroom SEO. 30-day free trial.',
+  title: 'Sanitary & Tiles SEO — Every Job Becomes a Google Post and a 5-Star Review',
+  description: 'Neerzy helps sanitary stores rank for luxury tiles and bathroom fittings. Turn every showroom update into an automated post and a 5-star review. Free to start.',
   keywords: 'SEO for sanitary stores, tile shop marketing, local bathroom fittings SEO, luxury tiles near me, sanitary store Google rank',
+  openGraph: {
+    title: 'Sanitary & Tiles SEO | Neerzy — Every Job Becomes a Google Post and a 5-Star Review',
+    description: 'Transform your showroom traffic automatically. Every project becomes a Google post and a 5-star review.',
+    url: 'https://www.neerzy.com/seo-for-sanitary',
+  },
 }
 
 export default function SeoForSanitaryPage() {
@@ -61,7 +66,7 @@ export default function SeoForSanitaryPage() {
       <section className="py-20 px-6 bg-white dark:bg-slate-950 border-t border-gray-100 dark:border-slate-800">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-6 tracking-tight text-center italic">30-Day Free Trial</h2>
-          <p className="text-xl text-gray-500 dark:text-gray-400 mb-4 text-center uppercase tracking-widest font-bold font-inter">Launch your real business online — your own domain, for a one-time <span className="text-gray-900 dark:text-white">£19/$19</span> setup fee.</p>`n          <p className="text-sm text-gray-400 dark:text-gray-500 mb-10 text-center italic max-w-md mx-auto">This is your business. Your name on the door. Yours forever — even if you leave Neerzy.</p>
+          <p className="text-xl text-gray-500 dark:text-gray-400 mb-4 text-center uppercase tracking-widest font-bold font-inter">Launch your real business online — your own domain, for a one-time <span className="text-gray-900 dark:text-white">£29/$29</span> setup fee.</p>`n          <p className="text-sm text-gray-400 dark:text-gray-500 mb-10 text-center italic max-w-md mx-auto">This is your business. Your name on the door. Yours forever — even if you leave Neerzy.</p>
           <Link href="/onboarding" className="inline-block font-bold text-white px-12 py-5 rounded-2xl shadow-2xl transition-all hover:scale-105" style={{background:'var(--premium-gradient)'}}>Start Free Trial â€” Built for Sanitary â†’</Link>
           <p className="mt-6 text-gray-400 text-xs font-bold leading-relaxed uppercase tracking-tighter">No long term contracts. cancel anytime.</p>
         </div>

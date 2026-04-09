@@ -2,8 +2,13 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Live Demo — Spark Electrical Denver CO | Neerzy',
-  description: 'See exactly what your Neerzy website looks like. This is a live demo site for Spark Electrical in Denver, CO — built and managed by Neerzy AI.',
+  title: 'Electrical Demo — Every Job Becomes a Google Post and a 5-Star Review',
+  description: 'See how an electrical business looks with Neerzy. This live demo site shows how every job becomes a Google post and a 5-star review automatically.',
+  openGraph: {
+    title: 'Electrical Demo | Neerzy — Every Job Becomes a Google Post and a 5-Star Review',
+    description: 'A live demo of an electrical website built and managed by Neerzy AI. See your business on Google.',
+    url: 'https://www.neerzy.com/examples/electrical',
+  },
 }
 
 export default function ElectricalDemoPage() {

@@ -4,8 +4,13 @@ import Footer from '@/components/Footer'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Blog — Local SEO Tips & AI Automation | Neerzy',
-  description: 'Expert advice on how to grow your local service business using AI and Google Business Profile optimization.',
+  title: 'Blog — Local SEO Tips for Trades & AI Automation',
+  description: 'Practical guides for plumbers, electricians, roofers, and other trades on Google ranking, GMB optimisation, and getting more neighbours calling. No jargon.',
+  openGraph: {
+    title: 'Blog — Local SEO Tips for Trades & AI Automation',
+    description: 'Practical guides for plumbers, electricians, roofers, and other trades on Google ranking, GMB optimisation, and getting more neighbours calling. No jargon.',
+    url: 'https://www.neerzy.com/blog',
+  },
 }
 
 const POSTS = [

@@ -1,16 +1,16 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import ProjectGallery from '@/components/ProjectGallery'
 
 export const metadata: Metadata = {
-  title: 'SEO for Electricians â€” Get Into Your Neighbours Top 3',
+  title: 'SEO for Electricians — Get Into Your Neighbours Top 3',
   description: 'Rank on Google for EV chargers, panel upgrades, and electrician near me. Neerzy posts from your job site automatically. Your neighbours find you first. Try free.',
-  keywords: 'SEO for electricians, electrician Google Maps, EV charger installation SEO, local electrician website, get more electrical jobs',
+  keywords: 'SEO for electricians, electrician Google Maps, EV charger SEO, local electrician website UK, get more electrical jobs',
   openGraph: {
-    title: 'SEO for Electricians â€” Neerzy',
-    description: 'You wire the homes. We wire your Google ranking. Snap a job photo â€” Neerzy posts it automatically.',
+    title: 'SEO for Electricians — Neerzy',
+    description: 'You focus on the wiring. We focus on your Google ranking. Every job becomes a Google post automatically.',
     url: 'https://www.neerzy.com/seo-for-electricians',
   },
 }
@@ -66,7 +66,7 @@ export default function SeoForElectriciansPage() {
       <section className="py-20 px-6 bg-white dark:bg-slate-950 border-t border-gray-100 dark:border-slate-800">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-6 tracking-tight text-center italic">30-Day Free Trial</h2>
-          <p className="text-xl text-gray-500 dark:text-gray-400 mb-4 text-center uppercase tracking-widest font-bold font-inter">Launch your real business online — your own domain, for a one-time <span className="text-gray-900 dark:text-white">£19/$19</span> setup fee.</p>`n          <p className="text-sm text-gray-400 dark:text-gray-500 mb-10 text-center italic max-w-md mx-auto">This is your business. Your name on the door. Yours forever — even if you leave Neerzy.</p>
+          <p className="text-xl text-gray-500 dark:text-gray-400 mb-4 text-center uppercase tracking-widest font-bold font-inter">Launch your real business online — your own domain, for a one-time <span className="text-gray-900 dark:text-white">£29/$29</span> setup fee.</p>`n          <p className="text-sm text-gray-400 dark:text-gray-500 mb-10 text-center italic max-w-md mx-auto">This is your business. Your name on the door. Yours forever — even if you leave Neerzy.</p>
           <Link href="/onboarding" className="inline-block font-bold text-white px-12 py-5 rounded-2xl shadow-2xl transition-all hover:scale-105" style={{background:'var(--premium-gradient)'}}>Start Free Trial â€” Built for Electricians â†’</Link>
           <p className="mt-6 text-gray-400 text-xs font-bold leading-relaxed uppercase tracking-tighter">No long term contracts. cancel anytime.</p>
         </div>

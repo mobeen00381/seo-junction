@@ -2,17 +2,17 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Neerzy Pricing — Local SEO From $19.99/Month',
-  description: 'Plans from $19.99/month. Your website live in 24 hours. AI posts sent to your website and Google profile every month. 30-day free trial. No contracts. No tech skills needed.',
+  title: 'Neerzy Pricing — Local SEO for Trades From $29/Month',
+  description: 'Plans from $29/month. Done-for-you website, AI job posts, Google Business management, and auto review requests after every job. 30-day free trial. No contracts.',
   openGraph: {
-    title: 'Neerzy Pricing — From $19.99/Month',
-    description: '30-day free trial. No contracts. Your website live in 24 hours. Neighbours start finding you immediately.',
+    title: 'Neerzy Pricing — From $29/Month',
+    description: '30-day free trial. Cancel anytime. Website live in 24 hours. Auto review link after every job.',
     url: 'https://www.neerzy.com/pricing',
   },
 }
 
 const PLANS = [
-  { name:'Basic', price:'19', posts:10, features:['Done-for-you website','10 AI posts/month (website + GMB)','Google Business updates','Photo & voice uploads','Cancel anytime'], popular:false },
+  { name:'Basic', price:'29', posts:10, features:['Done-for-you website','10 AI posts/month (website + GMB)','Google Business updates','Photo & voice uploads','Cancel anytime'], popular:false },
   { name:'Pro', price:'39', posts:30, features:['Everything in Basic','30 AI posts/month','Priority AI responses','Full GMB management','🔔 Smart activity reminders','Dedicated support','Monthly SEO report PDF','Free domain transfer'], popular:true },
   { name:'Agency', price:'79', posts:60, features:['Up to 5 client sites','60 AI posts/month','White-label client reports','Client dashboard','API access','Dedicated Slack support'], popular:false },
 ]
@@ -42,8 +42,8 @@ export default function PricingPage() {
       <div className="max-w-5xl mx-auto px-6 py-20">
         <div className="text-center mb-16">
           <div className="text-xs font-bold tracking-widest uppercase text-primary dark:text-primary-light mb-3">Pricing</div>
-          <h1 className="text-4xl font-black text-gray-900 mb-4 tracking-tight leading-tight">More Google Calls.<br />Starting at $19/Month.</h1>
-          <p className="text-gray-500 max-w-lg mx-auto font-medium">Launch your real business online today — your own domain, registered in your name, for a one-time £19/$19 setup fee.</p>
+          <h1 className="text-4xl font-black text-gray-900 mb-4 tracking-tight leading-tight">More Google Calls.<br />Starting at $29/Month.</h1>
+          <p className="text-gray-500 max-w-lg mx-auto font-medium">Launch your real business online today — your own domain, registered in your name, for a one-time £29/$29 setup fee.</p>
           <p className="text-gray-400 max-w-md mx-auto text-sm mt-2 italic">This is your business. Your name on the door. Yours forever — even if you leave Neerzy.</p>
         </div>
 

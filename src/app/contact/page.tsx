@@ -4,7 +4,12 @@ import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Contact Neerzy — Get Expert Support',
-  description: 'Need help with your Google ranking? Reach out to Neerzy support. We are here to help local businesses grow.',
+  description: 'Need help automating your Google presence? Reach out to the Neerzy team. We help local businesses turn every job into a Google post.',
+  openGraph: {
+    title: 'Contact Neerzy — Expert Local SEO Support',
+    description: 'Our team of SEO experts is one message away. Let us help you automate your growth.',
+    url: 'https://www.neerzy.com/contact',
+  },
 }
 
 export default function ContactPage() {

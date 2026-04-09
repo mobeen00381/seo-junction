@@ -2,8 +2,13 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Live Demo — Bright Smiles Dental Miami FL | Neerzy',
-  description: 'See exactly what your Neerzy website looks like. This is a live demo site for Bright Smiles Dental in Miami, FL — built and managed by Neerzy AI.',
+  title: 'Dental Demo — Every Job Becomes a Google Post and a 5-Star Review',
+  description: 'See how a dental practice looks with Neerzy. This live demo site shows how every job becomes a Google post and a 5-star review automatically.',
+  openGraph: {
+    title: 'Dental Demo | Neerzy — Every Job Becomes a Google Post and a 5-Star Review',
+    description: 'A live demo of a dental website built and managed by Neerzy AI. See your business on Google.',
+    url: 'https://www.neerzy.com/examples/dental',
+  },
 }
 
 export default function DentalDemoPage() {

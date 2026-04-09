@@ -6,11 +6,11 @@ import TemplateGallery from '@/components/TemplateGallery'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Neerzy - Your Neighbours Are Searching. Be There.',
-  description: 'Snap a photo of your latest job - we build your website, manage your Google profile, and post updates automatically. No tech skills. Free to start.',
+  title: 'Neerzy — Every Job Becomes a Google Post and a 5-Star Review',
+  description: 'Snap a photo from your latest job — Neerzy builds your website, manages your Google profile, and sends automatic review requests. No tech skills. Free to start. Live in 24 hours.',
   openGraph: {
-    title: 'Neerzy - Your Neighbours Are Searching. Be There.',
-    description: 'Snap a photo. We handle the website, Google profile, and content. Your neighbours find you.',
+    title: 'Neerzy — Every Job Becomes a Google Post and a 5-Star Review',
+    description: 'Snap a photo. We handle your website, Google profile, and reviews — automatically.',
     url: 'https://www.neerzy.com',
   },
 }

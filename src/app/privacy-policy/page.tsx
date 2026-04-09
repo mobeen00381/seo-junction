@@ -4,7 +4,12 @@ import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy — Neerzy',
-  description: 'Learn how we protect your business data and user privacy here at Neerzy.',
+  description: 'Your data is and will always be yours. Learn how we protect your business information while turning every job into a Google post.',
+  openGraph: {
+    title: 'Privacy Policy | Neerzy — Data Protection',
+    description: 'Privacy is a human right. Learn how Neerzy protects your information as we help you grow.',
+    url: 'https://www.neerzy.com/privacy-policy',
+  },
 }
 
 export default function PrivacyPolicyPage() {

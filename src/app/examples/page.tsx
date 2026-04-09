@@ -4,10 +4,10 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Neerzy Examples — See Your Trade Website in Seconds',
-  description: 'Browse live websites built by Neerzy for plumbers, electricians, HVAC, roofers, dentists and more. See exactly what yours will look like — before you sign up.',
+  title: 'Live Examples — See Your Trade Website Before You Sign Up',
+  description: 'Browse live websites Neerzy built for plumbers, electricians, HVAC, roofers, dentists and more. See exactly what your business site will look like — for free.',
   openGraph: {
-    title: 'Neerzy — 12 Live Trade Website Examples',
+    title: 'Neerzy Live Examples — 12 Real Trade Websites',
     description: 'Plumbers in Austin. Electricians in London. Roofers in Sydney. See what Neerzy builds for your trade in seconds.',
     url: 'https://www.neerzy.com/examples',
   },

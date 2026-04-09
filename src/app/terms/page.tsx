@@ -4,7 +4,12 @@ import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Terms of Service — Neerzy',
-  description: 'Read the terms and conditions for using the Neerzy platform.',
+  description: 'Read the terms and conditions for using the Neerzy platform. Every job becomes a Google post and a 5-star review.',
+  openGraph: {
+    title: 'Terms of Service | Neerzy — Platform Terms',
+    description: 'Understand how Neerzy helps you automate your local growth through job-side posting and automated reviews.',
+    url: 'https://www.neerzy.com/terms',
+  },
 }
 
 export default function TermsPage() {
@@ -33,7 +38,7 @@ export default function TermsPage() {
 
           <section className="mb-12">
              <h2 className="text-2xl font-black text-gray-900 dark:text-white mb-6 uppercase tracking-widest text-xs">3. Cancellation and Refunds</h2>
-             <p className="text-gray-500 dark:text-gray-400 text-lg leading-relaxed">We offer a 30-day free trial. After the trial ends, the £19/$19 setup fee is non-refundable. Your domain is registered in your name and is yours to keep forever. Monthly subscriptions can be cancelled at any time through the billing dashboard.</p>
+             <p className="text-gray-500 dark:text-gray-400 text-lg leading-relaxed">We offer a 30-day free trial. After the trial ends, the £29/$29 setup fee is non-refundable. Your domain is registered in your name and is yours to keep forever. Monthly subscriptions can be cancelled at any time through the billing dashboard.</p>
           </section>
 
           <section className="mb-12">

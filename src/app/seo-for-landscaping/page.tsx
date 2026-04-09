@@ -1,13 +1,18 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import ProjectGallery from '@/components/ProjectGallery'
 
 export const metadata: Metadata = {
-  title: 'SEO for Landscaping â€” Transform Your Yard Business | Neerzy',
-  description: 'Neerzy helps local landscaping companies rank for "gardening near me" and "hardscaping". Done-for-you seasonal AI posts and Map Pack SEO. 30-day free trial.',
+  title: 'SEO for Landscaping — Every Job Becomes a Google Post and a 5-Star Review',
+  description: 'Neerzy helps landscaping companies rank for "gardening near me" and "hardscaping". Turn every yard transformation into an automated post and a 5-star review. Free to start.',
   keywords: 'SEO for landscaping, gardening service marketing, local landscaping SEO, rank landscaping company Google, landscaper near me',
+  openGraph: {
+    title: 'SEO for Landscaping | Neerzy — Every Job Becomes a Google Post and a 5-Star Review',
+    description: 'Automate your landscaping business growth. Every job becomes a Google post and a 5-star review automatically.',
+    url: 'https://www.neerzy.com/seo-for-landscaping',
+  },
 }
 
 export default function SeoForLandscapingPage() {
@@ -61,7 +66,7 @@ export default function SeoForLandscapingPage() {
       <section className="py-20 px-6 bg-white dark:bg-slate-950 border-t border-gray-100 dark:border-slate-800">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-6 tracking-tight text-center italic">30-Day Free Trial</h2>
-          <p className="text-xl text-emerald-600 dark:text-emerald-400 mb-4 text-center uppercase tracking-widest font-bold font-inter">Launch your real business online — your own domain, for a one-time <span className="text-gray-900 dark:text-white">£19/$19</span> setup fee.</p>`n          <p className="text-sm text-gray-400 dark:text-gray-500 mb-10 text-center italic max-w-md mx-auto">This is your business. Your name on the door. Yours forever — even if you leave Neerzy.</p>
+          <p className="text-xl text-emerald-600 dark:text-emerald-400 mb-4 text-center uppercase tracking-widest font-bold font-inter">Launch your real business online — your own domain, for a one-time <span className="text-gray-900 dark:text-white">£29/$29</span> setup fee.</p>`n          <p className="text-sm text-gray-400 dark:text-gray-500 mb-10 text-center italic max-w-md mx-auto">This is your business. Your name on the door. Yours forever — even if you leave Neerzy.</p>
           <Link href="/onboarding" className="inline-block font-bold text-white px-12 py-5 rounded-2xl shadow-2xl transition-all hover:scale-105" style={{background:'var(--premium-gradient)'}}>Start Free Trial â€” Built for Landscapers â†’</Link>
           <p className="mt-6 text-gray-400 text-xs font-bold leading-relaxed uppercase tracking-tighter">No long term contracts. cancel anytime.</p>
         </div>

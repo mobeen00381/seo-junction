@@ -2,8 +2,13 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Live Demo — Elite Plumbing Pro Austin TX | Neerzy',
-  description: 'See exactly what your Neerzy website looks like. This is a live demo site for Elite Plumbing Pro in Austin, TX — built and managed by Neerzy AI.',
+  title: 'Plumbing Demo — Every Job Becomes a Google Post and a 5-Star Review',
+  description: 'See how a plumbing business looks with Neerzy. This live demo site shows how every job becomes a Google post and a 5-star review automatically.',
+  openGraph: {
+    title: 'Plumbing Demo | Neerzy — Every Job Becomes a Google Post and a 5-Star Review',
+    description: 'A live demo of a plumbing website built and managed by Neerzy AI. See your business on Google.',
+    url: 'https://www.neerzy.com/examples/plumbing',
+  },
 }
 
 export default function PlumbingDemoPage() {
