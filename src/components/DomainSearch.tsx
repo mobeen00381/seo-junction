@@ -190,10 +190,6 @@ export default function DomainSearch({ businessName, onSelect, onBack }: DomainS
             })()}
           </div>
         )}
-              ));
-            })()}
-          </div>
-        )}
 
         {results.length === 0 && !isSearching && (
           <div className="py-12 md:py-24 text-center border-4 border-dashed border-gray-50 dark:border-slate-800 rounded-[24px] md:rounded-[48px] relative z-10 transition-colors">

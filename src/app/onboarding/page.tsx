@@ -114,7 +114,6 @@ export default function OnboardingPage() {
   }
 
   return (
-  return (
     <div className="min-h-screen bg-[#FDFDFD] dark:bg-slate-950 transition-colors duration-300 selection:bg-primary/10">
       {/* HEADER */}
       <nav className="px-6 py-4 md:py-6 border-b border-gray-100 dark:border-slate-900 flex justify-between items-center bg-white/70 dark:bg-slate-950/70 backdrop-blur-xl sticky top-0 z-50">
