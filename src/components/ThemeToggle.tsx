@@ -14,10 +14,10 @@ export default function ThemeToggle() {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setTheme(savedTheme)
       document.documentElement.classList.toggle('dark', savedTheme === 'dark')
-    } else if (prefersDark) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setTheme('dark')
-      document.documentElement.classList.add('dark')
+    } else {
+      // Force light mode default
+      setTheme('light')
+      document.documentElement.classList.remove('dark')
     }
   }, [])
 
