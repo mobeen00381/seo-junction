@@ -107,7 +107,7 @@ export default function TemplateGallery({ onSelect, showBranding = false }: Temp
                 </div>
                 
                 {/* ACTION OVERLAY */}
-                <div className="absolute inset-0 bg-navy/90 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-center p-8 gap-4">
+                <div className="absolute inset-0 bg-navy/95 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-center p-8 gap-4">
                    <div className="text-white font-black text-[9px] uppercase tracking-[4px] mb-4 opacity-60">High-Tech Mockup</div>
                    <button 
                      className="w-full bg-white/10 text-white font-black py-4 rounded-2xl text-[10px] shadow-lg hover:bg-white/20 transition-all uppercase tracking-widest border border-white/10"
@@ -149,7 +149,7 @@ export default function TemplateGallery({ onSelect, showBranding = false }: Temp
       {previewTemplate && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 animate-in fade-in duration-300">
           <div 
-            className="absolute inset-0 bg-navy/60 backdrop-blur-xl"
+            className="absolute inset-0 bg-navy/80 backdrop-blur-2xl"
             onClick={() => setPreviewTemplate(null)}
           />
           
