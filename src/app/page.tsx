@@ -259,7 +259,7 @@ export default function HomePage() {
           <h2 className="mb-3" style={{color:'var(--on-dark-sub)'}}>Four steps.<br/><em style={{color:'var(--sun)'}}>Zero complexity.</em></h2>
           <p className="text-[15px] max-w-[480px] mb-12" style={{color:'rgba(245,249,246,0.5)'}}>We handle everything behind the scenes. You just show us your latest work.</p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px rounded-[26px] overflow-hidden" style={{border:'1px solid rgba(168,240,200,0.1)', background:'rgba(168,240,200,0.06)'}}>
-            {STEPS.map((s, i) => (
+              {STEPS.map((s, i) => (
               <div key={i} className="p-8 md:p-10 premium-card" style={{background:'rgba(14,26,20,0.98)'}}>
                 <div className="font-display text-7xl font-bold italic leading-none tracking-tighter mb-4" style={{color:'rgba(168,240,200,0.07)'}}>{s.n}</div>
                 <div className="w-11 h-11 rounded-xl flex items-center justify-center text-xl mb-5" style={{background:'rgba(168,240,200,0.08)', border:'1px solid rgba(168,240,200,0.12)'}}>{s.icon}</div>
@@ -271,158 +271,102 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 🔐 CONTROL 🔐 */}
-      <section className="py-14 md:py-16 px-6 md:px-12" style={{background:'var(--paper2)', borderTop:'1px solid var(--border)', borderBottom:'1px solid var(--border)'}}>
-        <div className="max-w-6xl mx-auto">
-          <div className="text-[10px] font-bold tracking-[2.5px] uppercase mb-4 flex items-center gap-3" style={{color:'var(--ink4)'}}>
-            Always in control
-            <span className="h-px w-7" style={{background:'var(--paper4)'}}></span>
-          </div>
-          <h2 className="mb-3">Nothing goes live<br/><em>without your say.</em></h2>
-          <p className="text-[15px] max-w-[480px] mb-10" style={{color:'var(--ink3)'}}>We do all the work. You approve every update before a single neighbour sees it.</p>
-          <div className="grid md:grid-cols-2 gap-px rounded-[26px] overflow-hidden" style={{border:'1px solid var(--border2)', background:'var(--border)'}}>
-            {CONTROLS.map((c, i) => (
-              <div key={i} className="p-8 md:p-9 premium-card" style={{background:'var(--paper)'}}>
-                <div className="w-[42px] h-[42px] rounded-[11px] flex items-center justify-center text-lg mb-5" style={{background:'var(--teal-soft)', border:'1px solid rgba(15,110,86,0.12)'}}>{c.icon}</div>
-                <h3 className="font-display text-[17px] font-bold mb-2" style={{color:'var(--ink)'}}>{c.title}</h3>
-                <p className="text-[13px] leading-relaxed" style={{color:'var(--ink3)'}}>{c.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 📱 HOME SCREEN SECTION 📱 */}
-      <section className="py-14 md:py-20 px-6 md:px-12 overflow-hidden" style={{background:'var(--navy)'}}>
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 md:gap-20 items-center">
+      {/* 📱 MOBILE COMPANION & CONTROL 📱 */}
+      <section className="py-16 md:py-24 px-6 md:px-12 overflow-hidden" style={{background:'var(--navy)', borderBottom:'1px solid rgba(255,255,255,0.05)'}}>
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_1.4fr] gap-16 md:gap-24 items-center">
           
-          {/* Left — Phone Mockup (Home Screen) */}
-          <div className="flex justify-center md:justify-end order-2 md:order-1">
-            <div className="w-[260px] h-[520px] rounded-[48px] p-2.5 shadow-4xl" style={{background:'#1a1a1a', border:'1px solid rgba(255,255,255,0.08)'}}>
-              <div className="w-full h-full rounded-[38px] overflow-hidden relative flex flex-col" style={{background:'linear-gradient(160deg, #1a1a2e 0%, #0f0f23 50%, #16213e 100%)'}}>
-                
+          {/* Left — Phone Mockup (Visual Highlight) */}
+          <div className="flex justify-center md:px-12">
+            <div className="w-[280px] h-[560px] rounded-[54px] p-3 shadow-4xl relative group" style={{background:'#1a1a1a', border:'1px solid rgba(255,255,255,0.08)'}}>
+               {/* Ambient Glow */}
+               <div className="absolute inset-0 bg-teal-500/20 blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-1000 -z-10"></div>
+               
+               <div className="w-full h-full rounded-[42px] overflow-hidden relative flex flex-col" style={{background:'linear-gradient(160deg, #1a1a2e 0%, #0f0f23 50%, #16213e 100%)'}}>
                 {/* Status Bar */}
                 <div className="h-8 flex items-center px-6 shrink-0">
                   <div className="text-[11px] font-bold" style={{color:'rgba(255,255,255,0.6)'}}>9:41</div>
-                  <div className="ml-auto flex gap-1 items-center opacity-50">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3a4.237 4.237 0 00-6 0zm-4-4l2 2a7.074 7.074 0 0110 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
+                  <div className="ml-auto flex gap-1.5 items-center opacity-40">
+                    <div className="w-3.5 h-3.5 rounded-[4px] border border-white"></div>
+                    <div className="w-4 h-2.5 rounded-[2px] border border-white"></div>
                   </div>
                 </div>
 
-                {/* Home Screen Area */}
-                <div className="flex-1 flex flex-col items-center justify-center gap-8 px-6">
-                  
-                  {/* App Icons Row */}
-                  <div className="grid grid-cols-4 gap-5">
-                    {/* Neerzy App — Highlighted */}
-                    <div className="flex flex-col items-center gap-1.5 group">
-                      <div className="w-14 h-14 rounded-[16px] flex items-center justify-center shadow-lg transition-transform group-hover:scale-110" style={{background:'linear-gradient(135deg, #1d9e75 0%, #0f6e56 100%)'}}>
-                        <svg className="w-7 h-7" viewBox="0 0 30 30" fill="none">
+                <div className="flex-1 flex flex-col items-center justify-center gap-10 px-8">
+                  {/* App Grid */}
+                  <div className="grid grid-cols-4 gap-6">
+                    <div className="flex flex-col items-center gap-2">
+                      <div className="w-14 h-14 rounded-[18px] flex items-center justify-center shadow-2xl animate-pulse" style={{background:'linear-gradient(135deg, #1d9e75 0%, #0f6e56 100%)'}}>
+                        <svg width="28" height="28" viewBox="0 0 30 30" fill="none">
                           <circle cx="15" cy="13" r="5" fill="none" stroke="#a8f0c8" strokeWidth="1.8"/>
                           <circle cx="15" cy="13" r="2" fill="#a8f0c8"/>
-                          <path d="M10 21 Q15 17 20 21" stroke="#a8f0c8" strokeWidth="1.8" strokeLinecap="round" fill="none"/>
+                          <path d="M10 21 Q15 17 20 21" stroke="#a8f0c8" strokeWidth="1.8" strokeLinecap="round"/>
                         </svg>
                       </div>
-                      <span className="text-[10px] font-medium" style={{color:'rgba(255,255,255,0.8)'}}>Neerzy</span>
+                      <span className="text-[10px] font-black tracking-wider text-white">Neerzy</span>
                     </div>
-                    
-                    {/* WhatsApp */}
-                    <div className="flex flex-col items-center gap-1.5">
-                      <div className="w-14 h-14 rounded-[16px] flex items-center justify-center shadow-lg" style={{background:'linear-gradient(135deg, #25D366 0%, #128C7E 100%)'}}>
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+                    {['💬', '📞', '📷'].map((e, i) => (
+                      <div key={i} className="flex flex-col items-center gap-2 opacity-30">
+                        <div className="w-14 h-14 rounded-[18px] bg-white/5 flex items-center justify-center text-xl">
+                          {e}
+                        </div>
                       </div>
-                      <span className="text-[10px] font-medium" style={{color:'rgba(255,255,255,0.5)'}}>WhatsApp</span>
-                    </div>
-
-                    {/* Phone */}
-                    <div className="flex flex-col items-center gap-1.5">
-                      <div className="w-14 h-14 rounded-[16px] flex items-center justify-center shadow-lg" style={{background:'linear-gradient(135deg, #34C759 0%, #248A3D 100%)'}}>
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                      </div>
-                      <span className="text-[10px] font-medium" style={{color:'rgba(255,255,255,0.5)'}}>Phone</span>
-                    </div>
-
-                    {/* Camera */}
-                    <div className="flex flex-col items-center gap-1.5">
-                      <div className="w-14 h-14 rounded-[16px] flex items-center justify-center shadow-lg" style={{background:'linear-gradient(135deg, #636366 0%, #48484A 100%)'}}>
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M12 15.2a3.2 3.2 0 100-6.4 3.2 3.2 0 000 6.4z"/><path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/></svg>
-                      </div>
-                      <span className="text-[10px] font-medium" style={{color:'rgba(255,255,255,0.5)'}}>Camera</span>
-                    </div>
+                    ))}
                   </div>
 
-                  {/* Neerzy Highlight Pulse */}
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-full" style={{background:'rgba(29,158,117,0.15)', border:'1px solid rgba(29,158,117,0.3)'}}>
+                  <div className="flex items-center gap-3 px-5 py-2.5 rounded-full" style={{background:'rgba(29,158,117,0.15)', border:'1px solid rgba(29,158,117,0.3)'}}>
                     <div className="w-2 h-2 rounded-full" style={{background:'var(--teal2)', animation:'blink 2s ease-in-out infinite'}}></div>
-                    <span className="text-[11px] font-bold" style={{color:'var(--mint)'}}>One tap — you&apos;re posting</span>
+                    <span className="text-[12px] font-bold tracking-tight text-white">One tap — you&apos;re posting</span>
                   </div>
                 </div>
 
-                {/* Dock */}
-                <div className="h-16 flex items-center justify-center gap-5 mx-4 mb-2 rounded-[22px] shrink-0" style={{background:'rgba(255,255,255,0.08)', backdropFilter:'blur(20px)'}}>
-                  <div className="w-11 h-11 rounded-[12px] flex items-center justify-center" style={{background:'linear-gradient(135deg, #34C759 0%, #248A3D 100%)'}}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                  </div>
-                  <div className="w-11 h-11 rounded-[12px] flex items-center justify-center" style={{background:'linear-gradient(135deg, #007AFF 0%, #0055D4 100%)'}}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10h5v-2h-5c-4.34 0-8-3.66-8-8s3.66-8 8-8 8 3.66 8 8v1.43c0 .79-.71 1.57-1.5 1.57s-1.5-.78-1.5-1.57V12c0-2.76-2.24-5-5-5s-5 2.24-5 5 2.24 5 5 5c1.38 0 2.64-.56 3.54-1.47.65.89 1.77 1.47 2.96 1.47 1.97 0 3.5-1.6 3.5-3.57V12c0-5.52-4.48-10-10-10zm0 13c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/></svg>
-                  </div>
-                  <div className="w-11 h-11 rounded-[12px] flex items-center justify-center" style={{background:'linear-gradient(135deg, #FF9500 0%, #FF3B30 100%)'}}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
-                  </div>
-                  <div className="w-11 h-11 rounded-[12px] flex items-center justify-center" style={{background:'linear-gradient(135deg, #5856D6 0%, #AF52DE 100%)'}}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
-                  </div>
-                </div>
-
-                {/* Home Indicator */}
-                <div className="h-5 flex items-center justify-center shrink-0">
-                  <div className="w-28 h-1 rounded-full" style={{background:'rgba(255,255,255,0.2)'}}></div>
+                <div className="h-6 flex items-center justify-center shrink-0 mb-4 opacity-10">
+                  <div className="w-24 h-1 bg-white rounded-full"></div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right — Copy & Access Cards */}
-          <div className="order-1 md:order-2">
-            <div className="text-[10px] font-bold tracking-[2.5px] uppercase mb-5 flex items-center gap-3" style={{color:'rgba(168,240,200,0.4)'}}>
-              Always accessible
-              <span className="h-px w-7" style={{background:'rgba(168,240,200,0.15)'}}></span>
+          {/* Right — Combined Copy & Features */}
+          <div className="flex flex-col">
+            <div className="text-[10px] font-black tracking-[4px] uppercase mb-6 flex items-center gap-3" style={{color:'var(--on-dark-sub)'}}>
+              Mobile-First Control
+              <span className="h-px w-8" style={{background:'rgba(168,240,200,0.15)'}}></span>
             </div>
-            <h2 className="mb-5" style={{color:'var(--mint)'}}>Lives on your home screen<br/><em style={{color:'var(--sun)'}}>— like WhatsApp.</em></h2>
-            <p className="text-[15px] max-w-[440px] mb-10 leading-relaxed" style={{color:'rgba(245,249,246,0.55)'}}>
-              After signup, add Neerzy to your home screen in 5 seconds. One tap — you&apos;re posting a job. No browser. No login. No searching.
+            <h2 className="mb-6 leading-[1.1]" style={{color:'var(--on-dark)'}}>
+              Nothing goes live without your say. <br/>
+              <em style={{color:'var(--sun)'}}>Lives on your home screen.</em>
+            </h2>
+            <p className="text-[16px] max-w-[580px] mb-12" style={{color:'rgba(245,249,246,0.6)'}}>
+              Add Neerzy to your phone in 5 seconds. Snap photos on-site, approve AI-written posts in one tap, and watch your Google ranking grow while you work.
             </p>
 
-            {/* Access Method Cards */}
-            <div className="space-y-3">
-              {/* Primary — Home Screen */}
-              <div className="rounded-[18px] p-5 flex items-center gap-4" style={{background:'rgba(29,158,117,0.12)', border:'1px solid rgba(29,158,117,0.25)'}}>
-                <div className="w-12 h-12 rounded-[14px] flex items-center justify-center text-2xl shrink-0" style={{background:'rgba(29,158,117,0.2)'}}>📱</div>
-                <div>
-                  <div className="text-[14px] font-bold mb-0.5" style={{color:'var(--mint)'}}>Home Screen</div>
-                  <div className="text-[12px]" style={{color:'rgba(245,249,246,0.45)'}}>Primary — one tap to post, always visible</div>
+            {/* Core Control Features Grid */}
+            <div className="grid sm:grid-cols-2 gap-4 mb-16">
+              {CONTROLS.map((c, i) => (
+                <div key={i} className="p-6 rounded-[24px] border border-white/[0.04] group hover:bg-white/[0.02] transition-colors" style={{background:'rgba(255,255,255,0.02)'}}>
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center text-lg mb-4" style={{background:'rgba(168,240,200,0.06)', border:'1px solid rgba(168,240,200,0.1)'}}>{c.icon}</div>
+                  <h3 className="text-white font-bold mb-2 text-[15px]">{c.title}</h3>
+                  <p className="text-[12px] leading-relaxed" style={{color:'rgba(245,249,246,0.4)'}}>{c.desc}</p>
                 </div>
-                <div className="ml-auto text-[9px] font-black tracking-[1.5px] uppercase px-3 py-1 rounded-full shrink-0" style={{background:'var(--teal)', color:'var(--mint)'}}>Recommended</div>
-              </div>
+              ))}
+            </div>
 
-              {/* Direct Link */}
-              <div className="rounded-[18px] p-5 flex items-center gap-4" style={{background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.06)'}}>
-                <div className="w-12 h-12 rounded-[14px] flex items-center justify-center text-2xl shrink-0" style={{background:'rgba(255,255,255,0.05)'}}>🔗</div>
-                <div>
-                  <div className="text-[14px] font-bold mb-0.5" style={{color:'var(--paper)'}}>Direct Link</div>
-                  <div className="text-[12px]" style={{color:'rgba(245,249,246,0.35)'}}>Backup — bookmark your dashboard URL</div>
-                </div>
-              </div>
-
-              {/* QR Code */}
-              <div className="rounded-[18px] p-5 flex items-center gap-4" style={{background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.06)'}}>
-                <div className="w-12 h-12 rounded-[14px] flex items-center justify-center text-2xl shrink-0" style={{background:'rgba(255,255,255,0.05)'}}>📷</div>
-                <div>
-                  <div className="text-[14px] font-bold mb-0.5" style={{color:'var(--paper)'}}>QR Code</div>
-                  <div className="text-[12px]" style={{color:'rgba(245,249,246,0.35)'}}>First-time use — scan to install instantly</div>
-                </div>
-              </div>
+            {/* Installation Methods (Compact Row) */}
+            <div className="flex flex-col sm:flex-row gap-4">
+               <div className="flex-1 p-5 rounded-[20px] flex items-center gap-4 bg-teal-500/5 border border-teal-500/15">
+                  <div className="text-2xl">📱</div>
+                  <div>
+                    <div className="text-[13px] font-bold text-white">Home Screen</div>
+                    <div className="text-[11px] opacity-40">Direct, 1-tap access</div>
+                  </div>
+               </div>
+               <div className="flex-1 p-5 rounded-[20px] flex items-center gap-4 bg-white/5 border border-white/5">
+                  <div className="text-2xl">🔗</div>
+                  <div>
+                    <div className="text-[13px] font-bold text-white">Direct Link</div>
+                    <div className="text-[11px] opacity-40">Simple browser access</div>
+                  </div>
+               </div>
             </div>
           </div>
         </div>
