@@ -203,7 +203,7 @@ export default function DentalDemoPage() {
 
       {/* ── BACK TO Neerzy ── */}
       <div className="bg-emerald-600 text-white text-center py-5 px-6">
-        <p className="text-sm font-medium mb-2">This site was built by <strong>Neerzy</strong> in under 24 hours — automatically.</p>
+        <p className="text-sm font-medium mb-2">This site was built by <strong>Neerzy</strong> in minutes — automatically.</p>
         <Link href="/onboarding" className="inline-block font-bold text-emerald-600 bg-white px-6 py-2 rounded-lg text-sm hover:bg-white transition-colors hover:text-emerald-600">
           Get a site like this → Start Free Trial
         </Link>

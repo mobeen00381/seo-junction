@@ -167,7 +167,7 @@ export default function MobileUpdatePage() {
            </div>
            <div class="bg-slate-50 p-6 rounded-3xl border border-slate-100">
               <h4 class="font-bold text-slate-900 mb-2">Is there a ${business.trade} near ${business.street} open right now?</h4>
-              <p class="text-sm text-slate-600">Yes, ${business.name} serves ${business.city} 24 hours a day for emergencies. We are often working near ${business.street} and can arrive quickly.</p>
+              <p class="text-sm text-slate-600">Yes, ${business.name} serves ${business.city} for emergencies. We are often working near ${business.street} and can arrive in minutes.</p>
            </div>
         </div>
 
@@ -184,7 +184,7 @@ export default function MobileUpdatePage() {
       meta,
       schema: JSON.stringify(schemaJson, null, 2),
       article: articleHtml,
-      gmb: `🚀 New Project Live in ${business.city}! Just finished an emergency ${business.trade} call in ${business.street}. Our AI system converted this update to a full SEO optimized post automatically. Need a licensed pro? #LocalSEO #SEOJunction #${business.city}`,
+      gmb: `🚀 New Project Live in ${business.city}! Just finished an emergency ${business.trade} call in ${business.street}. Our AI system converted this update to a full SEO optimized post automatically. Need a licensed pro? #LocalSEO #Neerzy #${business.city}`,
       score: 96
     })
   }
@@ -194,8 +194,8 @@ export default function MobileUpdatePage() {
       {/* HEADER */}
       <header className="px-6 py-4 flex justify-between items-center border-b border-white/5 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
         <Link href="/dashboard" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center font-bold text-sm">S</div>
-          <span className="font-bold tracking-tight">SEO Junction</span>
+          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center font-bold text-sm">N</div>
+          <span className="font-bold tracking-tight">Neerzy</span>
         </Link>
         <div className="text-[10px] font-black uppercase tracking-widest text-emerald-500 px-3 py-2 bg-emerald-500/10 rounded-full border border-emerald-500/20">
            Live Link

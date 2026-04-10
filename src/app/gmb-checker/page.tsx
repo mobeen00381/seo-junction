@@ -338,7 +338,7 @@ export default function GmbCheckerPage() {
                          </div>
                          <div className="pt-8">
                              <div className="text-sm font-black mb-2">CURRENT STATUS</div>
-                             <div className="text-[10px] font-black uppercase tracking-widest text-emerald-400 animate-pulse">Unlocked for 24 Hours</div>
+                             <div className="text-[10px] font-black uppercase tracking-widest text-emerald-400 animate-pulse">Unlocked for minutes</div>
                          </div>
                       </div>
                    </div>
