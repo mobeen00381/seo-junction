@@ -55,12 +55,20 @@ export async function POST(req: Request) {
       })
     })
 
-    const data = await response.json()
-    return NextResponse.json({ reply: data.choices[0].message.content })
+    if (response.ok) {
+      const data = await response.json()
+      if (data.choices && data.choices[0]?.message?.content) {
+        return NextResponse.json({ reply: data.choices[0].message.content })
+      }
+    }
+
+    // If API responded with error or unexpected structure, use mock fallback
+    return NextResponse.json({ reply: getMockReply(message) })
 
   } catch (error) {
     console.error('Chat Error:', error)
-    return NextResponse.json({ reply: "I'm having a little trouble thinking right now. But I can tell you this: Neerzy is built to get you more calls with zero effort. Why not start a trial?" })
+    // Fallback to mock logic even if connection/parsing failed
+    return NextResponse.json({ reply: getMockReply(message) })
   }
 }
 
