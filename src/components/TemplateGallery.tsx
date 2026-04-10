@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 const TEMPLATES = [
   { id: 'plumbing', name: 'Plumbing Pro', color: '#1565C0', emoji: '🔧', desc: 'Trustworthy, solid blue for established trades.', demoLink: '/seo-for-plumbers', screenshot: '/templates/plumbing.png' },
@@ -27,9 +28,10 @@ const BRAND_COLORS = [
 interface TemplateGalleryProps {
   onSelect?: (id: string, color?: string) => void
   showBranding?: boolean
+  limit?: number
 }
 
-export default function TemplateGallery({ onSelect, showBranding = false }: TemplateGalleryProps) {
+export default function TemplateGallery({ onSelect, showBranding = false, limit }: TemplateGalleryProps) {
   const [selectedTemplate, setSelectedTemplate] = useState('plumbing')
   const [selectedColor, setSelectedColor] = useState(BRAND_COLORS[0].primary)
   const [previewTemplate, setPreviewTemplate] = useState<typeof TEMPLATES[0] | null>(null)
@@ -91,7 +93,7 @@ export default function TemplateGallery({ onSelect, showBranding = false }: Temp
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 relative z-10">
-          {TEMPLATES.map((t) => (
+          {(limit ? TEMPLATES.slice(0, limit) : TEMPLATES).map((t) => (
             <div 
               key={t.id} 
               className={`group relative rounded-[48px] border-2 transition-all duration-500 p-4 cursor-pointer overflow-hidden ${selectedTemplate === t.id ? 'border-primary bg-white dark:bg-slate-900 shadow-2xl shadow-primary/20 scale-[1.02]' : 'border-gray-50 dark:border-slate-800/50 hover:border-primary/30 hover:shadow-xl'}`}
@@ -143,6 +145,18 @@ export default function TemplateGallery({ onSelect, showBranding = false }: Temp
             </div>
           ))}
         </div>
+
+        {limit && (
+          <div className="mt-16 text-center animate-in fade-in duration-1000 slide-in-from-bottom-4">
+            <Link 
+              href="/examples" 
+              className="inline-flex items-center gap-3 px-10 py-5 rounded-full bg-white dark:bg-slate-900 text-gray-900 dark:text-white font-black text-xs uppercase tracking-[3px] border border-gray-100 dark:border-slate-800 shadow-xl hover:scale-105 active:scale-95 transition-all group"
+            >
+              View More Industries 
+              <span className="group-hover:translate-x-1 transition-transform">→</span>
+            </Link>
+          </div>
+        )}
       </div>
 
       {/* PREVIEW MODAL */}

@@ -430,7 +430,7 @@ export default function HomePage() {
 
       {/* 🎨 TEMPLATE GALLERY 🎨 */}
       <div style={{background:'var(--paper)'}}>
-        <TemplateGallery />
+        <TemplateGallery limit={4} />
       </div>
 
       {/* ⭐ TESTIMONIALS ⭐ */}
