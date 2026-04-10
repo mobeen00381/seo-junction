@@ -10,9 +10,9 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="py-16 px-6 md:px-12 border-t border-white/5 bg-slate-950 text-slate-400" >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-16 text-left">
-        <div className="col-span-1 md:col-span-1">
+    <footer className="py-10 md:py-16 px-6 md:px-12 border-t border-white/5 bg-slate-950 text-slate-400" >
+      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12 md:gap-16 text-left">
+        <div className="col-span-2 md:col-span-1">
           <Link href="/" className="flex items-center gap-2 mb-6 group">
             <svg className="w-8 h-8 transition-transform group-hover:scale-110" viewBox="0 0 30 30" fill="none">
               <rect width="30" height="30" rx="8" fill="#1d9e75"/>
@@ -31,8 +31,7 @@ export default function Footer() {
                 <Link 
                   key={s.name} 
                   href={s.href}
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-bold transition-all hover:scale-110"
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-bold transition-all hover:scale-110 bg-white/5 border border-white/10 text-slate-400"
+                  className="w-9 h-9 md:w-8 md:h-8 rounded-full flex items-center justify-center text-[10px] font-bold transition-all hover:scale-110 bg-white/5 border border-white/10 text-slate-400"
                 >
                    {s.name}
                 </Link>
