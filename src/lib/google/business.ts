@@ -54,3 +54,43 @@ export async function createGMBPost(
     throw error;
   }
 }
+
+export async function getGMBReviews(refreshToken: string, locationId: string) {
+  oauth2Client.setCredentials({ refresh_token: refreshToken });
+
+  try {
+    const url = `https://mybusiness.googleapis.com/v4/${locationId}/reviews`;
+    const response = await oauth2Client.request({
+      url,
+      method: 'GET',
+    });
+    
+    return response.data;
+  } catch (error) {
+    console.error('GMB Reviews Fetch Error:', error);
+    throw error;
+  }
+}
+
+export async function replyToGMBReview(
+  refreshToken: string, 
+  locationId: string, 
+  reviewId: string, 
+  comment: string
+) {
+  oauth2Client.setCredentials({ refresh_token: refreshToken });
+
+  try {
+    const url = `https://mybusiness.googleapis.com/v4/${locationId}/reviews/${reviewId}/reply`;
+    const response = await oauth2Client.request({
+      url,
+      method: 'PUT',
+      data: { comment },
+    });
+    
+    return response.data;
+  } catch (error) {
+    console.error('GMB Review Reply Error:', error);
+    throw error;
+  }
+}

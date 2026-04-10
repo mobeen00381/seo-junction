@@ -4,8 +4,8 @@ import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { getGoogleAuthUrl } from '@/lib/google/auth'
-import { createGMBPost } from '@/lib/google/business'
-import { generateAIDraft as generateOpenAIDraft } from '@/lib/openai'
+import { createGMBPost, getGMBReviews, replyToGMBReview } from '@/lib/google/business'
+import { generateAIDraft as generateOpenAIDraft, generateReviewResponse as generateAIReviewResponse } from '@/lib/openai'
 
 export async function login(formData: FormData) {
   const supabase = await createClient()
@@ -145,5 +145,75 @@ export async function generateAIDraft(contentType: 'image' | 'voice' | 'text', i
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : 'Failed to generate AI draft';
     return { error: errorMessage }
+  }
+}
+
+export async function fetchReviews() {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) return { error: 'Not authenticated' }
+
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('google_refresh_token, gmb_location_id, gmb_connected')
+    .eq('id', user.id)
+    .single()
+
+  if (!profile?.gmb_connected || !profile?.google_refresh_token || !profile?.gmb_location_id) {
+    return { error: 'GMB not fully connected', reviews: [] }
+  }
+
+  try {
+    const data = await getGMBReviews(profile.google_refresh_token, profile.gmb_location_id)
+    return { success: true, reviews: data.reviews || [] }
+  } catch (error) {
+    return { error: 'Failed to fetch reviews', reviews: [] }
+  }
+}
+
+export async function respondToReview(reviewId: string, comment: string) {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) return { error: 'Not authenticated' }
+
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('google_refresh_token, gmb_location_id')
+    .eq('id', user.id)
+    .single()
+
+  if (!profile?.google_refresh_token || !profile?.gmb_location_id) {
+    return { error: 'GMB credentials missing' }
+  }
+
+  try {
+    await replyToGMBReview(profile.google_refresh_token, profile.gmb_location_id, reviewId, comment)
+    return { success: true }
+  } catch (error) {
+    return { error: 'Failed to post reply' }
+  }
+}
+
+export async function generateAIReply(reviewerName: string, reviewText: string, starRating: number) {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) return { error: 'Not authenticated' }
+
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('business_name')
+    .eq('id', user.id)
+    .single()
+
+  try {
+    const reply = await generateAIReviewResponse({
+      businessName: profile?.business_name || 'Our Business',
+      reviewerName,
+      reviewText,
+      starRating
+    })
+    return { success: true, reply }
+  } catch (error) {
+    return { error: 'Failed to generate AI reply' }
   }
 }

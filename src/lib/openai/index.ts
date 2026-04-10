@@ -52,3 +52,40 @@ Include a subtle call to action.`;
     return "Expert service provided by our team. Fast, reliable, and family-owned. Contact us for a free estimate!";
   }
 }
+
+export async function generateReviewResponse(params: {
+  businessName: string;
+  reviewerName: string;
+  reviewText: string;
+  starRating: number;
+}) {
+  const { businessName, reviewerName, reviewText, starRating } = params;
+
+  const systemPrompt = `You are a Reputation Management Expert for "${businessName}". 
+Your goal is to write a professional, appreciative, and SEO-friendly response to a customer review.
+Guidelines:
+1. Be polite and professional.
+2. Thank the customer by name ("${reviewerName}") if provided.
+3. If the review is positive (4-5 stars), express genuine gratitude and mention how much you value their support.
+4. If the review is negative (1-3 stars), be empathetic, professional, and offer to resolve the issue privately (e.g., "Please contact us at our office number so we can make this right").
+5. Keep it concise (2-4 sentences).`;
+
+  const userPrompt = `Generate a response to this ${starRating}-star review: "${reviewText}"`;
+
+  try {
+    const response = await openai.chat.completions.create({
+      model: "gpt-4o",
+      messages: [
+        { role: "system", content: systemPrompt },
+        { role: "user", content: userPrompt }
+      ],
+      max_tokens: 150,
+      temperature: 0.7,
+    });
+
+    return response.choices[0]?.message?.content?.trim() || "Thank you for your feedback! We appreciate your business.";
+  } catch (error) {
+    console.error('OpenAI Review Response Error:', error);
+    return `Thank you ${reviewerName} for choosing ${businessName}. We appreciate your support!`;
+  }
+}

@@ -6,7 +6,14 @@ import DashboardSidebar from '@/components/DashboardSidebar'
 
 import { createClient } from '@/lib/supabase/client'
 import { useRouter } from 'next/navigation'
-import { initiateGoogleGMB, syncPostToGMB, generateAIDraft } from '@/app/auth/actions'
+import { 
+  initiateGoogleGMB, 
+  syncPostToGMB, 
+  generateAIDraft, 
+  fetchReviews, 
+  respondToReview, 
+  generateAIReply 
+} from '@/app/auth/actions'
 import GMBLocationSearch from '@/components/GMBLocationSearch'
 import { User } from '@supabase/supabase-js'
 
@@ -46,6 +53,12 @@ function DashboardContent() {
   const [gmbStep, setGmbStep] = useState(0)
   const [timeframe, setTimeframe] = useState('30d')
   const [aiDraft, setAiDraft] = useState('')
+  const [reviews, setReviews] = useState<any[]>([])
+  const [isLoadingReviews, setIsLoadingReviews] = useState(false)
+  const [isReplying, setIsReplying] = useState<Record<string, boolean>>({})
+  const [activeReply, setActiveReply] = useState<Record<string, string>>({})
+  const [timerCountdown, setTimerCountdown] = useState(60)
+  const [isTimerActive, setIsTimerActive] = useState(false)
 
   useEffect(() => {
     const getData = async () => {
@@ -70,6 +83,56 @@ function DashboardContent() {
     getData()
   }, [])
 
+  useEffect(() => {
+    if (currentView === 'reviews' && isGMBConnected) {
+      loadReviews()
+    }
+  }, [currentView, isGMBConnected])
+
+  const loadReviews = async () => {
+    setIsLoadingReviews(true)
+    const result = await fetchReviews()
+    if (result.success) {
+      setReviews(result.reviews)
+    }
+    setIsLoadingReviews(false)
+  }
+
+  const handleGenerateReply = async (review: any) => {
+    const reviewId = review.reviewId
+    setIsReplying(prev => ({ ...prev, [reviewId]: true }))
+    
+    const result = await generateAIReply(
+      review.reviewer.displayName || 'Customer', 
+      review.comment || '', 
+      review.starRating === 'FIVE' ? 5 : review.starRating === 'FOUR' ? 4 : review.starRating === 'THREE' ? 3 : review.starRating === 'TWO' ? 2 : 1
+    )
+    
+    if (result.success) {
+      setActiveReply(prev => ({ ...prev, [reviewId]: result.reply || '' }))
+    }
+    
+    setIsReplying(prev => ({ ...prev, [reviewId]: false }))
+  }
+
+  const handlePostReply = async (reviewId: string) => {
+    const comment = activeReply[reviewId]
+    if (!comment) return
+    
+    setIsReplying(prev => ({ ...prev, [reviewId]: true }))
+    const result = await respondToReview(reviewId, comment)
+    if (result.success) {
+      // Refresh or mark as replied
+      loadReviews()
+      setActiveReply(prev => {
+        const next = { ...prev }
+        delete next[reviewId]
+        return next
+      })
+    }
+    setIsReplying(prev => ({ ...prev, [reviewId]: false }))
+  }
+
   const handleGMBConnect = async () => {
     setIsGMBConnecting(true)
     await initiateGoogleGMB()
@@ -93,6 +156,31 @@ function DashboardContent() {
 
     setIsUpdating(false)
     setPendingApproval(true)
+    setTimerCountdown(60)
+    setIsTimerActive(true)
+  }
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+    if (isTimerActive && pendingApproval && timerCountdown > 0) {
+      interval = setInterval(() => {
+        setTimerCountdown(prev => prev - 1)
+      }, 1000)
+    } else if (timerCountdown === 0 && isTimerActive && pendingApproval) {
+      handleApprove()
+      setIsTimerActive(false)
+    }
+    return () => clearInterval(interval)
+  }, [isTimerActive, pendingApproval, timerCountdown])
+
+  const handleManualApprove = () => {
+    setIsTimerActive(false)
+    handleApprove()
+  }
+
+  const handleEditDraft = () => {
+    setIsTimerActive(false)
+    // Conceptually open editor
   }
 
   const handleApprove = async () => {
@@ -396,11 +484,17 @@ function DashboardContent() {
                     <div className="flex gap-2">
                       <div className="w-5 h-5 rounded-full shrink-0 flex items-center justify-center text-[7px] font-black text-white mt-0.5" style={{background:'#1d9e75'}}>N</div>
                       <div className="bg-white rounded-2xl rounded-tl-md px-3 py-2 shadow-sm max-w-[90%]">
-                        <p className="text-[8px] font-black text-primary uppercase tracking-widest mb-1">Draft Preview</p>
+                        <div className="flex items-center justify-between mb-1.5 px-0.5">
+                           <p className="text-[8px] font-black text-primary uppercase tracking-widest">Draft Preview</p>
+                           <div className="flex items-center gap-1">
+                              <span className="w-1 h-1 rounded-full bg-primary animate-pulse"></span>
+                              <span className="text-[8px] font-bold text-primary italic uppercase tracking-tighter">Auto-post in {timerCountdown}s</span>
+                           </div>
+                        </div>
                         <p className="text-[9px] text-slate-700 leading-relaxed mb-2">"{aiDraft}"</p>
                         <div className="flex gap-1.5">
-                          <button onClick={handleApprove} className="flex-1 bg-primary text-white text-[8px] font-black uppercase tracking-widest py-1.5 rounded-lg hover:bg-primary/90 transition-all active:scale-95">✓ Approve</button>
-                          <button className="flex-1 bg-slate-100 text-slate-500 text-[8px] font-black uppercase tracking-widest py-1.5 rounded-lg hover:bg-slate-200 transition-all">✎ Edit</button>
+                          <button onClick={handleManualApprove} className="flex-1 bg-primary text-white text-[8px] font-black uppercase tracking-widest py-1.5 rounded-lg hover:bg-primary/90 transition-all active:scale-95 shadow-lg shadow-primary/20">✓ Approve Now</button>
+                          <button onClick={handleEditDraft} className="flex-1 bg-slate-100 text-slate-500 text-[8px] font-black uppercase tracking-widest py-1.5 rounded-lg hover:bg-slate-200 transition-all">✎ Edit</button>
                         </div>
                       </div>
                     </div>
@@ -417,7 +511,35 @@ function DashboardContent() {
                       <div className="flex gap-2">
                         <div className="w-5 h-5 rounded-full shrink-0 flex items-center justify-center text-[7px] font-black text-white mt-0.5" style={{background:'#1d9e75'}}>N</div>
                         <div className="bg-white rounded-2xl rounded-tl-md px-3 py-2 shadow-sm max-w-[85%]">
-                          <p className="text-[10px] text-slate-700 leading-relaxed">Published! Your post is now live on your website + Google Business Profile ✨</p>
+                          <p className="text-[10px] text-slate-700 leading-relaxed mb-3">Published! Your post is now live on your website + Google Business Profile ✨</p>
+                          
+                          {/* Review Card */}
+                          <div className="bg-slate-50 rounded-xl p-3 border border-slate-100 mb-2">
+                             <div className="text-[7px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Share Review Link</div>
+                             <div className="flex flex-col gap-2">
+                                <button 
+                                  onClick={() => {
+                                    const link = `https://search.google.com/local/writereview?placeid=${profile?.gmb_location_id || 'ChIJN1t_tDeuEmsRUsoyG83frY4'}`
+                                    const text = `Thanks for having us today! It would mean a lot if you could leave a quick review of our work here: ${link}`
+                                    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank')
+                                  }}
+                                  className="w-full bg-[#25D366] text-white text-[8px] font-black uppercase tracking-[1px] py-1.5 rounded-lg flex items-center justify-center gap-1.5"
+                                >
+                                   <span>💬</span> WhatsApp Share
+                                </button>
+                                <button 
+                                  onClick={() => {
+                                    const link = `https://search.google.com/local/writereview?placeid=${profile?.gmb_location_id || 'ChIJN1t_tDeuEmsRUsoyG83frY4'}`
+                                    const text = `Thanks for having us! Could you please leave a quick review here: ${link}`
+                                    navigator.clipboard.writeText(text)
+                                    alert("Review message copied to clipboard!")
+                                  }}
+                                  className="w-full bg-slate-900 text-white text-[8px] font-black uppercase tracking-[1px] py-1.5 rounded-lg flex items-center justify-center gap-1.5"
+                                >
+                                   <span>📋</span> Copy Link
+                                </button>
+                             </div>
+                          </div>
                         </div>
                       </div>
                     </>
@@ -565,6 +687,122 @@ function DashboardContent() {
     </div>
   )
 
+  const renderReviewsView = () => (
+    <div className="animate-fade-in space-y-12 pb-20">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+        <div>
+           <h2 className="text-4xl font-black text-slate-900 tracking-tighter mb-4">Reviews & Reputation</h2>
+           <p className="text-slate-500 font-medium">Manage your customer feedback and generate AI responses to boost local SEO.</p>
+        </div>
+        <button className="bg-primary text-white font-black px-8 py-4 rounded-2xl shadow-lg shadow-primary/20 hover:scale-[1.02] transition-all flex items-center gap-3">
+          <span>🚀</span> Request New Review
+        </button>
+      </div>
+
+      {!isGMBConnected ? (
+        <div className="bg-slate-50 border-2 border-dashed border-slate-200 rounded-[40px] p-20 text-center">
+           <div className="text-6xl mb-6">🏢</div>
+           <h3 className="text-xl font-black text-slate-900 mb-2">Connect Google to See Reviews</h3>
+           <p className="text-slate-400 max-w-sm mx-auto mb-8 font-medium">We need your Google Business connection to fetch and reply to your customer reviews.</p>
+           <button onClick={handleGMBConnect} className="bg-slate-950 text-white font-black px-10 py-4 rounded-2xl">Connect Now</button>
+        </div>
+      ) : (
+        <div className="grid gap-6">
+           {isLoadingReviews ? (
+             <div className="py-20 text-center">
+                <div className="w-12 h-12 border-4 border-primary/10 border-t-primary rounded-full animate-spin mx-auto mb-6"></div>
+                <div className="font-black text-slate-400 uppercase tracking-widest text-[10px]">Syncing with Google Business...</div>
+             </div>
+           ) : reviews.length === 0 ? (
+             <div className="bg-white border border-slate-100 rounded-[40px] p-20 text-center">
+                <div className="text-5xl mb-6">🏜️</div>
+                <h3 className="text-xl font-black text-slate-900 mb-2">No Reviews Found Yet</h3>
+                <p className="text-slate-400 max-w-sm mx-auto font-bold uppercase tracking-widest text-[10px]">Your Google Profile has no recent customer feedback.</p>
+             </div>
+           ) : (
+             reviews.map((r, i) => (
+               <div key={i} className="bg-white border border-slate-100 rounded-[32px] p-8 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="flex justify-between items-start mb-6">
+                     <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-xl font-black text-slate-400">
+                           {r.reviewer?.displayName?.charAt(0) || 'C'}
+                        </div>
+                        <div>
+                           <div className="font-black text-slate-900 tracking-tight">{r.reviewer?.displayName || 'Anonymous Customer'}</div>
+                           <div className="flex text-amber-400 text-sm">
+                              {[...Array(5)].map((_, i) => (
+                                <span key={i}>{i < (r.starRating === 'FIVE' ? 5 : 4) ? '★' : '☆'}</span>
+                              ))}
+                           </div>
+                        </div>
+                     </div>
+                     <span className="text-[10px] font-bold text-slate-300 uppercase tracking-widest">{new Date(r.createTime).toLocaleDateString()}</span>
+                  </div>
+                  
+                  <p className="text-[14px] text-slate-600 font-medium leading-relaxed mb-8 italic">"{r.comment || 'No text provided with this review.'}"</p>
+
+                  <div className="pt-6 border-t border-slate-50">
+                    {r.reviewReply ? (
+                      <div className="bg-slate-50 rounded-2xl p-5 border border-slate-100">
+                         <div className="text-[9px] font-black text-primary uppercase tracking-widest mb-2 flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                            Your Official Response
+                         </div>
+                         <p className="text-xs font-bold text-slate-600 leading-relaxed italic opacity-80">"{r.reviewReply.comment}"</p>
+                      </div>
+                    ) : (
+                      <div className="space-y-4">
+                         {activeReply[r.reviewId] ? (
+                           <div className="animate-in fade-in slide-in-from-top-2 duration-300">
+                              <label className="text-[9px] font-black text-primary uppercase tracking-widest mb-2 block">AI Suggested Response ✨</label>
+                              <textarea 
+                                value={activeReply[r.reviewId]}
+                                onChange={(e) => setActiveReply(prev => ({ ...prev, [r.reviewId]: e.target.value }))}
+                                className="w-full bg-primary/5 border-2 border-primary/10 rounded-2xl p-5 text-sm font-bold text-slate-800 focus:outline-none focus:ring-4 ring-primary/5 min-h-[100px]"
+                              />
+                              <div className="flex gap-3 mt-4">
+                                 <button 
+                                   onClick={() => handlePostReply(r.reviewId)}
+                                   disabled={isReplying[r.reviewId]}
+                                   className="flex-1 bg-primary text-white font-black py-4 rounded-xl text-xs uppercase tracking-widest shadow-lg shadow-primary/20 hover:scale-[1.02] transition-all disabled:opacity-50"
+                                 >
+                                   {isReplying[r.reviewId] ? 'Posting...' : 'Post Reply to Google'}
+                                 </button>
+                                 <button 
+                                   onClick={() => setActiveReply(prev => {
+                                      const n = {...prev}
+                                      delete n[r.reviewId]
+                                      return n
+                                   })}
+                                   className="px-6 border border-slate-200 text-slate-400 font-black py-4 rounded-xl text-xs uppercase tracking-widest hover:bg-slate-50 transition-all"
+                                 >Discard</button>
+                              </div>
+                           </div>
+                         ) : (
+                           <div className="flex flex-col sm:flex-row gap-3">
+                              <button 
+                                onClick={() => handleGenerateReply(r)}
+                                disabled={isReplying[r.reviewId]}
+                                className="flex-1 bg-slate-950 text-white font-black py-4 rounded-2xl text-xs uppercase tracking-widest shadow-xl flex items-center justify-center gap-3 hover:scale-[1.02] transition-all disabled:opacity-50"
+                              >
+                                {isReplying[r.reviewId] ? (
+                                  <span className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin"></span>
+                                ) : '✨ Generate AI Response'}
+                              </button>
+                              <button className="flex-1 bg-white border-2 border-slate-100 text-slate-600 font-black py-4 rounded-2xl text-xs uppercase tracking-widest hover:bg-slate-50 transition-all">Manual Reply</button>
+                           </div>
+                         )}
+                      </div>
+                    )}
+                  </div>
+               </div>
+             ))
+           )}
+        </div>
+      )}
+    </div>
+  )
+
   return (
     <div className="flex min-h-screen bg-[#FDFDFD]">
       <DashboardSidebar currentView={currentView} onViewChange={setCurrentView} />
@@ -594,6 +832,7 @@ function DashboardContent() {
           {currentView === 'main' && renderMainView()}
           {currentView === 'domains' && renderDomainsView()}
           {currentView === 'subscription' && renderSubscriptionView()}
+          {currentView === 'reviews' && renderReviewsView()}
           {(currentView === 'profile' || currentView === 'settings') && (
             <div className="py-20 text-center animate-fade-in">
                <div className="text-6xl mb-6">🚧</div>

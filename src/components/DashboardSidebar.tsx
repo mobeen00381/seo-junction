@@ -56,6 +56,12 @@ export default function DashboardSidebar({ currentView, onViewChange }: Dashboar
           onClick={() => onViewChange('domains')} 
         />
         <SidebarItem 
+          icon="⭐" 
+          label="Reviews" 
+          active={currentView === 'reviews'} 
+          onClick={() => onViewChange('reviews')} 
+        />
+        <SidebarItem 
           icon="⚙️" 
           label="Settings" 
           active={currentView === 'settings'} 

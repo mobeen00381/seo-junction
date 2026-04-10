@@ -102,25 +102,29 @@ export default function HomePage() {
           </div>
 
           {/* Right - Product Mockup */}
-          <div className="relative flex flex-col items-center justify-start pt-6 md:pt-8 pb-12 md:pb-12 md:pl-6 gap-4 animate-fade-in" style={{animationDelay:'0.2s', background:'var(--paper)'}}>
+          <div className="relative flex flex-col items-center justify-center pt-12 pb-12 md:pl-6 animate-fade-in" style={{animationDelay:'0.2s'}}>
             <div className="absolute inset-0 opacity-40" style={{backgroundImage:'radial-gradient(circle, var(--paper3) 1px, transparent 1px)', backgroundSize:'24px 24px'}}></div>
             
-            {/* Stat Cards */}
-            <div className="flex gap-3 w-[258px] relative z-10">
-              <div className="flex-1 rounded-xl p-3" style={{background:'var(--paper)', border:'1px solid var(--border2)'}}>
-                <div className="text-[9px] font-semibold tracking-[0.8px] uppercase mb-1" style={{color:'var(--ink4)'}}>Monthly calls</div>
-                <div className="font-display text-xl font-bold italic" style={{color:'var(--teal2)'}}>+34</div>
-                <div className="text-[10px] font-semibold mt-1" style={{color:'var(--teal2)'}}>↗ 62% this month</div>
-              </div>
-              <div className="flex-1 rounded-xl p-3" style={{background:'var(--paper)', border:'1px solid var(--border2)'}}>
-                <div className="text-[9px] font-semibold tracking-[0.8px] uppercase mb-1" style={{color:'var(--ink4)'}}>Google rank</div>
-                <div className="font-display text-xl font-bold italic" style={{color:'var(--teal2)'}}>#1</div>
-                <div className="text-[10px] font-semibold mt-1" style={{color:'var(--teal2)'}}>Local search</div>
-              </div>
-            </div>
-
             {/* Phone Frame */}
             <div className="w-[260px] h-[520px] rounded-[48px] p-2.5 relative z-10 shadow-4xl group/phone" style={{background:'var(--ink)', border:'1px solid rgba(255,255,255,0.08)'}}>
+              
+              {/* Floating Stat 1 - Top Right */}
+              <div className="absolute -right-12 top-10 w-[100px] rounded-xl p-2.5 shadow-2xl animate-float z-20" style={{background:'var(--paper)', border:'1px solid var(--border2)', backdropFilter:'blur(10px)'}}>
+                <div className="text-[7px] font-black tracking-[1px] uppercase mb-1 opacity-50">Local Rank</div>
+                <div className="font-display text-lg font-black italic leading-none" style={{color:'var(--teal2)'}}>#1</div>
+                <div className="text-[8px] font-bold mt-1.5" style={{color:'var(--ink4)'}}>Local Search</div>
+              </div>
+
+              {/* Floating Stat 2 - Middle Right */}
+              <div className="absolute -right-14 bottom-32 w-[110px] rounded-xl p-2.5 shadow-2xl animate-float z-20" style={{background:'var(--paper)', border:'1px solid var(--border2)', animationDelay:'1s', backdropFilter:'blur(10px)'}}>
+                <div className="text-[7px] font-black tracking-[1px] uppercase mb-1 opacity-50">Monthly Calls</div>
+                <div className="font-display text-lg font-black italic leading-none" style={{color:'var(--teal2)'}}>+34</div>
+                <div className="text-[8px] font-bold mt-1.5 flex items-center gap-1">
+                  <span style={{color:'var(--teal2)'}}>↗</span> 
+                  <span style={{color:'var(--ink4)'}}>62% mth</span>
+                </div>
+              </div>
+
               <div className="w-full h-full rounded-[38px] overflow-hidden relative flex flex-col" style={{background:'var(--paper)', border:'1.5px solid var(--border2)'}}>
                 
                 {/* Real-world Header / Status Bar */}
