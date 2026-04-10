@@ -276,18 +276,13 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           
           {/* Centered Header */}
-          <div className="text-center mb-20 md:mb-28">
-            <div className="text-[10px] font-black tracking-[5px] uppercase mb-8 inline-flex items-center gap-4" style={{color:'var(--on-dark-sub)'}}>
-              <span className="h-px w-8 bg-current opacity-20"></span>
-              Mobile-First Control
-              <span className="h-px w-8 bg-current opacity-20"></span>
-            </div>
-            <h2 className="text-4xl md:text-7xl mb-8 leading-[1] tracking-tight text-white italic uppercase">
-              Nothing goes live <br/>
-              <span style={{color:'var(--sun)'}}>without your say.</span>
+          <div className="text-left mb-16 md:mb-20">
+            <h2 className="text-4xl md:text-7xl mb-8 leading-[1.1] tracking-tight text-white font-bold">
+              Lives on your <br/>
+              <span className="italic" style={{color:'var(--sun)'}}>home screen.</span>
             </h2>
-            <p className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed" style={{color:'rgba(245,249,246,0.6)'}}>
-              Add Neerzy to your phone in 5 seconds. Snap photos on-site, approve AI posts in one tap, and watch your ranking grow while you work.
+            <p className="text-lg md:text-xl max-w-2xl leading-relaxed opacity-60" style={{color:'var(--paper)'}}>
+              Add Neerzy to your phone in 5 seconds. Snap photos on-site, approve AI-written posts in one tap, and watch your Google ranking grow while you work.
             </p>
           </div>
 
@@ -305,22 +300,33 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  <div className="flex-1 flex flex-col items-center justify-center gap-12 px-10">
-                    <div className="grid grid-cols-4 gap-6">
+                   <div className="flex-1 flex flex-col items-center justify-start pt-24 px-10">
+                    <div className="grid grid-cols-4 gap-4 w-full mb-16">
                       <div className="flex flex-col items-center gap-2">
-                        <div className="w-16 h-16 rounded-[20px] flex items-center justify-center shadow-2xl animate-pulse" style={{background:'linear-gradient(135deg, #1d9e75 0%, #0f6e56 100%)'}}>
+                        <div className="w-16 h-16 rounded-[20px] flex items-center justify-center shadow-2xl relative" style={{background:'linear-gradient(135deg, #1d9e75 0%, #0f6e56 100%)'}}>
                           <svg width="32" height="32" viewBox="0 0 30 30" fill="none">
                             <circle cx="15" cy="13" r="5" fill="none" stroke="#a8f0c8" strokeWidth="1.8"/>
                             <circle cx="15" cy="13" r="2" fill="#a8f0c8"/>
                             <path d="M10 21 Q15 17 20 21" stroke="#a8f0c8" strokeWidth="1.8" strokeLinecap="round"/>
                           </svg>
                         </div>
+                        <div className="text-[10px] font-bold text-white mt-1">Neerzy</div>
                       </div>
-                      {[1,2,3].map(i => <div key={i} className="w-16 h-16 rounded-[20px] bg-white/5 border border-white/5"></div>)}
+                      {[
+                        { icon: '💬', color: 'bg-white/5' },
+                        { icon: '📞', color: 'bg-white/5' },
+                        { icon: '📸', color: 'bg-white/5' }
+                      ].map((app, i) => (
+                        <div key={i} className="flex flex-col items-center gap-2 opacity-10">
+                          <div className={`w-16 h-16 rounded-[20px] ${app.color} border border-white/5 flex items-center justify-center text-xl`}>
+                            {app.icon}
+                          </div>
+                        </div>
+                      ))}
                     </div>
 
-                    <div className="flex items-center gap-3 px-6 py-3 rounded-full bg-teal-500/10 border border-teal-500/20">
-                      <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></div>
+                    <div className="w-full px-4 py-8 rounded-[30px] bg-[#0c1a16] border border-white/5 flex items-center gap-4 shadow-2xl">
+                      <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_10px_rgba(52,211,153,0.5)]"></div>
                       <span className="text-[14px] font-bold text-white tracking-tight">One tap — you&apos;re posting</span>
                     </div>
                   </div>
@@ -329,33 +335,15 @@ export default function HomePage() {
             </div>
 
             {/* Right — 4 Boxes Grid */}
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
               {CONTROLS.map((c, i) => (
-                <div key={i} className="p-8 rounded-[32px] border border-white/[0.05] bg-white/[0.02] hover:bg-white/[0.04] transition-all hover:scale-[1.02] group">
-                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl mb-6 bg-white/[0.05] border border-white/[0.08]">{c.icon}</div>
-                  <h3 className="text-white font-black mb-3 text-lg uppercase tracking-tight italic">{c.title}</h3>
-                  <p className="text-[13px] leading-relaxed text-white/40">{c.desc}</p>
+                <div key={i} className="p-8 rounded-[32px] border border-white/[0.05] bg-[#0c1410] hover:bg-[#121c17] transition-all hover:scale-[1.02] group">
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center text-xl mb-6 bg-white/[0.03] border border-white/[0.08]">{c.icon}</div>
+                  <h3 className="text-white font-bold mb-2 text-lg tracking-tight">{c.title}</h3>
+                  <p className="text-[14px] leading-relaxed text-white/40">{c.desc}</p>
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* Bottom Row — Access Methods */}
-          <div className="flex flex-col md:flex-row justify-center gap-6 max-w-4xl mx-auto">
-             <div className="flex-1 p-6 rounded-[28px] flex items-center gap-5 bg-teal-500/10 border border-teal-500/20 group hover:bg-teal-500/15 transition-all">
-                <div className="w-14 h-14 rounded-2xl bg-teal-500/20 flex items-center justify-center text-3xl">📱</div>
-                <div>
-                  <div className="text-[17px] font-black text-white italic uppercase tracking-tight">Home Screen</div>
-                  <div className="text-[13px] text-teal-400/60 font-medium">Direct, 1-tap access on your phone</div>
-                </div>
-             </div>
-             <div className="flex-1 p-6 rounded-[28px] flex items-center gap-5 bg-white/[0.03] border border-white/[0.05] group hover:bg-white/[0.05] transition-all">
-                <div className="w-14 h-14 rounded-2xl bg-white/[0.05] flex items-center justify-center text-3xl">🔗</div>
-                <div>
-                  <div className="text-[17px] font-black text-white italic uppercase tracking-tight">Direct Link</div>
-                  <div className="text-[13px] text-white/30 font-medium">Simple dashboard browser access</div>
-                </div>
-             </div>
           </div>
         </div>
       </section>
