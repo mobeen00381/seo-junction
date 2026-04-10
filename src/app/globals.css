@@ -29,6 +29,8 @@
   --glass-bg: rgba(245, 249, 246, 0.7);
   --glass-border: rgba(14, 26, 20, 0.08);
   --navy: #0e1a14;
+  --on-dark: #ffffff;
+  --on-dark-sub: #a8f0c8;
 }
 
 .dark {
@@ -46,6 +48,8 @@
   --glass-bg: rgba(5, 11, 8, 0.8);
   --glass-border: rgba(168, 240, 200, 0.1);
   --navy: #0e1a14; /* Always dark for components that need fixed dark styling */
+  --on-dark: #ffffff;
+  --on-dark-sub: #a8f0c8;
 }
 
 * { 

@@ -224,11 +224,11 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="max-w-4xl mx-auto rounded-[32px] p-10 md:p-12 text-center" style={{background:'var(--ink)', border:'1px solid rgba(255,255,255,0.1)', boxShadow: '0 30px 60px rgba(0,0,0,0.2)'}}>
-            <p className="text-xl md:text-2xl font-display font-bold italic leading-relaxed mb-6" style={{color:'var(--mint)'}}>
+          <div className="max-w-4xl mx-auto rounded-[32px] p-10 md:p-12 text-center" style={{background:'var(--navy)', border:'1px solid rgba(255,255,255,0.1)', boxShadow: '0 30px 60px rgba(0,0,0,0.2)'}}>
+            <p className="text-xl md:text-2xl font-display font-bold italic leading-relaxed mb-6" style={{color:'var(--on-dark-sub)'}}>
               &ldquo;10 jobs = <span style={{color:'var(--sun)'}}>10 posts + up to 10 reviews</span>. 50 jobs = strong Google presence. <span style={{color:'var(--teal2)'}}>100 jobs = you dominate your neighbourhood.</span>&rdquo;
             </p>
-            <div className="text-[11px] font-black tracking-[3px] uppercase opacity-40 px-6 py-2 rounded-full border border-white/5 w-fit mx-auto" style={{color:'var(--paper)'}}>The Power of Compounding</div>
+            <div className="text-[11px] font-black tracking-[3px] uppercase opacity-40 px-6 py-2 rounded-full border border-white/5 w-fit mx-auto" style={{color:'var(--on-dark)'}}>The Power of Compounding</div>
           </div>
         </div>
       </section>
@@ -250,20 +250,20 @@ export default function HomePage() {
       </div>
 
       {/* 🛠️ HOW IT WORKS 🛠️ */}
-      <section className="py-14 md:py-16 px-6 md:px-12" style={{background:'var(--ink)'}}>
+      <section className="py-14 md:py-16 px-6 md:px-12" style={{background:'var(--navy)'}}>
         <div className="max-w-6xl mx-auto">
           <div className="text-[10px] font-bold tracking-[2.5px] uppercase mb-4 flex items-center gap-3" style={{color:'rgba(168,240,200,0.4)'}}>
             How it works
             <span className="h-px w-7" style={{background:'rgba(168,200,200,0.15)'}}></span>
           </div>
-          <h2 className="mb-3" style={{color:'var(--mint)'}}>Four steps.<br/><em style={{color:'var(--sun)'}}>Zero complexity.</em></h2>
+          <h2 className="mb-3" style={{color:'var(--on-dark-sub)'}}>Four steps.<br/><em style={{color:'var(--sun)'}}>Zero complexity.</em></h2>
           <p className="text-[15px] max-w-[480px] mb-12" style={{color:'rgba(245,249,246,0.5)'}}>We handle everything behind the scenes. You just show us your latest work.</p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px rounded-[26px] overflow-hidden" style={{border:'1px solid rgba(168,240,200,0.1)', background:'rgba(168,240,200,0.06)'}}>
             {STEPS.map((s, i) => (
               <div key={i} className="p-8 md:p-10 premium-card" style={{background:'rgba(14,26,20,0.98)'}}>
                 <div className="font-display text-7xl font-bold italic leading-none tracking-tighter mb-4" style={{color:'rgba(168,240,200,0.07)'}}>{s.n}</div>
                 <div className="w-11 h-11 rounded-xl flex items-center justify-center text-xl mb-5" style={{background:'rgba(168,240,200,0.08)', border:'1px solid rgba(168,240,200,0.12)'}}>{s.icon}</div>
-                <h3 className="font-display text-lg font-bold mb-2" style={{color:'var(--paper)'}}>{s.title}</h3>
+                <h3 className="font-display text-lg font-bold mb-2" style={{color:'var(--on-dark)'}}>{s.title}</h3>
                 <p className="text-[13px] leading-relaxed" style={{color:'rgba(245,249,246,0.45)'}}>{s.desc}</p>
               </div>
             ))}
@@ -293,7 +293,7 @@ export default function HomePage() {
       </section>
 
       {/* 📱 HOME SCREEN SECTION 📱 */}
-      <section className="py-14 md:py-20 px-6 md:px-12 overflow-hidden" style={{background:'var(--ink)'}}>
+      <section className="py-14 md:py-20 px-6 md:px-12 overflow-hidden" style={{background:'var(--navy)'}}>
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 md:gap-20 items-center">
           
           {/* Left — Phone Mockup (Home Screen) */}
@@ -529,7 +529,7 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-        <Link href="/onboarding" className="inline-block font-bold text-sm px-9 py-4 rounded-full whitespace-nowrap transition-all hover:scale-105 active:scale-95 shadow-[0_15px_30px_rgba(15,110,86,0.3)]" style={{background:'var(--ink)', color:'#ffffff', border:'1px solid rgba(255,255,255,0.1)'}}>
+        <Link href="/onboarding" className="inline-block font-bold text-sm px-9 py-4 rounded-full whitespace-nowrap transition-all hover:scale-105 active:scale-95 shadow-[0_15px_30px_rgba(15,110,86,0.3)]" style={{background:'var(--navy)', color:'#ffffff', border:'1px solid rgba(255,255,255,0.1)'}}>
           Get Started on Neerzy →
         </Link>
       </section>
