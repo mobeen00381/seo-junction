@@ -40,7 +40,7 @@ export default function BlogPage() {
 
       <header className="pt-40 pb-20 px-6 text-center bg-gray-50 dark:bg-slate-900/40 border-b border-gray-100 dark:border-slate-800">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 tracking-tighter uppercase italic">The Junction <span className="text-primary italic">Blog</span></h1>
+          <h1 className="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 tracking-tight uppercase italic">The Junction <span className="text-primary italic">Blog</span></h1>
           <p className="text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed font-bold uppercase tracking-widest text-[10px]">Simple growth guides for local service pros.</p>
         </div>
       </header>

@@ -104,7 +104,7 @@ export default function PricingPage() {
       <div className="max-w-5xl mx-auto px-6 py-20 mt-20">
         <div className="text-center mb-16">
           <div className="text-[10px] font-black tracking-[4px] uppercase text-primary mb-6">Pricing Plans</div>
-          <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tighter leading-none italic uppercase">More Neighbours Calling.<br /><span className="text-primary italic">Starting at $29/Month.</span></h1>
+          <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tight leading-none italic uppercase">More Neighbours Calling.<br /><span className="text-primary italic">Starting at $29/Month.</span></h1>
           <p className="text-slate-500 dark:text-slate-400 max-w-lg mx-auto font-medium">Launch your real business online — your own domain for a one-time £29/$29 setup fee.</p>
           <p className="text-slate-400 dark:text-slate-500 max-w-md mx-auto text-[11px] mt-4 italic uppercase font-bold tracking-widest opacity-60">This is your business. Your name on the door. Yours forever — even if you leave Neerzy.</p>
         </div>
@@ -114,7 +114,7 @@ export default function PricingPage() {
             <div key={p.name} className={`rounded-[32px] border p-8 relative transition-all ${p.popular?'border-primary bg-primary/5 shadow-2xl shadow-primary/10':'border-gray-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:border-primary/20'}`}>
               {p.badge && <div className="absolute -top-3 left-1/2 -translate-x-1/2 text-[10px] font-black text-white px-5 py-2 rounded-xl uppercase tracking-widest bg-slate-950 whitespace-nowrap border border-white/10">{p.badge}</div>}
               <div className="font-black text-gray-400 dark:text-gray-500 uppercase text-[10px] tracking-widest mb-4">{p.name}</div>
-              <div className="text-4xl font-black mb-2 tracking-tighter">${p.price}<span className="text-sm font-bold opacity-30">/mo</span></div>
+              <div className="text-4xl font-black mb-2 tracking-tight">${p.price}<span className="text-sm font-bold opacity-30">/mo</span></div>
               <div className="text-[11px] text-slate-500 dark:text-slate-400 mb-6 h-10 line-clamp-2 font-medium">{p.desc}</div>
               <div className="text-[10px] text-primary dark:text-emerald-400 font-black mb-8 uppercase tracking-[2px] bg-primary/5 dark:bg-emerald-400/10 px-4 py-1.5 rounded-full border border-primary/10 dark:border-emerald-400/20 w-fit">{p.posts} AI posts/month</div>
               <ul className="space-y-3 mb-10">
@@ -131,7 +131,7 @@ export default function PricingPage() {
         <div className="bg-slate-50 dark:bg-slate-900/50 rounded-[40px] border border-slate-100 dark:border-slate-800 p-8 md:p-12 mb-16">
           <div className="text-center mb-12">
             <div className="text-[10px] font-black tracking-[4px] uppercase text-primary mb-4">Example Output</div>
-            <h2 className="text-3xl font-black mb-4 tracking-tighter italic uppercase">Here Is Exactly What Your AI Post Looks Like</h2>
+            <h2 className="text-3xl font-black mb-4 tracking-tight italic uppercase">Here Is Exactly What Your AI Post Looks Like</h2>
           </div>
           <div className="bg-white dark:bg-slate-950 rounded-[32px] border border-slate-100 dark:border-slate-800 overflow-hidden max-w-2xl mx-auto shadow-2xl">
             <div className="h-36 flex items-center justify-center text-5xl" style={{background:'linear-gradient(135deg, var(--mint), var(--teal-soft))'}}>🌡️</div>

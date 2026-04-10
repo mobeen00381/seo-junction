@@ -84,7 +84,7 @@ export default function TemplateGallery({ onSelect, showBranding = false }: Temp
 
         {/* TEMPLATE GRID */}
         <div className="text-center mb-16 animate-in fade-in slide-in-from-top-4 duration-700 relative z-10">
-          <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-4 tracking-tighter italic uppercase leading-none">
+          <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-4 tracking-tight italic uppercase leading-none">
             {showBranding ? '2. Choose Your Structure' : 'Our Industry Templates'}
           </h2>
           <p className="text-gray-400 font-bold uppercase tracking-widest text-[10px]">Optimized for high-intent local conversion</p>
