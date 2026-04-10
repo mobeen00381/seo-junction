@@ -172,7 +172,7 @@ export default function HomePage() {
                     </div>
 
                     <div className="rounded-lg p-2.5" style={{background:'var(--paper2)', border:'1px solid var(--border)'}}>
-                      <div className="text-[11px] font-semibold mb-px" style={{color:'#1a0dab'}}>Mike&apos;s Electric | #1 Electrician London</div>
+                      <div className="text-[11px] font-semibold mb-px" style={{color:'var(--link-blue)'}}>Mike&apos;s Electric | #1 Electrician London</div>
                       <div className="text-[9px] mb-1" style={{color:'#137333'}}>mikes-electric.neerzy.com</div>
                       <div className="text-[9px] leading-snug mb-1.5" style={{color:'var(--ink4)'}}>Top-rated electrician in London. 100+ 5-star reviews. EV chargers, rewiring, fuse boards...</div>
                       <div className="inline-flex items-center gap-1 text-[9px] font-bold px-2 py-0.5 rounded-full" style={{background:'var(--teal-soft)', color:'var(--teal)'}}>

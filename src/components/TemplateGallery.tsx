@@ -110,7 +110,7 @@ export default function TemplateGallery({ onSelect, showBranding = false }: Temp
                 <div className="absolute inset-0 bg-navy/95 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-center p-8 gap-4">
                    <div className="text-white font-black text-[9px] uppercase tracking-[4px] mb-4 opacity-60">High-Tech Mockup</div>
                    <button 
-                     className="w-full bg-white/10 text-white font-black py-4 rounded-2xl text-[10px] shadow-lg hover:bg-white/20 transition-all uppercase tracking-widest border border-white/10"
+                     className="w-full bg-white text-navy font-black py-4 rounded-2xl text-[10px] shadow-lg hover:bg-white/95 transition-all uppercase tracking-widest border border-white/20"
                    >
                      Preview Style
                    </button>

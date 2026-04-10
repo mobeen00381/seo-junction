@@ -31,6 +31,7 @@
   --navy: #0e1a14;
   --on-dark: #ffffff;
   --on-dark-sub: #a8f0c8;
+  --link-blue: #1a0dab;
 }
 
 .dark {
@@ -50,6 +51,7 @@
   --navy: #0e1a14; /* Always dark for components that need fixed dark styling */
   --on-dark: #ffffff;
   --on-dark-sub: #a8f0c8;
+  --link-blue: #60a5fa;
 }
 
 * { 
