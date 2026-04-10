@@ -1,11 +1,18 @@
 'use client'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import ThemeToggle from './ThemeToggle'
 
 export default function Navbar() {
+  const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  // Auto-close menu on route change
+  useEffect(() => {
+    setIsMenuOpen(false)
+  }, [pathname])
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10)
@@ -90,7 +97,6 @@ export default function Navbar() {
                   <Link 
                     key={link.name} 
                     href={link.href} 
-                    onClick={() => setIsMenuOpen(false)}
                     className="text-xl font-bold transition-all flex items-center justify-between"
                     style={{color:'var(--ink)'}}
                   >

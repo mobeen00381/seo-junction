@@ -42,15 +42,15 @@ export default function BlogPage() {
         </div>
       </header>
 
-      <main className="py-24 px-6">
+      <main className="py-24 px-6 relative z-10">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
           {POSTS.map((post) => (
             <Link 
               key={post.id} 
               href={`/blog/${post.slug}`}
-              className="group block relative no-underline outline-none focus:ring-2 focus:ring-primary rounded-[32px]"
+              className="group block relative no-underline outline-none focus:ring-2 focus:ring-primary rounded-[32px] cursor-pointer"
             >
-              <article className="h-full flex flex-col">
+              <article className="h-full flex flex-col pointer-events-none">
                 <div className="aspect-[16/10] bg-gray-100 dark:bg-slate-900 rounded-[32px] mb-8 overflow-hidden border border-gray-100 dark:border-slate-800 transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-2xl group-hover:shadow-primary/10">
                    <div className="w-full h-full flex items-center justify-center text-5xl opacity-20 grayscale group-hover:grayscale-0 transition-all duration-500">📰</div>
                 </div>
@@ -69,7 +69,7 @@ export default function BlogPage() {
         </div>
       </main>
 
-      <section className="py-24 px-6 bg-navy text-white text-center">
+      <section className="py-24 px-6 bg-navy text-white text-center relative z-10">
          <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl font-black mb-8 tracking-tight uppercase italic">Ready to get your business found?</h2>
             <Link href="/onboarding" className="inline-block font-bold text-blue-900 bg-white px-12 py-5 rounded-2xl shadow-2xl transition-transform hover:scale-105 active:scale-95">Start 30-Day Free Trial →</Link>
