@@ -121,7 +121,7 @@ export default function GmbCheckerPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] text-slate-900 font-sans selection:bg-primary/20">
+    <div className="min-h-screen font-sans selection:bg-primary/20" style={{background:'var(--paper)', color:'var(--ink)'}}>
       
       {/* HEADER */}
       <Navbar />
@@ -133,14 +133,14 @@ export default function GmbCheckerPage() {
           <div className="animate-in fade-in slide-in-from-bottom-8 duration-700">
              <div className="text-center mb-16">
                 <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-[3.2px] mb-12 border border-primary/10">Neural GMB Audit 4.0</div>
-                <h1 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter mb-6 leading-none">
+                <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-6 leading-none">
                    The <span className="text-primary italic">Answers</span> are<br />
                    changing. Are you?
                 </h1>
-                <p className="text-slate-500 font-medium text-lg max-w-2xl mx-auto">See how ChatGPT, Perplexity, and Google's AI Search see your business in 10 seconds.</p>
+                <p className="text-slate-500 dark:text-slate-400 font-medium text-lg max-w-2xl mx-auto">See how ChatGPT, Perplexity, and Google's AI Search see your business in 10 seconds.</p>
              </div>
 
-             <div className="bg-white rounded-[48px] border border-slate-100 p-12 shadow-2xl shadow-slate-200/40 relative overflow-hidden group">
+             <div className="bg-white dark:bg-slate-900 rounded-[48px] border border-slate-100 dark:border-slate-800 p-12 shadow-2xl shadow-slate-200/40 dark:shadow-none relative overflow-hidden group">
                 <div className="absolute top-0 right-0 p-12 text-9xl opacity-[0.03] rotate-12 -translate-y-8 translate-x-8 pointer-events-none">🤖</div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 relative z-10">
                    <div className="space-y-8">
@@ -149,7 +149,7 @@ export default function GmbCheckerPage() {
                         <input 
                           type="text" value={name} onChange={e => setName(e.target.value)}
                           placeholder="e.g. Skyline Electrical Solutions"
-                          className="w-full bg-slate-50 border border-slate-100 rounded-[28px] px-8 py-6 font-bold focus:bg-white focus:ring-4 focus:ring-primary/5 focus:border-primary/20 transition-all outline-none"
+                          className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-[28px] px-8 py-6 font-bold focus:bg-white dark:focus:bg-slate-900 focus:ring-4 focus:ring-primary/5 focus:border-primary/20 transition-all outline-none"
                         />
                       </div>
                       <div>
@@ -157,7 +157,7 @@ export default function GmbCheckerPage() {
                         <input 
                           type="text" value={city} onChange={e => setCity(e.target.value)}
                           placeholder="e.g. Austin, TX"
-                          className="w-full bg-slate-50 border border-slate-100 rounded-[28px] px-8 py-6 font-bold focus:bg-white focus:ring-4 focus:ring-primary/5 focus:border-primary/20 transition-all outline-none"
+                          className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-[28px] px-8 py-6 font-bold focus:bg-white dark:focus:bg-slate-900 focus:ring-4 focus:ring-primary/5 focus:border-primary/20 transition-all outline-none"
                         />
                       </div>
                    </div>
@@ -166,7 +166,7 @@ export default function GmbCheckerPage() {
                         <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-3">Primary Trade</label>
                         <select 
                           value={trade} onChange={e => setTrade(e.target.value)}
-                          className="w-full bg-slate-50 border border-slate-100 rounded-[28px] px-8 py-6 font-bold focus:bg-white focus:ring-4 focus:ring-primary/5 focus:border-primary/20 transition-all outline-none appearance-none"
+                          className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-[28px] px-8 py-6 font-bold focus:bg-white dark:focus:bg-slate-900 focus:ring-4 focus:ring-primary/5 focus:border-primary/20 transition-all outline-none appearance-none"
                         >
                            {TRADES.map(t => <option key={t}>{t}</option>)}
                         </select>
@@ -180,7 +180,7 @@ export default function GmbCheckerPage() {
                       </button>
                    </div>
                 </div>
-                <div className="mt-12 text-center text-[10px] font-bold text-slate-400 uppercase tracking-[4px] opacity-60">
+                <div className="mt-12 text-center text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-[4px] opacity-60">
                    Used by 8,400+ Local Businesses Worldwide
                 </div>
              </div>
@@ -196,8 +196,8 @@ export default function GmbCheckerPage() {
                  <div className="absolute inset-0 flex items-center justify-center text-4xl animate-pulse">📡</div>
               </div>
               <div className="max-w-md mx-auto space-y-4">
-                 <h2 className="text-2xl font-black text-slate-900 tracking-tight">{ANALYSIS_LOGS[logIndex]}</h2>
-                 <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+                 <h2 className="text-2xl font-black tracking-tight">{ANALYSIS_LOGS[logIndex]}</h2>
+                 <div className="h-1.5 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div 
                       className="h-full bg-primary transition-all duration-1000 ease-out"
                       style={{ width: `${((logIndex + 1) / ANALYSIS_LOGS.length) * 100}%` }}
@@ -216,8 +216,8 @@ export default function GmbCheckerPage() {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
                  
                  {/* SCORE CIRCLE */}
-                 <div className="lg:col-span-5 bg-white rounded-[48px] border border-slate-100 p-12 shadow-sm flex flex-col items-center justify-center relative">
-                    <div className="text-[10px] font-black text-slate-400 uppercase tracking-[4px] mb-10">AI Interaction Score</div>
+                 <div className="lg:col-span-5 bg-white dark:bg-slate-900 rounded-[48px] border border-slate-100 dark:border-slate-800 p-12 shadow-sm flex flex-col items-center justify-center relative">
+                    <div className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[4px] mb-10">AI Interaction Score</div>
                     <div className="relative w-64 h-64 flex items-center justify-center mb-10">
                        <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
                           <circle cx="50" cy="50" r="44" fill="none" stroke="#F1F5F9" strokeWidth="6"/>
@@ -227,8 +227,8 @@ export default function GmbCheckerPage() {
                           />
                        </svg>
                        <div className="absolute inset-0 flex flex-col items-center justify-center">
-                          <span className={`text-8xl font-black tracking-tighter transition-colors duration-500 ${isFixing ? 'text-primary animate-pulse' : 'text-slate-900'}`}>{animatedScore}</span>
-                          <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">out of 100</span>
+                          <span className={`text-8xl font-black tracking-tighter transition-colors duration-500 ${isFixing ? 'text-primary animate-pulse' : 'text-slate-900 dark:text-white'}`}>{animatedScore}</span>
+                          <span className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">out of 100</span>
                        </div>
                     </div>
                     <div className={`px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest border transition-all ${step === 'optimized' ? 'bg-emerald-50 text-emerald-600 border-emerald-100' : 'bg-red-50 text-red-600 border-red-100'}`}>
@@ -269,20 +269,20 @@ export default function GmbCheckerPage() {
 
               {/* ACTION: OPTIMIZE BUTTON */}
               {step === 'result' && (
-                <div className="bg-white border-2 border-slate-100 rounded-[48px] p-12 text-center shadow-xl shadow-slate-200/20 relative overflow-hidden group">
+                <div className="bg-white dark:bg-slate-900 border-2 border-slate-100 dark:border-slate-800 rounded-[48px] p-12 text-center shadow-xl shadow-slate-200/20 dark:shadow-none relative overflow-hidden group">
                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 via-primary to-emerald-500"></div>
-                   <h2 className="text-4xl font-black text-slate-900 mb-4 tracking-tighter">Profile Friction Detected ⚠️</h2>
-                   <p className="text-slate-500 font-medium mb-12 max-w-2xl mx-auto text-lg leading-relaxed">
-                      AI agents (ChatGPT) are currently ranking your competitors <span className="text-slate-900 font-bold underline">Above You</span> because your entity data is fragmented.
+                   <h2 className="text-4xl font-black mb-4 tracking-tighter">Profile Friction Detected ⚠️</h2>
+                   <p className="text-slate-500 dark:text-slate-400 font-medium mb-12 max-w-2xl mx-auto text-lg leading-relaxed">
+                      AI agents (ChatGPT) are currently ranking your competitors <span className="text-slate-900 dark:text-white font-bold underline">Above You</span> because your entity data is fragmented.
                    </p>
                    
                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 text-left">
                       {Object.entries(getInsights(trade)).map(([key, tips], idx) => (
-                        <div key={idx} className="bg-slate-50 p-6 rounded-3xl border border-slate-100">
-                           <div className="text-[8px] font-black uppercase tracking-widest text-slate-400 mb-4">{key} Errors</div>
+                        <div key={idx} className="bg-slate-50 dark:bg-slate-950 p-6 rounded-3xl border border-slate-100 dark:border-slate-800">
+                           <div className="text-[8px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-4">{key} Errors</div>
                            <ul className="space-y-3">
                               {tips.map((t, i) => (
-                                <li key={i} className="text-[11px] font-bold text-slate-600 flex items-start gap-2">
+                                <li key={i} className="text-[11px] font-bold text-slate-600 dark:text-slate-300 flex items-start gap-2">
                                    <span className="text-red-500">✕</span> {t}
                                 </li>
                               ))}
@@ -306,14 +306,14 @@ export default function GmbCheckerPage() {
               {step === 'optimized' && (
                 <div className="space-y-16 animate-in fade-in slide-in-from-bottom-12 duration-1000 pb-24">
                    <div className="text-center">
-                      <h2 className="text-5xl font-black text-slate-900 tracking-tighter mb-4">You are now AI-Optimized. ✨</h2>
-                      <p className="text-slate-500 font-bold text-sm uppercase tracking-widest">Visibility Potential: 100% Entity Reach Achieved</p>
+                      <h2 className="text-5xl font-black tracking-tighter mb-4">You are now AI-Optimized. ✨</h2>
+                      <p className="text-slate-500 dark:text-slate-400 font-bold text-sm uppercase tracking-widest">Visibility Potential: 100% Entity Reach Achieved</p>
                    </div>
 
                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
                       <div className="relative group">
                          <div className="absolute inset-0 bg-emerald-500/20 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                         <div className="bg-white border-2 border-primary rounded-[40px] p-10 relative z-10 shadow-2xl shadow-primary/10 transition-transform hover:-rotate-1">
+                         <div className="bg-white dark:bg-slate-900 border-2 border-primary rounded-[40px] p-10 relative z-10 shadow-2xl shadow-primary/10 transition-transform hover:-rotate-1">
                             <div className="flex items-center gap-3 mb-8">
                                <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-xl">🚀</div>
                                <div>

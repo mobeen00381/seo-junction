@@ -73,7 +73,7 @@ export default function HomePage() {
               <Link href="/onboarding" className="inline-flex items-center gap-2 font-bold text-sm px-8 py-4 rounded-full transition-all hover:scale-105 active:scale-95" style={{background:'var(--teal)', color:'var(--mint)'}}>
                 Get Started Free →
               </Link>
-              <Link href="/examples" className="text-sm font-medium flex items-center gap-2 transition-colors" style={{color:'var(--ink3)'}}>
+              <Link href="/examples" className="text-sm font-bold flex items-center gap-2 transition-colors hover:text-primary" style={{color:'var(--ink2)'}}>
                 See live examples →
               </Link>
             </div>
@@ -95,8 +95,8 @@ export default function HomePage() {
                    <div key={i} className="w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-bold" style={{border:'2.5px solid var(--paper)', marginLeft: i > 0 ? '-8px' : '0', background:'var(--paper3)', color:'var(--ink2)'}}>{p}</div>
                  ))}
                </div>
-               <div className="text-[13px]" style={{color:'var(--ink3)'}}>
-                 <strong style={{color:'var(--ink2)'}}>Trades businesses worldwide</strong> already live on Google via Neerzy
+               <div className="text-[13px]" style={{color:'var(--ink2)'}}>
+                 <strong style={{color:'var(--ink)'}}>Trades businesses worldwide</strong> already live on Google via Neerzy
                </div>
             </div>
           </div>

@@ -22,7 +22,7 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
+    { name: 'Pricing', href: '/pricing' },
     { name: 'GMB Checker', href: '/gmb-checker' },
     { name: 'Blog', href: '/blog' },
   ]

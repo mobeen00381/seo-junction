@@ -19,7 +19,7 @@ export default function Article3() {
     <div className="min-h-screen bg-white dark:bg-slate-950 font-inter">
       <Navbar />
       
-      <article className="max-w-[720px] mx-auto px-6 pt-40 pb-24 text-slate-900 dark:text-slate-100 leading-[1.8]">
+      <article className="max-w-[720px] mx-auto px-6 pt-40 pb-24 leading-[1.8]">
         {/* BREADCRUMB */}
         <div className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-8 flex items-center gap-2">
           <Link href="/blog" className="text-primary hover:text-primary/80 transition-colors">Blog</Link>
@@ -34,8 +34,17 @@ export default function Article3() {
           <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest opacity-50">· 5 min read</span>
         </div>
 
+        {/* IMAGE */}
+        <div className="mb-12 rounded-[48px] overflow-hidden border border-slate-100 dark:border-slate-800 shadow-2xl">
+          <img 
+            src="/blog/marketing-photos.png" 
+            alt="Tradesperson taking a photo of their work" 
+            className="w-full h-auto object-cover"
+          />
+        </div>
+
         {/* H1 */}
-        <h1 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-8 tracking-tighter leading-tight italic uppercase">
+        <h1 className="text-3xl md:text-5xl font-black mb-8 tracking-tighter leading-tight italic uppercase">
           Why Your <span className="text-primary italic">Job Site Photos</span> Are Your Best Marketing Tool
         </h1>
 
@@ -98,24 +107,27 @@ export default function Article3() {
         </p>
 
         {/* THE SYSTEM BOX */}
-        <div className="bg-primary/5 border border-primary/10 rounded-[48px] p-10 md:p-16 mb-12 relative overflow-hidden">
-          <div className="text-[10px] font-black text-primary uppercase tracking-[4px] mb-8">The 10-second system</div>
-          <div className="space-y-6">
-            {[
-              { step: '1', text: 'Finish the job' },
-              { step: '2', text: 'Take one photo of the finished work on your phone' },
-              { step: '3', text: 'Send it to Neerzy (takes 5 seconds)' },
-              { step: '4', text: 'AI writes a professional post with local keywords' },
-              { step: '5', text: 'Post goes live on your website and Google profile automatically' },
-              { step: '6', text: 'Your customer gets a review link automatically' },
-            ].map((item) => (
-              <div key={item.step} className="flex gap-6 items-center">
-                <div className="w-6 h-6 rounded-lg bg-slate-900 text-white flex items-center justify-center text-[10px] font-black flex-shrink-0">{item.step}</div>
-                <div className="text-sm font-bold text-slate-700 dark:text-slate-300 uppercase tracking-tight italic">{item.text}</div>
-              </div>
-            ))}
+        <Link href="/" className="block group/system">
+          <div className="bg-primary/5 border border-primary/10 rounded-[48px] p-10 md:p-16 mb-12 relative overflow-hidden transition-all group-hover/system:bg-primary/10 group-hover/system:border-primary/20 group-hover/system:scale-[1.01]">
+            <div className="text-[10px] font-black text-primary uppercase tracking-[4px] mb-8">The 10-second system with Neerzy.com</div>
+            <div className="space-y-6">
+              {[
+                { step: '1', text: 'Finish the job' },
+                { step: '2', text: 'Take one photo of the finished work on your phone' },
+                { step: '3', text: 'Send it to Neerzy (takes 5 seconds)' },
+                { step: '4', text: 'AI writes a professional post with local keywords' },
+                { step: '5', text: 'Post goes live on your website and Google profile automatically' },
+                { step: '6', text: 'Your customer gets a review link automatically' },
+              ].map((item) => (
+                <div key={item.step} className="flex gap-6 items-center">
+                  <div className="w-6 h-6 rounded-lg bg-slate-900 text-white flex items-center justify-center text-[10px] font-black flex-shrink-0">{item.step}</div>
+                  <div className="text-sm font-bold text-slate-700 dark:text-slate-300 uppercase tracking-tight italic">{item.text}</div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-10 text-[10px] font-black text-primary uppercase tracking-[4px] opacity-0 group-hover/system:opacity-100 transition-all">Automate your growth now →</div>
           </div>
-        </div>
+        </Link>
 
         <p className="mb-12">
           Do this after every job. After 10 jobs you have 10 posts and 10 reviews. After 100 jobs you are the obvious first choice every time someone in your area searches for your trade.

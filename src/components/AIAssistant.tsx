@@ -92,22 +92,22 @@ export default function AIAssistant() {
       {isOpen && (
         <div className="w-[calc(100vw-48px)] max-w-[400px] h-[550px] max-h-[85vh] bg-white dark:bg-slate-900 rounded-[32px] shadow-4xl flex flex-col overflow-hidden border border-gray-100 dark:border-slate-800 animate-in zoom-in-95 fade-in duration-300 origin-bottom-right">
           {/* Header */}
-          <div className="bg-navy p-6 flex justify-between items-center text-white">
+          <div className="bg-[#0e1a14] p-6 flex justify-between items-center text-white">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white/20 shadow-lg">
+              <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white/20 shadow-lg bg-slate-800">
                 <img src="/assistant-avatar.png" alt="AI" className="w-full h-full object-cover" />
               </div>
               <div>
-                <div className="font-bold text-sm tracking-tight">Growth Assistant</div>
-                <div className="text-[10px] opacity-60 flex items-center gap-1.5 font-bold uppercase tracking-widest">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                <div className="font-bold text-sm tracking-tight text-white">Growth Assistant</div>
+                <div className="text-[10px] text-emerald-400 flex items-center gap-1.5 font-bold uppercase tracking-widest">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                   Active Now
                 </div>
               </div>
             </div>
             <button 
               onClick={() => setIsOpen(false)}
-              className="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors"
+              className="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors text-white"
             >
               ✕
             </button>
@@ -116,14 +116,14 @@ export default function AIAssistant() {
           {/* Messages Area */}
           <div 
             ref={scrollRef}
-            className="flex-1 overflow-y-auto p-6 space-y-6 scroll-smooth bg-gray-50/30 dark:bg-slate-900/50"
+            className="flex-1 overflow-y-auto p-6 space-y-6 scroll-smooth bg-gray-50/50 dark:bg-slate-950"
           >
             {messages.map((m) => (
               <div key={m.id} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'} animate-in slide-in-from-bottom-2`}>
-                <div className={`max-w-[85%] px-5 py-4 rounded-2xl text-sm font-medium leading-relaxed ${
+                <div className={`max-w-[85%] px-5 py-4 rounded-2xl text-sm font-bold leading-relaxed shadow-md ${
                   m.role === 'user' 
-                  ? 'bg-primary text-white shadow-lg' 
-                  : 'bg-white dark:bg-slate-800 text-gray-800 dark:text-gray-200 shadow-sm border border-gray-100 dark:border-slate-700'
+                  ? 'bg-primary text-white' 
+                  : 'bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 border border-gray-100 dark:border-slate-700'
                 }`}>
                   {m.content}
                 </div>
@@ -132,9 +132,9 @@ export default function AIAssistant() {
             {isTyping && (
               <div className="flex justify-start">
                 <div className="bg-white dark:bg-slate-800 px-5 py-4 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-700 flex gap-1.5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-600 animate-bounce"></div>
-                  <div className="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-600 animate-bounce [animation-delay:0.2s]"></div>
-                  <div className="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-600 animate-bounce [animation-delay:0.4s]"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary/40 animate-bounce"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary/40 animate-bounce [animation-delay:0.2s]"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary/40 animate-bounce [animation-delay:0.4s]"></div>
                 </div>
               </div>
             )}

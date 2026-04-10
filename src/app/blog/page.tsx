@@ -7,6 +7,7 @@ const POSTS = [
   {
     id: '1',
     slug: 'ai-local-seo-contractors',
+    image: '/blog/ai-strategy.png',
     title: 'How AI is Changing Local SEO for Contractors',
     excerpt: 'Discover why manual posting is dead and how AI automation is helping plumbers and electricians rank faster than ever.',
     date: 'April 4, 2026',
@@ -15,6 +16,7 @@ const POSTS = [
   {
     id: '2',
     slug: 'gmb-optimization-tips-2026',
+    image: '/blog/gmb-tips.png',
     title: '5 Tips to Optimize Your GMB Profile in 2026',
     excerpt: 'Google Maps has changed. Learn the new "Answer Engine Orientation" signals you need to stay at the top.',
     date: 'March 28, 2026',
@@ -23,6 +25,7 @@ const POSTS = [
   {
     id: '3',
     slug: 'real-work-photos-marketing',
+    image: '/blog/marketing-photos.png',
     title: 'Why Real Work Photos are Your Best Marketing Tool',
     excerpt: 'Stop using stock photos. Here is how simple job site snaps can triple your local trust score.',
     date: 'March 15, 2026',
@@ -52,14 +55,18 @@ export default function BlogPage() {
             >
               <article className="h-full flex flex-col pointer-events-none">
                 <div className="aspect-[16/10] bg-gray-100 dark:bg-slate-900 rounded-[32px] mb-8 overflow-hidden border border-gray-100 dark:border-slate-800 transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-2xl group-hover:shadow-primary/10">
-                   <div className="w-full h-full flex items-center justify-center text-5xl opacity-20 grayscale group-hover:grayscale-0 transition-all duration-500">📰</div>
+                   <img 
+                    src={post.image} 
+                    alt={post.title} 
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                   />
                 </div>
                 <div className="flex items-center gap-4 mb-4">
-                   <span className="text-[10px] font-black text-primary uppercase tracking-[2px] bg-primary/5 px-4 py-1.5 rounded-full border border-primary/10">{post.category}</span>
-                   <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{post.date}</span>
+                   <span className="text-[10px] font-black text-primary dark:text-emerald-400 uppercase tracking-[2px] bg-primary/5 dark:bg-emerald-400/10 px-4 py-1.5 rounded-full border border-primary/10 dark:border-emerald-400/20">{post.category}</span>
+                   <span className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">{post.date}</span>
                 </div>
                 <h2 className="text-2xl font-black text-gray-900 dark:text-white mb-4 group-hover:text-primary transition-colors leading-tight italic uppercase tracking-tight">{post.title}</h2>
-                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-8 font-medium flex-grow">{post.excerpt}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-300 leading-relaxed mb-8 font-medium flex-grow">{post.excerpt}</p>
                 <div className="text-[10px] font-black text-gray-900 dark:text-white uppercase tracking-[4px] border-b-2 border-primary/20 inline-block pb-1 group-hover:border-primary transition-all">
                   Read Article →
                 </div>

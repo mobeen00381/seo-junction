@@ -45,7 +45,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['var(--font-jakarta)', 'Plus Jakarta Sans', 'system-ui', 'sans-serif'],
-        display: ['var(--font-fraunces)', 'Fraunces', 'Georgia', 'serif'],
+        display: ['var(--font-poppins)', 'Poppins', 'sans-serif'],
       },
       borderColor: {
         DEFAULT: 'var(--border)',

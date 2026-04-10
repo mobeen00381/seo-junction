@@ -19,7 +19,7 @@ export default function Article2() {
     <div className="min-h-screen bg-white dark:bg-slate-950 font-inter">
       <Navbar />
       
-      <article className="max-w-[720px] mx-auto px-6 pt-40 pb-24 text-slate-900 dark:text-slate-100 leading-[1.8]">
+      <article className="max-w-[720px] mx-auto px-6 pt-40 pb-24 leading-[1.8]">
         {/* BREADCRUMB */}
         <div className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-8 flex items-center gap-2">
           <Link href="/blog" className="text-primary hover:text-primary/80 transition-colors">Blog</Link>
@@ -34,8 +34,17 @@ export default function Article2() {
           <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest opacity-50">· 7 min read</span>
         </div>
 
+        {/* IMAGE */}
+        <div className="mb-12 rounded-[48px] overflow-hidden border border-slate-100 dark:border-slate-800 shadow-2xl">
+          <img 
+            src="/blog/gmb-tips.png" 
+            alt="Optimized Google Business Profile mockup" 
+            className="w-full h-auto object-cover"
+          />
+        </div>
+
         {/* H1 */}
-        <h1 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-8 tracking-tighter leading-tight italic uppercase">
+        <h1 className="text-3xl md:text-5xl font-black mb-8 tracking-tighter leading-tight italic uppercase">
           How to <span className="text-primary">Optimize Your Google Business Profile</span> in 2026 — 5 Tips for Tradespeople
         </h1>
 
@@ -98,12 +107,15 @@ export default function Article2() {
               Reviews are the second biggest ranking factor in Google Maps. More reviews, higher average rating, more recent reviews — all of these push your profile higher.
             </p>
 
-            <div className="bg-primary/5 border border-primary/10 rounded-2xl p-6 mb-6">
-              <div className="text-[10px] font-black text-primary uppercase tracking-widest mb-2">The numbers speak clearly</div>
-              <div className="text-sm text-slate-700 dark:text-slate-300 font-bold leading-relaxed">
-                Tradespeople who send a review link immediately after a job collect <span className="text-primary italic">8 to 10 times more reviews</span> than those who wait.
+            <Link href="/" className="block group/stat">
+              <div className="bg-primary/5 border border-primary/10 rounded-2xl p-6 mb-6 transition-all group-hover/stat:bg-primary/10 group-hover/stat:border-primary/20 group-hover/stat:scale-[1.01]">
+                <div className="text-[10px] font-black text-primary uppercase tracking-widest mb-2">The numbers speak clearly with Neerzy.com</div>
+                <div className="text-sm text-slate-700 dark:text-slate-300 font-bold leading-relaxed">
+                  Tradespeople who send a review link immediately after a job collect <span className="text-primary italic">8 to 10 times more reviews</span> than those who wait.
+                </div>
+                <div className="mt-3 text-[10px] font-black text-primary uppercase tracking-[4px] opacity-0 group-hover/stat:opacity-100 transition-all">Start collecting reviews →</div>
               </div>
-            </div>
+            </Link>
 
             <p className="text-sm leading-relaxed opacity-60 italic">
               A direct Google review link removes all friction. Your customer taps the link, sees the review box, taps the stars, writes one sentence, hits submit. Done in 15 seconds.

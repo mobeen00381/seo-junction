@@ -18,7 +18,7 @@ export default function Article1() {
     <div className="min-h-screen bg-white dark:bg-slate-950 font-inter">
       <Navbar />
       
-      <article className="max-w-[720px] mx-auto px-6 pt-40 pb-24 text-slate-900 dark:text-slate-100 leading-[1.8]">
+      <article className="max-w-[720px] mx-auto px-6 pt-40 pb-24 leading-[1.8]">
         {/* BREADCRUMB */}
         <div className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-8 flex items-center gap-2">
           <Link href="/blog" className="text-primary hover:text-primary/80 transition-colors">Blog</Link>
@@ -33,8 +33,17 @@ export default function Article1() {
           <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest opacity-50">· 6 min read</span>
         </div>
 
+        {/* IMAGE */}
+        <div className="mb-12 rounded-[48px] overflow-hidden border border-slate-100 dark:border-slate-800 shadow-2xl">
+          <img 
+            src="/blog/ai-strategy.png" 
+            alt="AI transforming local SEO for contractors" 
+            className="w-full h-auto object-cover"
+          />
+        </div>
+
         {/* H1 */}
-        <h1 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-8 tracking-tighter leading-tight italic uppercase">
+        <h1 className="text-3xl md:text-5xl font-black mb-8 tracking-tighter leading-tight italic uppercase">
           How AI is Changing Local SEO for Contractors in 2026 — And Why Plumbers & <span className="text-primary">Electricians Are Winning</span>
         </h1>
 
@@ -52,7 +61,7 @@ export default function Article1() {
         </p>
 
         {/* H2 */}
-        <h2 className="text-2xl font-black text-slate-900 dark:text-white mb-6 mt-12 tracking-tight uppercase italic border-b border-primary/20 pb-2 inline-block">
+        <h2 className="text-2xl font-black mb-6 mt-12 tracking-tight uppercase italic border-b border-primary/20 pb-2 inline-block">
           What is local SEO for contractors — and why does it matter?
         </h2>
 
@@ -103,14 +112,17 @@ export default function Article1() {
         </p>
 
         {/* STAT BOX */}
-        <div className="bg-primary/5 border border-primary/10 rounded-[32px] p-10 mb-12">
-          <div className="text-[10px] font-black text-primary uppercase tracking-widest mb-4">The compounding effect</div>
-          <div className="text-slate-700 dark:text-slate-300 leading-relaxed font-bold">
-            <p className="text-xl text-slate-900 dark:text-white mb-4 italic uppercase tracking-tighter">10 jobs = 10 Google posts + up to 10 reviews</p>
-            <p className="opacity-80">50 jobs = a strong, active Google presence</p>
-            <p className="opacity-80">100 jobs = you dominate your local area</p>
+        <Link href="/" className="block group/stat">
+          <div className="bg-primary/5 border border-primary/10 rounded-[32px] p-10 mb-12 transition-all group-hover/stat:bg-primary/10 group-hover/stat:border-primary/20 group-hover/stat:scale-[1.01]">
+            <div className="text-[10px] font-black text-primary uppercase tracking-widest mb-4">The compounding effect with Neerzy.com</div>
+            <div className="text-slate-700 dark:text-slate-300 leading-relaxed font-bold">
+              <p className="text-xl text-slate-900 dark:text-white mb-4 italic uppercase tracking-tighter">10 jobs = 10 Google posts + up to 10 reviews</p>
+              <p className="opacity-80">50 jobs = a strong, active Google presence</p>
+              <p className="opacity-80">100 jobs = you dominate your local area</p>
+            </div>
+            <div className="mt-6 text-[10px] font-black text-primary uppercase tracking-[4px] opacity-0 group-hover/stat:opacity-100 transition-all">Start your compounding growth →</div>
           </div>
-        </div>
+        </Link>
 
         {/* H2 */}
         <h2 className="text-2xl font-black text-slate-900 dark:text-white mb-6 mt-12 tracking-tight uppercase italic border-b border-primary/20 pb-2 inline-block">
