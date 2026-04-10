@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     default: 'Neerzy — Every Job Becomes a Google Post and a 5-Star Review',
     template: '%s | Neerzy',
   },
-  description: 'Snap a photo from your latest job — Neerzy builds your website, manages your Google profile, and sends automatic review requests. No tech skills. Free to start. Live in 24 hours.',
+  description: 'Snap a photo from your latest job — Neerzy builds your website, manages your Google profile, and sends automatic review requests. No tech skills. Free to start. Live in minutes.',
   keywords: 'local SEO for tradespeople, Google My Business management, trades website builder, get more neighbours calling, no tech skills SEO',
   authors: [{ name: 'Neerzy', url: 'https://www.neerzy.com' }],
   creator: 'Neerzy',
@@ -216,7 +216,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     "name": "How quickly will my business appear on Google?",
                     "acceptedAnswer": {
                       "@type": "Answer",
-                      "text": "Your website is live within 24 hours of signing up. Most Neerzy businesses start appearing in local Google searches within 2 to 4 weeks of their first job posts going live."
+                      "text": "Your website is live within minutes of signing up. Most Neerzy businesses start appearing in local Google searches within 2 to 4 weeks of their first job posts going live."
                     }
                   },
                   {

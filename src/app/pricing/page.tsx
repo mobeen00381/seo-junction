@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: 'Plans from $29/month. Done-for-you website, AI job posts, Google Business management, and auto review requests after every job. 30-day free trial. No contracts.',
   openGraph: {
     title: 'Neerzy Pricing — From $29/Month',
-    description: '30-day free trial. Cancel anytime. Website live in 24 hours. Auto review link after every job.',
+    description: '30-day free trial. Cancel anytime. Website live in minutes. Auto review link after every job.',
     url: 'https://www.neerzy.com/pricing',
   },
 }

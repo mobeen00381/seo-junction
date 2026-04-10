@@ -67,7 +67,7 @@ export default function Navbar() {
               </Link>
             ))}
             <ThemeToggle />
-            <Link href="/onboarding" className="px-6 py-2.5 rounded-full font-bold text-[13px] transition-all hover:scale-105 active:scale-95" style={{background:'var(--teal)', color:'var(--mint)'}}>
+            <Link href="/onboarding" className="px-6 py-2.5 rounded-full font-bold text-[13px] transition-all hover:scale-105 active:scale-95 shadow-md shadow-teal-900/5" style={{background:'var(--teal)', color:'#ffffff', border:'1px solid var(--teal2)'}}>
               Get Started Free
             </Link>
           </div>
@@ -77,8 +77,8 @@ export default function Navbar() {
             <ThemeToggle />
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="w-12 h-12 flex items-center justify-center rounded-2xl transition-transform hover:scale-110"
-              style={{background:'var(--paper2)', color:'var(--ink)'}}
+              className="w-12 h-12 flex items-center justify-center rounded-2xl transition-transform hover:scale-110 shadow-sm"
+              style={{background:'var(--paper2)', color:'var(--ink)', border:'1.5px solid var(--border2)'}}
             >
               {isMenuOpen ? (
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -107,8 +107,8 @@ export default function Navbar() {
                 <Link 
                   href="/onboarding" 
                   onClick={() => setIsMenuOpen(false)}
-                  className="w-full text-center py-5 rounded-full font-bold text-lg shadow-2xl"
-                  style={{background:'var(--teal)', color:'var(--mint)'}}
+                  className="w-full text-center py-5 rounded-full font-bold text-lg shadow-xl"
+                  style={{background:'var(--teal)', color:'#ffffff', border:'1px solid var(--teal2)'}}
                 >
                   Get Started Free →
                 </Link>

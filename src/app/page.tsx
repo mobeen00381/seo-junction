@@ -7,7 +7,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Neerzy — Every Job Becomes a Google Post and a 5-Star Review',
-  description: 'Snap a photo from your latest job — Neerzy builds your website, manages your Google profile, and sends automatic review requests. No tech skills. Free to start. Live in 24 hours.',
+  description: 'Snap a photo from your latest job — Neerzy builds your website, manages your Google profile, and sends automatic review requests. No tech skills. Free to start. Live in minutes.',
   openGraph: {
     title: 'Neerzy — Every Job Becomes a Google Post and a 5-Star Review',
     description: 'Snap a photo. We handle your website, Google profile, and reviews — automatically.',
@@ -70,7 +70,7 @@ export default function HomePage() {
               Snap a photo from the job site. Neerzy turns it into a professional post, updates your Google profile, and sends your customer a review link - automatically. No tech. No effort. Just more neighbours calling.
             </p>
             <div className="flex flex-wrap items-center gap-4 mb-6">
-              <Link href="/onboarding" className="inline-flex items-center gap-2 font-bold text-sm px-8 py-4 rounded-full transition-all hover:scale-105 active:scale-95" style={{background:'var(--teal)', color:'var(--mint)'}}>
+              <Link href="/onboarding" className="inline-flex items-center gap-2 font-bold text-sm px-8 py-4 rounded-full transition-all hover:scale-105 active:scale-95 shadow-lg shadow-teal-900/10" style={{background:'var(--teal)', color:'#ffffff', border:'1px solid var(--teal2)'}}>
                 Get Started Free →
               </Link>
               <Link href="/examples" className="text-sm font-bold flex items-center gap-2 transition-colors hover:text-primary" style={{color:'var(--ink2)'}}>
@@ -80,8 +80,8 @@ export default function HomePage() {
             <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mb-8">
               {[
                 'Free to start',
-                'Live in 24 hours',
-                '10 seconds per job'
+                'Live in minutes',
+                '60 seconds per job'
               ].map((chip, i) => (
                 <div key={i} className="flex items-center gap-2 text-[13px] font-bold" style={{color: 'var(--ink)'}}>
                   <span style={{color: 'var(--teal2)'}}>✓</span>
@@ -522,14 +522,14 @@ export default function HomePage() {
           <h2 className="mb-3" style={{color:'var(--ink)'}}>Your neighbours are<br/>searching right now.</h2>
           <p className="text-[14px] max-w-[440px] leading-relaxed mb-5" style={{color:'var(--ink2)'}}>Free to start. No credit card. No tech skills. Snap a photo from your next job — we handle everything else.</p>
           <div className="flex flex-wrap gap-5">
-            {['Free to start', 'No tech skills', 'You stay in control', 'Live in 24 hrs'].map((c, i) => (
+            {['Free to start', 'No tech skills', 'You stay in control', 'Live in minutes'].map((c, i) => (
               <div key={i} className="text-[13px] font-semibold flex items-center gap-1.5" style={{color:'var(--ink2)'}}>
                 <span className="font-black" style={{color:'var(--teal)'}}>✓</span> {c}
               </div>
             ))}
           </div>
         </div>
-        <Link href="/onboarding" className="inline-block font-bold text-sm px-9 py-4 rounded-full whitespace-nowrap transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(15,110,86,0.2)]" style={{background:'var(--ink)', color:'var(--mint)'}}>
+        <Link href="/onboarding" className="inline-block font-bold text-sm px-9 py-4 rounded-full whitespace-nowrap transition-all hover:scale-105 active:scale-95 shadow-[0_15px_30px_rgba(15,110,86,0.3)]" style={{background:'var(--ink)', color:'#ffffff', border:'1px solid rgba(255,255,255,0.1)'}}>
           Get Started on Neerzy →
         </Link>
       </section>
