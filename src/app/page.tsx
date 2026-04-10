@@ -54,7 +54,7 @@ export default function HomePage() {
       <Navbar />
 
       {/* ⚡ HERO SECTION ⚡ */}
-      <section className="relative pt-10 md:pt-14 pb-10 md:pb-0 overflow-hidden" style={{borderBottom:'1px solid var(--border)'}}>
+      <section className="relative pt-32 md:pt-44 pb-10 md:pb-0 overflow-hidden" style={{borderBottom:'1px solid var(--border)'}}>
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-[1.85fr_1fr] gap-0 items-stretch min-h-[60vh]">
           
           {/* Left - Copy */}
