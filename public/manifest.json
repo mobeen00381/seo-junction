@@ -1,0 +1,17 @@
+{
+  "name": "Neerzy — Trades Reputation & SEO",
+  "short_name": "Neerzy",
+  "description": "Every job becomes a Google post and a 5-star review. Automate your trade business SEO.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0d9488",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
